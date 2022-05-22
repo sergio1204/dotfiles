@@ -1,0 +1,46 @@
+!! Xft-----------
+Xft.dpi:       96
+Xft.autohint:  false
+Xft.antialias: true
+Xft.hinting:   true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba:      none
+
+!! Cursor-theme-------
+Xcursor.theme: Adwaita
+Xcursor.size:  32
+
+!! XTerm--------------------------------
+XTerm*termName:           xterm-256color
+XTerm*faceName:           Jetbrains Mono
+XTerm*faceSize:           10
+XTerm*cursorBlink:        true
+XTerm*scrollBar:          false
+XTerm*alternateScroll:    true
+XTerm*fastScroll:         true
+XTerm*selectToClipboard:  true
+XTerm*eightBitInput:      false
+XTerm*VT100.Translations: #override \
+                          Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+                          Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
+!! Colors------------------
+XTerm*background:  #212134
+XTerm*foreground:  #E5E5E5
+XTerm*cursorColor: #FA71B1
+XTerm*color0:      #212134
+XTerm*color8:      #AFD4E0
+XTerm*color1:      #EB2A2A
+XTerm*color9:      #FF4767
+XTerm*color2:      #329632
+XTerm*color10:     #5AC95A
+XTerm*color3:      #FF7F00
+XTerm*color11:     #DE43B5
+XTerm*color4:      #4949FA
+XTerm*color12:     #8B8BFF
+XTerm*color5:      #863E86
+XTerm*color13:     #B960B9
+XTerm*color6:      #00B0C2
+XTerm*color14:     #5DE1EE
+XTerm*color7:      #C28D96
+XTerm*color15:     #FFDEE4
