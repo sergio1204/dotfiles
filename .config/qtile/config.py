@@ -102,7 +102,7 @@ keys = [
 
 groups = [
     Group("1", label="web", matches=[Match(wm_class="firefox")]),
-    Group("2", label="file", matches=[Match(wm_class="xterm", title="ranger"), Match(wm_class="pcmanfm-qt")]),
+    Group("2", label="file", matches=[Match(wm_class="xterm", title="ranger")]),
     Group("3", label="mus", matches=[Match(wm_class="Quodlibet"), Match(wm_class="audacity")]),
     Group("4", label="vid", matches=[Match(wm_class="mpv")]),
     Group("5", label="edit", matches=[Match(wm_class="geany")]),
