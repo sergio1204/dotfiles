@@ -7,7 +7,7 @@ gtk-theme-name="Flat-Remix-GTK-Blue-Dark"
 gtk-icon-theme-name="Papirus-Dark"
 
 ## light theme ###############
-#gtk-theme-name="Adwaita-dark"
+#gtk-theme-name="Adwaita"
 #gtk-theme-name="Arc"
 #gtk-theme-name="Ant"
 #gtk-theme-name="Materia"
