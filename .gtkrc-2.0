@@ -1,15 +1,15 @@
-## dark GTK theme ################
+## dark GTK theme #############
 # gtk-theme-name="Adwaita-dark"
 # gtk-theme-name="Arc-Dark"
 # gtk-theme-name="Dracula"
 # gtk-theme-name="Materia-dark"
 gtk-theme-name="Flat-Remix-GTK-Blue-Dark"
 
-## dark icons theme ##############
+## dark icons theme ################
 # gtk-icon-theme-name="Papirus-Dark"
 gtk-icon-theme-name="Flat-Remix-Blue-Dark"
 
-## light GTK theme ###########
+## light GTK theme #######
 # gtk-theme-name="Adwaita"
 # gtk-theme-name="Arc"
 # gtk-theme-name="Ant"
