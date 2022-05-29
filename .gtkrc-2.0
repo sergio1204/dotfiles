@@ -3,22 +3,26 @@
 # gtk-theme-name="Arc-Dark"
 # gtk-theme-name="Dracula"
 # gtk-theme-name="Materia-dark"
-gtk-theme-name="Flat-Remix-GTK-Blue-Dark"
+# gtk-theme-name="Materia-dark-compact"
+# gtk-theme-name="Flat-Remix-GTK-Blue-Dark"
 
 ## dark icons theme -----------------------------
 # gtk-icon-theme-name="Papirus-Dark"
-gtk-icon-theme-name="Flat-Remix-Blue-Dark"
+# gtk-icon-theme-name="Flat-Remix-Blue-Dark"
 
 ## light GTK theme ------------------------------
 # gtk-theme-name="Adwaita"
 # gtk-theme-name="Arc"
 # gtk-theme-name="Ant"
 # gtk-theme-name="Materia"
+gtk-theme-name="Materia-compact"
+# gtk-theme-name="Materia-light"
+# gtk-theme-name="Materia-light-compact"
 # gtk-theme-name="Flat-Remix-GTK-Blue-Light"
 
 ## light icons theme ----------------------------
 # gtk-icon-theme-name="Papirus"
-# gtk-icon-theme-name="Flat-Remix-Blue-Light"
+gtk-icon-theme-name="Flat-Remix-Blue-Light"
 
 ## fonts ----------------------------------------
 gtk-font-name="JetBrains Mono 10"
