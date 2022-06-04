@@ -6,9 +6,13 @@
 super + Return
 	xterm -name xterm
 
-# dmenu
+# dmenu/rofi
 super + z
-	dmenu_run -fn 'JetBrains Mono-10' -nb '#212134' -nf '#B5D4F1' -sb '#4E60CF' -l 10
+#	dmenu_run -fn 'JetBrains Mono-10' -nb '#212134' -nf '#B5D4F1' -sb '#4E60CF' -l 10
+	rofi -show run
+
+super + shift + z
+	rofi -show window
 
 # make sxhkd reload its configuration files:
 super + Escape
