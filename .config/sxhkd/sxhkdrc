@@ -177,7 +177,7 @@ super + x
 	xterm -name ranger -e ranger
 
 super + shift + x
-	pcmanfm-qt
+	thunar
 
 super + shift + Return
 	geany

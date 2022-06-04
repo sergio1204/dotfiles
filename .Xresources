@@ -1,4 +1,4 @@
-!! Xft-----------
+!! Xft----------------------------------
 Xft.dpi:       96
 Xft.autohint:  false
 Xft.antialias: true
@@ -7,7 +7,7 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xft.rgba:      none
 
-!! Cursor-theme-------
+!! Cursor-theme-------------------------
 Xcursor.theme: Adwaita
 Xcursor.size:  32
 
@@ -24,8 +24,8 @@ XTerm*eightBitInput:      false
 XTerm*VT100.Translations: #override \
                           Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
                           Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
-!! Colors------------------
-XTerm*background:  #212134
+!! Colors------------------------------
+XTerm*background:  #2D2D3A
 XTerm*foreground:  #E5E5E5
 XTerm*cursorColor: #FA71B1
 XTerm*color0:      #212134
