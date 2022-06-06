@@ -120,7 +120,7 @@ for i in groups:
 )
 
 layouts = [
-    layout.Columns(name="col", insert_position=1, border_focus="#2B6AA7", border_focus_stack="#FFA500", border_normal="#212134", border_width=5),
+    layout.Columns(name="col", insert_position=1, border_focus="#4B7093", border_focus_stack="#FFA500", border_normal="#212132", border_width=5),
     # layout.Max(name="max"),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),

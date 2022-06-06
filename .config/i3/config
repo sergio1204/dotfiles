@@ -157,8 +157,8 @@ bindsym $mod+control+Up    resize shrink height 10 px or 10 ppt
 bindsym $mod+control+Right resize grow width 10 px or 10 ppt
 
 # set colors
-set $bg-color            #4E60CF
-set $inactive-bg-color   #212134
+set $bg-color            #4B7093
+set $inactive-bg-color   #212132
 set $text-color          #E5E5E5
 set $inactive-text-color #BFBFBF
 set $urgent-bg-color     #DC072F

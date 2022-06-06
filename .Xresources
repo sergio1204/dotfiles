@@ -29,7 +29,7 @@ XTerm*VT100.Translations: #override \
 XTerm*background:  #212132
 XTerm*foreground:  #E5E5E5
 XTerm*cursorColor: #FA71B1
-XTerm*color0:      #212134
+XTerm*color0:      #212132
 XTerm*color8:      #AFD4E0
 XTerm*color1:      #EB2A2A
 XTerm*color9:      #FF4767
