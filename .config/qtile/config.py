@@ -93,7 +93,7 @@ keys = [
     Key([mod], "c", lazy.spawn("firefox")),
     Key([mod], "Return", lazy.spawn("xterm")),
     Key([mod], "x", lazy.spawn("xterm -e ranger")),
-    Key([mod, "shift"], "x", lazy.spawn("pcmanfm-qt")),
+    Key([mod, "shift"], "x", lazy.spawn("doublecmd")),
     Key([mod], "d", lazy.spawn("quodlibet")),
     Key([mod, "shift"], "d", lazy.spawn("quodlibet --play-pause")),
     Key([mod, "shift"], "Return", lazy.spawn("geany")),

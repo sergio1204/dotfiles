@@ -15,6 +15,7 @@ Xcursor.size:  32
 XTerm*termName:           xterm-256color
 XTerm*faceName:           JetBrains Mono
 XTerm*faceSize:           10
+XTerm*borderWidth:        0
 XTerm*cursorBlink:        true
 XTerm*scrollBar:          false
 XTerm*alternateScroll:    true
@@ -25,7 +26,7 @@ XTerm*VT100.Translations: #override \
                           Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
                           Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 !! Colors------------------------------
-XTerm*background:  #272739
+XTerm*background:  #212132
 XTerm*foreground:  #E5E5E5
 XTerm*cursorColor: #FA71B1
 XTerm*color0:      #212134
@@ -42,5 +43,5 @@ XTerm*color5:      #863E86
 XTerm*color13:     #B960B9
 XTerm*color6:      #00B0C2
 XTerm*color14:     #5DE1EE
-XTerm*color7:      #C28D96
+XTerm*color7:      #69C46B
 XTerm*color15:     #E5E5E5
