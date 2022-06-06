@@ -1,0 +1,14 @@
+configuration {
+    modi: "window,run,drun";
+    font: "JetBrains Mono 10";
+    show-icons: true;
+    sidebar-mode: true;
+    display-window: " Win";
+    display-run: " Run";
+    display-drun: " Apps";
+    drun-display-format: "{icon} {name}";
+    location: 1;
+    yoffset: 32;
+    xoffset: 0;
+}
+@theme "dark-theme"
