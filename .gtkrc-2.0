@@ -1,11 +1,11 @@
 # GTK theme ------------------------------------
-gtk-theme-name="Flat-Remix-GTK-Blue-Dark"
+gtk-theme-name="Materia-light-compact"
 
 # icon theme -----------------------------------
-gtk-icon-theme-name="Flat-Remix-Blue-Dark"
+gtk-icon-theme-name="Flat-Remix-Blue-Light"
 
 # fonts ----------------------------------------
-gtk-font-name="JetBrains Mono 10"
+gtk-font-name="Roboto 10"
 gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintslight"
