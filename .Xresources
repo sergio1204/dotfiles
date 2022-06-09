@@ -13,7 +13,7 @@ Xcursor.size:  32
 
 !! XTerm--------------------------------
 XTerm*termName:           xterm-256color
-XTerm*faceName:           Roboto Mono
+XTerm*faceName:           DejaVu Sans Mono
 XTerm*faceSize:           10
 XTerm*borderWidth:        0
 XTerm*cursorBlink:        true
