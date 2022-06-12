@@ -19,7 +19,6 @@ bspc config single_monocle        true
 
 bspc rule -a firefox         desktop='^1' follow=on
 bspc rule -a "XTerm:ranger"  desktop='^2' follow=on
-bspc rule -a "XTerm:mc"      desktop='^2' follow=on
 bspc rule -a Quodlibet       desktop='^3' follow=on
 bspc rule -a mpv             desktop='^4' follow=on state=fullscreen
 bspc rule -a Geany           desktop='^5' follow=on

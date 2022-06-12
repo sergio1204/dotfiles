@@ -176,8 +176,8 @@ super + c
 super + x
 	xterm -name ranger -e ranger
 
-super + shift + x
-	xterm -name mc -e mc
+#super + shift + x
+#	xterm -name mc -e mc
 
 super + shift + Return
 	geany

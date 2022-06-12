@@ -97,7 +97,6 @@ bindsym $mod+a focus parent
 # apps attached for the workspace
 for_window [class="(?i)firefox"]              move container to workspace $ws1, workspace $ws1
 for_window [class="(?i)xterm" title="ranger"] move container to workspace $ws2, workspace $ws2
-for_window [class="(?i)xterm" title="mc"]     move container to workspace $ws2, workspace $ws2
 for_window [class="(?i)quodlibet"]            move container to workspace $ws3, workspace $ws3
 for_window [class="(?i)audacity"]             move container to workspace $ws3, workspace $ws3
 for_window [class="(?i)mpv"]                  move container to workspace $ws4, workspace $ws4
@@ -200,7 +199,7 @@ bindsym $mod+Shift+m exec --no-startup-id systemctl poweroff
 # apps binds
 bindsym $mod+Return       exec --no-startup-id xterm
 bindsym $mod+x            exec --no-startup-id xterm -e ranger
-bindsym $mod+Shift+x      exec --no-startup-id xterm -e mc
+#bindsym $mod+Shift+x      exec --no-startup-id xterm -e mc
 bindsym $mod+c            exec --no-startup-id firefox
 bindsym $mod+d            exec --no-startup-id quodlibet
 bindsym $mod+Shift+d      exec --no-startup-id quodlibet --play-pause
