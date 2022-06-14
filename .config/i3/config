@@ -158,7 +158,7 @@ bindsym $mod+control+Right resize grow width 10 px or 10 ppt
 
 # set colors
 set $bg-color            #4B7093
-set $inactive-bg-color   #212132
+set $inactive-bg-color   #23252e
 set $text-color          #E5E5E5
 set $inactive-text-color #BFBFBF
 set $urgent-bg-color     #DC072F
@@ -199,7 +199,7 @@ bindsym $mod+Shift+m exec --no-startup-id systemctl poweroff
 # apps binds
 bindsym $mod+Return       exec --no-startup-id xterm
 bindsym $mod+x            exec --no-startup-id xterm -e ranger
-#bindsym $mod+Shift+x      exec --no-startup-id xterm -e mc
+bindsym $mod+Shift+x      exec --no-startup-id pcmanfm-qt
 bindsym $mod+c            exec --no-startup-id firefox
 bindsym $mod+d            exec --no-startup-id quodlibet
 bindsym $mod+Shift+d      exec --no-startup-id quodlibet --play-pause
@@ -225,7 +225,7 @@ bindsym $mod+Shift+z exec --no-startup-id rofi -show run
 
 # autostart
 exec        --no-startup-id setxkbmap -model pc102 -layout us,ru -option grp:alt_shift_toggle &
-exec        --no-startup-id feh --bg-scale /home/sergey/Pictures/ozero.png &
+exec_always        --no-startup-id feh --bg-scale /home/sergey/Pictures/borda2.jpg &
 exec        --no-startup-id picom &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec        --no-startup-id gxkb &
