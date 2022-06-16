@@ -61,7 +61,6 @@ keys = [
     Key([mod, "control"], "Down", lazy.layout.grow_down()),
     Key([mod, "control"], "Up", lazy.layout.grow_up()),
     Key([mod], "n", lazy.layout.normalize()),
-    Key([mod], "b", lazy.layout.maximize()),
     # Split / Floating / Fullscreen -----------------------------------------------
     Key([mod], "s", lazy.layout.toggle_split()),
     Key([mod], "e", lazy.window.toggle_floating()),
@@ -166,6 +165,7 @@ screens = [
             [
                 widget.CurrentLayout(
                     foreground="#F16E88",
+                    padding=5,
                 ),
                 widget.GroupBox(
                     disable_drag="True",
