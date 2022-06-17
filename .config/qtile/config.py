@@ -157,6 +157,12 @@ layouts = [
     # layout.Zoomy(),
 ]
 
+widget_defaults=dict(
+    font="JetBrains Mono",
+    fontsize=14,
+    padding=3,
+)
+
 screens = [
     Screen(
         wallpaper="~/Pictures/borda2.jpg",
