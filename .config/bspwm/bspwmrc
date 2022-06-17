@@ -29,6 +29,6 @@ bspc rule -a feh             state=floating
 
 setxkbmap -model pc102 -layout us,ru -option grp:alt_shift_toggle &
 xsetroot -cursor_name left_ptr &
-feh --bg-scale /home/sergey/Pictures/zamok.jpg &
+feh --bg-scale /home/sergey/Pictures/borda2.jpg &
 killall -q picom; picom &
 $HOME/.config/polybar/launch.sh
