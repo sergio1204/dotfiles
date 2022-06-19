@@ -185,7 +185,7 @@ screens = [
                     padding=5,
                 ),
                 widget.WindowName(
-                    foreground="#96C5F3",
+                    foreground="#AAC9F1",
                     max_chars=50,
                     padding=10,
                 ),
@@ -220,7 +220,6 @@ screens = [
                     padding=10,
                 ),
                 widget.Battery(
-                    background="#212134",
                     foreground="#88EE9A",
                     fmt=" {}",
                     #format="{percent:2.0%}",
