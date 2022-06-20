@@ -103,16 +103,42 @@ keys = [
 ]
 
 groups = [
-    Group("1", matches=[Match(wm_class="firefox")]),
-    Group("2", matches=[Match(wm_class="xterm", title="ranger")]),
-    Group("3", matches=[Match(wm_class="Quodlibet"),
-                        Match(wm_class="audacity")]),
-    Group("4", matches=[Match(wm_class="mpv")]),
-    Group("5", matches=[Match(wm_class="geany")]),
-    Group("6", matches=[Match(wm_class="XTerm")]),
-    Group("7", matches=[Match(wm_class="gimp")]),
-    Group("8", matches=[Match(wm_class="picard")]),
-    Group("9", matches=[Match(wm_class="Steam")]),
+    Group(
+        "1",
+        Match(wm_class="firefox"),
+    ),
+    Group(
+        "2",
+        Match(wm_class="xterm", title="ranger"),
+    ),
+    Group(
+        "3",
+        Match(wm_class=["Quodlibet", "audacity"]),
+     ),
+    Group(
+        "4",
+        Match(wm_class="mpv"),
+    ),
+    Group(
+        "5",
+        Match(wm_class="geany"),
+    ),
+    Group(
+        "6",
+        Match(wm_class="xterm", title="xterm"),
+    ),
+    Group(
+        "7",
+        Match(wm_class="gimp"),
+    ),
+    Group(
+        "8",
+        Match(wm_class="picard"),
+    ),
+    Group(
+        "9",
+        Match(wm_class="Steam"),
+    ),
 ]
 
 for i in groups:
