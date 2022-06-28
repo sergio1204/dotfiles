@@ -16,16 +16,17 @@ bspc config gapless_monocle       true
 bspc config focus_follows_pointer true
 bspc config single_monocle        true
 
-bspc rule -a firefox         desktop='^1' follow=on
-bspc rule -a "XTerm:ranger"  desktop='^2' follow=on
-bspc rule -a Quodlibet       desktop='^3' follow=on
-bspc rule -a mpv             desktop='^4' follow=on state=fullscreen
-bspc rule -a Geany           desktop='^5' follow=on
-bspc rule -a "XTerm:xterm"   desktop='^6' follow=on
-bspc rule -a Gimp            desktop='^7' follow=on
-bspc rule -a Picard          desktop='^8' follow=on
-bspc rule -a Steam           desktop='^9' state=floating
-bspc rule -a feh             state=floating
+bspc rule -a firefox        desktop='^1' follow=on
+bspc rule -a "XTerm:ranger" desktop='^2' follow=on
+bspc rule -a Quodlibet      desktop='^3' follow=on
+bspc rule -a Audacity       desktop='^3' follow=on
+bspc rule -a mpv            desktop='^4' follow=on
+bspc rule -a Geany          desktop='^5' follow=on
+bspc rule -a "XTerm:xterm"  desktop='^6' follow=on
+bspc rule -a Gimp           desktop='^7' follow=on
+bspc rule -a Picard         desktop='^8' follow=on
+bspc rule -a Steam          desktop='^9' follow=on state=floating
+bspc rule -a feh            state=floating
 
 setxkbmap -model pc102 -layout us,ru -option grp:alt_shift_toggle &
 xsetroot -cursor_name left_ptr &
