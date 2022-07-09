@@ -1,26 +1,10 @@
-#
-# wm independent hotkeys
-#
+# --------------
+# bspwm hotkeys
+# --------------
 
-# terminal
-super + Return
-	xterm -name xterm
-
-# dmenu/rofi
-super + z
-#	dmenu_run -fn 'JetBrains Mono-10' -nb '#212134' -nf '#B5D4F1' -sb '#4E60CF' -l 10
-	rofi -show drun
-
-super + shift + z
-	rofi -show run
-
-# make sxhkd reload its configuration files:
+# make sxhkd reload its configuration files
 super + Escape
 	pkill -USR1 -x sxhkd
-
-#
-# bspwm hotkeys
-#
 
 # logout/restart bspwm
 super + shift + {l,r}
@@ -45,13 +29,9 @@ super + w
 super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
-# swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
-
-#
-# state/flags
-#
+# --------------
+# state / flags
+# --------------
 
 # set the window state
 super + {t,shift + t,e,f}
@@ -61,9 +41,13 @@ super + {t,shift + t,e,f}
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-#
-# focus/swap
-#
+# -------------
+# focus / swap
+# -------------
+
+# swap the current node
+super + g
+	bspc node -s next.local.window
 
 # focus the node in the given direction
 super + {_,shift + }{Left,Down,Up,Right}
@@ -98,9 +82,9 @@ super + {1-9,0}
 super + shift + {1-9,0}
 	bspc node -d '^{1-9,10}' --follow
 
-#
+# ----------
 # preselect
-#
+# ----------
 
 # preselect the direction
 super + ctrl + {h,j,k,l}
@@ -118,9 +102,9 @@ super + ctrl + space
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-#
-# move/resize
-#
+# --------------
+# move / resize
+# --------------
 
 # expand a window by moving one of its side outward
 super + ctrl + {Left,Down,Up,Right}
@@ -133,6 +117,10 @@ super + ctrl + shift + {Right,Up,Down,Left}
 # move a floating window
 super + alt + {Left,Down,Up,Right}
 	bspc node -v {-100 0,0 100,0 -100,100 0}
+
+# --------------------
+# independent hotkeys
+# --------------------
 
 # volume control
 XF86AudioRaiseVolume
@@ -169,9 +157,21 @@ Print
 shift + Print
 	scrot -d 1 ~/Pictures/`date +%Y-%m-%d_%H:%M:%S`.png
 
+# dmenu / rofi
+super + z
+	rofi -show drun
+#	dmenu_run -fn 'JetBrains Mono-10' -nb '#212134' -nf '#B5D4F1' -sb '#4E60CF' -l 10
+
+super + shift + z
+	rofi -show run
+
+# terminal
+super + Return
+	xterm -name xterm
+
 # apps hotkeys
 super + c
-    firefox
+	firefox
 
 super + x
 	xterm -name ranger -e ranger
@@ -185,7 +185,7 @@ super + shift + Return
 super + d
 	quodlibet
 
-super + shift +d
+super + shift + d
 	quodlibet --play-pause
 
 super + v
