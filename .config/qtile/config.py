@@ -49,6 +49,7 @@ keys = [
     Key([mod], "Up", lazy.layout.up()),
     Key([mod], "a", lazy.group.next_window()),
     Key([mod], "Tab", lazy.screen.next_group(skip_empty=True)),
+    Key([mod], "grave", lazy.screen.prev_group(skip_empty=True)),
     Key([mod, "shift"], "Tab", lazy.screen.toggle_group()),
     # Move focused  window ---------------------------------------------------------
     Key([mod, "shift"], "Left", lazy.layout.shuffle_left()),
@@ -242,7 +243,7 @@ screens = [
                     fgcolor_normal="#F86D85",
                     format=" {temp}°C",
                     high=80,
-                    update_interval=5,
+                    update_interval=3,
                     padding=10,
                 ),
                 widget.Battery(
