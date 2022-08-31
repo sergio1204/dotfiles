@@ -282,6 +282,8 @@ floating_layout = layout.Floating(
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
         Match(wm_class="Steam"),
+        Match(wm_class="feh"),
+        Match(wm_class="xcalc"),
         Match(wm_class="confirmreset"),  # gitk
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk

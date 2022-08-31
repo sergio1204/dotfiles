@@ -86,6 +86,8 @@ for_window [class="(?i)xterm" title="xterm"]  move container to workspace $ws6, 
 for_window [class="(?i)gimp"]                 move container to workspace $ws7, workspace $ws7
 for_window [class="(?i)picard"]               move container to workspace $ws8, workspace $ws8
 for_window [class="(?i)steam"]                floating enable, move container to workspace $ws9, workspace $ws9
+for_window [class="(?i)feh"]                  floating enable
+for_window [class="(?i)xcalc"]                floating enable
 
 # set workspace
 set $ws1 "1"
