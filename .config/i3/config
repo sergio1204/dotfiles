@@ -195,7 +195,7 @@ bindsym Shift+Print --release exec --no-startup-id scrot -d 1 ~/Pictures/`date +
 
 # picom
 bindsym $mod+p       exec --no-startup-id picom &
-bindsym $mod+Shift+p exec --no-startup-id killall picom
+bindsym $mod+Shift+p exec --no-startup-id killall -q picom
 
 # dunst
 bindsym $mod+u       exec --no-startup-id  dunstctl history-pop
@@ -209,6 +209,6 @@ bindsym $mod+Shift+z exec --no-startup-id rofi -show run
 # autostart
 exec        --no-startup-id setxkbmap -layout us,ru -option grp:alt_shift_toggle &
 exec        --no-startup-id feh --bg-scale /home/sergey/Pictures/borda2.jpg &
-exec        --no-startup-id picom &
+exec        --no-startup-id killall -q picom; picom &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec        --no-startup-id gxkb &
