@@ -86,8 +86,8 @@ static const char *volmutecmd[]     = { "amixer", "-D", "pulse", "sset", "Master
 static const char *brightupcmd[]    = { "brightnessctl", "s", "+10%", NULL };
 static const char *brightdowncmd[]  = { "brightnessctl", "s", "10%-", NULL };
 /* printscreen / lockscreen ----------------------------------------------------------------------------------------------*/
-static const char *printscrselcmd[] = { "scrot", "-s", "/home/sergey/Pictures/`date +%Y-%m-%d_%H:%M:%S`.png", NULL };
-static const char *printscrallcmd[] = { "scrot", "-d", "1", "/home/sergey/Pictures/`date +%Y-%m-%d_%H:%M:%S`.png", NULL };
+static const char *printscrselcmd[] = { "scrot", "-s", NULL };
+static const char *printscrallcmd[] = { "scrot", "-d", "1", NULL };
 static const char *screenlockcmd[]  = { "slock", NULL };
 /* reboot / poweroff / quit ----------------------------------------------------------------------------------------------*/
 static const char *rebootcmd[]      = { "systemctl", "reboot", NULL };
