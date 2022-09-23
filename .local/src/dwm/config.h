@@ -31,6 +31,7 @@ static const Rule rules[] = {
 	{ "firefox",   NULL,       NULL,       1 << 0,       0,           -1 },
 	{ "st",        NULL,       "ranger",   1 << 1,       0,           -1 },
 	{ "Quodlibet", NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "Audacity",  NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "mpv",       NULL,       NULL,       1 << 3,       0,           -1 },
 	{ "Geany",     NULL,       NULL,       1 << 4,       0,           -1 },
 	{ "st",        NULL,       "st",       1 << 5,       0,           -1 },
