@@ -27,20 +27,20 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class       instance    title       tags mask     isfloating   monitor */
-	{ "firefox",   NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "st",        NULL,       "ranger",   1 << 1,       0,           -1 },
-	{ "Quodlibet", NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "Audacity",  NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "mpv",       NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "Geany",     NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "st",        NULL,       "st",       1 << 5,       0,           -1 },
-	{ "Gimp",      NULL,       NULL,       1 << 6,       0,           -1 },
-	{ "Picard",    NULL,       NULL,       1 << 7,       0,           -1 },
-	{ "Steam",     NULL,       NULL,       1 << 8,       1,           -1 },
-	{ "Deluge",    NULL,       NULL,       1 << 9,       0,           -1 },
-	{ "feh",       NULL,       NULL,       0,            1,           -1 },
-	{ "XCalc",     NULL,       NULL,       0,            1,           -1 },
+	/* class       instance    title       tags mask   switchtotag   isfloating   monitor */
+	{ "firefox",   NULL,       NULL,       1 << 0,     1,            0,           -1 },
+	{ "st",        NULL,       "ranger",   1 << 1,     1,            0,           -1 },
+	{ "Quodlibet", NULL,       NULL,       1 << 2,     1,            0,           -1 },
+	{ "Audacity",  NULL,       NULL,       1 << 2,     1,            0,           -1 },
+	{ "mpv",       NULL,       NULL,       1 << 3,     1,            0,           -1 },
+	{ "Geany",     NULL,       NULL,       1 << 4,     1,            0,           -1 },
+	{ "st",        NULL,       "st",       1 << 5,     1,            0,           -1 },
+	{ "Gimp",      NULL,       NULL,       1 << 6,     1,            0,           -1 },
+	{ "Picard",    NULL,       NULL,       1 << 7,     1,            0,           -1 },
+	{ "Steam",     NULL,       NULL,       1 << 8,     0,            1,           -1 },
+	{ "Deluge",    NULL,       NULL,       1 << 9,     0,            0,           -1 },
+	{ "feh",       NULL,       NULL,       0,          0,            1,           -1 },
+	{ "XCalc",     NULL,       NULL,       0,          0,            1,           -1 },
 };
 
 /* layout(s) -------------------------------------------------------------------------*/
