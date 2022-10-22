@@ -26,4 +26,4 @@ fi
     ##dwm >/dev/null 2>&1
 #done
 
-exec dwm
+exec dwm 2> ~/.dwm.log
