@@ -2,7 +2,7 @@
 
 #include <X11/XF86keysym.h>
 
-/* appearance -------------------------------------------------------------*/
+/* appearance --------------------------------------------------------------*/
 static const unsigned int borderpx       = 3;   /* border pixel of windows */
 static const unsigned int snap           = 32;  /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -43,7 +43,6 @@ static const Rule rules[] = {
 	{ "Gimp",      NULL,       NULL,       1 << 6,     1,            0,           -1 },
 	{ "Picard",    NULL,       NULL,       1 << 7,     1,            0,           -1 },
 	{ "Steam",     NULL,       NULL,       1 << 8,     0,            1,           -1 },
-	{ "Deluge",    NULL,       NULL,       1 << 9,     0,            0,           -1 },
 	{ "feh",       NULL,       NULL,       0,          0,            1,           -1 },
 	{ "XCalc",     NULL,       NULL,       0,          0,            1,           -1 },
 };
