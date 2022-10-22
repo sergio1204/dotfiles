@@ -11,19 +11,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-# start WM -----------------
+# start WM ---------
 
 #exec bspwm
 #exec i3
 #exec qtile start
-
-# start DWM ----------------
-
-while true; do
-    # Log stderror to a file
-    dwm 2> ~/.dwm.log
-    # No error logging
-    #dwm >/dev/null 2>&1
-done
-
 exec dwm
