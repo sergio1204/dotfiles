@@ -73,5 +73,4 @@ static const struct arg args[] = {
 	{ datetime,      "^c#BEC2FF^ %s  ",       " %a %d" },
 	{ datetime,      "^c#FDB75F^ %s  ",       " %H:%M:%S" },
 	{ keymap,        "^c#F57CB8^ ⌨ %s  ",     NULL },
-
 };
