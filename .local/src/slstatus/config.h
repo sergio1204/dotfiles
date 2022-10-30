@@ -71,5 +71,6 @@ static const struct arg args[] = {
 	{ temp,          "^c#F5628A^  %s°C  ",   "/sys/class/thermal/thermal_zone0/temp" },
 	{ battery_perc,  "^c#8DF08D^  %s%%  ",  "BAT0" },
 	{ keymap,        "^c#F57CB8^ ⌨ %s  ",    NULL },
-	{ datetime,      "^c#FDB75F^%s",          " %a %d   %H:%M:%S " },
+	{ datetime,      "^c#BEC2FF^ %s ",        " %a %d" },
+	{ datetime,      "^c#FDB75F^ %s ",        " %H:%M:%S" },
 };
