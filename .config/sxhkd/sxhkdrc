@@ -182,6 +182,9 @@ super + shift + x
 super + shift + Return
 	geany
 
+super + shift + backslash
+    xterm -name vim -e vim
+
 super + d
 	quodlibet
 
