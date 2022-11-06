@@ -1,20 +1,26 @@
-" Gvim font
+" Gvim font ---------------------------
 set guifont=JetBrains\ Mono\ 10
+
 " Syntax highlighting -----------------
 syntax on
+
 " Filetype plugins --------------------
 filetype plugin on
 filetype indent on
+
 " Mouse and number --------------------
 set mouse=a
 set number
+
 " Vim theme ---------------------------
 colorscheme molokai
+
 " Highlighting and smart search -------
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
 " Tabs and Spaces ---------------------
 set expandtab
 set smarttab
@@ -23,11 +29,13 @@ set softtabstop=4
 set shiftwidth=4
 set autoindent
 set smartindent
+
 " Change cursor between mods ----------
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
+
 " AirLine -----------------------------
 let g:airline_theme='murmur' 
 let g:airline#extensions#tabline#enabled = 1
@@ -44,6 +52,7 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>0 <Plug>AirlineSelectTab0
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>= <Plug>AirlineSelectNextTab
+
 " NerdTree ----------------------------
 autocmd VimEnter * NERDTree
 let NERDTreeShowHidden=1
@@ -52,6 +61,7 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
 " Vim Plug ----------------------------
 call plug#begin()
 Plug 'vim-airline/vim-airline'
