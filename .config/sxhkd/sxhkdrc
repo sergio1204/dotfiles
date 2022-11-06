@@ -183,7 +183,7 @@ super + shift + Return
 	geany
 
 super + shift + backslash
-    xterm -name vim -e vim
+    gvim
 
 super + d
 	quodlibet

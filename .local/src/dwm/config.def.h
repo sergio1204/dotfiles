@@ -39,7 +39,7 @@ static const Rule rules[] = {
 	{ "Audacity",  NULL,       NULL,       1 << 2,     1,            0,           -1 },
 	{ "mpv",       NULL,       NULL,       1 << 3,     1,            0,           -1 },
 	{ "Geany",     NULL,       NULL,       1 << 4,     1,            0,           -1 },
-	{ "st",        NULL,       "vim",      1 << 4,     1,            0,           -1 },
+	{ "Gvim",      NULL,       NULL,       1 << 4,     1,            0,           -1 },
 	{ "st",        NULL,       "st",       1 << 5,     1,            0,           -1 },
 	{ "Gimp",      NULL,       NULL,       1 << 6,     1,            0,           -1 },
 	{ "Picard",    NULL,       NULL,       1 << 7,     1,            0,           -1 },
@@ -82,7 +82,7 @@ static const char *pcmanfmqtcmd[]   = { "pcmanfm-qt", NULL };
 static const char *quodlibetcmd[]   = { "quodlibet", NULL };
 static const char *quodlibetppcmd[] = { "quodlibet", "--play-pause", NULL };
 static const char *geanycmd[]       = { "geany", NULL };
-static const char *vimcmd[]         = { "st", "-e", "vim", NULL };
+static const char *gvimcmd[]         = { "gvim", NULL };
 static const char *zenitycalcmd[]   = { "zenity", "--calendar", NULL };
 static const char *dunsthistcmd[]   = { "dunstctl", "history-pop", NULL };
 static const char *dunstclosecmd[]  = { "dunstctl", "close-all", NULL };
@@ -112,7 +112,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,            spawn,            {.v = quodlibetcmd } },
 	{ MODKEY|ShiftMask,             XK_d,            spawn,            {.v = quodlibetppcmd } },
 	{ MODKEY|ShiftMask,             XK_Return,       spawn,            {.v = geanycmd } },
-	{ MODKEY|ShiftMask,             XK_backslash,    spawn,            {.v = vimcmd } },
+	{ MODKEY|ShiftMask,             XK_backslash,    spawn,            {.v = gvimcmd } },
 	{ MODKEY,                       XK_v,            spawn,            {.v = zenitycalcmd } },
 	{ MODKEY,                       XK_u,            spawn,            {.v = dunsthistcmd } },
 	{ MODKEY|ShiftMask,             XK_u,            spawn,            {.v = dunstclosecmd } },
