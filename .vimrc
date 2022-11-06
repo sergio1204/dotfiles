@@ -12,8 +12,9 @@ filetype indent on
 set mouse=a
 set number
 
-" Vim theme ---------------------------
-colorscheme molokai
+" Vim colorscheme ---------------------
+"colorscheme molokai
+colorscheme onedark
 
 " Highlighting and smart search -------
 set hlsearch
@@ -37,7 +38,8 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
 " AirLine -----------------------------
-let g:airline_theme='murmur' 
+"let g:airline_theme='murmur'
+let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
