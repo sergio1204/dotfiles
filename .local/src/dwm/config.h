@@ -35,13 +35,13 @@ static const Rule rules[] = {
 	 */
 	/* class       instance    title       tags mask   switchtotag   isfloating   monitor */
 	{ "firefox",   NULL,       NULL,       1 << 0,     1,            0,           -1 },
-	{ "st",        NULL,       "ranger",   1 << 1,     1,            0,           -1 },
+	{ "XTerm",     NULL,       "ranger",   1 << 1,     1,            0,           -1 },
 	{ "Quodlibet", NULL,       NULL,       1 << 2,     1,            0,           -1 },
 	{ "Audacity",  NULL,       NULL,       1 << 2,     1,            0,           -1 },
 	{ "mpv",       NULL,       NULL,       1 << 3,     1,            0,           -1 },
 	{ "Geany",     NULL,       NULL,       1 << 4,     1,            0,           -1 },
 	{ "Gvim",      NULL,       NULL,       1 << 4,     1,            0,           -1 },
-	{ "st",        NULL,       "st",       1 << 5,     1,            0,           -1 },
+	{ "XTerm",     NULL,       "xterm",    1 << 5,     1,            0,           -1 },
 	{ "Gimp",      NULL,       NULL,       1 << 6,     1,            0,           -1 },
 	{ "Picard",    NULL,       NULL,       1 << 7,     1,            0,           -1 },
 	{ "Steam",     NULL,       NULL,       1 << 8,     0,            1,           -1 },
@@ -75,15 +75,16 @@ static const Layout layouts[] = {
 
 /* commands */
 /* apps hotkeys ---------------------------------------------------------------------*/
-static const char *dmenucmd[]       = { "dmenu_run", NULL };
-static const char *termcmd[]        = { "st", NULL };
+static const char *rofidruncmd[]    = { "rofi", "-show", "drun", NULL };
+static const char *rofiruncmd[]     = { "rofi", "-show", "run", NULL };
+static const char *termcmd[]        = { "xterm", NULL };
 static const char *firefoxcmd[]     = { "firefox", NULL };
-static const char *rangercmd[]      = { "st", "-e", "ranger", NULL };
+static const char *rangercmd[]      = { "xterm", "-e", "ranger", NULL };
 static const char *pcmanfmqtcmd[]   = { "pcmanfm-qt", NULL };
 static const char *quodlibetcmd[]   = { "quodlibet", NULL };
 static const char *quodlibetppcmd[] = { "quodlibet", "--play-pause", NULL };
 static const char *geanycmd[]       = { "geany", NULL };
-static const char *gvimcmd[]         = { "gvim", NULL };
+static const char *gvimcmd[]        = { "gvim", NULL };
 static const char *zenitycalcmd[]   = { "zenity", "--calendar", NULL };
 static const char *dunsthistcmd[]   = { "dunstctl", "history-pop", NULL };
 static const char *dunstclosecmd[]  = { "dunstctl", "close-all", NULL };
@@ -105,7 +106,8 @@ static const char *poweroffcmd[]    = { "systemctl", "poweroff", NULL };
 static const Key keys[] = {
 	/* modifier                     key              function          argument */
 	/* apps hotkeys ----------------------------------------------------------------------*/
-	{ MODKEY,                       XK_z,            spawn,            {.v = dmenucmd } },
+	{ MODKEY,                       XK_z,            spawn,            {.v = rofidruncmd } },
+	{ MODKEY|ShiftMask,             XK_z,            spawn,            {.v = rofiruncmd } },
 	{ MODKEY,                       XK_Return,       spawn,            {.v = termcmd } },
 	{ MODKEY,                       XK_c,            spawn,            {.v = firefoxcmd } },
 	{ MODKEY,                       XK_x,            spawn,            {.v = rangercmd } },

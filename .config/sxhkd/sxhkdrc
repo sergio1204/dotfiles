@@ -157,10 +157,9 @@ Print
 shift + Print
 	scrot -d 1 ~/Pictures/`date +%Y-%m-%d_%H:%M:%S`.png
 
-# dmenu / rofi
+# rofi
 super + z
 	rofi -show drun
-#	dmenu_run -fn 'JetBrains Mono-10' -nb '#212134' -nf '#B5D4F1' -sb '#4E60CF' -l 10
 
 super + shift + z
 	rofi -show run
