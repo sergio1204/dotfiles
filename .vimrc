@@ -1,30 +1,46 @@
-" Gvim font ---------------------------
+"-------------------------------
+"--------  gvim font ----------
+"-------------------------------
 set guifont=JetBrains\ Mono\ 10
 
-" Clipboard setting
+"--------------------------------
+"-----  clipboard setting  -----
+"--------------------------------
 set clipboard=unnamedplus
 
-" Syntax highlighting -----------------
+"---------------------------------
+"-----  syntax highlighting -----
+"---------------------------------
 syntax on
 
-" Filetype plugins --------------------
+"---------------------------------
+"-----  filetype plugins --------
+"---------------------------------
 filetype plugin on
 filetype indent on
 
-" Mouse and number --------------------
+"---------------------------------
+"-----  mouse and number --------
+"---------------------------------
 set mouse=a
 set number
 
-" Vim colorscheme ---------------------
+"--------------------------------
+"-----  vim colorscheme  -------
+"--------------------------------
 colorscheme onedark
 
-" Highlighting and smart search -------
+"--------------------------------------
+"--  highlighting and smart search ---
+"--------------------------------------
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
-" Tabs and Spaces ---------------------
+"------------------------------
+"-----  tabs and Spaces ------
+"------------------------------
 set expandtab
 set smarttab
 set tabstop=4
@@ -33,13 +49,17 @@ set shiftwidth=4
 set autoindent
 set smartindent
 
-" Change cursor between mods ----------
+"--------------------------------------
+"---  change cursor between mods -----
+"--------------------------------------
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
-" AirLine -----------------------------
+"--------------------------------------
+"------------  airLine ---------------
+"--------------------------------------
 let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -57,7 +77,9 @@ nmap <leader>0 <Plug>AirlineSelectTab0
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>= <Plug>AirlineSelectNextTab
 
-" NerdTree ----------------------------
+"--------------------------------------
+"-----------  nerdTree ---------------
+"--------------------------------------
 autocmd VimEnter * NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
@@ -66,7 +88,9 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-" Vim Plug ----------------------------
+"--------------------------------------
+"----------  vim Plug ----------------
+"--------------------------------------
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'

@@ -1,4 +1,6 @@
-!! Xft ---------------------------------
+!!---------------------------------
+!!-----------  Xft  --------------
+!!---------------------------------
 Xft.dpi:       96
 Xft.autohint:  false
 Xft.antialias: true
@@ -7,11 +9,15 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xft.rgba:      none
 
-!! Cursor-theme ------------------------
+!!---------------------------------
+!!--------  Cursor-theme  --------
+!!---------------------------------
 Xcursor.theme: Adwaita
 Xcursor.size:  32
 
-!! XTerm -------------------------------
+!!---------------------------------
+!!-----------  XTerm  ------------
+!!---------------------------------
 XTerm*termName:           xterm-256color
 XTerm*faceName:           JetBrains Mono
 XTerm*faceSize:           10
@@ -26,7 +32,9 @@ XTerm*VT100.Translations: #override \
                           Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
                           Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 
-!! URxvt -------------------------------
+!!---------------------------------
+!!------------ URxvt  ------------
+!!---------------------------------
 URxvt.font:                   xft:JetBrains Mono:size=10
 URxvt.letterSpace:            0
 URxvt.scrollBar:              false
@@ -36,7 +44,9 @@ URxvt.clipboard.autocopy:     true
 URxvt.keysym.Control-Shift-C: eval:selection_to_clipboard
 URxvt.keysym.Control-Shift-V: eval:paste_clipboard
 
-!! Colors ------------------------------
+!!---------------------------------
+!!----------  Colors  ------------
+!!---------------------------------
 *background:  #212132
 *foreground:  #E5E5E5
 *cursorColor: #FA71B1
@@ -57,7 +67,9 @@ URxvt.keysym.Control-Shift-V: eval:paste_clipboard
 *color7:      #69C46B
 *color15:     #E5E5E5
 
-!! Xcalc -------------------------------
+!!---------------------------------
+!!----------  Xcalc  -------------
+!!---------------------------------
 XCalc*ti.background: #212132
 XCalc*ti.bevel.background: #212132
 XCalc*ti.bevel.screen*background: #212132
