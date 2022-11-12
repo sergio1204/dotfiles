@@ -2,7 +2,9 @@
 
 #include <X11/XF86keysym.h>
 
-/* appearance --------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/*---------------------------  appearance  ----------------------------------*/
+/*--------------------------------------------------------------------------*/
 static const unsigned int borderpx       = 3;   /* border pixel of windows */
 static const unsigned int gappx          = 0;   /* gaps between windows */
 static const unsigned int snap           = 32;  /* snap pixel */
@@ -25,7 +27,9 @@ static const char *colors[][3]     = {
 	[SchemeSel]  = { colour2, colour1, colour5  },
 };
 
-/* tagging -----------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------*/
+/*------------------------------  tagging  ---------------------------------------*/
+/*-------------------------------------------------------------------------------*/
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
 
 static const Rule rules[] = {
@@ -49,7 +53,9 @@ static const Rule rules[] = {
 	{ "XCalc",     NULL,       NULL,       0,          0,            1,           -1 },
 };
 
-/* layout(s) -------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------*/
+/*---------------------------  layout(s)  ------------------------------------*/
+/*---------------------------------------------------------------------------*/
 static const float mfact        = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster        = 1;   /* number of clients in master area */
 static const int resizehints    = 0;  /* 1 means respect size hints in tiled resizals */
@@ -62,7 +68,9 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 };
 
-/* key definitions ------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+/*------------------------  key definitions  -------------------------------*/
+/*-------------------------------------------------------------------------*/
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -73,8 +81,9 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-/* commands */
-/* apps hotkeys ---------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/*-----------------------  apps hotkeys  -------------------------------*/
+/*---------------------------------------------------------------------*/
 static const char *rofidruncmd[]    = { "rofi", "-show", "drun", NULL };
 static const char *rofiruncmd[]     = { "rofi", "-show", "run", NULL };
 static const char *termcmd[]        = { "xterm", NULL };
@@ -88,24 +97,34 @@ static const char *gvimcmd[]        = { "gvim", NULL };
 static const char *zenitycalcmd[]   = { "zenity", "--calendar", NULL };
 static const char *dunsthistcmd[]   = { "dunstctl", "history-pop", NULL };
 static const char *dunstclosecmd[]  = { "dunstctl", "close-all", NULL };
-/* volume control ----------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+/*-----------------------  volume control  ---------------------------------*/
+/*-------------------------------------------------------------------------*/
 static const char *volupcmd[]       = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL };
 static const char *voldowncmd[]     = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL };
 static const char *volmutecmd[]     = { "amixer", "-D", "pulse", "sset", "Master", "toggle", NULL };
-/* brightness --------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/*--------------------------  brightness  -----------------------------------*/
+/*--------------------------------------------------------------------------*/
 static const char *brightupcmd[]    = { "brightnessctl", "s", "+10%", NULL };
 static const char *brightdowncmd[]  = { "brightnessctl", "s", "10%-", NULL };
-/* printscreen / lockscreen --------------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+/*-------------------  printscreen / lockscreen  ---------------------------*/
+/*-------------------------------------------------------------------------*/
 static const char *printscrselcmd[] = { "scrot", "-s", NULL };
 static const char *printscrallcmd[] = { "scrot", "-d", "1", NULL };
 static const char *screenlockcmd[]  = { "slock", NULL };
-/* reboot / poweroff / quit --------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/*-------------------  reboot / poweroff / quit  --------------------------*/
+/*------------------------------------------------------------------------*/
 static const char *rebootcmd[]      = { "systemctl", "reboot", NULL };
 static const char *poweroffcmd[]    = { "systemctl", "poweroff", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key              function          argument */
-	/* apps hotkeys ----------------------------------------------------------------------*/
+	/*-----------------------------------------------------------------------------------------*/
+	/*--------------------------------  apps hotkeys  ----------------------------------------*/
+	/*---------------------------------------------------------------------------------------*/
 	{ MODKEY,                       XK_z,            spawn,            {.v = rofidruncmd } },
 	{ MODKEY|ShiftMask,             XK_z,            spawn,            {.v = rofiruncmd } },
 	{ MODKEY,                       XK_Return,       spawn,            {.v = termcmd } },
@@ -119,22 +138,32 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_v,            spawn,            {.v = zenitycalcmd } },
 	{ MODKEY,                       XK_u,            spawn,            {.v = dunsthistcmd } },
 	{ MODKEY|ShiftMask,             XK_u,            spawn,            {.v = dunstclosecmd } },
-	/* volume control --------------------------------------------------------------------*/
+	/*-----------------------------------------------------------------------------------------*/
+	/*-------------------------------  volume control  ---------------------------------------*/
+	/*---------------------------------------------------------------------------------------*/
 	{ 0,              XF86XK_AudioRaiseVolume,       spawn,            {.v = volupcmd } },
 	{ 0,              XF86XK_AudioLowerVolume,       spawn,            {.v = voldowncmd } },
 	{ 0,                     XF86XK_AudioMute,       spawn,            {.v = volmutecmd } },
-	/* brightness ------------------------------------------------------------------------*/
+	/*-----------------------------------------------------------------------------------------*/
+	/*--------------------------------  brightness  ------------------------------------------*/
+	/*---------------------------------------------------------------------------------------*/
 	{ 0,            XF86XK_MonBrightnessUp,          spawn,            {.v = brightupcmd } },
 	{ 0,            XF86XK_MonBrightnessDown,        spawn,            {.v = brightdowncmd } },
-	/* printscreen / lockscreen ----------------------------------------------------------*/
+	/*------------------------------------------------------------------------------------------*/
+	/*---------------------------  printscreen / lockscreen  ----------------------------------*/
+	/*----------------------------------------------------------------------------------------*/
 	{ 0,                            XK_Print,        spawn,            {.v = printscrselcmd } },
 	{ ShiftMask,                    XK_Print,        spawn,            {.v = printscrallcmd } },
 	{ MODKEY,                       XK_l,            spawn,            {.v = screenlockcmd } },
-	/* reboot / poweroff / quit --------------        ------------------------------------------*/
+	/*-----------------------------------------------------------------------------------------*/
+	/*---------------------------  reboot / poweroff / quit  ---------------------------------*/
+	/*---------------------------------------------------------------------------------------*/
 	{ MODKEY|ShiftMask,             XK_k,            spawn,            {.v = rebootcmd } },
 	{ MODKEY|ShiftMask,             XK_m,            spawn,            {.v = poweroffcmd } },
 	{ MODKEY|ShiftMask,             XK_l,            quit,             {0} },
-	/* other hotkeys -------------------------        --------------------------------------------*/
+	/*-----------------------------------------------------------------------------------------*/
+	/*--------------------------------  other hotkeys  ---------------------------------------*/
+	/*---------------------------------------------------------------------------------------*/
 	{ MODKEY,                       XK_b,            togglebar,        {0} },
 	{ MODKEY,                       XK_a,            focusstack,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_a,            focusstack,       {.i = -1 } },

@@ -1,46 +1,46 @@
-"-------------------------------
-"--------  gvim font ----------
-"-------------------------------
+"--------------------------------*
+"-------  gvim font  -----------*
+"------------------------------*
 set guifont=JetBrains\ Mono\ 10
 
-"--------------------------------
-"-----  clipboard setting  -----
-"--------------------------------
+"--------------------------------*
+"----  clipboard setting  ------*
+"------------------------------*
 set clipboard=unnamedplus
 
-"---------------------------------
-"-----  syntax highlighting -----
-"---------------------------------
+"----------------------------------*
+"----  syntax highlighting  ------*
+"--------------------------------*
 syntax on
 
-"---------------------------------
-"-----  filetype plugins --------
-"---------------------------------
+"---------------------------------*
+"----  filetype plugins  --------*
+"-------------------------------*
 filetype plugin on
 filetype indent on
 
-"---------------------------------
-"-----  mouse and number --------
-"---------------------------------
+"--------------------------------*
+"----  mouse and number  -------*
+"------------------------------*
 set mouse=a
 set number
 
-"--------------------------------
-"-----  vim colorscheme  -------
-"--------------------------------
+"--------------------------------*
+"----  vim colorscheme  --------*
+"------------------------------*
 colorscheme onedark
 
-"--------------------------------------
-"--  highlighting and smart search ---
-"--------------------------------------
+"--------------------------------------*
+"--  highlighting and smart search  --*
+"------------------------------------*
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
-"------------------------------
-"-----  tabs and Spaces ------
-"------------------------------
+"-----------------------------*
+"----  tabs and Spaces  -----*
+"---------------------------*
 set expandtab
 set smarttab
 set tabstop=4
@@ -49,17 +49,17 @@ set shiftwidth=4
 set autoindent
 set smartindent
 
-"--------------------------------------
-"---  change cursor between mods -----
-"--------------------------------------
+"--------------------------------------*
+"---  change cursor between mods  ----*
+"------------------------------------*
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
-"--------------------------------------
-"------------  airLine ---------------
-"--------------------------------------
+"--------------------------------------*
+"-----------  airLine  ---------------*
+"------------------------------------*
 let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -77,9 +77,9 @@ nmap <leader>0 <Plug>AirlineSelectTab0
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>= <Plug>AirlineSelectNextTab
 
-"--------------------------------------
-"-----------  nerdTree ---------------
-"--------------------------------------
+"--------------------------------------*
+"-----------  nerdTree  --------------*
+"------------------------------------*
 autocmd VimEnter * NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
@@ -88,9 +88,9 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-"--------------------------------------
-"----------  vim Plug ----------------
-"--------------------------------------
+"--------------------------------------*
+"----------  vim plug  ---------------*
+"------------------------------------*
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
