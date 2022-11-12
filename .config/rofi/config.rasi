@@ -7,8 +7,8 @@ configuration {
     display-run: " Run";
     display-drun: " Apps";
     drun-display-format: "{icon} {name}";
-    location: 1;
-    yoffset: 32;
+    location: 0;
+    yoffset: 0;
     xoffset: 0;
 }
 @theme "dark-theme"

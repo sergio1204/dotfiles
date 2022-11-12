@@ -25,26 +25,37 @@ XTerm*eightBitInput:      false
 XTerm*VT100.Translations: #override \
                           Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
                           Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
+
+!! URxvt -------------------------------
+URxvt.font:                   xft:JetBrains Mono:size=10
+URxvt.letterSpace:            0
+URxvt.scrollBar:              false
+URxvt.iso14755:               false
+URxvt.iso14755_52:            false
+URxvt.clipboard.autocopy:     true
+URxvt.keysym.Control-Shift-C: eval:selection_to_clipboard
+URxvt.keysym.Control-Shift-V: eval:paste_clipboard
+
 !! Colors ------------------------------
-XTerm*background:  #212132
-XTerm*foreground:  #E5E5E5
-XTerm*cursorColor: #FA71B1
-XTerm*color0:      #212132
-XTerm*color8:      #AFD4E0
-XTerm*color1:      #EB2A2A
-XTerm*color9:      #FF4767
-XTerm*color2:      #329632
-XTerm*color10:     #5AC95A
-XTerm*color3:      #FF7F00
-XTerm*color11:     #F660CE
-XTerm*color4:      #4949FA
-XTerm*color12:     #8B8BFF
-XTerm*color5:      #863E86
-XTerm*color13:     #B960B9
-XTerm*color6:      #00B0C2
-XTerm*color14:     #5DE1EE
-XTerm*color7:      #69C46B
-XTerm*color15:     #E5E5E5
+*background:  #212132
+*foreground:  #E5E5E5
+*cursorColor: #FA71B1
+*color0:      #212132
+*color8:      #AFD4E0
+*color1:      #EB2A2A
+*color9:      #FF4767
+*color2:      #329632
+*color10:     #5AC95A
+*color3:      #FF7F00
+*color11:     #F660CE
+*color4:      #4949FA
+*color12:     #8B8BFF
+*color5:      #863E86
+*color13:     #B960B9
+*color6:      #00B0C2
+*color14:     #5DE1EE
+*color7:      #69C46B
+*color15:     #E5E5E5
 
 !! Xcalc -------------------------------
 XCalc*ti.background: #212132

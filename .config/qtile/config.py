@@ -100,6 +100,7 @@ keys = [
     Key([mod], "d", lazy.spawn("quodlibet")),
     Key([mod, "shift"], "d", lazy.spawn("quodlibet --play-pause")),
     Key([mod, "shift"], "Return", lazy.spawn("geany")),
+    Key([mod, "shift"], "backslash", lazy.spawn("gvim")),
     Key([mod], "v", lazy.spawn("zenity --calendar")),
 ]
 
@@ -122,7 +123,7 @@ groups = [
     ),
     Group(
         "5",
-        Match(wm_class="geany"),
+        Match(wm_class=["geany", "gvim"]),
     ),
     Group(
         "6",
@@ -130,7 +131,7 @@ groups = [
     ),
     Group(
         "7",
-        Match(wm_class="gimp"),
+        Match(wm_class="gimp-2.10"),
     ),
     Group(
         "8",
@@ -213,14 +214,7 @@ screens = [
                 ),
                 widget.WindowName(
                     foreground="#AAC9F1",
-                    max_chars=50,
                     padding=10,
-                ),
-                widget.Clock(
-                    foreground="#FBC35B",
-                    format=" %a %d   %H:%M:%S",
-                ),
-                widget.Spacer(
                 ),
                 widget.Volume(
                     foreground="#CDDC45",
@@ -250,6 +244,16 @@ screens = [
                     foreground="#88EE9A",
                     fmt=" {}",
                     #format="{percent:2.0%}",
+                    padding=10,
+                ),
+                widget.Clock(
+                    foreground="#98a7f5",
+                    format=" %a %d",
+                    padding=10,
+                ),
+                widget.Clock(
+                    foreground="#f0b574",
+                    format=" %H:%M:%S",
                     padding=10,
                 ),
                 widget.Systray(
