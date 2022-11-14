@@ -33,18 +33,6 @@ XTerm*VT100.Translations: #override \
                           Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 
 !!----------------------------------*
-!!-----------  URxvt  -------------*
-!!--------------------------------*
-URxvt.font:                   xft:JetBrains Mono:size=10
-URxvt.letterSpace:            0
-URxvt.scrollBar:              false
-URxvt.iso14755:               false
-URxvt.iso14755_52:            false
-URxvt.clipboard.autocopy:     true
-URxvt.keysym.Control-Shift-C: eval:selection_to_clipboard
-URxvt.keysym.Control-Shift-V: eval:paste_clipboard
-
-!!----------------------------------*
 !!-----------  Colors  ------------*
 !!--------------------------------*
 *background:  #212132
