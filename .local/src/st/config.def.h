@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Hack:pixelsize=14:antialias=true:autohint=true";
+static char *font = "Terminus:pixelsize=16:antialias=false:autohint=false";
 static int borderpx = 2;
 
 /*
@@ -118,8 +118,8 @@ static const char *colorname[] = {
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#85678f", /* cursor colour */
-	"#594460", /* cursor reverse colour */
+	"#5290c3", /* cursor colour */
+	"#304175", /* cursor reverse colour */
 	"#E5E5E5", /* default foreground colour */
 	"#212132", /* default background colour */
 };
