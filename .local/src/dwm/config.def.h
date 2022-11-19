@@ -5,23 +5,22 @@
 /*----------------------------------------------------------------------------*/
 /*---------------------------  appearance  ----------------------------------*/
 /*--------------------------------------------------------------------------*/
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int borderpx       = 3;   /* border pixel of windows */
+static const unsigned int snap           = 32;  /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayonleft  = 0;   /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;     /* 0 means no systray */
-static const int showbar            = 1;     /* 0 means no bar */
-static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrains Mono:size=10" };
-static const char dmenufont[]       = "JetBrains Mono:size=10";
-static const char colour1[]        = "#23252e";
-static const char colour2[]        = "#81C1FF";
-static const char colour3[]        = "#bbbbbb";
-static const char colour4[]        = "#eeeeee";
-static const char colour5[]        = "#325081";
-static const char *colors[][3]     = {
+static const int showsystray             = 1;   /* 0 means no systray */
+static const int showbar                 = 1;   /* 0 means no bar */
+static const int topbar                  = 1;   /* 0 means bottom bar */
+static const char *fonts[]               = { "JetBrains Mono:size=10" };
+static const char colour1[]              = "#23252e";
+static const char colour2[]              = "#81C1FF";
+static const char colour3[]              = "#bbbbbb";
+static const char colour4[]              = "#eeeeee";
+static const char colour5[]              = "#325081";
+static const char *colors[][3]           = {
 	/*               fg         bg     border   */
 	[SchemeNorm] = { colour3, colour1, colour1  },
 	[SchemeSel]  = { colour2, colour1, colour5  },
@@ -83,7 +82,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, NULL };
 
 /*-----------------------------------------------------------------------*/
 /*-----------------------  apps hotkeys  -------------------------------*/
@@ -174,8 +173,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_a,            focusstack,       {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_s,            incnmaster,       {.i = +1 } },
 	{ MODKEY,                       XK_s,            incnmaster,       {.i = -1 } },
-	{ MODKEY|ControlMask,           XK_Left,         setmfact,         {.f = +0.05} },
-	{ MODKEY|ControlMask,           XK_Right,        setmfact,         {.f = -0.05} },
+	{ MODKEY|ControlMask,           XK_Left,         setmfact,         {.f = -0.05} },
+	{ MODKEY|ControlMask,           XK_Right,        setmfact,         {.f = +0.05} },
 	{ MODKEY,                       XK_g,            zoom,             {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,          view,             {0} },
 	{ MODKEY,                       XK_q,            killclient,       {0} },
