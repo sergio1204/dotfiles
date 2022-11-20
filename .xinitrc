@@ -21,4 +21,3 @@ while true; do
     # No error logging
     #dwm >/dev/null 2>&1
 done
-

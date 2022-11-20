@@ -192,4 +192,3 @@ super + shift + d
 
 super + v
 	zenity --calendar
-

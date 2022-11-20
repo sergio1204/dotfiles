@@ -307,4 +307,3 @@ reconfigure_screens = True
 # focus, should we respect this or not?
 auto_minimize = True
 wmname = "LG3D"
-

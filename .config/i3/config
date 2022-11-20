@@ -204,4 +204,3 @@ exec        --no-startup-id feh --bg-scale /home/sergey/Pictures/borda2.jpg &
 exec        --no-startup-id killall -q picom; picom &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec        --no-startup-id gxkb &
-
