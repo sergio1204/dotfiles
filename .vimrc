@@ -4,14 +4,14 @@ set guifont=Terminus\ 12
 " clipboard setting ==================
 set clipboard=unnamedplus
 
-" syntax highlighting 
+" syntax highlighting ================
 syntax on
 
 " filetype plugins ===================
 filetype plugin on
 filetype indent on
 
-" mouse and number 
+" mouse and number ===================
 set mouse=a
 set number
 
