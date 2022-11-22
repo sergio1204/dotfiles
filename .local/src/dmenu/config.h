@@ -13,11 +13,12 @@ static const char *colors[SchemeLast][2] = {
 	[SchemeOut]  = { "#000000", "#00ffff" },
 };
 
-/* Position / width / lines ===================================*/
-static int dmx            = 0;   /* put dmenu at this x offset */
-static int dmy            = 20;  /* put dmenu at this y offset */
-static unsigned int dmw   = 200; /* make dmenu this wide */
-static unsigned int lines = 15;  /* vertical list, if nonzero */
+/* Position / width / lines / border =================================*/
+static int dmx                   = 0;   /* put dmenu at this x offset */
+static int dmy                   = 20;  /* put dmenu at this y offset */
+static unsigned int dmw          = 200; /* make dmenu this wide */
+static unsigned int lines        = 15;  /* vertical list, if nonzero */
+static unsigned int border_width = 3;   /* Size of the window border */
 
 /* Characters not considered part of a word while deleting words
  * for example: " /?\"&[]"*/
