@@ -26,7 +26,8 @@ static const char *colors[][3]           = {
 
 /* tagging =================================================================================*/
 /*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }; */
-static const char *tags[] = { "web", "file", "mus", "vid", "edit", "term", "gimp", "pic", "game", "oth" };
+/*static const char *tags[] = { "web", "file", "mus", "vid", "edit", "term", "gimp", "pic", "game", "oth" }; */
+static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
 
 /* rules ===================================================================================*/
 static const Rule rules[] = {
