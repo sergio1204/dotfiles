@@ -63,13 +63,13 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function      format                   argument */
-	{ run_command,   "^c#CDDC45^  %s  ",    "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-	{ ram_perc,      "^c#FE75F4^  %s%%  ",   NULL },
-	{ cpu_perc,      "^c#7DD0F5^  %s%%  ",   NULL },
-	{ temp,          "^c#F5628A^  %s°C  ",   "/sys/class/thermal/thermal_zone0/temp" },
-	{ battery_perc,  "^c#8DF08D^  %s%%  ",  "BAT0" },
-	{ datetime,      "^c#BEC2FF^ %s  ",       " %a %d" },
-	{ datetime,      "^c#FDB75F^ %s  ",       " %H:%M:%S" },
-	{ keymap,        "^c#F57CB8^ ⌨ %s  ",     NULL },
+    /* function      format                  argument */
+    { run_command,   "^c#CDDC45^  %s  ",    "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
+    { ram_perc,      "^c#FE75F4^  %s%%  ",  NULL },
+    { cpu_perc,      "^c#7DD0F5^  %s%%  ",  NULL },
+    { temp,          "^c#F5628A^  %s°C  ",  "/sys/class/thermal/thermal_zone0/temp" },
+    { battery_perc,  "^c#8DF08D^  %s%%  ",  "BAT0" },
+    { datetime,      "^c#BEC2FF^ %s  ",      " %a %d" },
+    { datetime,      "^c#FDB75F^ %s  ",      " %H:%M:%S" },
+    { keymap,        "^c#F57CB8^ ⌨ %s  ",    NULL },
 };

@@ -38,6 +38,10 @@ set shiftwidth=4
 set autoindent
 set smartindent
 
+" display characters =================
+set list
+set listchars=eol:·,tab:►·,trail:↔
+
 " change cursor between mods =========
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
