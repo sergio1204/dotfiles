@@ -14,10 +14,10 @@ fi
 #exec bspwm
 #exec i3
 #exec qtile start
-#exec dwm
-while true; do
-    # Log stderror
-    dwm 2> ~/.dwm.log
-    # No error logging
-    #dwm >/dev/null 2>&1
-done
+exec dwm
+#while true; do
+#    # Log stderror
+#    dwm 2> ~/.dwm.log
+#    # No error logging
+#    #dwm >/dev/null 2>&1
+#done

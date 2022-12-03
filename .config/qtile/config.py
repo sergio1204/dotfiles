@@ -160,7 +160,7 @@ layouts = [
         insert_position=1,
         border_focus="#4B7093",
         border_focus_stack="#FFA500",
-        border_normal="#23252e",
+        border_normal="#282C34",
         border_width=3,
     ),
     # layout.Max(),
@@ -177,16 +177,16 @@ layouts = [
         font="Noto Sans",
         fontsize=12,
         section_fontsize=10,
-        bg_color="#212132",
+        bg_color="#282C34",
         active_bg="#2B6AA7",
-        inactive_bg="#212132",
+        inactive_bg="#282C34",
     ),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
 
 widget_defaults=dict(
-    font="JetBrains Mono",
+    font="Terminus",
     fontsize=14,
     padding=3,
 )
@@ -247,11 +247,6 @@ screens = [
                     padding=10,
                 ),
                 widget.Clock(
-                    foreground="#98a7f5",
-                    format=" %a %d",
-                    padding=10,
-                ),
-                widget.Clock(
                     foreground="#f0b574",
                     format=" %H:%M:%S",
                     padding=10,
@@ -259,8 +254,8 @@ screens = [
                 widget.Systray(
                 ),
             ],
-            30,
-            background="#23252e",
+            24,
+            background="#282C34",
         )
     )
 ]

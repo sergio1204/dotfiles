@@ -8,7 +8,7 @@ static const char *prompt  = NULL;                  /* -p  option; prompt to the
 /* Colors =================================*/
 static const char *colors[SchemeLast][2] = {
     /*               fg         bg       */
-    [SchemeNorm] = { "#bbbbbb", "#212132" },
+    [SchemeNorm] = { "#bbbbbb", "#282C34" },
     [SchemeSel]  = { "#eeeeee", "#325081" },
     [SchemeOut]  = { "#000000", "#00ffff" },
 };

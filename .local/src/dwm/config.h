@@ -13,7 +13,7 @@ static const int showsystray             = 1;  /* 0 means no systray */
 static const int showbar                 = 1;  /* 0 means no bar */
 static const int topbar                  = 1;  /* 0 means bottom bar */
 static const char *fonts[]               = { "Terminus:size=10" };
-static const char colour1[]              = "#23252e";
+static const char colour1[]              = "#282C34";
 static const char colour2[]              = "#81C1FF";
 static const char colour3[]              = "#bbbbbb";
 static const char colour4[]              = "#eeeeee";
@@ -25,9 +25,7 @@ static const char *colors[][3]           = {
 };
 
 /* tagging =================================================================================*/
-/*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }; */
-/*static const char *tags[] = { "web", "file", "mus", "vid", "edit", "term", "gimp", "pic", "game", "oth" }; */
-static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
 
 /* rules ===================================================================================*/
 static const Rule rules[] = {

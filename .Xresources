@@ -13,8 +13,8 @@ Xcursor.size:  32
 
 !! XTerm ===============================
 XTerm*termName:           xterm-256color
-XTerm*faceName:           JetBrains Mono
-XTerm*faceSize:           10
+XTerm*faceName:           Terminus
+XTerm*faceSize:           12
 XTerm*borderWidth:        0
 XTerm*cursorBlink:        true
 XTerm*scrollBar:          false
@@ -27,7 +27,7 @@ XTerm*VT100.Translations: #override \
                           Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 
 !! Colors ==============================
-*background:  #212132
+*background:  #282C34
 *foreground:  #E5E5E5
 *cursorColor: #FA71B1
 *color0:      #212132

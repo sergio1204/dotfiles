@@ -21,7 +21,7 @@
     urgent-background:           var(background);
     selected-normal-foreground:  #121F2C;
     active-foreground:           var(blue);
-    background:                  #212132;
+    background:                  #282C34;
     selected-active-background:  var(blue);
     active-background:           var(background);
     selected-normal-background:  var(lightfg);
