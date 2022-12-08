@@ -78,7 +78,7 @@ for_window [class="(?i)quodlibet"]            move container to workspace $ws3, 
 for_window [class="(?i)audacity"]             move container to workspace $ws3, workspace $ws3
 for_window [class="(?i)mpv"]                  move container to workspace $ws4, workspace $ws4
 for_window [class="(?i)geany"]                move container to workspace $ws5, workspace $ws5
-for_window [class="(?i)gvim"]                 move container to workspace $ws5, workspace $ws5
+for_window [class="(?i)xterm" title="vim"]    move container to workspace $ws5, workspace $ws5
 for_window [class="(?i)xterm" title="xterm"]  move container to workspace $ws6, workspace $ws6
 for_window [class="(?i)gimp"]                 move container to workspace $ws7, workspace $ws7
 for_window [class="(?i)picard"]               move container to workspace $ws8, workspace $ws8
@@ -179,7 +179,7 @@ bindsym $mod+c               exec --no-startup-id firefox
 bindsym $mod+d               exec --no-startup-id quodlibet
 bindsym $mod+Shift+d         exec --no-startup-id quodlibet --play-pause
 bindsym $mod+Shift+Return    exec --no-startup-id geany
-bindsym $mod+Shift+backslash exec --no-startup-id gvim
+bindsym $mod+Shift+backslash exec --no-startup-id xterm -e vim
 bindsym $mod+v               exec --no-startup-id zenity --calendar
 
 # printscreen ====================================================================

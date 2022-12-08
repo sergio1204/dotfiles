@@ -100,7 +100,7 @@ keys = [
     Key([mod], "d", lazy.spawn("quodlibet")),
     Key([mod, "shift"], "d", lazy.spawn("quodlibet --play-pause")),
     Key([mod, "shift"], "Return", lazy.spawn("geany")),
-    Key([mod, "shift"], "backslash", lazy.spawn("gvim")),
+    Key([mod, "shift"], "backslash", lazy.spawn("xterm -e vim")),
     Key([mod], "v", lazy.spawn("zenity --calendar")),
 ]
 
@@ -123,7 +123,8 @@ groups = [
     ),
     Group(
         "5",
-        Match(wm_class=["geany", "gvim"]),
+        [Match(wm_class="xterm", title="vim"),
+        Match(wm_class="geany")],
     ),
     Group(
         "6",

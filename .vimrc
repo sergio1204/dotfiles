@@ -1,6 +1,3 @@
-" gvim font ==========================
-set guifont=JetBrains\ Mono\ 10
-
 " clipboard setting ==================
 set clipboard=unnamedplus
 
