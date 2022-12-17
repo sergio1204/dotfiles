@@ -45,6 +45,9 @@ autocmd InsertLeave * set nocul
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
+" write with sudo
+cmap w!! w !sudo tee > /dev/null %
+
 " airLine ============================
 let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1
