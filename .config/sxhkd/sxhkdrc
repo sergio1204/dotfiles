@@ -175,9 +175,6 @@ super + c
 super + x
     xterm -name ranger -e ranger
 
-super + shift + x
-    pcmanfm-qt
-
 super + shift + Return
     geany
 
@@ -189,6 +186,3 @@ super + d
 
 super + shift + d
     quodlibet --play-pause
-
-super + v
-    zenity --calendar

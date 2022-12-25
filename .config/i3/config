@@ -54,7 +54,7 @@ bindsym $mod+Shift+Right move right
 
 # horizontal / vertical ========================
 bindsym $mod+h split h
-bindsym $mod+b split v
+bindsym $mod+v split v
 
 # stacking / tabbed ============================
 bindsym $mod+Shift+w layout stacking
@@ -174,13 +174,11 @@ bindsym $mod+Shift+m exec --no-startup-id systemctl poweroff
 # apps binds =====================================================================
 bindsym $mod+Return          exec --no-startup-id xterm
 bindsym $mod+x               exec --no-startup-id xterm -e ranger
-bindsym $mod+Shift+x         exec --no-startup-id pcmanfm-qt
 bindsym $mod+c               exec --no-startup-id firefox
 bindsym $mod+d               exec --no-startup-id quodlibet
 bindsym $mod+Shift+d         exec --no-startup-id quodlibet --play-pause
 bindsym $mod+Shift+Return    exec --no-startup-id geany
 bindsym $mod+Shift+backslash exec --no-startup-id xterm -e vim
-bindsym $mod+v               exec --no-startup-id zenity --calendar
 
 # printscreen ====================================================================
 bindsym Print       --release exec --no-startup-id scrot -s ~/Pictures/`date +%Y-%m-%d_%H:%M:%S`.png
