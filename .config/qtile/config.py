@@ -38,6 +38,10 @@ def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.run([home])
 
+@hook.subscribe.group_window_add
+def switchtogroup(group, window):
+    group.cmd_toscreen()
+
 mod = "mod4"
 alt = "mod1"
 
