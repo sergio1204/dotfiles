@@ -72,19 +72,18 @@ bindsym $mod+Shift+space focus mode_toggle
 floating_modifier $mod
 
 # apps attached for the workspace ====================================
-for_window [class="(?i)firefox"]              move container to workspace $ws1, workspace $ws1
-for_window [class="(?i)xterm" title="ranger"] move container to workspace $ws2, workspace $ws2
-for_window [class="(?i)quodlibet"]            move container to workspace $ws3, workspace $ws3
-for_window [class="(?i)audacity"]             move container to workspace $ws3, workspace $ws3
-for_window [class="(?i)mpv"]                  move container to workspace $ws4, workspace $ws4
-for_window [class="(?i)geany"]                move container to workspace $ws5, workspace $ws5
-for_window [class="(?i)xterm" title="vim"]    move container to workspace $ws5, workspace $ws5
-for_window [class="(?i)xterm" title="xterm"]  move container to workspace $ws6, workspace $ws6
-for_window [class="(?i)gimp"]                 move container to workspace $ws7, workspace $ws7
-for_window [class="(?i)picard"]               move container to workspace $ws8, workspace $ws8
-for_window [class="(?i)steam"]                floating enable, move container to workspace $ws9, workspace $ws9
-for_window [class="(?i)feh"]                  floating enable
-for_window [class="(?i)xcalc"]                floating enable
+for_window [class="(?i)firefox"]                    move container to workspace $ws1, workspace $ws1
+for_window [class="(?i)st-256color" title="ranger"] move container to workspace $ws2, workspace $ws2
+for_window [class="(?i)quodlibet"]                  move container to workspace $ws3, workspace $ws3
+for_window [class="(?i)audacity"]                   move container to workspace $ws3, workspace $ws3
+for_window [class="(?i)mpv"]                        move container to workspace $ws4, workspace $ws4
+for_window [class="(?i)st-256color" title="vim"]    move container to workspace $ws5, workspace $ws5
+for_window [class="(?i)st-256color" title="st"]     move container to workspace $ws6, workspace $ws6
+for_window [class="(?i)gimp"]                       move container to workspace $ws7, workspace $ws7
+for_window [class="(?i)picard"]                     move container to workspace $ws8, workspace $ws8
+for_window [class="(?i)steam"]                      floating enable, move container to workspace $ws9, workspace $ws9
+for_window [class="(?i)feh"]                        floating enable
+for_window [class="(?i)xcalc"]                      floating enable
 
 # set workspace ======================================================
 set $ws1 "1"
@@ -171,14 +170,15 @@ bindsym $mod+Shift+l exec --no-startup-id i3-msg exit
 bindsym $mod+Shift+k exec --no-startup-id systemctl reboot
 bindsym $mod+Shift+m exec --no-startup-id systemctl poweroff
 
+# terminal =======================================================================
+bindsym $mod+Return          exec --no-startup-id st
+bindsym $mod+x               exec --no-startup-id st -e ranger
+bindsym $mod+Shift+backslash exec --no-startup-id st -e vim
+
 # apps binds =====================================================================
-bindsym $mod+Return          exec --no-startup-id xterm
-bindsym $mod+x               exec --no-startup-id xterm -e ranger
 bindsym $mod+c               exec --no-startup-id firefox
 bindsym $mod+d               exec --no-startup-id quodlibet
 bindsym $mod+Shift+d         exec --no-startup-id quodlibet --play-pause
-bindsym $mod+Shift+Return    exec --no-startup-id geany
-bindsym $mod+Shift+backslash exec --no-startup-id xterm -e vim
 
 # printscreen ====================================================================
 bindsym Print       --release exec --no-startup-id scrot -s ~/Pictures/`date +%Y-%m-%d_%H:%M:%S`.png

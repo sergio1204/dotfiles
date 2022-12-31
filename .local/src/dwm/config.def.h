@@ -39,7 +39,6 @@ static const Rule rules[] = {
     { "Quodlibet",  NULL,       NULL,       1 << 2,      1,            0,           -1 },
     { "Audacity",   NULL,       NULL,       1 << 2,      1,            0,           -1 },
     { "mpv",        NULL,       NULL,       1 << 3,      1,            0,           -1 },
-    { "Geany",      NULL,       NULL,       1 << 4,      1,            0,           -1 },
     { "st",         NULL,       "vim",      1 << 4,      1,            0,           -1 },
     { "st",         NULL,       "st",       1 << 5,      1,            0,           -1 },
     { "Gimp",       NULL,       NULL,       1 << 6,      1,            0,           -1 },
@@ -76,14 +75,14 @@ static const Layout layouts[]   = {
 static char dmenumon[2]             = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]       = { "dmenu_run", "-m", dmenumon, NULL };
 static const char *rofidruncmd[]    = { "rofi", "-show", "drun", NULL };
-/* apps hotkeys ================================================================================*/
+/* terminal ====================================================================================*/
 static const char *termcmd[]        = { "st", NULL };
-static const char *firefoxcmd[]     = { "firefox", NULL };
 static const char *rangercmd[]      = { "st", "-e", "ranger", NULL };
+static const char *vimcmd[]         = { "st", "-e", "vim", NULL };
+/* apps hotkeys ================================================================================*/
+static const char *firefoxcmd[]     = { "firefox", NULL };
 static const char *quodlibetcmd[]   = { "quodlibet", NULL };
 static const char *quodlibetppcmd[] = { "quodlibet", "--play-pause", NULL };
-static const char *geanycmd[]       = { "geany", NULL };
-static const char *vimcmd[]         = { "st", "-e", "vim", NULL };
 static const char *dunsthistcmd[]   = { "dunstctl", "history-pop", NULL };
 static const char *dunstclosecmd[]  = { "dunstctl", "close-all", NULL };
 /* volume control ==============================================================================*/
@@ -106,14 +105,14 @@ static const Key keys[]             = {
     /* dmenu / rofi ============================================================================*/
     { MODKEY,                       XK_z,            spawn,            {.v = dmenucmd } },
     { MODKEY|ShiftMask,             XK_z,            spawn,            {.v = rofidruncmd } },
-    /* apps hotkeys ============================================================================*/
+    /* terminal ================================================================================*/
     { MODKEY,                       XK_Return,       spawn,            {.v = termcmd } },
-    { MODKEY,                       XK_c,            spawn,            {.v = firefoxcmd } },
     { MODKEY,                       XK_x,            spawn,            {.v = rangercmd } },
+    { MODKEY|ShiftMask,             XK_backslash,    spawn,            {.v = vimcmd } },
+    /* apps hotkeys ============================================================================*/
+    { MODKEY,                       XK_c,            spawn,            {.v = firefoxcmd } },
     { MODKEY,                       XK_d,            spawn,            {.v = quodlibetcmd } },
     { MODKEY|ShiftMask,             XK_d,            spawn,            {.v = quodlibetppcmd } },
-    { MODKEY|ShiftMask,             XK_Return,       spawn,            {.v = geanycmd } },
-    { MODKEY|ShiftMask,             XK_backslash,    spawn,            {.v = vimcmd } },
     { MODKEY,                       XK_u,            spawn,            {.v = dunsthistcmd } },
     { MODKEY|ShiftMask,             XK_u,            spawn,            {.v = dunstclosecmd } },
     /* volume control ==========================================================================*/

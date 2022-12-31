@@ -166,20 +166,17 @@ super + shift + z
 
 # terminal
 super + Return
-    xterm -name xterm
+    st -n st
+
+super + x
+    st -n ranger -e ranger
+
+super + shift + backslash
+    st -n vim -e vim
 
 # apps hotkeys
 super + c
     firefox
-
-super + x
-    xterm -name ranger -e ranger
-
-super + shift + Return
-    geany
-
-super + shift + backslash
-    xterm -name vim -e vim
 
 super + d
     quodlibet

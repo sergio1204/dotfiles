@@ -16,7 +16,6 @@ XTerm*termName:           xterm-256color
 XTerm*faceName:           JetBrains Mono
 XTerm*faceSize:           10
 XTerm*borderWidth:        0
-XTerm*cursorBlink:        true
 XTerm*scrollBar:          false
 XTerm*alternateScroll:    true
 XTerm*fastScroll:         true

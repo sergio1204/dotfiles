@@ -96,14 +96,14 @@ keys = [
     # Picom ==========================================================
     Key([mod], "p", lazy.spawn("picom &")),
     Key([mod, "shift"], "p", lazy.spawn("killall picom")),
+    # Terminal =======================================================
+    Key([mod], "Return", lazy.spawn("st")),
+    Key([mod], "x", lazy.spawn("st -e ranger")),
+    Key([mod, "shift"], "backslash", lazy.spawn("st -e vim")),
     # Apps keys ======================================================
     Key([mod], "c", lazy.spawn("firefox")),
-    Key([mod], "Return", lazy.spawn("xterm")),
-    Key([mod], "x", lazy.spawn("xterm -e ranger")),
     Key([mod], "d", lazy.spawn("quodlibet")),
     Key([mod, "shift"], "d", lazy.spawn("quodlibet --play-pause")),
-    Key([mod, "shift"], "Return", lazy.spawn("geany")),
-    Key([mod, "shift"], "backslash", lazy.spawn("xterm -e vim")),
 ]
 
 groups = [
@@ -113,7 +113,7 @@ groups = [
     ),
     Group(
         "2",
-        Match(wm_class="xterm", title="ranger"),
+        Match(wm_class="st-256color", title="ranger"),
     ),
     Group(
         "3",
@@ -125,12 +125,11 @@ groups = [
     ),
     Group(
         "5",
-        [Match(wm_class="xterm", title="vim"),
-        Match(wm_class="geany")],
+        Match(wm_class="st-256color", title="vim"),
     ),
     Group(
         "6",
-        Match(wm_class="xterm", title="xterm"),
+        Match(wm_class="st-256color", title="st"),
     ),
     Group(
         "7",
@@ -159,14 +158,16 @@ for i in groups:
 
 layouts = [
     layout.Columns(
-        name="col",
+        name="tile",
         insert_position=1,
         border_focus="#4B7093",
         border_focus_stack="#FFA500",
-        border_normal="#282C34",
+        border_normal="#23252e",
         border_width=3,
     ),
-    # layout.Max(),
+    layout.Max(
+        name="mono",
+    ),
     # layout.Stack(),
     # layout.Bsp(),
     # layout.Matrix(),
@@ -174,16 +175,7 @@ layouts = [
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
-    layout.TreeTab(
-        name="tab",
-        panel_width=200,
-        font="Noto Sans",
-        fontsize=12,
-        section_fontsize=10,
-        bg_color="#282C34",
-        active_bg="#2B6AA7",
-        inactive_bg="#282C34",
-    ),
+    # layout.TreeTab(
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
@@ -201,10 +193,6 @@ screens = [
         wallpaper_mode="fill",
         top=bar.Bar(
             [
-                widget.CurrentLayout(
-                    foreground="#F16E88",
-                    padding=5,
-                ),
                 widget.GroupBox(
                     disable_drag="True",
                     highlight_method="line",
@@ -213,6 +201,10 @@ screens = [
                     invert_mouse_wheel="True",
                     this_current_screen_border="#F574E8",
                     margin=5,
+                    padding=5,
+                ),
+                widget.CurrentLayout(
+                    foreground="#F16E88",
                     padding=5,
                 ),
                 widget.WindowName(
@@ -258,7 +250,7 @@ screens = [
                 ),
             ],
             24,
-            background="#282C34",
+            background="#23252e",
         )
     )
 ]
