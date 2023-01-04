@@ -1,4 +1,4 @@
-" clipboard setting ==================
+" clipboard settings =================
 set clipboard=unnamedplus
 
 " syntax highlighting ================
@@ -11,6 +11,10 @@ filetype indent on
 " mouse and number ===================
 set mouse=a
 set number
+
+" split settings =====================
+set splitright
+set splitbelow
 
 " vim colorscheme ====================
 colorscheme onedark
