@@ -41,6 +41,10 @@ super + {t,shift + t,e,f}
 super + ctrl + {m,x,y,z}
     bspc node -g {marked,locked,sticky,private}
 
+# toggle between horizontal and vertical split
+super + {_,shift +}s
+    bspc node @parent -R {90,-90}
+
 #=======================
 #==== focus / swap =====
 #=======================
@@ -166,13 +170,13 @@ super + shift + z
 
 # terminal
 super + Return
-    st -n st
+    alacritty
 
 super + x
-    st -n ranger -e ranger
+    alacritty --class ranger -e ranger
 
 super + shift + backslash
-    st -n vim -e vim
+    alacritty --class vim -e vim
 
 # apps hotkeys
 super + c

@@ -10,24 +10,24 @@ bspc config window_gap   0
 bspc config focused_border_color "#4B7093"
 bspc config normal_border_color  "#23252e"
 
-bspc config split_ratio           0.5
+bspc config split_ratio           0.6
 bspc config borderless_monocle    true
 bspc config gapless_monocle       true
 bspc config focus_follows_pointer true
 bspc config single_monocle        true
 
-bspc rule -a firefox              desktop='^1' follow=on
-bspc rule -a "st-256color:ranger" desktop='^2' follow=on
-bspc rule -a Quodlibet            desktop='^3' follow=on
-bspc rule -a Audacity             desktop='^3' follow=on
-bspc rule -a mpv                  desktop='^4' follow=on
-bspc rule -a "st-256color:vim"    desktop='^5' follow=on
-bspc rule -a "st-256color:st"     desktop='^6' follow=on
-bspc rule -a Gimp-2.10            desktop='^7' follow=on
-bspc rule -a Picard               desktop='^8' follow=on
-bspc rule -a Steam                desktop='^9' follow=on state=floating
-bspc rule -a feh                  state=floating
-bspc rule -a XCalc                state=floating
+bspc rule -a firefox    desktop='^1' follow=on
+bspc rule -a ranger     desktop='^2' follow=on
+bspc rule -a Quodlibet  desktop='^3' follow=on
+bspc rule -a Audacity   desktop='^3' follow=on
+bspc rule -a mpv        desktop='^4' follow=on
+bspc rule -a vim        desktop='^5' follow=on
+bspc rule -a Alacritty  desktop='^6' follow=on
+bspc rule -a Gimp-2.10  desktop='^7' follow=on
+bspc rule -a Picard     desktop='^8' follow=on
+bspc rule -a Steam      desktop='^9' follow=on state=floating
+bspc rule -a feh        state=floating
+bspc rule -a XCalc      state=floating
 
 setxkbmap -layout us,ru -option grp:alt_shift_toggle &
 xsetroot -cursor_name left_ptr &

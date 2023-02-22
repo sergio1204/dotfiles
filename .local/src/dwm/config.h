@@ -43,13 +43,13 @@ static const Rule rules[] = {
     { "st",         NULL,       "st",       1 << 5,      1,            0,           -1 },
     { "Gimp",       NULL,       NULL,       1 << 6,      1,            0,           -1 },
     { "Picard",     NULL,       NULL,       1 << 7,      1,            0,           -1 },
-    { "Steam",      NULL,       NULL,       1 << 8,      0,            1,           -1 },
+    { "Steam",      NULL,       NULL,       1 << 8,      1,            1,           -1 },
     { "feh",        NULL,       NULL,       0,           0,            1,           -1 },
     { "XCalc",      NULL,       NULL,       0,           0,            1,           -1 },
 };
 
 /* layout(s) ===================================================================================*/
-static const float mfact        = 0.50; /* factor of master area size [0.05..0.95] */
+static const float mfact        = 0.40; /* factor of master area size [0.05..0.95] */
 static const int nmaster        = 1;   /* number of clients in master area */
 static const int resizehints    = 0;  /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
