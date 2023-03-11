@@ -81,8 +81,10 @@ keys = [
     # Brightness =====================================================
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s +10%")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 10%-")),
-    # Lockscreen =====================================================
+    # Lockscreen / Printscreen =======================================
     Key([mod], "l", lazy.spawn("i3lock -i /home/sergey/Pictures/soty.png")),
+    Key([], "Print", lazy.spawn("scrot -s")),
+    Key(["shift"], "Print", lazy.spawn("scrot -d 1")),
     # Reboot / Poweroff / Logout =====================================
     Key([mod, "shift"], "k", lazy.spawn("systemctl reboot")),
     Key([mod, "shift"], "m", lazy.spawn("systemctl poweroff")),
@@ -94,12 +96,12 @@ keys = [
     Key([mod], "z", lazy.spawn("rofi -show drun")),
     Key([mod, "shift"], "z", lazy.spawn("rofi -show run")),
     # Picom ==========================================================
-    Key([mod], "p", lazy.spawn("picom &")),
-    Key([mod, "shift"], "p", lazy.spawn("killall picom")),
+    Key([mod], "p", lazy.spawn("picom")),
+    Key([mod, "shift"], "p", lazy.spawn("killall -q picom")),
     # Terminal =======================================================
-    Key([mod], "Return", lazy.spawn("st")),
-    Key([mod], "x", lazy.spawn("st -e ranger")),
-    Key([mod, "shift"], "backslash", lazy.spawn("st -e vim")),
+    Key([mod], "Return", lazy.spawn("alacritty")),
+    Key([mod], "x", lazy.spawn("alacritty --class ranger -e ranger")),
+    Key([mod, "shift"], "backslash", lazy.spawn("alacritty --class vim -e vim")),
     # Apps keys ======================================================
     Key([mod], "c", lazy.spawn("firefox")),
     Key([mod], "d", lazy.spawn("quodlibet")),
@@ -113,7 +115,7 @@ groups = [
     ),
     Group(
         "2",
-        Match(wm_class="st-256color", title="ranger"),
+        Match(wm_class="ranger"),
     ),
     Group(
         "3",
@@ -125,11 +127,11 @@ groups = [
     ),
     Group(
         "5",
-        Match(wm_class="st-256color", title="vim"),
+        Match(wm_class="vim"),
     ),
     Group(
         "6",
-        Match(wm_class="st-256color", title="st"),
+        Match(wm_class="Alacritty"),
     ),
     Group(
         "7",

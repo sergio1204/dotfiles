@@ -58,8 +58,8 @@ super + {_,shift + }{Left,Down,Up,Right}
     bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-super + {p,b,comma,period}
-    bspc node -f @{parent,brother,first,second}
+#super + {p,b,comma,period}
+#    bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }a
@@ -156,10 +156,10 @@ XF86MonBrightnessDown
 
 # printscreen
 Print
-    scrot -s ~/Pictures/`date +%Y-%m-%d_%H:%M:%S`.png
+    scrot -s
 
 shift + Print
-    scrot -d 1 ~/Pictures/`date +%Y-%m-%d_%H:%M:%S`.png
+    scrot -d 1
 
 # rofi
 super + z
@@ -187,3 +187,9 @@ super + d
 
 super + shift + d
     quodlibet --play-pause
+
+super + p
+    picom &
+
+super + shift + p
+    killall -q picom

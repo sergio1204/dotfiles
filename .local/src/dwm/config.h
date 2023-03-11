@@ -85,6 +85,8 @@ static const char *quodlibetcmd[]   = { "quodlibet", NULL };
 static const char *quodlibetppcmd[] = { "quodlibet", "--play-pause", NULL };
 static const char *dunsthistcmd[]   = { "dunstctl", "history-pop", NULL };
 static const char *dunstclosecmd[]  = { "dunstctl", "close-all", NULL };
+static const char *picomencmd[]     = { "picom", NULL };
+static const char *picomdiscmd[]    = { "killall", "-q", "picom", NULL };
 /* volume control ==============================================================================*/
 static const char *volupcmd[]       = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL };
 static const char *voldowncmd[]     = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL };
@@ -115,6 +117,8 @@ static const Key keys[]             = {
     { MODKEY|ShiftMask,             XK_d,            spawn,            {.v = quodlibetppcmd } },
     { MODKEY,                       XK_u,            spawn,            {.v = dunsthistcmd } },
     { MODKEY|ShiftMask,             XK_u,            spawn,            {.v = dunstclosecmd } },
+    { MODKEY,                       XK_p,            spawn,            {.v = picomencmd } },
+    { MODKEY|ShiftMask,             XK_p,            spawn,            {.v = picomdiscmd } },
     /* volume control ==========================================================================*/
     { 0,                 XF86XK_AudioRaiseVolume,    spawn,            {.v = volupcmd } },
     { 0,                 XF86XK_AudioLowerVolume,    spawn,            {.v = voldowncmd } },
