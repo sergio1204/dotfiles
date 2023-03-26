@@ -61,17 +61,18 @@ keys = [
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
     # Grow / Shrink / Normalize / Maximize ===========================
-    Key([mod, "control"], "Left", lazy.layout.grow_left()),
-    Key([mod, "control"], "Right", lazy.layout.grow_right()),
+    Key([mod, "control"], "Left", lazy.layout.shrink_main()),
+    Key([mod, "control"], "Right", lazy.layout.grow_main()),
     Key([mod, "control"], "Down", lazy.layout.grow_down()),
     Key([mod, "control"], "Up", lazy.layout.grow_up()),
-    Key([mod], "n", lazy.layout.normalize()),
-    # Split / Floating / Fullscreen ==================================
-    Key([mod], "s", lazy.layout.toggle_split()),
+    Key([mod], "n", lazy.layout.reset()),
+    Key([mod], "b", lazy.layout.maximize()),
+    # Flip / Floating / Fullscreen ==================================
+    Key([mod], "g", lazy.layout.flip()),
     Key([mod], "e", lazy.window.toggle_floating()),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     # Next layout / Kill / Reload ====================================
-    Key([mod], "w", lazy.next_layout()),
+    Key([mod], "s", lazy.next_layout()),
     Key([mod], "q", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.reload_config()),
     # Volume control =================================================
@@ -106,6 +107,7 @@ keys = [
     Key([mod], "c", lazy.spawn("firefox")),
     Key([mod], "d", lazy.spawn("quodlibet")),
     Key([mod, "shift"], "d", lazy.spawn("quodlibet --play-pause")),
+    Key([mod], "v", lazy.spawn("zenity --calendar")),
 ]
 
 groups = [
@@ -159,22 +161,26 @@ for i in groups:
 )
 
 layouts = [
-    layout.Columns(
-        name="tile",
-        insert_position=1,
-        border_focus="#4B7093",
-        border_focus_stack="#FFA500",
-        border_normal="#23252e",
-        border_width=3,
-    ),
-    layout.Max(
-        name="mono",
-    ),
+    # layout.Columns(),
+    # layout.Max(),
     # layout.Stack(),
     # layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
+    layout.MonadTall(
+        name="tall",
+        border_focus="#4B7093",
+        border_normal="#23252e",
+        border_width=3,
+        ratio=0.6,
+        single_border_width=False,
+    ),
+    layout.MonadWide(
+        name="wide",
+        border_focus="#4B7093",
+        border_normal="#23252e",
+        border_width=3,
+        single_border_width=False,
+    ),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(

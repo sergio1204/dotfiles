@@ -87,6 +87,7 @@ static const char *dunsthistcmd[]   = { "dunstctl", "history-pop", NULL };
 static const char *dunstclosecmd[]  = { "dunstctl", "close-all", NULL };
 static const char *picomencmd[]     = { "picom", NULL };
 static const char *picomdiscmd[]    = { "killall", "-q", "picom", NULL };
+static const char *zenitycalcmd[]    = { "zenity", "--calendar", NULL };
 /* volume control ==============================================================================*/
 static const char *volupcmd[]       = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL };
 static const char *voldowncmd[]     = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL };
@@ -119,6 +120,7 @@ static const Key keys[]             = {
     { MODKEY|ShiftMask,             XK_u,            spawn,            {.v = dunstclosecmd } },
     { MODKEY,                       XK_p,            spawn,            {.v = picomencmd } },
     { MODKEY|ShiftMask,             XK_p,            spawn,            {.v = picomdiscmd } },
+    { MODKEY,                       XK_v,            spawn,            {.v = zenitycalcmd } },
     /* volume control ==========================================================================*/
     { 0,                 XF86XK_AudioRaiseVolume,    spawn,            {.v = volupcmd } },
     { 0,                 XF86XK_AudioLowerVolume,    spawn,            {.v = voldowncmd } },

@@ -193,3 +193,6 @@ super + p
 
 super + shift + p
     killall -q picom
+
+super + v
+    zenity --calendar
