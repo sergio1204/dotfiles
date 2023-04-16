@@ -1,3 +1,18 @@
 [submodule ".config/ranger/plugins/ranger_udisk_menu"]
 	path = .config/ranger/plugins/ranger_udisk_menu
 	url = https://github.com/SL-RU/ranger_udisk_menu.git
+[submodule ".vim/pack/*/start/Colorizer"]
+	path = .vim/pack/*/start/Colorizer
+	url = https://github.com/chrisbra/Colorizer.git
+[submodule ".vim/pack/*/start/nerdtree"]
+	path = .vim/pack/*/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule ".vim/pack/*/start/onedark.vim"]
+	path = .vim/pack/*/start/onedark.vim
+	url = https://github.com/joshdick/onedark.vim.git
+[submodule ".vim/pack/*/start/vim-airline"]
+	path = .vim/pack/*/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule ".vim/pack/*/start/vim-airline-themes"]
+	path = .vim/pack/*/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
