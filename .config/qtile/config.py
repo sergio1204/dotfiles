@@ -245,8 +245,11 @@ screens = [
                 ),
                 widget.Battery(
                     foreground="#88EE9A",
-                    fmt=" {}",
-                    #format="{percent:2.0%}",
+                    full_char=" ",
+                    charge_char=" ",
+                    discharge_char=" ",
+                    format="{char}{percent:2.0%}",
+                    show_short_text=None,
                     padding=10,
                 ),
                 widget.Clock(
@@ -304,4 +307,4 @@ reconfigure_screens = True
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
-wmname = "LG3D"
+wmname = "qtile"
