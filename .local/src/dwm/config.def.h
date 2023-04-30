@@ -87,7 +87,7 @@ static const char *dunsthistcmd[]   = { "dunstctl", "history-pop", NULL };
 static const char *dunstclosecmd[]  = { "dunstctl", "close-all", NULL };
 static const char *picomencmd[]     = { "picom", NULL };
 static const char *picomdiscmd[]    = { "killall", "-q", "picom", NULL };
-static const char *zenitycalcmd[]    = { "zenity", "--calendar", NULL };
+static const char *zenitycalcmd[]   = { "zenity", "--calendar", NULL };
 /* volume control ==============================================================================*/
 static const char *volupcmd[]       = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL };
 static const char *voldowncmd[]     = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL };
@@ -137,6 +137,7 @@ static const Key keys[]             = {
     { MODKEY|ShiftMask,             XK_m,            spawn,            {.v = poweroffcmd } },
     { MODKEY|ShiftMask,             XK_l,            quit,             {0} },
     /* other hotkeys ===========================================================================*/
+    { MODKEY,                       XK_f,            fullscreen,       {0} },
     { MODKEY,                       XK_b,            togglebar,        {0} },
     { MODKEY,                       XK_a,            focusstack,       {.i = +1 } },
     { MODKEY|ShiftMask,             XK_a,            focusstack,       {.i = -1 } },
