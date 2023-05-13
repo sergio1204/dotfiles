@@ -222,6 +222,7 @@ screens = [
                 widget.Volume(
                     foreground="#CDDC45",
                     fmt=" {}",
+                    step=5,
                     padding=5,
                 ),
                 widget.Memory(
@@ -296,7 +297,7 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
     ],
-    border_focus="#923868",
+    border_focus="#ac4142",
     border_width=3,
 )
 

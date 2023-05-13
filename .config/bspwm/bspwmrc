@@ -29,7 +29,7 @@ bspc rule -a Steam      desktop='^9' follow=on state=floating
 bspc rule -a feh        state=floating
 bspc rule -a XCalc      state=floating
 
-setxkbmap -layout us,ru -option grp:alt_shift_toggle &
+setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:caps &
 xsetroot -cursor_name left_ptr &
 feh --bg-scale /home/sergey/Pictures/borda2.jpg &
 killall -q picom; picom &

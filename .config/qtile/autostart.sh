@@ -1,5 +1,5 @@
 #!/bin/sh
 
-setxkbmap -layout us,ru -option grp:alt_shift_toggle &
+setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:caps &
 killall -q picom; picom &
 gxkb &
