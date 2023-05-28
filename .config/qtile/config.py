@@ -46,33 +46,37 @@ mod = "mod4"
 alt = "mod1"
 
 keys = [
-    # Switch focus between windows and groups ========================
+    # Switch focus between windows ===================================
     Key([mod], "Left", lazy.layout.left()),
     Key([mod], "Right", lazy.layout.right()),
     Key([mod], "Down", lazy.layout.down()),
     Key([mod], "Up", lazy.layout.up()),
     Key([mod], "a", lazy.group.next_window()),
+    Key([mod, "shift"], "a", lazy.group.prev_window()),
+    # Switch focus between groups ====================================
     Key([mod], "Tab", lazy.screen.next_group(skip_empty=True)),
     Key([mod], "grave", lazy.screen.prev_group(skip_empty=True)),
     Key([mod, "shift"], "Tab", lazy.screen.toggle_group()),
-    # Move focused  window ===========================================
+    # Move focused  windows ==========================================
     Key([mod, "shift"], "Left", lazy.layout.shuffle_left()),
     Key([mod, "shift"], "Right", lazy.layout.shuffle_right()),
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
-    # Grow / Shrink / Normalize / Maximize ===========================
-    Key([mod, "control"], "Left", lazy.layout.shrink_main()),
-    Key([mod, "control"], "Right", lazy.layout.grow_main()),
+    # Swap columns ===================================================
+    Key([mod], "g", lazy.layout.swap_column_left()),
+    Key([mod, "shift"], "g", lazy.layout.swap_column_right()),
+    # Grow / Normalize ===============================================
+    Key([mod, "control"], "Left", lazy.layout.grow_left()),
+    Key([mod, "control"], "Right", lazy.layout.grow_right()),
     Key([mod, "control"], "Down", lazy.layout.grow_down()),
     Key([mod, "control"], "Up", lazy.layout.grow_up()),
-    Key([mod], "n", lazy.layout.reset()),
-    Key([mod], "b", lazy.layout.maximize()),
-    # Flip / Floating / Fullscreen ==================================
-    Key([mod], "g", lazy.layout.flip()),
+    Key([mod], "n", lazy.layout.normalize()),
+    # Split / Floating / Fullscreen ==================================
+    Key([mod], "s", lazy.layout.toggle_split()),
     Key([mod], "e", lazy.window.toggle_floating()),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     # Next layout / Kill / Reload ====================================
-    Key([mod], "s", lazy.next_layout()),
+    Key([mod], "w", lazy.next_layout()),
     Key([mod], "q", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.reload_config()),
     # Volume control =================================================
@@ -161,31 +165,19 @@ for i in groups:
 )
 
 layouts = [
-    # layout.Columns(),
-    # layout.Max(),
-    # layout.Stack(),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    layout.MonadTall(
-        name="tall",
+    layout.Columns(
+        name="tile",
         border_focus="#4B7093",
         border_normal="#23252e",
+        border_focus_stack="#e18410",
+        border_normal_stack="#7d670d",
+        grow_amount=20,
+        insert_position=1,
         border_width=3,
-        ratio=0.6,
-        single_border_width=False,
     ),
-    layout.MonadWide(
-        name="wide",
-        border_focus="#4B7093",
-        border_normal="#23252e",
-        border_width=3,
-        single_border_width=False,
+     layout.Max(
+         name="mono",
     ),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 widget_defaults=dict(
@@ -197,8 +189,6 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper="~/Pictures/borda2.jpg",
-        wallpaper_mode="fill",
         top=bar.Bar(
             [
                 widget.GroupBox(
@@ -217,6 +207,7 @@ screens = [
                 ),
                 widget.WindowName(
                     foreground="#AAC9F1",
+                    max_chars=100,
                     padding=10,
                 ),
                 widget.Volume(
@@ -263,11 +254,11 @@ screens = [
             ],
             24,
             background="#23252e",
-        )
-    )
+        ),
+    ),
 ]
 
-# Drag floating layouts 
+# Drag floating layouts
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
         start=lazy.window.get_position(),
@@ -275,7 +266,8 @@ mouse = [
     Drag([mod], "Button3", lazy.window.set_size_floating(),
         start=lazy.window.get_size(),
     ),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Click([mod], "Button2", lazy.window.bring_to_front(),
+    ),
 ]
 
 dgroups_key_binder = None

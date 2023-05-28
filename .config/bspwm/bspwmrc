@@ -10,7 +10,7 @@ bspc config window_gap   0
 bspc config focused_border_color "#4B7093"
 bspc config normal_border_color  "#23252e"
 
-bspc config split_ratio           0.6
+bspc config split_ratio           0.5
 bspc config borderless_monocle    true
 bspc config gapless_monocle       true
 bspc config focus_follows_pointer true
@@ -29,8 +29,5 @@ bspc rule -a Steam      desktop='^9' follow=on state=floating
 bspc rule -a feh        state=floating
 bspc rule -a XCalc      state=floating
 
-setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:caps &
 xsetroot -cursor_name left_ptr &
-feh --bg-scale /home/sergey/Pictures/borda2.jpg &
-killall -q picom; picom &
 $HOME/.config/polybar/launch.sh

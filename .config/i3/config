@@ -197,8 +197,5 @@ bindsym $mod+z       exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+z exec --no-startup-id rofi -show run
 
 # autostart ======================================================================
-exec        --no-startup-id setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:caps &
-exec        --no-startup-id feh --bg-scale /home/sergey/Pictures/borda2.jpg &
-exec        --no-startup-id killall -q picom; picom &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec        --no-startup-id gxkb &
