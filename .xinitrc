@@ -17,8 +17,8 @@ picom &
 # start WM =====================================
 #exec bspwm
 #exec i3
-#exec qtile start
-exec dwm
+exec qtile start
+#exec dwm
 #while true; do
 #    # Log stderror
 #    dwm 2> ~/.dwm.log
