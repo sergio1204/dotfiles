@@ -137,7 +137,7 @@ static const Key keys[]             = {
     { MODKEY|ShiftMask,             XK_m,            spawn,            {.v = poweroffcmd } },
     { MODKEY|ShiftMask,             XK_l,            quit,             {0} },
     /* other hotkeys ===========================================================================*/
-    { MODKEY,                       XK_f,            fullscreen,       {0} },
+    { MODKEY,                       XK_f,            togglefullscr,    {0} },
     { MODKEY,                       XK_b,            togglebar,        {0} },
     { MODKEY,                       XK_a,            focusstack,       {.i = +1 } },
     { MODKEY|ShiftMask,             XK_a,            focusstack,       {.i = -1 } },
