@@ -14,10 +14,10 @@ feh --bg-scale /home/sergey/Pictures/borda2.jpg &
 picom &
 
 # start WM =====================================
-#exec bspwm
+exec bspwm 2> ~/.bspwm.log
 #exec i3
 #exec qtile start
-exec dwm 2> ~/.dwm.log
+#exec dwm 2> ~/.dwm.log
 #while true; do
 #    # Log stderror
 #    dwm 2> ~/.dwm.log

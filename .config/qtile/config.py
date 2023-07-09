@@ -114,49 +114,28 @@ keys = [
         "Up",
         lazy.layout.shuffle_up(),
     ),
-    # Swap columns =====================================
-    Key(
-        [mod],
-        "g",
-        lazy.layout.swap_column_left(),
-    ),
-    Key(
-        [mod, "shift"],
-        "g",
-        lazy.layout.swap_column_right(),
-    ),
-    # Grow / Normalize =================================
+    # Shrink / Grow / Normalize / Maximize =============
     Key(
         [mod, "control"],
         "Left",
-        lazy.layout.grow_left(),
+        lazy.layout.shrink_main(),
     ),
     Key(
         [mod, "control"],
         "Right",
-        lazy.layout.grow_right(),
-    ),
-    Key(
-        [mod, "control"],
-        "Down",
-        lazy.layout.grow_down(),
-    ),
-    Key(
-        [mod, "control"],
-        "Up",
-        lazy.layout.grow_up(),
+        lazy.layout.grow_main(),
     ),
     Key(
         [mod],
         "n",
-        lazy.layout.normalize(),
+        lazy.layout.reset(),
     ),
-    # Split / Floating / Fullscreen ====================
     Key(
         [mod],
-        "s",
-        lazy.layout.toggle_split(),
+        "w",
+        lazy.layout.maximize(),
     ),
+    # Floating / Fullscreen ============================
     Key(
         [mod],
         "e",
@@ -167,11 +146,16 @@ keys = [
         "f",
         lazy.window.toggle_fullscreen(),
     ),
-    # Next layout / Kill / Reload ======================
+    # Split / Swap / Kill / Reload =====================
     Key(
         [mod],
-        "w",
+        "s",
         lazy.next_layout(),
+    ),
+    Key(
+        [mod],
+        "g",
+        lazy.layout.flip(),
     ),
     Key(
         [mod],
@@ -366,18 +350,22 @@ for i in groups:
 )
 
 layouts = [
-    layout.Columns(
-        name="tile",
+    layout.MonadTall(
+        name="tall",
         border_focus="#4B7093",
         border_normal="#23252e",
-        border_focus_stack="#e18410",
-        border_normal_stack="#7d670d",
-        grow_amount=20,
-        insert_position=1,
         border_width=3,
+        change_ratio=0.1,
+        max_ratio=0.9,
+        min_ratio=0.1,
+        single_border_width=False,
     ),
-    layout.Max(
-        name="mono",
+    layout.MonadWide(
+        name="wide",
+        border_focus="#4B7093",
+        border_normal="#23252e",
+        border_width=3,
+        single_border_width=False,
     ),
 ]
 
