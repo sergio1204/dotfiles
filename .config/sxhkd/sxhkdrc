@@ -128,13 +128,13 @@ super + alt + {Left,Down,Up,Right}
 
 # volume control
 XF86AudioRaiseVolume
-    amixer -D pulse sset Master 5%+
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 XF86AudioLowerVolume
-    amixer -D pulse sset Master 5%-
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 XF86AudioMute
-    amixer -D pulse sset Master toggle
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # lockscreen
 super + l

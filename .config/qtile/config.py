@@ -171,17 +171,17 @@ keys = [
     Key(
         [],
         "XF86AudioRaiseVolume",
-        lazy.spawn("amixer -D pulse sset Master 5%+"),
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"),
     ),
     Key(
         [],
         "XF86AudioLowerVolume",
-        lazy.spawn("amixer -D pulse sset Master 5%-"),
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"),
     ),
     Key(
         [],
         "XF86AudioMute",
-        lazy.spawn("amixer -D pulse sset Master toggle"),
+        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
     ),
     # Brightness =======================================
     Key(

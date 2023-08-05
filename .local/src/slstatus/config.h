@@ -68,7 +68,8 @@ static const struct arg args[] = {
     { ram_perc,      "^c#FE75F4^  %s%%  ",  NULL },
     { cpu_perc,      "^c#7DD0F5^  %s%%  ",  NULL },
     { temp,          "^c#F5628A^  %s°C  ",  "/sys/class/thermal/thermal_zone0/temp" },
-    { battery_perc,  "^c#8DF08D^  %s%%  ",  "BAT0" },
+    { battery_state, "^c#8DF08D^ %s",        "BAT0" },
+    { battery_perc,  "^c#8DF08D^ %s%%  ",    "BAT0" },
     { datetime,      "^c#FDB75F^ %s  ",      " %H:%M:%S" },
     { keymap,        "^c#F57CB8^ ⌨ %s  ",    NULL },
 };

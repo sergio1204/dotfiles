@@ -89,9 +89,9 @@ static const char *picomencmd[]     = { "picom", NULL };
 static const char *picomdiscmd[]    = { "killall", "-q", "picom", NULL };
 static const char *zenitycalcmd[]   = { "zenity", "--calendar", NULL };
 /* volume control ==============================================================================*/
-static const char *volupcmd[]       = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL };
-static const char *voldowncmd[]     = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL };
-static const char *volmutecmd[]     = { "amixer", "-D", "pulse", "sset", "Master", "toggle", NULL };
+static const char *volupcmd[]       = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
+static const char *voldowncmd[]     = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
+static const char *volmutecmd[]     = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
 /* brightness ==================================================================================*/
 static const char *brightupcmd[]    = { "brightnessctl", "s", "+10%", NULL };
 static const char *brightdowncmd[]  = { "brightnessctl", "s", "10%-", NULL };
@@ -177,10 +177,12 @@ static const Key keys[]             = {
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static const Button buttons[] = {
     /* click                event mask      button          function        argument */
-    { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
-    { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+    { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
+    { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
     { ClkWinTitle,          0,              Button2,        zoom,           {0} },
-    { ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+    { ClkStatusText,        0,              Button4,        spawn,          {.v = volupcmd } },
+    { ClkStatusText,        0,              Button5,        spawn,          {.v = voldowncmd } },
+    { ClkStatusText,        0,              Button2,        spawn,          {.v = volmutecmd } },
     { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
     { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
     { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
