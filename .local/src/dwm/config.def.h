@@ -15,7 +15,7 @@ static const int topbar                  = 1;  /* 0 means bottom bar */
 static const char *fonts[]               = { "JetBrains Mono:size=10" };
 static const char colour1[]              = "#23252e";
 static const char colour2[]              = "#81C1FF";
-static const char colour3[]              = "#bbbbbb";
+static const char colour3[]              = "#a0a0a0";
 static const char colour4[]              = "#eeeeee";
 static const char colour5[]              = "#325081";
 static const char *colors[][3]           = {
@@ -26,6 +26,11 @@ static const char *colors[][3]           = {
 
 /* tagging =====================================================================================*/
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+
+static const unsigned int ulinepad     = 5; /* horizontal padding between the underline and tag */
+static const unsigned int ulinestroke  = 2; /* thickness / height of the underline */
+static const unsigned int ulinevoffset = 0; /* how far above the bottom of the bar the line should appear */
+static const int ulineall              = 0; /* 1 to show underline on all tags, 0 for just the active ones */
 
 /* rules =======================================================================================*/
 static const Rule rules[] = {
