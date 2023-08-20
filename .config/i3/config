@@ -193,5 +193,5 @@ bindsym $mod+z       exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+z exec --no-startup-id rofi -show run
 
 # autostart ======================================================================
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/i3wm.sh
 #exec        --no-startup-id gxkb &

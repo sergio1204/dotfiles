@@ -30,4 +30,4 @@ bspc rule -a feh        state=floating
 bspc rule -a XCalc      state=floating
 
 xsetroot -cursor_name left_ptr &
-$HOME/.config/polybar/launch.sh
+$HOME/.config/polybar/bspwm.sh
