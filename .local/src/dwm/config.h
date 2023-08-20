@@ -15,7 +15,7 @@ static const int topbar                  = 1;  /* 0 means bottom bar */
 static const char *fonts[]               = { "JetBrains Mono:size=10" };
 static const char colour1[]              = "#23252e";
 static const char colour2[]              = "#81C1FF";
-static const char colour3[]              = "#a0a0a0";
+static const char colour3[]              = "#eab268";
 static const char colour4[]              = "#eeeeee";
 static const char colour5[]              = "#325081";
 static const char *colors[][3]           = {

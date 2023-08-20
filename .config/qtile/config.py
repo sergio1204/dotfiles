@@ -351,7 +351,7 @@ for i in groups:
 
 layouts = [
     layout.MonadTall(
-        name="tall",
+        name="",
         border_focus="#4B7093",
         border_normal="#23252e",
         border_width=3,
@@ -361,7 +361,7 @@ layouts = [
         single_border_width=False,
     ),
     layout.MonadWide(
-        name="wide",
+        name="",
         border_focus="#4B7093",
         border_normal="#23252e",
         border_width=3,
@@ -382,13 +382,14 @@ screens = [
             [
                 widget.GroupBox(
                     disable_drag="True",
+                    active="#eab268",
+                    block_highlight_text_color="#AAC9F1",
                     highlight_method="line",
-                    highlight_color="#2A2A44",
+                    highlight_color="#23252e",
                     hide_unused="True",
                     invert_mouse_wheel="True",
-                    this_current_screen_border="#F574E8",
+                    this_current_screen_border="#AAC9F1",
                     margin=5,
-                    padding=5,
                 ),
                 widget.CurrentLayout(
                     foreground="#F16E88",
@@ -441,7 +442,7 @@ screens = [
                 widget.Systray(
                 ),
             ],
-            24,
+            28,
             background="#23252e",
         ),
     ),
