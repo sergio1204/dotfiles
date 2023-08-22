@@ -38,25 +38,25 @@ static const Rule rules[] = {
      * WM_CLASS(STRING) = instance, class
      * WM_NAME(STRING) = title
      */
-    /* class        instance    title       tags mask    switchtotag   isfloating   monitor */
-    { "firefox",    NULL,       NULL,       1 << 0,      1,            0,           -1 },
-    { "st",         NULL,       "ranger",   1 << 1,      1,            0,           -1 },
-    { "Quodlibet",  NULL,       NULL,       1 << 2,      1,            0,           -1 },
-    { "Audacity",   NULL,       NULL,       1 << 2,      1,            0,           -1 },
-    { "mpv",        NULL,       NULL,       1 << 3,      1,            0,           -1 },
-    { "st",         NULL,       "vim",      1 << 4,      1,            0,           -1 },
-    { "st",         NULL,       "st",       1 << 5,      1,            0,           -1 },
-    { "Gimp",       NULL,       NULL,       1 << 6,      1,            0,           -1 },
-    { "Picard",     NULL,       NULL,       1 << 7,      1,            0,           -1 },
-    { "Steam",      NULL,       NULL,       1 << 8,      1,            1,           -1 },
-    { "feh",        NULL,       NULL,       0,           0,            1,           -1 },
-    { "XCalc",      NULL,       NULL,       0,           0,            1,           -1 },
+    /* class        instance    title     tags mask    switchtotag   isfloating   monitor */
+    { "firefox",    NULL,       NULL,     1 << 0,      1,            0,           -1 },
+    { "ranger",     NULL,       NULL,     1 << 1,      1,            0,           -1 },
+    { "Quodlibet",  NULL,       NULL,     1 << 2,      1,            0,           -1 },
+    { "Audacity",   NULL,       NULL,     1 << 2,      1,            0,           -1 },
+    { "mpv",        NULL,       NULL,     1 << 3,      1,            0,           -1 },
+    { "vim",        NULL,       NULL,     1 << 4,      1,            0,           -1 },
+    { "alacritty",  NULL,       NULL,     1 << 5,      1,            0,           -1 },
+    { "Gimp",       NULL,       NULL,     1 << 6,      1,            0,           -1 },
+    { "Picard",     NULL,       NULL,     1 << 7,      1,            0,           -1 },
+    { "Steam",      NULL,       NULL,     1 << 8,      1,            1,           -1 },
+    { "feh",        NULL,       NULL,     0,           0,            1,           -1 },
+    { "XCalc",      NULL,       NULL,     0,           0,            1,           -1 },
 };
 
 /* layout(s) ===================================================================================*/
 static const float mfact        = 0.5;  /* factor of master area size [0.05..0.95] */
 static const int nmaster        = 1;   /* number of clients in master area */
-static const int resizehints    = 0;  /* 1 means respect size hints in tiled resizals */
+static const int resizehints    = 1;  /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 static const Layout layouts[]   = {
     /* symbol     arrange function */
@@ -76,14 +76,13 @@ static const Layout layouts[]   = {
 /* helper for spawning shell commands ==========================================================*/
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-/* dmenu / rofi ================================================================================*/
-static char dmenumon[2]             = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]       = { "dmenu_run", "-m", dmenumon, NULL };
+/* rofi ========================================================================================*/
 static const char *rofidruncmd[]    = { "rofi", "-show", "drun", NULL };
+static const char *rofiruncmd[]     = { "rofi", "-show", "run", NULL };
 /* terminal ====================================================================================*/
-static const char *termcmd[]        = { "st", NULL };
-static const char *rangercmd[]      = { "st", "-e", "ranger", NULL };
-static const char *vimcmd[]         = { "st", "-e", "vim", NULL };
+static const char *termcmd[]        = { "alacritty", "--class", "alacritty", NULL };
+static const char *rangercmd[]      = { "alacritty", "--class", "ranger", "-e", "ranger", NULL };
+static const char *vimcmd[]         = { "alacritty", "--class", "vim", "-e", "vim", NULL };
 /* apps hotkeys ================================================================================*/
 static const char *firefoxcmd[]     = { "firefox", NULL };
 static const char *quodlibetcmd[]   = { "quodlibet", NULL };
@@ -110,9 +109,9 @@ static const char *poweroffcmd[]    = { "systemctl", "poweroff", NULL };
 /* keys ========================================================================================*/
 static const Key keys[]             = {
     /* modifier                     key              function          argument */
-    /* dmenu / rofi ============================================================================*/
-    { MODKEY,                       XK_z,            spawn,            {.v = dmenucmd } },
-    { MODKEY|ShiftMask,             XK_z,            spawn,            {.v = rofidruncmd } },
+    /* rofi ====================================================================================*/
+    { MODKEY,                       XK_z,            spawn,            {.v = rofidruncmd } },
+    { MODKEY|ShiftMask,             XK_z,            spawn,            {.v = rofiruncmd } },
     /* terminal ================================================================================*/
     { MODKEY,                       XK_Return,       spawn,            {.v = termcmd } },
     { MODKEY,                       XK_x,            spawn,            {.v = rangercmd } },
