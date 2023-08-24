@@ -138,7 +138,7 @@ XF86AudioMute
 
 # lockscreen
 super + l
-    i3lock -i /home/sergey/Pictures/soty.png
+    slock
 
 # dunst
 super + u

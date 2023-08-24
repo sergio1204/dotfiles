@@ -198,7 +198,7 @@ keys = [
     Key(
         [mod],
         "l",
-        lazy.spawn("i3lock -i /home/sergey/Pictures/soty.png"),
+        lazy.spawn("slock"),
     ),
     Key(
         [],
