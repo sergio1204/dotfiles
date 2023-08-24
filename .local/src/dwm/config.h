@@ -17,7 +17,7 @@ static const char colour1[]              = "#23252e";
 static const char colour2[]              = "#81C1FF";
 static const char colour3[]              = "#eab268";
 static const char colour4[]              = "#eeeeee";
-static const char colour5[]              = "#325081";
+static const char colour5[]              = "#4B7093";
 static const char *colors[][3]           = {
     /*               fg       bg       border   */
     [SchemeNorm] = { colour3, colour1, colour1  },
@@ -45,7 +45,7 @@ static const Rule rules[] = {
     { "Audacity",   NULL,       NULL,     1 << 2,      1,            0,           -1 },
     { "mpv",        NULL,       NULL,     1 << 3,      1,            0,           -1 },
     { "vim",        NULL,       NULL,     1 << 4,      1,            0,           -1 },
-    { "alacritty",  NULL,       NULL,     1 << 5,      1,            0,           -1 },
+    { "Alacritty",  NULL,       NULL,     1 << 5,      1,            0,           -1 },
     { "Gimp",       NULL,       NULL,     1 << 6,      1,            0,           -1 },
     { "Picard",     NULL,       NULL,     1 << 7,      1,            0,           -1 },
     { "Steam",      NULL,       NULL,     1 << 8,      1,            1,           -1 },
@@ -80,7 +80,7 @@ static const Layout layouts[]   = {
 static const char *rofidruncmd[]    = { "rofi", "-show", "drun", NULL };
 static const char *rofiruncmd[]     = { "rofi", "-show", "run", NULL };
 /* terminal ====================================================================================*/
-static const char *termcmd[]        = { "alacritty", "--class", "alacritty", NULL };
+static const char *termcmd[]        = { "alacritty", NULL };
 static const char *rangercmd[]      = { "alacritty", "--class", "ranger", "-e", "ranger", NULL };
 static const char *vimcmd[]         = { "alacritty", "--class", "vim", "-e", "vim", NULL };
 /* apps hotkeys ================================================================================*/
