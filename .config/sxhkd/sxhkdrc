@@ -128,17 +128,17 @@ super + alt + {Left,Down,Up,Right}
 
 # volume control
 XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +5%
+    amixer -D pulse sset Master 5%+
 
 XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -5%
+    amixer -D pulse sset Master 5%-
 
 XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
+    amixer -D pulse set Master toggle
 
 # lockscreen
 super + l
-    slock
+    i3lock -i /home/sergey/Pictures/soty.png
 
 # dunst
 super + u
@@ -175,7 +175,7 @@ super + Return
 super + x
     alacritty --class ranger -e ranger
 
-super + shift + backslash
+super + backslash
     alacritty --class vim -e vim
 
 # apps hotkeys

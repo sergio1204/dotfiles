@@ -20,9 +20,9 @@ bspc rule -a firefox    desktop='^1' follow=on
 bspc rule -a ranger     desktop='^2' follow=on
 bspc rule -a Quodlibet  desktop='^3' follow=on
 bspc rule -a Audacity   desktop='^3' follow=on
-bspc rule -a mpv        desktop='^4' follow=on
+bspc rule -a Alacritty  desktop='^4' follow=on
 bspc rule -a vim        desktop='^5' follow=on
-bspc rule -a Alacritty  desktop='^6' follow=on
+bspc rule -a mpv        desktop='^6' follow=on
 bspc rule -a Gimp-2.10  desktop='^7' follow=on
 bspc rule -a Picard     desktop='^8' follow=on
 bspc rule -a Steam      desktop='^9' follow=on state=floating

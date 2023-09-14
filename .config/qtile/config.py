@@ -171,17 +171,17 @@ keys = [
     Key(
         [],
         "XF86AudioRaiseVolume",
-        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"),
+        lazy.spawn("amixer -D pulse sset Master 5%+"),
     ),
     Key(
         [],
         "XF86AudioLowerVolume",
-        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"),
+        lazy.spawn("amixer -D pulse sset Master 5%-"),
     ),
     Key(
         [],
         "XF86AudioMute",
-        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+        lazy.spawn("amixer -D pulse set Master toggle"),
     ),
     # Brightness =======================================
     Key(
@@ -198,7 +198,7 @@ keys = [
     Key(
         [mod],
         "l",
-        lazy.spawn("slock"),
+        lazy.spawn("i3lock -i /home/sergey/Pictures/soty.png"),
     ),
     Key(
         [],
@@ -272,7 +272,7 @@ keys = [
         lazy.spawn("alacritty --class ranger -e ranger"),
     ),
     Key(
-        [mod, "shift"],
+        [mod],
         "backslash",
         lazy.spawn("alacritty --class vim -e vim"),
     ),
@@ -314,7 +314,7 @@ groups = [
      ),
     Group(
         "4",
-        Match(wm_class="mpv"),
+        Match(wm_class="Alacritty"),
     ),
     Group(
         "5",
@@ -322,7 +322,7 @@ groups = [
     ),
     Group(
         "6",
-        Match(wm_class="Alacritty"),
+        Match(wm_class="mpv"),
     ),
     Group(
         "7",
@@ -389,6 +389,7 @@ screens = [
                     hide_unused="True",
                     invert_mouse_wheel="True",
                     this_current_screen_border="#AAC9F1",
+                    borderwidth = 4,
                     margin=5,
                 ),
                 widget.CurrentLayout(
@@ -472,12 +473,6 @@ floating_layout = layout.Floating(
         Match(wm_class="Steam"),
         Match(wm_class="feh"),
         Match(wm_class="xcalc"),
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
     ],
     border_focus="#ac4142",
     border_width=3,
