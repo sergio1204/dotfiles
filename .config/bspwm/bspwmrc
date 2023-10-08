@@ -4,6 +4,9 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
+bspc config automatic_scheme spiral
+bspc config initial_polarity first_child
+
 bspc config border_width 3
 bspc config window_gap   0
 
@@ -25,9 +28,13 @@ bspc rule -a vim        desktop='^5' follow=on
 bspc rule -a mpv        desktop='^6' follow=on
 bspc rule -a Gimp-2.10  desktop='^7' follow=on
 bspc rule -a Picard     desktop='^8' follow=on
-bspc rule -a Steam      desktop='^9' follow=on state=floating
-bspc rule -a feh        state=floating
-bspc rule -a XCalc      state=floating
+bspc rule -a Steam      desktop='^9' follow=on
+
+bspc rule -a Blueman-manager state=floating
+bspc rule -a Steam           state=floating
+bspc rule -a feh             state=floating
+bspc rule -a XCalc           state=floating
 
 xsetroot -cursor_name left_ptr &
+feh --bg-scale /home/sergey/Pictures/oz.jpg &
 $HOME/.config/polybar/bspwm.sh

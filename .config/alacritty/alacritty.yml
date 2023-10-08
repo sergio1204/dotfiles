@@ -212,7 +212,7 @@ colors:
   # affected cell, or hexadecimal colors like #ff00ff.
   cursor:
   #  text: CellBackground
-    cursor: '#FF8500'
+    cursor: '#2f8bd0'
 
   # Vi mode cursor colors
   #
@@ -281,25 +281,25 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#212134'
-    red:     '#EB2A2A'
-    green:   '#329632'
+    black:   '#23252e'
+    red:     '#ed374b'
+    green:   '#2ce06c'
     yellow:  '#FF7F00'
-    blue:    '#4949FA'
-    magenta: '#863E86'
-    cyan:    '#00B0C2'
-    white:   '#C28D96'
+    blue:    '#546ef5'
+    magenta: '#9058f9'
+    cyan:    '#2bd9eb'
+    white:   '#9bf784'
 
   # Bright colors
   bright:
-    black:   '#AFD4E0'
-    red:     '#FF4767'
-    green:   '#5AC95A'
-    yellow:  '#DE43B5'
-    blue:    '#8B8BFF'
-    magenta: '#B960B9'
+    black:   '#f7bb69'
+    red:     '#ff4d6c'
+    green:   '#5af492'
+    yellow:  '#f866ad'
+    blue:    '#8294f5'
+    magenta: '#b683e9'
     cyan:    '#5DE1EE'
-    white:   '#FFDEE4'
+    white:   '#c5bcec'
 
   # Dim colors
   #

@@ -12,10 +12,6 @@ filetype indent on
 set mouse=a
 set number
 
-" split settings =====================
-set splitright
-set splitbelow
-
 " vim colorscheme ====================
 colorscheme onedark
 if exists('+termguicolors')

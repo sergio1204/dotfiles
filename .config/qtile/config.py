@@ -358,6 +358,7 @@ layouts = [
         change_ratio=0.1,
         max_ratio=0.9,
         min_ratio=0.1,
+        new_client_position="top",
         single_border_width=False,
     ),
     layout.MonadWide(
@@ -365,6 +366,7 @@ layouts = [
         border_focus="#4B7093",
         border_normal="#23252e",
         border_width=3,
+        new_client_position="top",
         single_border_width=False,
     ),
 ]
@@ -378,6 +380,8 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
+        wallpaper="Pictures/borda2.jpg",
+        wallpaper_mode="fill",
         top=bar.Bar(
             [
                 widget.GroupBox(
@@ -389,7 +393,7 @@ screens = [
                     hide_unused="True",
                     invert_mouse_wheel="True",
                     this_current_screen_border="#AAC9F1",
-                    borderwidth = 4,
+                    borderwidth=4,
                     margin=5,
                 ),
                 widget.CurrentLayout(
@@ -409,7 +413,7 @@ screens = [
                 ),
                 widget.Memory(
                     foreground="#E183E1",
-                    format="  {MemUsed: .0f}{mm}",
+                    format="  {MemUsed: .0f}{mm}",
                     update_interval=3,
                     padding=10,
                 ),
@@ -423,7 +427,7 @@ screens = [
                     fgcolor_normal="#F86D85",
                     format=" {temp}°C",
                     high=80,
-                    update_interval=3,
+                    update_interval=15,
                     padding=10,
                 ),
                 widget.Battery(
@@ -433,6 +437,7 @@ screens = [
                     discharge_char=" ",
                     format="{char}{percent:2.0%}",
                     show_short_text=None,
+                    update_interval=30,
                     padding=10,
                 ),
                 widget.Clock(
@@ -470,6 +475,7 @@ floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
+        Match(wm_class="Blueman-manager"),
         Match(wm_class="Steam"),
         Match(wm_class="feh"),
         Match(wm_class="xcalc"),
