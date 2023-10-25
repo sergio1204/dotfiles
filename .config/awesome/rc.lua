@@ -46,8 +46,8 @@ beautiful.init(theme_path)
 
 -- Terminal / FM / Editor / Modkey ==================================
 terminal          = "alacritty"
-file_manager      = "ranger"
-file_manager2     = "nnn"
+file_manager      = "nnn"
+file_manager2     = "ranger"
 editor            = os.getenv("EDITOR") or "nano"
 
 terminal_cmd      = terminal .. " --class terminal "
@@ -425,14 +425,15 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { }, properties = {
-            border_width = beautiful.border_width,
-            border_color = beautiful.border_normal,
-            focus        = awful.client.focus.filter,
-            raise        = true,
-            keys         = clientkeys,
-            buttons      = clientbuttons,
-            screen       = awful.screen.preferred,
-            placement    = awful.placement.no_overlap+awful.placement.no_offscreen
+            size_hints_honor = false,
+            border_width     = beautiful.border_width,
+            border_color     = beautiful.border_normal,
+            focus            = awful.client.focus.filter,
+            raise            = true,
+            keys             = clientkeys,
+            buttons          = clientbuttons,
+            screen           = awful.screen.preferred,
+            placement        = awful.placement.no_overlap+awful.placement.no_offscreen
         },
     },
     -- Floating clients.
