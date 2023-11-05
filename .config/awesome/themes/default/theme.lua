@@ -1,6 +1,6 @@
------------------------------------------------------------------
--- Default awesome theme ---------------------------------------
----------------------------------------------------------------
+--------------------------------------------------------------------
+-------------------- Awesome theme -------------------------------
+----------------------------------------------------------------
 local theme_assets          = require("beautiful.theme_assets")
 local xresources            = require("beautiful.xresources")
 local gfs                   = require("gears.filesystem")
@@ -8,12 +8,12 @@ local dpi                   = xresources.apply_dpi
 local themes_path           = gfs.get_themes_dir()
 local theme                 = {}
 
--- Font / Wall / Bar size ========================
+-- Font / Wall / Bar size
 theme.font                  = "JetBrains Mono 10"
 theme.wallpaper             = "Pictures/oz.jpg"
 theme.wibar_height          = dpi(28)
 
--- Widget colors =======================
+-- Widget colors
 theme.fg_vol                = "#CDDC45"
 theme.fg_mem                = "#E183E1"
 theme.fg_cpu                = "#6CD7DC"
@@ -22,28 +22,28 @@ theme.fg_bat                = "#88EE9A"
 theme.fg_time               = "#f0b574"
 theme.fg_keyboard           = "#F57CB8"
 
--- Background ================================
+-- Background
 theme.bg_normal             = "#23252e"
 theme.bg_focus              = "#4B7093"
 theme.bg_urgent             = "#ff0000"
 theme.bg_minimize           = "#404b17"
 theme.bg_systray            = theme.bg_normal
 
--- Foreground ==========================
+-- Foreground
 theme.fg_normal             = "#bcbcbc"
 theme.fg_focus              = "#AAC9F1"
 theme.fg_urgent             = "#ffffff"
 theme.fg_minimize           = "#ffffff"
 theme.fg_occupied           = "#eab268"
 
--- Gaps / Borders ============================
+-- Gaps / Borders
 theme.useless_gap           = dpi(0)
 theme.border_width          = dpi(2)
 theme.border_normal         = theme.bg_normal
 theme.border_focus          = theme.bg_focus
 theme.border_marked         = "#d87c1e"
 
--- Square ========================================================
+-- Square
 local taglist_square_size   = dpi(5)
 theme.taglist_squares_sel   = theme_assets.taglist_squares_sel(
       taglist_square_size, theme.fg_focus
@@ -52,23 +52,23 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
       taglist_square_size, theme.bg_normal
 )
 
--- Taglist =====================================
+-- Taglist
 theme.taglist_spacing       = dpi(3)
 theme.taglist_bg_focus      = theme.bg_normal
 theme.taglist_fg_focus      = theme.fg_focus
 theme.taglist_fg_occupied   = theme.fg_occupied
 
--- Tasklist ==================================
+-- Tasklist
 theme.tasklist_disable_icon = true
 theme.tasklist_bg_focus     = theme.bg_normal
 theme.tasklist_fg_focus     = theme.fg_focus
 theme.tasklist_fg_normal    = theme.fg_focus
 
--- Layout =======================================================================
+-- Layout
 theme.layout_tilebottom     = ".config/awesome/themes/default/icons/tilebot.png"
 theme.layout_tile           = ".config/awesome/themes/default/icons/tile.png"
 
--- Menubar ===================================
+-- Menubar
 theme.menu_fg_focus         = theme.fg_urgent
 
 -- There are other variable sets

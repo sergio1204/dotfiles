@@ -1,6 +1,6 @@
-#========================
-#==== bspwm hotkeys =====
-#========================
+# ----------------------------
+# ----  bspwm hotkeys  -----
+# ------------------------
 
 # sxhkd reload
 super + Escape
@@ -29,9 +29,9 @@ super + w
 super + y
     bspc node newest.marked.local -n newest.!automatic.local
 
-#========================
-#==== state / flags =====
-#========================
+# --------------------------------
+# ------  state / flags  -------
+# ----------------------------
 
 # set the window state
 super + {t,shift + t,e,f}
@@ -45,9 +45,9 @@ super + ctrl + {m,x,y,z}
 super + {_,shift +}s
     bspc node @parent -R {90,-90}
 
-#=======================
-#==== focus / swap =====
-#=======================
+# ------------------------------------
+# -------  focus / swap  -----------
+# --------------------------------
 
 # swap the current node
 super + g
@@ -86,9 +86,9 @@ super + {1-9,0}
 super + shift + {1-9,0}
     bspc node -d '^{1-9,10}' --follow
 
-#====================
-#==== preselect =====
-#====================
+# -------------------------------
+# -------  preselect  ---------
+# ---------------------------
 
 # preselect the direction
 super + ctrl + {h,j,k,l}
@@ -106,9 +106,9 @@ super + ctrl + space
 super + ctrl + shift + space
     bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-#========================
-#==== move / resize =====
-#========================
+# ------------------------------------------
+# ----------  move / resize  -------------
+# --------------------------------------
 
 # expand a window by moving one of its side outward
 super + ctrl + {Left,Down,Up,Right}
@@ -122,9 +122,9 @@ super + ctrl + shift + {Right,Up,Down,Left}
 super + alt + {Left,Down,Up,Right}
     bspc node -v {-100 0,0 100,0 -100,100 0}
 
-#==============================
-#==== independent hotkeys =====
-#==============================
+# -----------------------------------------
+# ------  independent hotkeys  ----------
+# -------------------------------------
 
 # volume control
 XF86AudioRaiseVolume
@@ -170,13 +170,16 @@ super + shift + z
 
 # terminal
 super + Return
-    alacritty
+    alacritty --class terminal
 
 super + x
-    alacritty --class ranger -e ranger
+    alacritty --class files -e vifm
+
+super + shift + x
+    alacritty --class files -e ranger
 
 super + backslash
-    alacritty --class vim -e vim
+    alacritty --class editor -e vim
 
 # apps hotkeys
 super + c

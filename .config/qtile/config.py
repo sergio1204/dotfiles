@@ -42,11 +42,19 @@ def autostart():
 def switchtogroup(group, window):
     group.cmd_toscreen()
 
-mod = "mod4"
-alt = "mod1"
+# Terminal / FM / Editor / Modkey
+terminal      = "alacritty"
+file_manager  = "vifm"
+file_manager2 = "ranger"
+editor        = "vim"
+mod           = "mod4"
+
+# -------------------------------------
+# ------------  Keys  ---------------
+# ---------------------------------
 
 keys = [
-    # Switch focus between windows =====================
+    # Switch focus between windows
     Key(
         [mod],
         "Left",
@@ -77,7 +85,7 @@ keys = [
         "a",
         lazy.group.prev_window(),
     ),
-    # Switch focus between groups ======================
+    # Switch focus between groups
     Key(
         [mod],
         "Tab",
@@ -93,7 +101,7 @@ keys = [
         "Tab",
         lazy.screen.toggle_group(),
     ),
-    # Move focused  windows ============================
+    # Move focused  windows
     Key(
         [mod, "shift"],
         "Left",
@@ -114,7 +122,7 @@ keys = [
         "Up",
         lazy.layout.shuffle_up(),
     ),
-    # Shrink / Grow / Normalize / Maximize =============
+    # Shrink / Grow / Normalize / Maximize
     Key(
         [mod, "control"],
         "Left",
@@ -135,7 +143,7 @@ keys = [
         "w",
         lazy.layout.maximize(),
     ),
-    # Floating / Fullscreen ============================
+    # Floating / Fullscreen
     Key(
         [mod],
         "e",
@@ -146,7 +154,7 @@ keys = [
         "f",
         lazy.window.toggle_fullscreen(),
     ),
-    # Split / Swap / Kill / Reload =====================
+    # Split / Swap / Kill / Reload
     Key(
         [mod],
         "s",
@@ -167,7 +175,7 @@ keys = [
         "r",
         lazy.reload_config(),
     ),
-    # Volume control ===================================
+    # Volume control
     Key(
         [],
         "XF86AudioRaiseVolume",
@@ -183,7 +191,7 @@ keys = [
         "XF86AudioMute",
         lazy.spawn("amixer -D pulse set Master toggle"),
     ),
-    # Brightness =======================================
+    # Brightness
     Key(
         [],
         "XF86MonBrightnessUp",
@@ -194,7 +202,7 @@ keys = [
         "XF86MonBrightnessDown",
         lazy.spawn("brightnessctl s 10%-"),
     ),
-    # Lockscreen / Printscreen =========================
+    # Lockscreen / Printscreen
     Key(
         [mod],
         "l",
@@ -210,7 +218,7 @@ keys = [
         "Print",
         lazy.spawn("scrot -d 1"),
     ),
-    # Reboot / Poweroff / Logout =======================
+    # Reboot / Poweroff / Logout
     Key(
         [mod, "shift"],
         "k",
@@ -227,7 +235,7 @@ keys = [
         lazy.shutdown(),
         desc="logout Qtile",
     ),
-    # Dunst ============================================
+    # Dunst
     Key(
         [mod],
         "u",
@@ -238,7 +246,7 @@ keys = [
         "u",
         lazy.spawn("dunstctl close-all"),
     ),
-    # Rofi =============================================
+    # Rofi
     Key(
         [mod],
         "z",
@@ -249,7 +257,7 @@ keys = [
         "z",
         lazy.spawn("rofi -show run"),
     ),
-    # Picom ============================================
+    # Picom
     Key(
         [mod],
         "p",
@@ -260,23 +268,28 @@ keys = [
         "p",
         lazy.spawn("killall -q picom"),
     ),
-    # Terminal =========================================
+    # Terminal
     Key(
         [mod],
         "Return",
-        lazy.spawn("alacritty"),
+        lazy.spawn(terminal + " --class terminal "),
     ),
     Key(
         [mod],
         "x",
-        lazy.spawn("alacritty --class ranger -e ranger"),
+        lazy.spawn(terminal + " --class files -e " + file_manager),
+    ),
+    Key(
+        [mod, "shift"],
+        "x",
+        lazy.spawn(terminal + " --class files -e " + file_manager2),
     ),
     Key(
         [mod],
         "backslash",
-        lazy.spawn("alacritty --class vim -e vim"),
+        lazy.spawn(terminal + " --class editor -e " + editor),
     ),
-    # Apps keys ========================================
+    # Apps keys
     Key(
         [mod],
         "c",
@@ -299,6 +312,10 @@ keys = [
     ),
 ]
 
+# ----------------------------------------------
+# --------------  Groups  --------------------
+# ------------------------------------------
+
 groups = [
     Group(
         "1",
@@ -306,7 +323,7 @@ groups = [
     ),
     Group(
         "2",
-        Match(wm_class="ranger"),
+        Match(wm_class="files"),
     ),
     Group(
         "3",
@@ -314,11 +331,11 @@ groups = [
      ),
     Group(
         "4",
-        Match(wm_class="Alacritty"),
+        Match(wm_class="terminal"),
     ),
     Group(
         "5",
-        Match(wm_class="vim"),
+        Match(wm_class="editor"),
     ),
     Group(
         "6",
@@ -349,6 +366,10 @@ for i in groups:
     ]
 )
 
+# -----------------------------------------------
+# ---------------  Layouts  -------------------
+# -------------------------------------------
+
 layouts = [
     layout.MonadTall(
         name="",
@@ -370,6 +391,10 @@ layouts = [
         single_border_width=False,
     ),
 ]
+
+# -----------------------------------------------
+# ---------------  Widgets  -------------------
+# -------------------------------------------
 
 widget_defaults=dict(
     font="JetBrains Mono",
@@ -454,7 +479,10 @@ screens = [
     ),
 ]
 
-# Drag floating layouts
+# -----------------------------------------------------------------
+# ----------------------  Mouse keys  ---------------------------
+# -------------------------------------------------------------
+
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
         start=lazy.window.get_position(),
@@ -471,6 +499,11 @@ dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
+
+# ---------------------------------------
+# ----------  Floating  ---------------
+# -----------------------------------
+
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
