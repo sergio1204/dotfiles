@@ -78,3 +78,4 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " https://github.com/joshdick/onedark.vim.git
 " https://github.com/vim-airline/vim-airline.git
 " https://github.com/vim-airline/vim-airline-themes.git
+" https://github.com/ryanoasis/vim-devicons.git
