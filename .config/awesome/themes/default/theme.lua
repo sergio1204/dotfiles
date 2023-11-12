@@ -1,6 +1,6 @@
---------------------------------------------------------------------
--------------------- Awesome theme -------------------------------
-----------------------------------------------------------------
+-- -----------------------------------------------------------------
+-- ----------------- Awesome theme -------------------------------
+-- -------------------------------------------------------------
 local theme_assets          = require("beautiful.theme_assets")
 local xresources            = require("beautiful.xresources")
 local gfs                   = require("gears.filesystem")
@@ -9,7 +9,7 @@ local themes_path           = gfs.get_themes_dir()
 local theme                 = {}
 
 -- Font / Wall / Bar size
-theme.font                  = "JetBrains Mono 10"
+theme.font                  = "JetBrainsMono Nerd Font 10"
 theme.wallpaper             = "Pictures/oz.jpg"
 theme.wibar_height          = dpi(28)
 
@@ -103,7 +103,7 @@ theme.menu_fg_focus         = theme.fg_urgent
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = nil
+theme.icon_theme = "Papirus-Dark"
 
 return theme
 

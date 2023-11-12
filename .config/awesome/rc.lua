@@ -9,7 +9,6 @@ local wibox     = require("wibox")
 local lain      = require("lain")
 local beautiful = require("beautiful")
 local naughty   = require("naughty")
-local menubar   = require("menubar")
 
 -- ---------------------------------------------------------------------------------
 -- ----------------------------  Error handling  ---------------------------------
@@ -38,6 +37,9 @@ do
     end)
 end
 
+beautiful.notification_border_width = 2
+naughty.config.defaults.border_width = beautiful.notification_border_width
+
 -- ---------------------------------------------------------------------------------
 -- -----------------------  Variable definitions  --------------------------------
 -- -----------------------------------------------------------------------------
@@ -59,9 +61,6 @@ awful.layout.layouts = {
     awful.layout.suit.tile.bottom
 }
 
--- Menubar configuration
-menubar.utils.terminal = terminal
-
 -- ---------------------------------------------------------------------------------
 -- -------------------------------  Wibar  ---------------------------------------
 -- -----------------------------------------------------------------------------
@@ -69,9 +68,9 @@ menubar.utils.terminal = terminal
 -- Volume widget
 local volume = lain.widget.alsa {
     settings = function()
-        vol_level = "  " .. volume_now.level .. "% "
+        vol_level = "  " .. volume_now.level .. "% "
         if volume_now.status == "off" then
-            vol_level = "  " .. volume_now.level .. "% "
+            vol_level = "  " .. volume_now.level .. "% "
         end
         widget:set_markup(lain.util.markup(beautiful.fg_vol, vol_level))
     end
@@ -108,7 +107,7 @@ local mybattery = lain.widget.bat {
     settings = function()
         bat_level = "  " .. bat_now.perc .. "%"
         if bat_now.status == "Discharging" then
-            bat_level = "  " .. bat_now.perc .. "%"
+            bat_level = "   " .. bat_now.perc .. "%"
         end
         widget:set_markup(lain.util.markup(beautiful.fg_bat, bat_level))
     end
@@ -264,8 +263,9 @@ end)
 
 globalkeys = gears.table.join(
     -- Non-empty tag browsing
-    awful.key({ modkey            }, "Tab",   function() lain.util.tag_view_nonempty( 1) end),
-    awful.key({ modkey            }, "grave", function() lain.util.tag_view_nonempty(-1) end),
+    awful.key({ modkey            }, "Tab",    function() lain.util.tag_view_nonempty( 1) end),
+    awful.key({ modkey            }, "grave",  function() lain.util.tag_view_nonempty(-1) end),
+    awful.key({ modkey            }, "Escape", function() awful.tag.history.restore() end),
 
     -- Focus window
     awful.key({ modkey            }, "a",     function() awful.client.focus.byidx( 1) end),
@@ -273,9 +273,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey            }, "Right", function() awful.client.focus.byidx( 1) end),
     awful.key({ modkey            }, "Left",  function() awful.client.focus.byidx(-1) end),
 
-    -- Menubar / Rofi
-    awful.key({ modkey            }, "z", function() menubar.show() end),
-    awful.key({ modkey, "Shift"   }, "z", function() awful.spawn("rofi -show drun") end),
+    -- Rofi
+    awful.key({ modkey,           }, "z", function() awful.spawn("rofi -show drun") end),
+    awful.key({ modkey, "Shift"   }, "z", function() awful.spawn("rofi -show run") end),
 
     -- Swap windows
     awful.key({ modkey            }, "g",     function() awful.client.swap.byidx( 1) end),
@@ -426,7 +426,6 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { }, properties = {
-            size_hints_honor = false,
             border_width = beautiful.border_width,
             border_color = beautiful.border_normal,
             focus = awful.client.focus.filter,
@@ -435,7 +434,7 @@ awful.rules.rules = {
             buttons = clientbuttons,
             screen = awful.screen.preferred,
             placement = awful.placement.no_overlap+awful.placement.no_offscreen
-        },
+        }
     },
     -- Floating clients.
     { rule_any = {

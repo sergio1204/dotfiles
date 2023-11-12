@@ -90,7 +90,7 @@ window {
     width:            15%;
     padding:          5;
     background-color: var(background);
-    border:           3;
+    border:           2;
 }
 mainbox {
     padding: 0;

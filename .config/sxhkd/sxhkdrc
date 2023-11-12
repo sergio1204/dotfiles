@@ -3,7 +3,7 @@
 # ------------------------
 
 # sxhkd reload
-super + Escape
+super + ctrl + r
     pkill -USR1 -x sxhkd
 
 # logout/restart bspwm
@@ -69,9 +69,9 @@ super + {_,shift + }a
 super + {grave,Tab}
     bspc desktop -f {prev,next}.occupied
 
-# focus the last node/desktop
-super + shift + {grave,Tab}
-    bspc {node,desktop} -f last
+# focus the last desktop
+super + Escape
+    bspc desktop -f last
 
 # focus the older or newer node in the focus history
 super + {o,i}

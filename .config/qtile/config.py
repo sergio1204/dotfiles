@@ -97,8 +97,8 @@ keys = [
         lazy.screen.prev_group(skip_empty=True),
     ),
     Key(
-        [mod, "shift"],
-        "Tab",
+        [mod],
+        "Escape",
         lazy.screen.toggle_group(),
     ),
     # Move focused  windows
@@ -375,7 +375,7 @@ layouts = [
         name="",
         border_focus="#4B7093",
         border_normal="#23252e",
-        border_width=3,
+        border_width=2,
         change_ratio=0.1,
         max_ratio=0.9,
         min_ratio=0.1,
@@ -386,7 +386,7 @@ layouts = [
         name="",
         border_focus="#4B7093",
         border_normal="#23252e",
-        border_width=3,
+        border_width=2,
         new_client_position="top",
         single_border_width=False,
     ),
@@ -397,7 +397,7 @@ layouts = [
 # -------------------------------------------
 
 widget_defaults=dict(
-    font="JetBrains Mono",
+    font="JetBrainsMono Nerd Font",
     fontsize=14,
     padding=3,
 )
@@ -514,7 +514,7 @@ floating_layout = layout.Floating(
         Match(wm_class="xcalc"),
     ],
     border_focus="#ac4142",
-    border_width=3,
+    border_width=2,
 )
 
 auto_fullscreen = True

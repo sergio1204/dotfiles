@@ -2,7 +2,7 @@
 
 xrdb -merge $HOME/.Xresources
 
-# start some programs ==========================
+# start some programs
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
         [ -x "$f" ] && . "$f"
@@ -12,7 +12,7 @@ fi
 
 picom &
 
-# start WM =====================================
+# start WM
 #exec bspwm 2> ~/.bspwm.log
 #exec qtile start
 exec awesome

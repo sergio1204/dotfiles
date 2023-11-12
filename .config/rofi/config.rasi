@@ -1,10 +1,11 @@
 configuration {
     modi:                "window,run,drun";
-    font:                "JetBrains Mono 10";
+    font:                "JetBrainsMono Nerd Font 10";
     show-icons:          true;
+    icon-theme:          "Papirus-Dark";
     sidebar-mode:        true;
-    display-window:      " Win";
-    display-run:         " Run";
+    display-window:      "  Win";
+    display-run:         "  Run   ";
     display-drun:        " Apps";
     drun-display-format: "{icon} {name}";
     location:            1;

@@ -1,6 +1,7 @@
 export QT_QPA_PLATFORMTHEME=qt5ct
 export VISUAL=vim
 export EDITOR=vim
+export TERMINAL=alacritty
 
 if [ -f $HOME/.bashrc ]; then
     source $HOME/.bashrc
