@@ -149,7 +149,7 @@ command! make !!make %a
 command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart full
-command! dragon dragon-drop -a -x %f
+command! drop dragon-drop -a -x %f
 command! sdcoff udisksctl power-off -b /dev/sdc
 
 " ----------------------------------------------------------------------------------
@@ -173,237 +173,141 @@ command! sdcoff udisksctl power-off -b /dev/sdc
 " %SOURCE_FILE and %DESTINATION_DIR are filled in at runtime.
 "
 " Example:
-"   :filetype *.zip,*.[jwe]ar FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR
+" :filetype *.zip,*.[jwe]ar FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR
 "
 " :filetype patterns FUSE_MOUNT2|mount_cmd %PARAM %DESTINATION_DIR
 "
 " %PARAM and %DESTINATION_DIR are filled in at runtime.
 "
 " Example:
-"   :filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR
+" :filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR
 "
 " %PARAM value is the first line of the matched file, example: root@127.0.0.1:/
 "
 " You can also add %CLEAR if you want to clear screen before running FUSE
 " program.  There is also %FOREGROUND, which is useful for entering passwords.
 
-" Pdf
-filextype {*.pdf},<application/pdf> zathura %c %i, apvlv %c, xpdf %c
-fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
-
-" PostScript
-filextype {*.ps,*.eps,*.ps.gz},<application/postscript>
-        \ {View in zathura}
-        \ zathura %f,
-        \ {View in gv}
-        \ gv %c %i,
-
-" Djvu
-filextype {*.djvu},<image/vnd.djvu>
-        \ {View in zathura}
-        \ zathura %f,
-        \ {View in apvlv}
-        \ apvlv %f,
-
-" Midi
-filetype {*.mid,*.kar}
-       \ {Play using TiMidity++}
-       \ timidity %f,
+" Pdf / Djvu / PostScript
+filextype *.pdf,*.djvu,*.ps,*.eps,*.ps.gz
+        \ zathura %c %i
+fileviewer *.pdf
+        \ pdftotext -nopgbrk %c -
 
 " Audio
-filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,
-         \*.aac,*.mpga},
-        \<audio/*>
-       \ {Play using mpv}
-       \ mpv --no-video %f %s,
-       \ {Play using MPlayer}
-       \ mplayer %f,
-       \ {Play using ffplay}
-       \ ffplay -nodisp -hide_banner -autoexit %c,
-fileviewer {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,
-           \*.aac,*.mpga},
-          \<audio/*>
-         \ ffprobe -hide_banner -pretty %c 2>&1
+filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.aac,*.mpga
+        \ mpv %f %i
+fileviewer *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.aac,*.mpga
+        \ ffprobe -hide_banner -pretty %c 2>&1
 
 " Video
-filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
-          \*.as[fx],*.unknown_video},
-         \<video/*>
-        \ {Play using mpv}
-        \ mpv %f,
-        \ {View using ffplay}
-        \ ffplay -fs -hide_banner -autoexit %f,
-        \ {View using Dragon}
-        \ dragon %f:p,
-        \ {View using mplayer}
-        \ mplayer %f,
-fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-           \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
-           \*.as[fx],*.unknown_video},
-          \<video/*>
-         \ ffprobe -hide_banner -pretty %c 2>&1
+filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.divx,*.as[fx]
+        \ mpv %f %i
+fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.divx,*.as[fx]
+        \ ffprobe -hide_banner -pretty %c 2>&1
 
 " Web
-filextype {*.xhtml,*.html,*.htm},<text/html>
-        \ {Open with firefox}
-        \ firefox %f &,
-        \ {Open with qutebrowser}
-        \ qutebrowser %f %i,
-filetype {*.xhtml,*.html,*.htm},<text/html> links, lynx
+filextype *.xhtml,*.html,*.htm
+        \ firefox %f
 
 " Object
-filetype {*.o},<application/x-object> nm %f | less
+filetype *.o
+        \ nm %f | less
 
 " Man page
-filetype {*.[1-8]},<text/troff> man ./%c
-fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
+filetype *.[1-8]
+        \ man ./%c
+fileviewer *.[1-8]
+        \ man ./%c | col -b
 
 " Images
-filextype {*.svg,*.svgz},<image/svg+xml>
-        \ {Edit in Inkscape}
-        \ inkscape %f,
-        \ {View in Inkview}
-        \ inkview %f,
-filextype {*.cr2}
-        \ {Open in Darktable}
-        \ darktable %f,
-        \ {Open in RawTherapee}
-        \ rawtherapee %f,
-filextype {*.xcf}
-        \ {Open in GIMP}
-        \ gimp %f,
-filextype {.kra}
-        \ {Open in Krita}
-        \ krita %f,
-filextype {.blend}
-        \ {Open in Blender}
-        \ blender %c,
-filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-        \ {View in feh}
-        \ feh -d %d --start-at %d/%c 2> /dev/null,
-        \ {View in sxiv}
-        \ sxiv %f,
-        \ {View in gpicview}
-        \ gpicview %c,
-        \ {View in shotwell}
-        \ shotwell,
-fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-         \ identify %f
+filextype *.svg,*.svgz
+        \ nsxiv %f,
+        \ inkscape %f
+filextype *.cr2
+        \ darktable %f
+filextype *.xcf
+        \ gimp %f
+filextype .kra
+        \ krita %f
+filextype .blend
+        \ blender %f
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+        \ nsxiv -f -z 100 %c %d
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.svg
+        \ identify %c
 
 " OpenRaster
 filextype *.ora
-        \ {Edit in MyPaint}
-        \ mypaint %f,
+        \ mypaint %f
 
 " Mindmap
 filextype *.vym
-        \ {Open with VYM}
-        \ vym %f &,
+        \ vym %f
 
-" MD5
+" MD5 / SHA1 / SHA256 / SHA512
 filetype *.md5
-       \ {Check MD5 hash sum}
-       \ md5sum -c %f %S,
-
-" SHA1
+        \ md5sum -c %f %S
 filetype *.sha1
-       \ {Check SHA1 hash sum}
-       \ sha1sum -c %f %S,
-
-" SHA256
+        \ sha1sum -c %f %S
 filetype *.sha256
-       \ {Check SHA256 hash sum}
-       \ sha256sum -c %f %S,
-
-" SHA512
+        \ sha256sum -c %f %S
 filetype *.sha512
-       \ {Check SHA512 hash sum}
-       \ sha512sum -c %f %S,
+        \ sha512sum -c %f %S
 
 " GPG signature
-filetype {*.asc},<application/pgp-signature>
-       \ {Check signature}
-       \ !!gpg --verify %c,
+filetype *.asc
+        \ !!gpg --verify %c
 
 " Torrent
-filetype {*.torrent},<application/x-bittorrent> ktorrent %f &
-fileviewer {*.torrent},<application/x-bittorrent>
-         \ dumptorrent -v %c,
-         \ transmission-show %c
+filetype *.torrent
+        \ deluge %c
+fileviewer *.torrent
+        \ aria2c -S %c
 
-" FuseZipMount
-filetype {*.zip,*.jar,*.war,*.ear,*.oxt,*.apkg},
-        \<application/zip,application/java-archive>
-       \ {Mount with fuse-zip}
-       \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
-       \ {View contents}
-       \ unzip -l %f | less,
-       \ {Extract here}
-       \ unzip %c,
-fileviewer *.zip,*.jar,*.war,*.ear,*.oxt unzip -l %f
+" Zip / 7z / Rar
+filetype *.zip,*.jar,*.war,*.ear,*.oxt
+        \ unzip %c
+fileviewer *.zip,*.jar,*.war,*.ear,*.oxt
+        \ unzip -l %c
+fileviewer *.7z
+        \ 7z l %c
+fileviewer *.rar
+        \ unrar v %c
 
-" ArchiveMount
-filetype {*.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz,*.tar.zst,
-         \*.tzst},
-        \<application/x-tar>
-       \ {Mount with archivemount}
-       \ FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR,
-fileviewer *.tgz,*.tar.gz tar -tzf %c
-fileviewer *.tar.bz2,*.tbz2 tar -tjf %c
-fileviewer *.tar.xz,*.txz tar -tJf %c
-fileviewer *.tar.zst,*.tzst tar -t --zstd -f %c
-fileviewer {*.tar},<application/x-tar> tar -tf %c
+" Tar
+fileviewer *.tgz,*.tar.gz
+        \ tar -tzf %c
+fileviewer *.tar.bz2,*.tbz2
+        \ tar -tjf %c
+fileviewer *.tar.xz,*.txz
+        \ tar -tJf %c
+fileviewer *.tar.zst,*.tzst
+        \ tar -t --zstd -f %c
+fileviewer *.tar
+        \ tar -tf %c
 
-" Rar2FsMount and rar archives
-filetype {*.rar},<application/x-rar>
-       \ {Mount with rar2fs}
-       \ FUSE_MOUNT|rar2fs %SOURCE_FILE %DESTINATION_DIR,
-fileviewer {*.rar},<application/x-rar> unrar v %c
+" Office
+filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt
+        \ libreoffice %f
+fileviewer *.odt
+        \ odt2txt %c
+fileviewer *.doc
+        \ catdoc %c
+fileviewer *.docx
+        \ docx2txt.pl %f -
 
-" IsoMount
-filetype {*.iso},<application/x-iso9660-image>
-       \ {Mount with fuseiso}
-       \ FUSE_MOUNT|fuseiso %SOURCE_FILE %DESTINATION_DIR,
-
-" SshMount
-filetype *.ssh
-       \ {Mount with sshfs}
-       \ FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR %FOREGROUND,
-
-" FtpMount
-filetype *.ftp
-       \ {Mount with curlftpfs}
-       \ FUSE_MOUNT2|curlftpfs -o ftp_port=-,,disable_eprt %PARAM %DESTINATION_DIR %FOREGROUND,
-
-" Fuse7z and 7z archives
-filetype {*.7z},<application/x-7z-compressed>
-       \ {Mount with fuse-7z}
-       \ FUSE_MOUNT|fuse-7z %SOURCE_FILE %DESTINATION_DIR,
-fileviewer {*.7z},<application/x-7z-compressed> 7z l %c
-
-" Office files
-filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
-         \<application/vnd.openxmlformats-officedocument.*,
-          \application/msword,
-          \application/vnd.ms-excel>
-        \ libreoffice %f &
-fileviewer {*.doc},<application/msword> catdoc %c
-fileviewer {*.docx},
-          \<application/
-           \vnd.openxmlformats-officedocument.wordprocessingml.document>
-         \ docx2txt.pl %f -
+" JSON
+fileviewer *.json
+        \ jq -C . %c,
+        \ python -m json.tool %c
 
 " TuDu files
-filetype *.tudu tudu -f %c
+filetype *.tudu
+        \ tudu -f %c
 
-" Qt projects
-filextype *.pro qtcreator %f &
-
-" Directories
-filextype */
-        \ {View in thunar}
-        \ Thunar %f &,
+" Disable preview
+fileviewer .*.parts
+        \ echo No preview available. %i
 
 " ----------------------------------------------------------------------------------
 " -------------------  Syntax highlighting in preview  ---------------------------
@@ -416,7 +320,6 @@ fileviewer *.markdown,*.md                           highlight -O xterm256 -s ba
 fileviewer *.rst                                     highlight -O xterm256 -s base16/onedark -S rst %c
 fileviewer *.diff                                    highlight -O xterm256 -s base16/onedark -S diff %c
 fileviewer *.txt                                     highlight -O xterm256 -s base16/onedark -S txt %c
-fileviewer *.json                                    highlight -O xterm256 -s base16/onedark -S json %c
 fileviewer *.css,*.rasi                              highlight -O xterm256 -s base16/onedark -S css %c
 fileviewer *.scss                                    highlight -O xterm256 -s base16/onedark -S scss %c
 fileviewer *.xml,*.xbel                              highlight -O xterm256 -s base16/onedark -S xml %c
