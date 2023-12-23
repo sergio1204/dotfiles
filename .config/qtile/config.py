@@ -49,310 +49,116 @@ file_manager2 = "ranger"
 editor        = "vim"
 mod           = "mod4"
 
-# -------------------------------------
-# ------------  Keys  ---------------
-# ---------------------------------
+# -------------------------------------------------
+# -------------------  Keys  --------------------
+# ---------------------------------------------
 
 keys = [
+    # ----------------------------
     # Switch focus between windows
-    Key(
-        [mod],
-        "Left",
-        lazy.layout.left(),
-    ),
-    Key(
-        [mod],
-        "Right",
-        lazy.layout.right(),
-    ),
-    Key(
-        [mod],
-        "Down",
-        lazy.layout.down(),
-    ),
-    Key(
-        [mod],
-        "Up",
-        lazy.layout.up(),
-    ),
-    Key(
-        [mod],
-        "a",
-        lazy.group.next_window(),
-    ),
-    Key(
-        [mod, "shift"],
-        "a",
-        lazy.group.prev_window(),
-    ),
+    # ----------------------------
+    Key([mod], "Left", lazy.layout.left()),
+    Key([mod], "Right", lazy.layout.right()),
+    Key([mod], "Down", lazy.layout.down()),
+    Key([mod], "Up", lazy.layout.up()),
+    Key([mod], "a", lazy.group.next_window()),
+    Key([mod, "shift"], "a", lazy.group.prev_window()),
+    # ---------------------------
     # Switch focus between groups
-    Key(
-        [mod],
-        "Tab",
-        lazy.screen.next_group(skip_empty=True),
-    ),
-    Key(
-        [mod],
-        "grave",
-        lazy.screen.prev_group(skip_empty=True),
-    ),
-    Key(
-        [mod],
-        "Escape",
-        lazy.screen.toggle_group(),
-    ),
+    # ---------------------------
+    Key([mod], "Tab", lazy.screen.next_group(skip_empty=True)),
+    Key([mod], "grave", lazy.screen.prev_group(skip_empty=True)),
+    Key([mod], "Escape", lazy.screen.toggle_group()),
+    # ---------------------
     # Move focused  windows
-    Key(
-        [mod, "shift"],
-        "Left",
-        lazy.layout.shuffle_left(),
-    ),
-    Key(
-        [mod, "shift"],
-        "Right",
-        lazy.layout.shuffle_right(),
-    ),
-    Key(
-        [mod, "shift"],
-        "Down",
-        lazy.layout.shuffle_down(),
-    ),
-    Key(
-        [mod, "shift"],
-        "Up",
-        lazy.layout.shuffle_up(),
-    ),
+    # ---------------------
+    Key([mod, "shift"], "Left", lazy.layout.swap_left()),
+    Key([mod, "shift"], "Right", lazy.layout.swap_right()),
+    Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
+    Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
+    Key([mod], "space", lazy.layout.swap_main()),
+    # ------------------------------------
     # Shrink / Grow / Normalize / Maximize
-    Key(
-        [mod, "control"],
-        "Left",
-        lazy.layout.shrink_main(),
-    ),
-    Key(
-        [mod, "control"],
-        "Right",
-        lazy.layout.grow_main(),
-    ),
-    Key(
-        [mod],
-        "n",
-        lazy.layout.reset(),
-    ),
-    Key(
-        [mod],
-        "w",
-        lazy.layout.maximize(),
-    ),
+    # ------------------------------------
+    Key([mod, "control"], "Left", lazy.layout.shrink_main()),
+    Key([mod, "control"], "Right", lazy.layout.grow_main()),
+    Key([mod, "control"], "Up", lazy.layout.shrink()),
+    Key([mod, "control"], "Down", lazy.layout.grow()),
+    Key([mod], "n", lazy.layout.reset()),
+    Key([mod], "w", lazy.layout.maximize()),
+    # ---------------------
     # Floating / Fullscreen
-    Key(
-        [mod],
-        "e",
-        lazy.window.toggle_floating(),
-    ),
-    Key(
-        [mod],
-        "f",
-        lazy.window.toggle_fullscreen(),
-    ),
-    # Split / Swap / Kill / Reload
-    Key(
-        [mod],
-        "s",
-        lazy.next_layout(),
-    ),
-    Key(
-        [mod],
-        "g",
-        lazy.layout.flip(),
-    ),
-    Key(
-        [mod],
-        "q",
-        lazy.window.kill(),
-    ),
-    Key(
-        [mod, "shift"],
-        "r",
-        lazy.reload_config(),
-    ),
+    # ---------------------
+    Key([mod], "e", lazy.window.toggle_floating()),
+    Key([mod], "f", lazy.window.toggle_fullscreen()),
+    # ---------------------
+    # Split / Kill / Reload
+    # ---------------------
+    Key([mod], "s", lazy.next_layout()),
+    Key([mod], "q", lazy.window.kill()),
+    Key([mod, "shift"], "r", lazy.reload_config()),
+    # --------------
     # Volume control
-    Key(
-        [],
-        "XF86AudioRaiseVolume",
-        lazy.spawn("amixer -D pulse sset Master 5%+"),
-    ),
-    Key(
-        [],
-        "XF86AudioLowerVolume",
-        lazy.spawn("amixer -D pulse sset Master 5%-"),
-    ),
-    Key(
-        [],
-        "XF86AudioMute",
-        lazy.spawn("amixer -D pulse set Master toggle"),
-    ),
-    # Brightness
-    Key(
-        [],
-        "XF86MonBrightnessUp",
-        lazy.spawn("brightnessctl s +10%"),
-    ),
-    Key(
-        [],
-        "XF86MonBrightnessDown",
-        lazy.spawn("brightnessctl s 10%-"),
-    ),
+    # --------------
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -D pulse sset Master 5%+")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -D pulse sset Master 5%-")),
+    Key([], "XF86AudioMute", lazy.spawn("amixer -D pulse set Master toggle")),
+    # ------------------
+    # Brightness control
+    # ------------------
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s +10%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 10%-")),
+    # ------------------------
     # Lockscreen / Printscreen
-    Key(
-        [mod],
-        "l",
-        lazy.spawn("i3lock -i /home/sergey/Pictures/soty.png"),
-    ),
-    Key(
-        [],
-        "Print",
-        lazy.spawn("scrot -s"),
-    ),
-    Key(
-        ["shift"],
-        "Print",
-        lazy.spawn("scrot -d 1"),
-    ),
+    # ------------------------
+    Key([mod], "l", lazy.spawn("i3lock -i /home/sergey/Pictures/soty.png")),
+    Key([], "Print", lazy.spawn("scrot -s")),
+    Key(["shift"], "Print", lazy.spawn("scrot -d 1")),
+    # --------------------------
     # Reboot / Poweroff / Logout
-    Key(
-        [mod, "shift"],
-        "k",
-        lazy.spawn("systemctl reboot"),
-    ),
-    Key(
-        [mod, "shift"],
-        "m",
-        lazy.spawn("systemctl poweroff"),
-    ),
-    Key(
-        [mod, "shift"],
-        "l",
-        lazy.shutdown(),
-        desc="logout Qtile",
-    ),
-    # Dunst
-    Key(
-        [mod],
-        "u",
-        lazy.spawn("dunstctl history-pop"),
-    ),
-    Key(
-        [mod, "shift"],
-        "u",
-        lazy.spawn("dunstctl close-all"),
-    ),
-    # Rofi
-    Key(
-        [mod],
-        "z",
-        lazy.spawn("rofi -show drun"),
-    ),
-    Key(
-        [mod, "shift"],
-        "z",
-        lazy.spawn("rofi -show run"),
-    ),
-    # Picom
-    Key(
-        [mod],
-        "p",
-        lazy.spawn("picom"),
-    ),
-    Key(
-        [mod, "shift"],
-        "p",
-        lazy.spawn("killall -q picom"),
-    ),
+    # --------------------------
+    Key([mod, "shift"], "k", lazy.spawn("systemctl reboot")),
+    Key([mod, "shift"], "m", lazy.spawn("systemctl poweroff")),
+    Key([mod, "shift"], "l", lazy.shutdown(), desc="logout Qtile"),
+    # ------------
+    # Dunst / Rofi
+    # ------------
+    Key([mod], "u", lazy.spawn("dunstctl history-pop")),
+    Key([mod, "shift"], "u", lazy.spawn("dunstctl close-all")),
+    Key([mod], "z", lazy.spawn("rofi -show drun")),
+    Key([mod, "shift"], "z", lazy.spawn("rofi -show run")),
+    # --------
     # Terminal
-    Key(
-        [mod],
-        "Return",
-        lazy.spawn(terminal + " --class terminal "),
-    ),
-    Key(
-        [mod],
-        "x",
-        lazy.spawn(terminal + " --class files -e " + file_manager),
-    ),
-    Key(
-        [mod, "shift"],
-        "x",
-        lazy.spawn(terminal + " --class files -e " + file_manager2),
-    ),
-    Key(
-        [mod],
-        "backslash",
-        lazy.spawn(terminal + " --class editor -e " + editor),
-    ),
+    # --------
+    Key([mod], "Return", lazy.spawn(terminal + " --class terminal ")),
+    Key([mod],"x", lazy.spawn(terminal + " --class files -e " + file_manager)),
+    Key([mod, "shift"], "x", lazy.spawn(terminal + " --class files -e " + file_manager2)),
+    Key([mod], "backslash", lazy.spawn(terminal + " --class editor -e " + editor)),
+    # ---------
     # Apps keys
-    Key(
-        [mod],
-        "c",
-        lazy.spawn("firefox"),
-    ),
-    Key(
-        [mod],
-        "d",
-        lazy.spawn("quodlibet"),
-    ),
-    Key(
-        [mod, "shift"],
-        "d",
-        lazy.spawn("quodlibet --play-pause"),
-    ),
-    Key(
-        [mod],
-        "v",
-        lazy.spawn("zenity --calendar"),
-    ),
+    # ---------
+    Key([mod], "c", lazy.spawn("firefox")),
+    Key([mod], "d", lazy.spawn("quodlibet")),
+    Key([mod, "shift"], "d", lazy.spawn("quodlibet --play-pause")),
+    Key([mod], "v", lazy.spawn("zenity --calendar")),
+    Key([mod], "p", lazy.spawn("picom")),
+    Key([mod, "shift"], "p", lazy.spawn("killall -q picom")),
 ]
 
-# ----------------------------------------------
-# --------------  Groups  --------------------
-# ------------------------------------------
+# ----------------------------------------------------
+# ------------------  Groups  ----------------------
+# ------------------------------------------------
 
 groups = [
-    Group(
-        "1",
-        Match(wm_class="firefox"),
-    ),
-    Group(
-        "2",
-        Match(wm_class="files"),
-    ),
-    Group(
-        "3",
-        Match(wm_class=["Quodlibet", "audacity"]),
-     ),
-    Group(
-        "4",
-        Match(wm_class="terminal"),
-    ),
-    Group(
-        "5",
-        Match(wm_class="editor"),
-    ),
-    Group(
-        "6",
-        Match(wm_class="mpv"),
-    ),
-    Group(
-        "7",
-        Match(wm_class="gimp-2.10"),
-    ),
-    Group(
-        "8",
-        Match(wm_class="picard"),
-    ),
-    Group(
-        "9",
-        Match(wm_class="Steam"),
-    ),
+    Group("1", Match(wm_class="firefox")),
+    Group("2", Match(wm_class="files")),
+    Group("3", Match(wm_class=["Quodlibet", "audacity"])),
+    Group("4", Match(wm_class="terminal")),
+    Group("5", Match(wm_class="editor")),
+    Group("6", Match(wm_class="mpv")),
+    Group("7", Match(wm_class="gimp-2.10")),
+    Group("8", Match(wm_class="picard")),
+    Group("9", Match(wm_class="Steam")),
 ]
 
 for i in groups:
@@ -366,13 +172,13 @@ for i in groups:
     ]
 )
 
-# -----------------------------------------------
-# ---------------  Layouts  -------------------
-# -------------------------------------------
+# ----------------------------------------------------
+# -----------------  Layouts  ----------------------
+# ------------------------------------------------
 
 layouts = [
     layout.MonadTall(
-        name="",
+        name="",
         border_focus="#4B7093",
         border_normal="#23252e",
         border_width=2,
@@ -383,7 +189,7 @@ layouts = [
         single_border_width=False,
     ),
     layout.MonadWide(
-        name="",
+        name="",
         border_focus="#4B7093",
         border_normal="#23252e",
         border_width=2,

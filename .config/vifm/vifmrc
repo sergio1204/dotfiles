@@ -39,9 +39,8 @@ set syscalls
 " This probably shouldn't be an option.
 set trash
 
-" What should be saved automatically on restarting vifm.  Drop "savedirs"
-" value if you don't want vifm to remember last visited directories for you.
-set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
+" What should be saved automatically on restarting vifm.
+set vifminfo=dhistory,chistory,state,tui,shistory,
             \phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
 " This is how many directories to store in the directory history.
@@ -306,7 +305,7 @@ filetype *.tudu
         \ tudu -f %c
 
 " Disable preview
-fileviewer .*.parts
+fileviewer .*.parts,*.apk
         \ echo No preview available. %i
 
 " ----------------------------------------------------------------------------------
@@ -369,6 +368,9 @@ fileviewer .vimrc,vifmrc,.viminfo,*.vim,*.vifm,*.vmb highlight -O xterm256 -s ba
 " ----------------------------------------------------------------------------------
 " ---------------------  Sample keyboard mappings  -------------------------------
 " ------------------------------------------------------------------------------
+
+" Turn pane into tree view
+nnoremap T :tree!<cr>
 
 " Select files and move cursor to the next
 nnoremap <space> tj
