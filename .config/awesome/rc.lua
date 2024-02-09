@@ -175,13 +175,6 @@ local taglist_buttons = gears.table.join(
 )
 
 local tasklist_buttons = gears.table.join(
-        awful.button({ }, 1, function(c)
-                    if c == client.focus then
-                        c.minimized = true
-                    else
-                        c:emit_signal("request::activate", "tasklist", { raise = true })
-                    end
-                end),
         awful.button({ }, 3, function() awful.menu.client_list({ theme = { width = 250 }}) end),
         awful.button({ }, 4, function() awful.client.focus.byidx( 1) end),
         awful.button({ }, 5, function() awful.client.focus.byidx(-1) end)
@@ -226,7 +219,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
         screen = s,
-        filter = awful.widget.tasklist.filter.currenttags,
+        filter = awful.widget.tasklist.filter.focused,
         buttons = tasklist_buttons
     }
 
@@ -331,30 +324,19 @@ globalkeys = gears.table.join(
 
     -- Layouts
     awful.key({ modkey            }, "s", function() awful.layout.inc( 1) end),
-    awful.key({ modkey, "Shift"   }, "s", function() awful.layout.inc(-1) end),
-
-    -- Unminimize
-    awful.key({ modkey, "Shift"   }, "b", function()
-                local c = awful.client.restore()
-                if c then
-                    c:emit_signal("request::activate", "key.unminimize", { raise = true })
-                end
-            end)
+    awful.key({ modkey, "Shift"   }, "s", function() awful.layout.inc(-1) end)
 )
 
 clientkeys = gears.table.join(
-    -- Floating / Fullscreen / Ontop / Sticky
+    -- Floating / Fullscreen
     awful.key({ modkey            }, "e", awful.client.floating.toggle),
     awful.key({ modkey            }, "f", function(c) c.fullscreen = not c.fullscreen c:raise() end),
-    awful.key({ modkey            }, "t", function(c) c.ontop = not c.ontop end),
-    awful.key({ modkey            }, "r", function(c) c.sticky = not c.sticky end),
 
     -- Kill window / Swap to master
     awful.key({ modkey            }, "q",     function(c) c:kill() end),
     awful.key({ modkey            }, "space", function(c) c:swap(awful.client.getmaster()) end),
 
-    -- Minimize / Maximize
-    awful.key({ modkey            }, "b", function(c) c.minimized = true end),
+    -- Maximize
     awful.key({ modkey            }, "w", function(c) c.maximized = not c.maximized c:raise() end),
     awful.key({ modkey, "Shift"   }, "w", function(c) c.maximized_vertical = not c.maximized_vertical c:raise() end),
     awful.key({ modkey, "Control" }, "w", function(c) c.maximized_horizontal = not c.maximized_horizontal c:raise() end)
@@ -499,12 +481,11 @@ end)
 client.connect_signal("focus",   function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
--- Disable border when single or maximize window
+-- Disable border when single tiled window
 screen.connect_signal("arrange", function(s)
-    local max = s.selected_tag.layout.name == "max"
-    local only_one = #s.tiled_clients == 1
+    local only_one = #s.clients == 1
     for _, c in pairs(s.clients) do
-        if (max or only_one) and not c.floating or c.maximized then
+        if only_one and not c.floating then
             c.border_width = 0
         else
             c.border_width = beautiful.border_width

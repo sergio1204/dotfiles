@@ -305,7 +305,7 @@ filetype *.tudu
         \ tudu -f %c
 
 " Disable preview
-fileviewer .*.parts,*.apk
+fileviewer .*.parts,*.apk,*.djvu
         \ echo No preview available. %i
 
 " ----------------------------------------------------------------------------------
@@ -324,6 +324,7 @@ fileviewer *.scss                                    highlight -O xterm256 -s ba
 fileviewer *.xml,*.xbel                              highlight -O xterm256 -s base16/onedark -S xml %c
 fileviewer *.html                                    highlight -O xterm256 -s base16/onedark -S html %c
 fileviewer *.yml,*.yaml                              highlight -O xterm256 -s base16/onedark -S yaml %c
+fileviewer *.toml                                    highlight -O xterm256 -s base16/onedark -S toml %c
 fileviewer *.cfg,*.ini,.git*,.gtkrc-2.0,dunstrc      highlight -O xterm256 -s base16/onedark -S ini %c
 fileviewer *.conf,config,sxhkdrc,.Xresources         highlight -O xterm256 -s base16/onedark -S conf %c
 fileviewer *.py                                      highlight -O xterm256 -s base16/onedark -S python %c

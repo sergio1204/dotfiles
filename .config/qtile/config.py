@@ -73,7 +73,9 @@ keys = [
     # Move focused  windows
     # ---------------------
     Key([mod, "shift"], "Left", lazy.layout.swap_left()),
+    Key([mod, "shift"], "g", lazy.layout.swap_left()),
     Key([mod, "shift"], "Right", lazy.layout.swap_right()),
+    Key([mod], "g", lazy.layout.swap_right()),
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
     Key([mod], "space", lazy.layout.swap_main()),
