@@ -219,8 +219,10 @@ fileviewer *.[1-8]
         \ man ./%c | col -b
 
 " Images
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+        \ feh -dF --zoom 100 %d --start-at %d/%c 2> /dev/null
 filextype *.svg,*.svgz
-        \ nsxiv %f,
+        \ feh -dF --zoom 100 %d --start-at %d/%c 2> /dev/null
         \ inkscape %f
 filextype *.cr2
         \ darktable %f
@@ -230,8 +232,6 @@ filextype .kra
         \ krita %f
 filextype .blend
         \ blender %f
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ nsxiv -f -z 100 %c %d
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.svg
         \ identify %c
 

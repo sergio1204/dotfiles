@@ -47,6 +47,7 @@ terminal      = "alacritty"
 file_manager  = "vifm"
 file_manager2 = "ranger"
 editor        = "vim"
+calendar      = "calcurse"
 mod           = "mod4"
 
 # -------------------------------------------------
@@ -136,13 +137,13 @@ keys = [
     Key([mod],"x", lazy.spawn(terminal + " --class files -e " + file_manager)),
     Key([mod, "shift"], "x", lazy.spawn(terminal + " --class files -e " + file_manager2)),
     Key([mod], "backslash", lazy.spawn(terminal + " --class editor -e " + editor)),
+    Key([mod], "v", lazy.spawn(terminal + " --class calendar -e " + calendar)),
     # ---------
     # Apps keys
     # ---------
     Key([mod], "c", lazy.spawn("firefox")),
     Key([mod], "d", lazy.spawn("quodlibet")),
     Key([mod, "shift"], "d", lazy.spawn("quodlibet --play-pause")),
-    Key([mod], "v", lazy.spawn("zenity --calendar")),
     Key([mod], "p", lazy.spawn("picom")),
     Key([mod, "shift"], "p", lazy.spawn("killall -q picom")),
 ]
@@ -278,6 +279,12 @@ screens = [
                     format=" %H:%M:%S",
                     padding=10,
                 ),
+                widget.KeyboardKbdd(
+                    foreground="#F57CB8",
+                    fmt="⌨ {}",
+                    configured_keyboards=['us', 'ru'],
+                    padding=10,
+                ),
                 widget.Systray(
                 ),
             ],
@@ -318,8 +325,8 @@ floating_layout = layout.Floating(
         *layout.Floating.default_float_rules,
         Match(wm_class="Blueman-manager"),
         Match(wm_class="Steam"),
-        Match(wm_class="feh"),
         Match(wm_class="xcalc"),
+        Match(wm_class="calendar"),
     ],
     border_focus="#ac4142",
     border_width=2,

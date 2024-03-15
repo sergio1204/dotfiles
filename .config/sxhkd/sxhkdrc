@@ -53,13 +53,16 @@ super + {_,shift +}s
 super + g
     bspc node -s next.local.window
 
+super + shift + g
+    bspc node -s prev.local.window
+
+# circulate the windows of the tree rooted at the selected node
+super + {comma,period}
+    bspc node '@/' -C {backward,forward}
+
 # focus the node in the given direction
 super + {_,shift + }{Left,Down,Up,Right}
     bspc node -{f,s} {west,south,north,east}
-
-# focus the node for the given path jump
-#super + {p,b,comma,period}
-#    bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }a
@@ -181,6 +184,9 @@ super + shift + x
 super + backslash
     alacritty --class editor -e vim
 
+super + v
+    alacritty --class calendar -e calcurse
+
 # apps hotkeys
 super + c
     firefox
@@ -196,6 +202,3 @@ super + p
 
 super + shift + p
     killall -q picom
-
-super + v
-    zenity --calendar

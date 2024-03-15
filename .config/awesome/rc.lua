@@ -428,7 +428,6 @@ awful.rules.rules = {
         class = {
           "Blueman-manager",
           "Steam",
-          "feh",
           "XCalc"
         },
         -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -483,9 +482,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Disable border when single tiled window
 screen.connect_signal("arrange", function(s)
-    local only_one = #s.clients == 1
+    local only_one = #s.tiled_clients == 1
     for _, c in pairs(s.clients) do
-        if only_one and not c.floating then
+        if only_one and not c.floating or c.maximized then
             c.border_width = 0
         else
             c.border_width = beautiful.border_width

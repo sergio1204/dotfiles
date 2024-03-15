@@ -32,8 +32,8 @@ bspc rule -a Steam     desktop='^9' follow=on
 
 bspc rule -a Blueman-manager state=floating
 bspc rule -a Steam           state=floating
-bspc rule -a feh             state=floating
 bspc rule -a XCalc           state=floating
+bspc rule -a calendar        state=floating
 
 xsetroot -cursor_name left_ptr &
 feh --bg-scale /home/sergey/Pictures/oz.jpg &
