@@ -101,7 +101,7 @@ if !has('win')
 endif
 
 " Set custom status line look
-set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+set statusline="  %t%= %E %15A %4o %10u:%-7g %20d  "
 
 " List of color schemes to try (picks the first one supported by the terminal)
 colorscheme Default
@@ -150,6 +150,7 @@ command! vgrep vim "+grep %a"
 command! reload :write | restart full
 command! drop dragon-drop -a -x %f
 command! sdcoff udisksctl power-off -b /dev/sdc
+command! lsblk lsblk %m 2> /dev/null
 
 " ----------------------------------------------------------------------------------
 " ----------------------  File types association  --------------------------------
@@ -374,7 +375,7 @@ fileviewer .vimrc,vifmrc,.viminfo,*.vim,*.vifm,*.vmb highlight -O xterm256 -s ba
 nnoremap T :tree!<cr>
 
 " Select files and move cursor to the next
-nnoremap <space> tj
+nnoremap <space> gatj
 
 " Start shell in current directory
 nnoremap ~ :shell<cr>

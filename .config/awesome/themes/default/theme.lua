@@ -39,6 +39,7 @@ theme.fg_occupied           = "#eab268"
 -- Gaps / Borders
 theme.useless_gap           = dpi(0)
 theme.border_width          = dpi(2)
+theme.master_width_factor   = 0.4
 theme.border_normal         = theme.bg_normal
 theme.border_focus          = theme.bg_focus
 theme.border_marked         = "#d87c1e"

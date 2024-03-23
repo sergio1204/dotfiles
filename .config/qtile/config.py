@@ -142,8 +142,7 @@ keys = [
     # Apps keys
     # ---------
     Key([mod], "c", lazy.spawn("firefox")),
-    Key([mod], "d", lazy.spawn("quodlibet")),
-    Key([mod, "shift"], "d", lazy.spawn("quodlibet --play-pause")),
+    Key([mod], "d", lazy.spawn("youtube-music")),
     Key([mod], "p", lazy.spawn("picom")),
     Key([mod, "shift"], "p", lazy.spawn("killall -q picom")),
 ]
@@ -155,7 +154,7 @@ keys = [
 groups = [
     Group("1", Match(wm_class="firefox")),
     Group("2", Match(wm_class="files")),
-    Group("3", Match(wm_class=["Quodlibet", "audacity"])),
+    Group("3", Match(wm_class=["YouTube Music", "audacity"])),
     Group("4", Match(wm_class="terminal")),
     Group("5", Match(wm_class="editor")),
     Group("6", Match(wm_class="mpv")),
@@ -188,6 +187,7 @@ layouts = [
         change_ratio=0.1,
         max_ratio=0.9,
         min_ratio=0.1,
+        ratio=0.4,
         new_client_position="top",
         single_border_width=False,
     ),

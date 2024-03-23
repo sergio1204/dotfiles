@@ -284,8 +284,7 @@ globalkeys = gears.table.join(
 
     -- Apps keys
     awful.key({ modkey            }, "c", function() awful.spawn("firefox") end),
-    awful.key({ modkey            }, "d", function() awful.spawn("quodlibet") end),
-    awful.key({ modkey, "Shift"   }, "d", function() awful.spawn("quodlibet --play-pause") end),
+    awful.key({ modkey            }, "d", function() awful.spawn("youtube-music") end),
     awful.key({ modkey            }, "v", function() mycal.show(0) end),
     awful.key({ modkey, "Shift"   }, "v", function() mycal.hide() end),
 
@@ -443,16 +442,16 @@ awful.rules.rules = {
       },
       properties = { floating = true }},
 
-    { rule = { class = "firefox" },   properties = { tag = "1", switchtotag = true }},
-    { rule = { class = "files" },     properties = { tag = "2", switchtotag = true }},
-    { rule = { class = "Quodlibet" }, properties = { tag = "3", switchtotag = true }},
-    { rule = { class = "Audacity" },  properties = { tag = "3", switchtotag = true }},
-    { rule = { class = "terminal" },  properties = { tag = "4", switchtotag = true }},
-    { rule = { class = "editor" },    properties = { tag = "5", switchtotag = true }},
-    { rule = { class = "mpv" },       properties = { tag = "6", switchtotag = true }},
-    { rule = { class = "Gimp-2.10" }, properties = { tag = "7", switchtotag = true }},
-    { rule = { class = "Picard" },    properties = { tag = "8", switchtotag = true }},
-    { rule = { class = "Steam" },     properties = { tag = "9", switchtotag = true }}
+    { rule = { class = "firefox" },       properties = { tag = "1", switchtotag = true }},
+    { rule = { class = "files" },         properties = { tag = "2", switchtotag = true }},
+    { rule = { class = "YouTube Music" }, properties = { tag = "3", switchtotag = true }},
+    { rule = { class = "Audacity" },      properties = { tag = "3", switchtotag = true }},
+    { rule = { class = "terminal" },      properties = { tag = "4", switchtotag = true }},
+    { rule = { class = "editor" },        properties = { tag = "5", switchtotag = true }},
+    { rule = { class = "mpv" },           properties = { tag = "6", switchtotag = true }},
+    { rule = { class = "Gimp-2.10" },     properties = { tag = "7", switchtotag = true }},
+    { rule = { class = "Picard" },        properties = { tag = "8", switchtotag = true }},
+    { rule = { class = "Steam" },         properties = { tag = "9", switchtotag = true }}
 }
 
 -- --------------------------------------------------------------------------------------
