@@ -1,6 +1,3 @@
-[submodule ".config/ranger/plugins/ranger_udisk_menu"]
-	path = .config/ranger/plugins/ranger_udisk_menu
-	url = https://github.com/SL-RU/ranger_udisk_menu.git
 [submodule ".vim/pack/*/start/Colorizer"]
 	path = .vim/pack/*/start/Colorizer
 	url = https://github.com/chrisbra/Colorizer.git
