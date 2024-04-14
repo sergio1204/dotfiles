@@ -51,7 +51,6 @@ beautiful.init(theme_path)
 -- Terminal / FM / Editor / Modkey
 terminal      = "alacritty"
 file_manager  = "vifm"
-file_manager2 = "ranger"
 editor        = os.getenv("EDITOR") or "nano"
 modkey        = "Mod4"
 
@@ -279,12 +278,13 @@ globalkeys = gears.table.join(
     -- Terminal / FM / Editor
     awful.key({ modkey            }, "Return",    function() awful.spawn(terminal .. " --class terminal ") end),
     awful.key({ modkey            }, "x",         function() awful.spawn(terminal .. " --class files -e " .. file_manager) end),
-    awful.key({ modkey, "Shift"   }, "x",         function() awful.spawn(terminal .. " --class files -e " .. file_manager2) end),
     awful.key({ modkey            }, "backslash", function() awful.spawn(terminal .. " --class editor -e " .. editor) end),
 
     -- Apps keys
     awful.key({ modkey            }, "c", function() awful.spawn("firefox") end),
     awful.key({ modkey            }, "d", function() awful.spawn("youtube-music") end),
+    awful.key({ modkey            }, "p", function() awful.spawn("picom") end),
+    awful.key({ modkey, "Shift"   }, "p", function() awful.spawn("killall -q picom") end),
     awful.key({ modkey            }, "v", function() mycal.show(0) end),
     awful.key({ modkey, "Shift"   }, "v", function() mycal.hide() end),
 
@@ -445,12 +445,10 @@ awful.rules.rules = {
     { rule = { class = "firefox" },       properties = { tag = "1", switchtotag = true }},
     { rule = { class = "files" },         properties = { tag = "2", switchtotag = true }},
     { rule = { class = "YouTube Music" }, properties = { tag = "3", switchtotag = true }},
-    { rule = { class = "Audacity" },      properties = { tag = "3", switchtotag = true }},
     { rule = { class = "terminal" },      properties = { tag = "4", switchtotag = true }},
     { rule = { class = "editor" },        properties = { tag = "5", switchtotag = true }},
     { rule = { class = "mpv" },           properties = { tag = "6", switchtotag = true }},
     { rule = { class = "Gimp-2.10" },     properties = { tag = "7", switchtotag = true }},
-    { rule = { class = "Picard" },        properties = { tag = "8", switchtotag = true }},
     { rule = { class = "Steam" },         properties = { tag = "9", switchtotag = true }}
 }
 

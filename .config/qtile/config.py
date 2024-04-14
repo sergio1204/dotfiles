@@ -45,7 +45,6 @@ def switchtogroup(group, window):
 # Terminal / FM / Editor / Modkey
 terminal      = "alacritty"
 file_manager  = "vifm"
-file_manager2 = "ranger"
 editor        = "vim"
 calendar      = "calcurse"
 mod           = "mod4"
@@ -135,7 +134,6 @@ keys = [
     # --------
     Key([mod], "Return", lazy.spawn(terminal + " --class terminal ")),
     Key([mod],"x", lazy.spawn(terminal + " --class files -e " + file_manager)),
-    Key([mod, "shift"], "x", lazy.spawn(terminal + " --class files -e " + file_manager2)),
     Key([mod], "backslash", lazy.spawn(terminal + " --class editor -e " + editor)),
     Key([mod], "v", lazy.spawn(terminal + " --class calendar -e " + calendar)),
     # ---------
@@ -154,12 +152,11 @@ keys = [
 groups = [
     Group("1", Match(wm_class="firefox")),
     Group("2", Match(wm_class="files")),
-    Group("3", Match(wm_class=["YouTube Music", "audacity"])),
+    Group("3", Match(wm_class="YouTube Music")),
     Group("4", Match(wm_class="terminal")),
     Group("5", Match(wm_class="editor")),
     Group("6", Match(wm_class="mpv")),
     Group("7", Match(wm_class="gimp-2.10")),
-    Group("8", Match(wm_class="picard")),
     Group("9", Match(wm_class="Steam")),
 ]
 
@@ -241,7 +238,7 @@ screens = [
                 ),
                 widget.Volume(
                     foreground="#CDDC45",
-                    fmt=" {}",
+                    fmt=" {}",
                     step=5,
                     padding=5,
                 ),

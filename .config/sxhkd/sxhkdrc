@@ -177,9 +177,6 @@ super + Return
 super + x
     alacritty --class files -e vifm
 
-super + shift + x
-    alacritty --class files -e ranger
-
 super + backslash
     alacritty --class editor -e vim
 
