@@ -1,0 +1,47 @@
+Config { font = "xft:JetBrainsMono Nerd Font-12"
+       , additionalFonts = []
+       , overrideRedirect = True
+       , textOffset = 0
+       , iconOffset = 0
+       , bgColor  = "#23252e"
+       , fgColor  = "#f8f8f2"
+       , position = TopW L 100
+       , commands = [ Run Alsa "default" "Master"
+                        ["-t", "<action=`xdotool key XF86AudioRaiseVolume` button=4> \
+                               \<action=`xdotool key XF86AudioLowerVolume` button=5> \
+                               \<action=`xdotool key XF86AudioMute` button=1> \
+                               \<fc=#CDDC45> <volumestatus></fc></action></action></action>"
+                        , "--suffix", "True"
+                        , "--"
+                        , "--on", ""
+                        ]
+                    , Run Memory
+                        ["-t", "<fc=#E183E1>  <usedratio>%</fc>"
+                        ] 30
+                    , Run Cpu
+                        ["-t", "<fc=#6CD7DC> <total>%</fc>"
+                        ] 30
+                    , Run ThermalZone 0
+                        ["-t","<fc=#F86D85> <temp>°C</fc>"
+                        ] 30
+                    , Run Battery
+                        ["-t" , "<fc=#88EE9A><acstatus><left>%</fc>"
+                        , "--" -- battery specific options
+                        -- discharging status
+                        , "-o", "  "
+                        -- AC "on" status
+                        , "-O", " "
+                        -- charged status
+                        , "-i", " "
+                        ] 300
+                    , Run Date "<fc=#f0b574>%H:%M:%S</fc>" "date" 10
+                    , Run Kbd
+                        [("us", "<fc=#F57CB8>⌨ us</fc>"), ("ru", "<fc=#F57CB8>⌨ ru</fc>")
+                        ]
+                    , Run XPropertyLog "_XMONAD_TRAYPAD"
+                    , Run UnsafeXMonadLog
+                    ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = " %UnsafeXMonadLog% }{ %alsa:default:Master%   %memory%   %cpu%   %thermal0%   %battery%   %date%   %kbd% %_XMONAD_TRAYPAD%"
+       }
