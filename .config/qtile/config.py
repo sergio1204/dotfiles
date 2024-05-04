@@ -40,7 +40,7 @@ def autostart():
 
 @hook.subscribe.group_window_add
 def switchtogroup(group, window):
-    group.cmd_toscreen()
+    group.toscreen()
 
 # Terminal / FM / Editor / Modkey
 terminal      = "alacritty"
@@ -150,13 +150,14 @@ keys = [
 # ------------------------------------------------
 
 groups = [
-    Group("1", Match(wm_class="firefox")),
+    Group("1", Match(wm_class="Firefox-esr")),
     Group("2", Match(wm_class="files")),
     Group("3", Match(wm_class="YouTube Music")),
     Group("4", Match(wm_class="terminal")),
     Group("5", Match(wm_class="editor")),
     Group("6", Match(wm_class="mpv")),
     Group("7", Match(wm_class="gimp-2.10")),
+    Group("8"),
     Group("9", Match(wm_class="Steam")),
 ]
 
@@ -240,26 +241,26 @@ screens = [
                     foreground="#CDDC45",
                     fmt=" {}",
                     step=5,
-                    padding=5,
+                    padding=20,
                 ),
                 widget.Memory(
                     foreground="#E183E1",
-                    format="  {MemUsed: .0f}{mm}",
+                    format=" {MemUsed: .0f}{mm}",
                     update_interval=3,
-                    padding=10,
+                    padding=15,
                 ),
                 widget.CPU(
                     foreground="#6CD7DC",
                     format=" {load_percent}%",
                     update_interval=3,
-                    padding=10,
+                    padding=15,
                 ),
                 widget.ThermalZone(
                     fgcolor_normal="#F86D85",
                     format=" {temp}°C",
                     high=80,
                     update_interval=15,
-                    padding=10,
+                    padding=15,
                 ),
                 widget.Battery(
                     foreground="#88EE9A",
@@ -269,18 +270,18 @@ screens = [
                     format="{char}{percent:2.0%}",
                     show_short_text=None,
                     update_interval=30,
-                    padding=10,
+                    padding=15,
                 ),
                 widget.Clock(
                     foreground="#f0b574",
                     format=" %H:%M:%S",
-                    padding=10,
+                    padding=15,
                 ),
                 widget.KeyboardKbdd(
                     foreground="#F57CB8",
                     fmt="⌨ {}",
                     configured_keyboards=['us', 'ru'],
-                    padding=10,
+                    padding=15,
                 ),
                 widget.Systray(
                 ),

@@ -79,7 +79,7 @@ local volume = lain.widget.alsa {
 local mymem = lain.widget.mem {
     timeout = 3,
     settings = function()
-        widget:set_markup(lain.util.markup(beautiful.fg_mem, "  " .. mem_now.used .. "M "))
+        widget:set_markup(lain.util.markup(beautiful.fg_mem, "   " .. mem_now.used .. "M "))
     end
 }
 
@@ -236,7 +236,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            spacing = 10,
+            spacing = 14,
             volume,
             mymem,
             mycpu,
@@ -442,7 +442,7 @@ awful.rules.rules = {
       },
       properties = { floating = true }},
 
-    { rule = { class = "firefox" },       properties = { tag = "1", switchtotag = true }},
+    { rule = { class = "Firefox-esr" },   properties = { tag = "1", switchtotag = true }},
     { rule = { class = "files" },         properties = { tag = "2", switchtotag = true }},
     { rule = { class = "YouTube Music" }, properties = { tag = "3", switchtotag = true }},
     { rule = { class = "terminal" },      properties = { tag = "4", switchtotag = true }},
@@ -491,4 +491,7 @@ end)
 
 -- Jump to urgent
 client.connect_signal("property::urgent", function(c) c:jump_to() end)
+
+-- Autostart
+awful.spawn.with_shell("~/.config/awesome/autostart.sh")
 -- }}}

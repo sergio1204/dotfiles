@@ -7,4 +7,4 @@ run() {
   fi
 }
 
-run "picom"
+run "picom -b"
