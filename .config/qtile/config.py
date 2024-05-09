@@ -204,8 +204,8 @@ layouts = [
 # -------------------------------------------
 
 widget_defaults=dict(
-    font="JetBrainsMono Nerd Font",
-    fontsize=14,
+    font="VictorMono Nerd Font Medium",
+    fontsize=16,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -239,49 +239,49 @@ screens = [
                 ),
                 widget.Volume(
                     foreground="#CDDC45",
-                    fmt=" {}",
+                    fmt="  {}",
                     step=5,
                     padding=20,
                 ),
                 widget.Memory(
                     foreground="#E183E1",
-                    format=" {MemUsed: .0f}{mm}",
+                    format=" {MemUsed: .0f}{mm}",
                     update_interval=3,
-                    padding=15,
+                    padding=18,
                 ),
                 widget.CPU(
                     foreground="#6CD7DC",
-                    format=" {load_percent}%",
+                    format="  {load_percent}%",
                     update_interval=3,
-                    padding=15,
+                    padding=18,
                 ),
                 widget.ThermalZone(
                     fgcolor_normal="#F86D85",
                     format=" {temp}°C",
                     high=80,
                     update_interval=15,
-                    padding=15,
+                    padding=18,
                 ),
                 widget.Battery(
                     foreground="#88EE9A",
                     full_char=" ",
                     charge_char=" ",
-                    discharge_char=" ",
+                    discharge_char="  ",
                     format="{char}{percent:2.0%}",
                     show_short_text=None,
                     update_interval=30,
-                    padding=15,
+                    padding=18,
                 ),
                 widget.Clock(
                     foreground="#f0b574",
-                    format=" %H:%M:%S",
-                    padding=15,
+                    format="  %H:%M:%S",
+                    padding=18,
                 ),
                 widget.KeyboardKbdd(
                     foreground="#F57CB8",
-                    fmt="⌨ {}",
+                    fmt="  {}",
                     configured_keyboards=['us', 'ru'],
-                    padding=15,
+                    padding=18,
                 ),
                 widget.Systray(
                 ),

@@ -154,7 +154,7 @@ myXmobarPP = def
     { ppSep           = magenta "  "
     , ppLayout        = magenta . wrap "" ""
     , ppTitleSanitize = xmobarStrip
-    , ppCurrent       = blue . wrap "" "" . xmobarBorder "Bottom" "#AAC9F1" 2
+    , ppCurrent       = blue . wrap "" "" . xmobarBorder "Bottom" "#AAC9F1" 3
     , ppHidden        = yellow . wrap "" ""
     , ppUrgent        = red . wrap (yellow "!") (yellow "!")
     , ppOrder         = \[ws, l, _, wins] -> [ws, l, wins]
@@ -178,7 +178,7 @@ myXmobarPP = def
 
 myManageHook :: ManageHook
 myManageHook = composeAll
-    [ className =? "Firefox-esr"     --> viewShift "1"
+    [ className =? "firefox-esr"     --> viewShift "1"
     , className =? "files"           --> viewShift "2"
     , className =? "YouTube Music"   --> viewShift "3"
     , className =? "terminal"        --> viewShift "4"
@@ -199,7 +199,7 @@ myStartupHook = do
     spawn "killall -q trayer"
     spawn "sleep 2 && trayer --edge top --align right --SetDockType true \
             \--SetPartialStrut true --expand true --width 2 \
-            \--transparent false --tint 0x5f5f5f --height 17"
+            \--transparent false --tint 0x5f5f5f --height 28"
     spawnOnce "xsetroot -cursor_name left_ptr"
     spawnOnce "picom -b"
     spawnOnce "dunst"

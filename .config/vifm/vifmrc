@@ -306,7 +306,7 @@ filetype *.tudu
         \ tudu -f %c
 
 " Disable preview
-fileviewer .*.parts,*.apk,*.djvu
+fileviewer .*.parts,*.apk,*.djvu,*.ttf
         \ echo No preview available. %i
 
 " ----------------------------------------------------------------------------------
@@ -332,6 +332,7 @@ fileviewer *.py                                      highlight -O xterm256 -s ba
 fileviewer *.lua,.luacheckrc,*.rockspec              highlight -O xterm256 -s base16/onedark -S lua %c
 fileviewer .bash*,*.sh,.xinitrc,bspwmrc              highlight -O xterm256 -s base16/onedark -S shellscript %c
 fileviewer .vimrc,vifmrc,.viminfo,*.vim,*.vifm,*.vmb highlight -O xterm256 -s base16/onedark -S vimscript %c
+fileviewer *.hs                                      highlight -O xterm256 -s base16/onedark -S haskell %c
 
 " 16-color terminal
 " fileviewer *.c,*.h highlight -O ansi -s dante %c
