@@ -1,4 +1,4 @@
-Config { font = "VictorMono Nerd Font Medium 12"
+Config { font = "CaskaydiaMono NF 12"
        , additionalFonts = []
        , overrideRedirect = True
        , textOffset = 0
@@ -16,7 +16,7 @@ Config { font = "VictorMono Nerd Font Medium 12"
                         , "--on", ""
                         ]
                     , Run Memory
-                        ["-t", "<fc=#E183E1>  <usedratio>%</fc>"
+                        ["-t", "<fc=#E183E1>  <usedratio>%</fc>"
                         ] 30
                     , Run Cpu
                         ["-t", "<fc=#6CD7DC>  <total>%</fc>"

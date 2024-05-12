@@ -306,7 +306,7 @@ filetype *.tudu
         \ tudu -f %c
 
 " Disable preview
-fileviewer .*.parts,*.apk,*.djvu,*.ttf
+fileviewer .*.parts,*.apk,*.djvu,*.ttf,*.kdbx
         \ echo No preview available. %i
 
 " ----------------------------------------------------------------------------------

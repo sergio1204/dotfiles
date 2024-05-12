@@ -9,7 +9,7 @@ local themes_path           = gfs.get_themes_dir()
 local theme                 = {}
 
 -- Font / Wall / Bar size
-theme.font                  = "VictorMono Nerd Font Medium 12"
+theme.font                  = "CaskaydiaMono NF 12"
 theme.wallpaper             = "Pictures/oz.jpg"
 theme.wibar_height          = dpi(28)
 

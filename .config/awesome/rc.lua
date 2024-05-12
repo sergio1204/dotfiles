@@ -79,7 +79,7 @@ local volume = lain.widget.alsa {
 local mymem = lain.widget.mem {
     timeout = 3,
     settings = function()
-        widget:set_markup(lain.util.markup(beautiful.fg_mem, "   " .. mem_now.used .. "M  "))
+        widget:set_markup(lain.util.markup(beautiful.fg_mem, "   " .. mem_now.used .. "M  "))
     end
 }
 

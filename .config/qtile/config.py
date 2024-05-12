@@ -204,7 +204,7 @@ layouts = [
 # -------------------------------------------
 
 widget_defaults=dict(
-    font="VictorMono Nerd Font Medium",
+    font="CaskaydiaMono NF",
     fontsize=16,
     padding=3,
 )
@@ -245,7 +245,7 @@ screens = [
                 ),
                 widget.Memory(
                     foreground="#E183E1",
-                    format=" {MemUsed: .0f}{mm}",
+                    format=" {MemUsed: .0f}{mm}",
                     update_interval=3,
                     padding=18,
                 ),
