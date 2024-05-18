@@ -1,4 +1,4 @@
-Config { font = "CaskaydiaMono NF 12"
+Config { font = "CaskaydiaMono NF 11"
        , additionalFonts = []
        , overrideRedirect = True
        , textOffset = 0
@@ -43,5 +43,5 @@ Config { font = "CaskaydiaMono NF 12"
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = " %UnsafeXMonadLog% }{ %alsa:default:Master%    %memory%    %cpu%    %thermal0%    %battery%    %date%    %kbd% %_XMONAD_TRAYPAD%"
+       , template = " %UnsafeXMonadLog% }{ %alsa:default:Master%    %memory%    %cpu%    %thermal0%    %battery%    %date%    %kbd%   %_XMONAD_TRAYPAD%"
        }

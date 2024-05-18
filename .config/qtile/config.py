@@ -150,7 +150,7 @@ keys = [
 # ------------------------------------------------
 
 groups = [
-    Group("1", Match(wm_class="Firefox-esr")),
+    Group("1", Match(wm_class="firefox-esr")),
     Group("2", Match(wm_class="files")),
     Group("3", Match(wm_class="YouTube Music")),
     Group("4", Match(wm_class="terminal")),
@@ -205,14 +205,14 @@ layouts = [
 
 widget_defaults=dict(
     font="CaskaydiaMono NF",
-    fontsize=16,
-    padding=3,
+    fontsize=15,
+    padding=1,
 )
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper="Pictures/borda2.jpg",
+        wallpaper="Pictures/kosmonavt.jpg",
         wallpaper_mode="fill",
         top=bar.Bar(
             [
@@ -225,7 +225,7 @@ screens = [
                     hide_unused="True",
                     invert_mouse_wheel="True",
                     this_current_screen_border="#AAC9F1",
-                    borderwidth=4,
+                    borderwidth=3,
                     margin=5,
                 ),
                 widget.CurrentLayout(

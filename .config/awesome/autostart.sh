@@ -7,4 +7,5 @@ run() {
   fi
 }
 
-run "picom -b"
+run picom -b
+run xset b off

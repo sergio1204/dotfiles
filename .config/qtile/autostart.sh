@@ -2,4 +2,4 @@
 
 kbdd &
 picom -b &
-dunst &
+xset b off &

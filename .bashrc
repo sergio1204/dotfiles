@@ -14,5 +14,4 @@ alias df='df -h'
 alias ..='cd ..'
 alias cd..='cd ..'
 
-alias su='sudo -i'
 alias class='xprop WM_CLASS'

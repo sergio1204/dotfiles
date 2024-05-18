@@ -9,8 +9,8 @@ local themes_path           = gfs.get_themes_dir()
 local theme                 = {}
 
 -- Font / Wall / Bar size
-theme.font                  = "CaskaydiaMono NF 12"
-theme.wallpaper             = "Pictures/oz.jpg"
+theme.font                  = "CaskaydiaMono NF 11"
+theme.wallpaper             = "Pictures/kosmonavt.jpg"
 theme.wibar_height          = dpi(28)
 
 -- Widget colors

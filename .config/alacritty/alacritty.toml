@@ -29,20 +29,20 @@ background = "#282c34"
 foreground = "#E5E5E5"
 
 [font]
-size = 10.0
+size = 11.0
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "CaskaydiaMono NF"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
+family = "CaskaydiaMono NF"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "CaskaydiaMono NF"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "CaskaydiaMono NF"
 style = "Regular"

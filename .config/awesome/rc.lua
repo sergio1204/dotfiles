@@ -442,7 +442,7 @@ awful.rules.rules = {
       },
       properties = { floating = true }},
 
-    { rule = { class = "Firefox-esr" },   properties = { tag = "1", switchtotag = true }},
+    { rule = { class = "firefox-esr" },   properties = { tag = "1", switchtotag = true }},
     { rule = { class = "files" },         properties = { tag = "2", switchtotag = true }},
     { rule = { class = "YouTube Music" }, properties = { tag = "3", switchtotag = true }},
     { rule = { class = "terminal" },      properties = { tag = "4", switchtotag = true }},
@@ -493,5 +493,5 @@ end)
 client.connect_signal("property::urgent", function(c) c:jump_to() end)
 
 -- Autostart
-awful.spawn.with_shell("~/.config/awesome/autostart.sh")
+awful.spawn.with_shell("$HOME/.config/awesome/autostart.sh")
 -- }}}

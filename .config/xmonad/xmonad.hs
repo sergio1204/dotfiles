@@ -154,7 +154,7 @@ myXmobarPP = def
     { ppSep           = magenta "  "
     , ppLayout        = magenta . wrap "" ""
     , ppTitleSanitize = xmobarStrip
-    , ppCurrent       = blue . wrap "" "" . xmobarBorder "Bottom" "#AAC9F1" 4
+    , ppCurrent       = blue . wrap "" "" . xmobarBorder "Bottom" "#AAC9F1" 3
     , ppHidden        = yellow . wrap "" ""
     , ppUrgent        = red . wrap (yellow "!") (yellow "!")
     , ppOrder         = \[ws, l, _, wins] -> [ws, l, wins]
@@ -198,11 +198,10 @@ myStartupHook :: X ()
 myStartupHook = do
     spawn "killall -q trayer"
     spawn "sleep 2 && trayer --edge top --align right --SetDockType true \
-          \--SetPartialStrut true --expand true --width 2 \
+          \--SetPartialStrut true --expand true --widthtype request \
           \--transparent false --tint 0x5f5f5f --height 28"
     spawnOnce "xsetroot -cursor_name left_ptr"
     spawnOnce "picom -b"
-    spawnOnce "dunst"
     spawnOnce "xset b off"
-    spawnOnce "feh --bg-scale /home/sergey/Pictures/oz.jpg"
+    spawnOnce "feh --bg-scale /home/sergey/Pictures/kosmonavt.jpg"
 
