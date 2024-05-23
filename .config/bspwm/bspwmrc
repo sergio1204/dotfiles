@@ -19,7 +19,7 @@ bspc config gapless_monocle       true
 bspc config focus_follows_pointer true
 bspc config single_monocle        true
 
-bspc rule -a firefox-esr       desktop='^1' follow=on
+bspc rule -a firefox           desktop='^1' follow=on
 bspc rule -a files             desktop='^2' follow=on
 bspc rule -a "*:youtube music" desktop='^3' follow=on
 bspc rule -a terminal          desktop='^4' follow=on

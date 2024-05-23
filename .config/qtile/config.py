@@ -102,9 +102,9 @@ keys = [
     # --------------
     # Volume control
     # --------------
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -D pulse sset Master 5%+")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -D pulse sset Master 5%-")),
-    Key([], "XF86AudioMute", lazy.spawn("amixer -D pulse set Master toggle")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
     # ------------------
     # Brightness control
     # ------------------
@@ -150,7 +150,7 @@ keys = [
 # ------------------------------------------------
 
 groups = [
-    Group("1", Match(wm_class="firefox-esr")),
+    Group("1", Match(wm_class="firefox")),
     Group("2", Match(wm_class="files")),
     Group("3", Match(wm_class="YouTube Music")),
     Group("4", Match(wm_class="terminal")),

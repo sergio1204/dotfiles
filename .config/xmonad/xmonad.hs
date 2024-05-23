@@ -76,9 +76,9 @@ myAdditionalKeysP =
     , ("S-<Print>", spawn "scrot -d 1")
 
     -- Volume control
-    , ("<XF86AudioRaiseVolume>", spawn("amixer -D pulse sset Master 5%+"))
-    , ("<XF86AudioLowerVolume>", spawn("amixer -D pulse sset Master 5%-"))
-    , ("<XF86AudioMute>", spawn("amixer -D pulse set Master toggle"))
+    , ("<XF86AudioRaiseVolume>", spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"))
+    , ("<XF86AudioLowerVolume>", spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"))
+    , ("<XF86AudioMute>", spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
 
     -- Brightness control
     , ("<XF86MonBrightnessUp>", spawn("brightnessctl s +10%"))
@@ -178,7 +178,7 @@ myXmobarPP = def
 
 myManageHook :: ManageHook
 myManageHook = composeAll
-    [ className =? "firefox-esr"     --> viewShift "1"
+    [ className =? "firefox"         --> viewShift "1"
     , className =? "files"           --> viewShift "2"
     , className =? "YouTube Music"   --> viewShift "3"
     , className =? "terminal"        --> viewShift "4"

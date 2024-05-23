@@ -8,6 +8,7 @@ if [ -f $HOME/.bashrc ]; then
     source $HOME/.bashrc
 fi
 
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+#if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
     exec startx >& ~/.xsession-errors
 fi

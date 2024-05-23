@@ -51,7 +51,7 @@ beautiful.init(theme_path)
 -- Terminal / FM / Editor / Modkey
 terminal      = "alacritty"
 file_manager  = "vifm"
-editor        = os.getenv("EDITOR") or "nano"
+editor        = "vim"
 modkey        = "Mod4"
 
 -- Layouts
@@ -65,11 +65,11 @@ awful.layout.layouts = {
 -- -----------------------------------------------------------------------------
 
 -- Volume widget
-local volume = lain.widget.alsa {
+local volume = lain.widget.pulse {
     settings = function()
-        vol_level = "   " .. volume_now.level .. "%  "
-        if volume_now.status == "off" then
-            vol_level = "   " .. volume_now.level .. "%  "
+        vol_level = "   " .. volume_now.left .. "%  "
+        if volume_now.muted == "yes" then
+            vol_level = "   " .. volume_now.left .. "%  "
         end
         widget:set_markup(lain.util.markup(beautiful.fg_vol, vol_level))
     end
@@ -129,7 +129,7 @@ local mycal = lain.widget.cal {
     icons = "/",
     attach_to = { clock_clr },
     notification_preset = {
-        font = "JetBrains Mono 12",
+        font = "CaskaydiaMono NF 11",
         fg = beautiful.fg_focus,
         bg = beautiful.bg_normal
     }
@@ -138,21 +138,22 @@ local mycal = lain.widget.cal {
 -- Volume widget buttons
 volume.widget:buttons(awful.util.table.join(
     awful.button({ }, 1, function()
-            os.execute(string.format("%s set %s toggle", volume.cmd, volume.togglechannel or volume.channel))
+            os.execute(string.format("pactl set-sink-mute %s toggle", volume.device))
             volume.update()
         end),
     awful.button({ }, 3, function()
-            awful.spawn(string.format("%s -e alsamixer", terminal))
+            awful.spawn(string.format("pavucontrol"))
         end),
     awful.button({ }, 4, function()
-            os.execute(string.format("%s set %s 5%%+", volume.cmd, volume.channel))
+            os.execute(string.format("pactl set-sink-volume %s +5%%", volume.device))
             volume.update()
         end),
     awful.button({ }, 5, function()
-            os.execute(string.format("%s set %s 5%%-", volume.cmd, volume.channel))
+            os.execute(string.format("pactl set-sink-volume %s -5%%", volume.device))
             volume.update()
         end)
 ))
+
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -290,15 +291,15 @@ globalkeys = gears.table.join(
 
     -- Volume control
     awful.key({ }, "XF86AudioRaiseVolume", function()
-            os.execute(string.format("amixer set %s 5%%+", volume.channel))
+            os.execute(string.format("pactl set-sink-volume %s +5%%", volume.device))
             volume.update()
         end),
     awful.key({ }, "XF86AudioLowerVolume", function()
-            os.execute(string.format("amixer set %s 5%%-", volume.channel))
+            os.execute(string.format("pactl set-sink-volume %s -5%%", volume.device))
             volume.update()
         end),
     awful.key({ }, "XF86AudioMute", function()
-            os.execute(string.format("amixer set %s toggle", volume.togglechannel or volume.channel))
+            os.execute(string.format("pactl set-sink-mute %s toggle", volume.device))
             volume.update()
         end),
 
@@ -442,7 +443,7 @@ awful.rules.rules = {
       },
       properties = { floating = true }},
 
-    { rule = { class = "firefox-esr" },   properties = { tag = "1", switchtotag = true }},
+    { rule = { class = "firefox" },       properties = { tag = "1", switchtotag = true }},
     { rule = { class = "files" },         properties = { tag = "2", switchtotag = true }},
     { rule = { class = "YouTube Music" }, properties = { tag = "3", switchtotag = true }},
     { rule = { class = "terminal" },      properties = { tag = "4", switchtotag = true }},
