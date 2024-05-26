@@ -13,8 +13,9 @@ fi
 setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:caps &
 
 # start WM
-#exec bspwm
+exec bspwm
 #exec qtile start
 #exec /home/sergey/.local/bin/qtile start
 #exec awesome
 exec xmonad
+#exec /home/sergey/.local/bin/xmonad

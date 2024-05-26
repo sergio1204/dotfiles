@@ -5,7 +5,7 @@ import XMonad.Layout.Renamed
 import XMonad.Layout.ResizableTile
 
 import XMonad.Util.EZConfig
-import XMonad.Util.Ungrab   -- NOTE: Only needed for versions < 0.18.0!
+--import XMonad.Util.Ungrab   -- NOTE: Only needed for versions < 0.18.0!
 import XMonad.Util.SpawnOnce (spawnOnce)
 import XMonad.Util.Loggers
 import XMonad.Util.ClickableWorkspaces
@@ -72,7 +72,8 @@ myAdditionalKeysP =
 
     -- Lockscreen / Printscreen
     , ("M-l", spawn "i3lock -i /home/sergey/Pictures/soty.png")
-    , ("<Print>", unGrab *> spawn "scrot -s")
+    -- , ("<Print>", unGrab *> spawn "scrot -s")
+    , ("<Print>", spawn "scrot -s")
     , ("S-<Print>", spawn "scrot -d 1")
 
     -- Volume control
@@ -155,26 +156,24 @@ myXmobarPP = def
     , ppLayout        = magenta . wrap "" ""
     , ppTitleSanitize = xmobarStrip
     , ppCurrent       = blue . wrap "" "" . xmobarBorder "Bottom" "#AAC9F1" 3
-    , ppHidden        = yellow . wrap "" ""
-    , ppUrgent        = red . wrap (yellow "!") (yellow "!")
+    , ppHidden        = orange . wrap "" ""
+    , ppUrgent        = red . wrap (orange "!") (orange "!")
     , ppOrder         = \[ws, l, _, wins] -> [ws, l, wins]
     , ppExtras        = [logTitles formatFocused formatUnfocused]
     }
   where
-    formatFocused   = wrap (blue  "") (blue  "") . blue . ppWindow
-    formatUnfocused = wrap (green "") (green "") . yellow . ppWindow
+    formatFocused   = wrap (blue   "") (blue   "") . blue . ppWindow
+    formatUnfocused = wrap (orange "") (orange "") . orange . ppWindow
 
     -- Windows title length.
     ppWindow :: String -> String
     ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
 
-    blue, green, magenta, red, white, yellow :: String -> String
+    magenta, blue, orange, red :: String -> String
     magenta = xmobarColor "#ff79c6" ""
     blue    = xmobarColor "#AAC9F1" ""
-    white   = xmobarColor "#f8f8f2" ""
-    yellow  = xmobarColor "#eab268" ""
+    orange  = xmobarColor "#eab268" ""
     red     = xmobarColor "#ff5555" ""
-    green   = xmobarColor "#88EE9A" ""
 
 myManageHook :: ManageHook
 myManageHook = composeAll

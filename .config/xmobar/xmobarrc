@@ -10,7 +10,8 @@ Config { font = "CaskaydiaMono NF 11"
                         ["-t", "<action=`xdotool key XF86AudioRaiseVolume` button=4> \
                                \<action=`xdotool key XF86AudioLowerVolume` button=5> \
                                \<action=`xdotool key XF86AudioMute` button=1> \
-                               \<fc=#CDDC45>  <volumestatus></fc></action></action></action>"
+                               \<action=`pavucontrol` button=3> \
+                               \<fc=#CDDC45>  <volumestatus></fc></action></action></action></action>"
                         , "--suffix", "True"
                         , "--"
                         , "--on", ""
@@ -43,5 +44,5 @@ Config { font = "CaskaydiaMono NF 11"
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = " %UnsafeXMonadLog% }{ %alsa:default:Master%    %memory%    %cpu%    %thermal0%    %battery%    %date%    %kbd%   %_XMONAD_TRAYPAD%"
+       , template = " %UnsafeXMonadLog% }{ %alsa:default:Master%    %memory%    %cpu%    %thermal0%    %battery%    %date%    %kbd% %_XMONAD_TRAYPAD%"
        }
