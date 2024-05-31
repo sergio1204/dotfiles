@@ -1,7 +1,6 @@
 alias memory='ps -eo cmd,rss,%cpu --sort=-rss | g'
 alias search='find * -type f | fzf -m'
 alias g='grep --color=auto'
-alias bat='batcat'
 alias logclear='truncate -s 0'
 
 alias c='clear'
