@@ -19,8 +19,8 @@ Xcursor.size:  32
 ! XTerm  ---------------------------------
 ! --------------------------------------
 XTerm*termName:           xterm-256color
-XTerm*faceName:           JetBrainsMono Nerd Font
-XTerm*faceSize:           10
+XTerm*faceName:           CaskaydiaMono NF
+XTerm*faceSize:           11
 XTerm*borderWidth:        0
 XTerm*scrollBar:          false
 XTerm*alternateScroll:    true
@@ -34,7 +34,7 @@ XTerm*VT100.Translations: #override \
 ! -----------------------
 ! Colors  -------------
 ! -------------------
-*background:  #23252e
+*background:  #282c34
 *foreground:  #E5E5E5
 *cursorColor: #FA71B1
 *color0:      #23252e

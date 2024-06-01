@@ -12,9 +12,10 @@ Config { font = "CaskaydiaMono NF 11"
                                \<action=`xdotool key XF86AudioLowerVolume` button=5> \
                                \<action=`xdotool key XF86AudioMute` button=1> \
                                \<action=`pavucontrol` button=3> \
-                               \<fc=#CDDC45>  <volume>% <status></fc></action></action></action></action>"
+                               \<status></action></action></action></action>"
                         , "--"
-                        , "--on", ""
+                        , "-O", "  <volume>%", "-C", "#CDDC45"
+                        , "-o", "  <volume>%", "-c", "#ff3e72"
                         ] 05
                     , Run Memory
                         ["-t", "<fc=#E183E1>  <usedratio>%</fc>"
