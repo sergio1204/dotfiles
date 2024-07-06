@@ -5,7 +5,6 @@ import XMonad.Layout.Renamed
 import XMonad.Layout.ResizableTile
 
 import XMonad.Util.EZConfig
---import XMonad.Util.Ungrab   -- NOTE: Only needed for versions < 0.18.0!
 import XMonad.Util.SpawnOnce (spawnOnce)
 import XMonad.Util.Loggers
 import XMonad.Util.ClickableWorkspaces
@@ -65,14 +64,16 @@ myAdditionalKeysP =
     , ("M-\\", spawn (myTerminal ++ " --class editor -e vim "))
     , ("M-v", spawn (myTerminal ++ " --class calendar -e calcurse "))
 
-    -- Next layout / Unfloating / kill
-    , ("M-s", sendMessage NextLayout)
+    -- Change layout / Unfloating / kill
+    , ("M-w", sendMessage $ JumpToLayout "\xf065")
+    , ("M-S-w", sendMessage FirstLayout)
+    , ("M-s", sendMessage $ JumpToLayout "\xf063")
+    , ("M-S-s", sendMessage FirstLayout)
     , ("M-e", withFocused $ windows . W.sink)
     , ("M-q", kill)
 
     -- Lockscreen / Printscreen
     , ("M-l", spawn "i3lock -i /home/sergey/Pictures/soty.png")
-    -- , ("<Print>", unGrab *> spawn "scrot -s")
     , ("<Print>", spawn "scrot -s")
     , ("S-<Print>", spawn "scrot -d 1")
 

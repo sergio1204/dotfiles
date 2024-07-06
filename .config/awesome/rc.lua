@@ -482,7 +482,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 screen.connect_signal("arrange", function(s)
     local only_one = #s.tiled_clients == 1
     for _, c in pairs(s.clients) do
-        if only_one and not c.floating or c.maximized then
+        if only_one and not c.floating and not c.maximized then
+            c.border_width = 0
+        elseif c.fullscreen then
             c.border_width = 0
         else
             c.border_width = beautiful.border_width

@@ -21,6 +21,7 @@ Xcursor.size:  32
 XTerm*termName:           xterm-256color
 XTerm*faceName:           CaskaydiaMono NF
 XTerm*faceSize:           11
+XTerm*forceBoxChars:      true
 XTerm*borderWidth:        0
 XTerm*scrollBar:          false
 XTerm*alternateScroll:    true

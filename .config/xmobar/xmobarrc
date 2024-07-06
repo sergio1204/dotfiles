@@ -44,5 +44,5 @@ Config { font = "CaskaydiaMono NF 11"
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = " %UnsafeXMonadLog% }{ %default:Master%    %memory%    %cpu%    %thermal0%    %battery%    %date%    %kbd% %_XMONAD_TRAYPAD%"
+       , template = " %UnsafeXMonadLog% }{ %default:Master%    %memory%    %cpu%    %thermal0%    %battery%    %date%    %kbd%  %_XMONAD_TRAYPAD%"
        }
