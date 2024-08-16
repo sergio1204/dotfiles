@@ -282,8 +282,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey            }, "backslash", function() awful.spawn(terminal .. " --class editor -e " .. editor) end),
 
     -- Apps keys
-    awful.key({ modkey            }, "c", function() awful.spawn("firefox") end),
-    awful.key({ modkey            }, "d", function() awful.spawn("youtube-music") end),
+    awful.key({ modkey            }, "c", function() awful.spawn("chromium") end),
+    awful.key({ modkey, "Shift"   }, "c", function() awful.spawn("chromium --proxy-server=http://127.0.0.1:8080") end),
+    awful.key({ modkey            }, "d", function() awful.spawn("audacious") end),
+    awful.key({ modkey, "Shift"   }, "d", function() awful.spawn("audacious --play-pause") end),
+    awful.key({ modkey            }, "XF86AudioRaiseVolume",function() awful.spawn("audacious --fwd") end),
+    awful.key({ modkey            }, "XF86AudioLowerVolume",function() awful.spawn("audacious --rew") end),
     awful.key({ modkey            }, "p", function() awful.spawn("picom") end),
     awful.key({ modkey, "Shift"   }, "p", function() awful.spawn("killall -q picom") end),
     awful.key({ modkey            }, "v", function() mycal.show(0) end),
@@ -443,14 +447,14 @@ awful.rules.rules = {
       },
       properties = { floating = true }},
 
-    { rule = { class = "firefox" },       properties = { tag = "1", switchtotag = true }},
-    { rule = { class = "files" },         properties = { tag = "2", switchtotag = true }},
-    { rule = { class = "YouTube Music" }, properties = { tag = "3", switchtotag = true }},
-    { rule = { class = "terminal" },      properties = { tag = "4", switchtotag = true }},
-    { rule = { class = "editor" },        properties = { tag = "5", switchtotag = true }},
-    { rule = { class = "mpv" },           properties = { tag = "6", switchtotag = true }},
-    { rule = { class = "Gimp-2.10" },     properties = { tag = "7", switchtotag = true }},
-    { rule = { class = "Steam" },         properties = { tag = "9", switchtotag = true }}
+    { rule = { class = "Chromium" },  properties = { tag = "1", switchtotag = true }},
+    { rule = { class = "files" },     properties = { tag = "2", switchtotag = true }},
+    { rule = { class = "Audacious" }, properties = { tag = "3", switchtotag = true }},
+    { rule = { class = "terminal" },  properties = { tag = "4", switchtotag = true }},
+    { rule = { class = "editor" },    properties = { tag = "5", switchtotag = true }},
+    { rule = { class = "mpv" },       properties = { tag = "6", switchtotag = true }},
+    { rule = { class = "Gimp-2.10" }, properties = { tag = "7", switchtotag = true }},
+    { rule = { class = "Steam" },     properties = { tag = "9", switchtotag = true }}
 }
 
 -- --------------------------------------------------------------------------------------

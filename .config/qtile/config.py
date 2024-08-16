@@ -139,8 +139,12 @@ keys = [
     # ---------
     # Apps keys
     # ---------
-    Key([mod], "c", lazy.spawn("firefox")),
-    Key([mod], "d", lazy.spawn("youtube-music")),
+    Key([mod], "c", lazy.spawn("chromium")),
+    Key([mod, "shift"], "c", lazy.spawn("chromium --proxy-server=http://127.0.0.1:8080")),
+    Key([mod], "d", lazy.spawn("audacious")),
+    Key([mod, "shift"], "d", lazy.spawn("audacious --play-pause")),
+    Key([mod], "XF86AudioRaiseVolume", lazy.spawn("audacious --fwd")),
+    Key([mod], "XF86AudioLowerVolume", lazy.spawn("audacious --rew")),
     Key([mod], "p", lazy.spawn("picom")),
     Key([mod, "shift"], "p", lazy.spawn("killall -q picom")),
 ]
@@ -150,9 +154,9 @@ keys = [
 # ------------------------------------------------
 
 groups = [
-    Group("1", Match(wm_class="firefox")),
+    Group("1", Match(wm_class="Chromium")),
     Group("2", Match(wm_class="files")),
-    Group("3", Match(wm_class="YouTube Music")),
+    Group("3", Match(wm_class="audacious")),
     Group("4", Match(wm_class="terminal")),
     Group("5", Match(wm_class="editor")),
     Group("6", Match(wm_class="mpv")),

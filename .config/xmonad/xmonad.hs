@@ -53,8 +53,12 @@ myAdditionalKeysP =
     , ("M-S-u", spawn "dunstctl close-all")
 
     -- Apps
-    , ("M-c", spawn "firefox")
-    , ("M-d", spawn "youtube-music")
+    , ("M-c", spawn "chromium")
+    , ("M-S-c", spawn "chromium --proxy-server=http://127.0.0.1:8080")
+    , ("M-d", spawn "audacious")
+    , ("M-S-d", spawn "audacious --play-pause")
+    , ("M-<XF86AudioRaiseVolume>", spawn "audacious --fwd")
+    , ("M-<XF86AudioLowerVolume>", spawn "audacious --rew")
     , ("M-p", spawn "picom")
     , ("M-S-p", spawn "killall -q picom")
 
@@ -119,7 +123,7 @@ myAdditionalKeysP =
 
 myRemoveKeysP =
     [ ("M-S-q")
-    , ("M-S-c")
+    -- , ("M-S-c")
     ]
 
 myModMask :: KeyMask
@@ -178,9 +182,9 @@ myXmobarPP = def
 
 myManageHook :: ManageHook
 myManageHook = composeAll
-    [ className =? "firefox"         --> viewShift "1"
+    [ className =? "Chromium"        --> viewShift "1"
     , className =? "files"           --> viewShift "2"
-    , className =? "YouTube Music"   --> viewShift "3"
+    , className =? "Audacious"       --> viewShift "3"
     , className =? "terminal"        --> viewShift "4"
     , className =? "editor"          --> viewShift "5"
     , className =? "mpv"             --> viewShift "6"

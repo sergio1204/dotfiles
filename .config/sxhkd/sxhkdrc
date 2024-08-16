@@ -185,10 +185,22 @@ super + v
 
 # apps hotkeys
 super + c
-    firefox
+    chromium
+
+super + shift + c
+    chromium --proxy-server=http://127.0.0.1:8080
 
 super + d
-    youtube-music
+    audacious
+
+super + shift + d
+    audacious --play-pause
+
+super + XF86AudioRaiseVolume
+    audacious --fwd
+
+super + XF86AudioLowerVolume
+    audacious --rew
 
 super + p
     picom &
