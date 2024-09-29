@@ -65,7 +65,7 @@ highlight ErrorMsg   cterm=none ctermfg=001 ctermbg=default
 highlight Border     cterm=none ctermfg=035 ctermbg=default
 highlight JobLine    cterm=bold ctermfg=025 ctermbg=008
 
-highlight {*.jpg,*.png}             cterm=none ctermfg=208 ctermbg=default
+highlight {*.jpg,*.jpeg,*.png}      cterm=none ctermfg=208 ctermbg=default
 highlight {*.iso,*.tar.xz,*.zip}    cterm=none ctermfg=009 ctermbg=default
 highlight {*.avi,*.mkv,*.mp4,*.mpg} cterm=none ctermfg=140 ctermbg=default
 highlight {*.mp3,*.ac3,*.mka}       cterm=none ctermfg=069 ctermbg=default

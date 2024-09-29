@@ -221,9 +221,9 @@ fileviewer *.[1-8]
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ feh -dF --zoom 100 %d --start-at %d/%c 2> /dev/null
+        \ feh -d --zoom 100 %d --start-at %d/%c 2> /dev/null &
 filextype *.svg,*.svgz
-        \ feh -dF --zoom 100 %d --start-at %d/%c 2> /dev/null
+        \ feh -d --zoom 100 %d --start-at %d/%c 2> /dev/null &
         \ inkscape %f
 filextype *.cr2
         \ darktable %f
@@ -297,7 +297,7 @@ fileviewer *.docx
         \ docx2txt.pl %f -
 
 " JSON
-fileviewer *.json
+fileviewer *.json,*.jsonc
         \ jq -C . %c,
         \ python -m json.tool %c
 
@@ -539,7 +539,7 @@ set classify+=' ::*.scss::'
 set classify+=' ::*.py,,*.pyc,,*.pyd,,*.pyo::'
 set classify+=' ::*.php::'
 set classify+=' ::*.markdown,,*.md::'
-set classify+=' ::*.json::'
+set classify+=' ::*.json,,*.jsonc::'
 set classify+=' ::*.js::'
 set classify+=' ::*.bmp,,*.gif,,*.ico,,*.jpeg,,*.jpg,,*.png,,*.svg,,*.svgz,,*.tga,,*.tiff,,*.xmb,,*.xcf,,*.xpm,,*.xspf,,*.xwd,,*.cr2,,*.dng,,*.3fr,,*.ari,,*.arw,,*.bay,,*.crw,,*.cr3,,*.cap,,*.data,,*.dcs,,*.dcr,,*.drf,,*.eip,,*.erf,,*.fff,,*.gpr,,*.iiq,,*.k25,,*.kdc,,*.mdc,,*.mef,,*.mos,,*.mrw,,*.obm,,*.orf,,*.pef,,*.ptx,,*.pxn,,*.r3d,,*.raf,,*.raw,,*.rwl,,*.rw2,,*.rwz,,*.sr2,,*.srf,,*.srw,,*.tif,,*.x3f,,*.webp,,*.avif,,*.jxl::'
 set classify+=' ::*.ejs,,*.htm,,*.html,,*.slim,,*.xml::'
