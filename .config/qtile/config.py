@@ -119,8 +119,8 @@ keys = [
     # --------------------------
     # Reboot / Poweroff / Logout
     # --------------------------
-    Key([mod, "shift"], "k", lazy.spawn("systemctl reboot")),
-    Key([mod, "shift"], "m", lazy.spawn("systemctl poweroff")),
+    Key([mod, "shift"], "k", lazy.spawn("loginctl reboot")),
+    Key([mod, "shift"], "m", lazy.spawn("loginctl poweroff")),
     Key([mod, "shift"], "l", lazy.shutdown(), desc="logout Qtile"),
     # ------------
     # Dunst / Rofi
@@ -139,8 +139,8 @@ keys = [
     # ---------
     # Apps keys
     # ---------
-    Key([mod], "c", lazy.spawn("chromium")),
-    Key([mod, "shift"], "c", lazy.spawn("chromium --proxy-server=http://127.0.0.1:8080")),
+    Key([mod], "c", lazy.spawn("vivaldi-stable")),
+    Key([mod, "shift"], "c", lazy.spawn("vivaldi-stable --proxy-server=http://127.0.0.1:8080")),
     Key([mod], "d", lazy.spawn("audacious")),
     Key([mod, "shift"], "d", lazy.spawn("audacious --play-pause")),
     Key([mod], "XF86AudioRaiseVolume", lazy.spawn("audacious --fwd")),
@@ -154,7 +154,7 @@ keys = [
 # ------------------------------------------------
 
 groups = [
-    Group("1", Match(wm_class="Chromium")),
+    Group("1", Match(wm_class="Vivaldi-stable")),
     Group("2", Match(wm_class="files")),
     Group("3", Match(wm_class="audacious")),
     Group("4", Match(wm_class="terminal")),
@@ -182,7 +182,7 @@ for i in groups:
 
 layouts = [
     layout.MonadTall(
-        name="",
+        name="  ",
         border_focus="#4B7093",
         border_normal="#23252e",
         border_width=2,
@@ -194,7 +194,7 @@ layouts = [
         single_border_width=False,
     ),
     layout.MonadWide(
-        name="",
+        name="  ",
         border_focus="#4B7093",
         border_normal="#23252e",
         border_width=2,

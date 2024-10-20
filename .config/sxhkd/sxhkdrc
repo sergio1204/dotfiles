@@ -12,10 +12,10 @@ super + shift + {l,r}
 
 # reboot/poweroff
 super + shift + k
-    systemctl reboot
+    loginctl reboot
 
 super + shift + m
-    systemctl poweroff
+    loginctl poweroff
 
 # close and kill
 super + {_,shift + }q
@@ -185,10 +185,10 @@ super + v
 
 # apps hotkeys
 super + c
-    chromium
+    vivaldi-stable
 
 super + shift + c
-    chromium --proxy-server=http://127.0.0.1:8080
+    vivaldi-stable --proxy-server=http://127.0.0.1:8080
 
 super + d
     audacious
