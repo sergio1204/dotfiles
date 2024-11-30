@@ -3,7 +3,6 @@ export VISUAL=vim
 export EDITOR=vim
 export TERMINAL=alacritty
 export LIBVA_DRIVER_NAME=i965
-export PATH=$PATH:~/.spoofdpi/bin
 
 if [ -f $HOME/.bashrc ]; then
     source $HOME/.bashrc

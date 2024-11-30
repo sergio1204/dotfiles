@@ -319,8 +319,8 @@ globalkeys = gears.table.join(
     -- Reload / Quit / Reboot / Poweroff
     awful.key({ modkey, "Shift"   }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "l", awesome.quit),
-    awful.key({ modkey, "Shift"   }, "k", function() awful.spawn("loginctl reboot") end),
-    awful.key({ modkey, "Shift"   }, "m", function() awful.spawn("loginctl poweroff") end),
+    awful.key({ modkey, "Shift"   }, "k", function() awful.spawn("systemctl reboot") end),
+    awful.key({ modkey, "Shift"   }, "m", function() awful.spawn("systemctl poweroff") end),
 
     -- Resize window
     awful.key({ modkey, "Control" }, "Right", function() awful.tag.incmwfact( 0.1) end),
