@@ -53,8 +53,7 @@ myAdditionalKeysP =
     , ("M-S-u", spawn "dunstctl close-all")
 
     -- Apps
-    , ("M-c", spawn "chromium")
-    , ("M-S-c", spawn "chromium --proxy-server=http://127.0.0.1:8080")
+    , ("M-c", spawn "vivaldi-stable")
     , ("M-d", spawn "audacious")
     , ("M-S-d", spawn "audacious --play-pause")
     , ("M-<XF86AudioRaiseVolume>", spawn "audacious --fwd")
@@ -182,7 +181,7 @@ myXmobarPP = def
 
 myManageHook :: ManageHook
 myManageHook = composeAll
-    [ className =? "Chromium"        --> viewShift "1"
+    [ className =? "Vivaldi-stable"  --> viewShift "1"
     , className =? "files"           --> viewShift "2"
     , className =? "Audacious"       --> viewShift "3"
     , className =? "terminal"        --> viewShift "4"

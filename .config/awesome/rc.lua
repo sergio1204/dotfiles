@@ -283,7 +283,6 @@ globalkeys = gears.table.join(
 
     -- Apps keys
     awful.key({ modkey            }, "c", function() awful.spawn("vivaldi-stable") end),
-    awful.key({ modkey, "Shift"   }, "c", function() awful.spawn("vivaldi-stable --proxy-server=http://127.0.0.1:8080") end),
     awful.key({ modkey            }, "d", function() awful.spawn("audacious") end),
     awful.key({ modkey, "Shift"   }, "d", function() awful.spawn("audacious --play-pause") end),
     awful.key({ modkey            }, "XF86AudioRaiseVolume",function() awful.spawn("audacious --fwd") end),

@@ -140,7 +140,6 @@ keys = [
     # Apps keys
     # ---------
     Key([mod], "c", lazy.spawn("vivaldi-stable")),
-    Key([mod, "shift"], "c", lazy.spawn("vivaldi-stable --proxy-server=http://127.0.0.1:8080")),
     Key([mod], "d", lazy.spawn("audacious")),
     Key([mod, "shift"], "d", lazy.spawn("audacious --play-pause")),
     Key([mod], "XF86AudioRaiseVolume", lazy.spawn("audacious --fwd")),
