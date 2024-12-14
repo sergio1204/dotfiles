@@ -171,7 +171,7 @@ myXmobarPP = def
 
     -- Windows title length.
     ppWindow :: String -> String
-    ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
+    ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 100
 
     magenta, blue, orange, red :: String -> String
     magenta = xmobarColor "#ff79c6" ""

@@ -67,9 +67,9 @@ awful.layout.layouts = {
 -- Volume widget
 local volume = lain.widget.pulse {
     settings = function()
-        vol_level = "   " .. volume_now.left .. "%  "
+        vol_level = "   " .. volume_now.left .. "% "
         if volume_now.muted == "yes" then
-            vol_level = "   " .. volume_now.left .. "%  "
+            vol_level = "   " .. volume_now.left .. "% "
         end
         widget:set_markup(lain.util.markup(beautiful.fg_vol, vol_level))
     end
@@ -79,7 +79,7 @@ local volume = lain.widget.pulse {
 local mymem = lain.widget.mem {
     timeout = 3,
     settings = function()
-        widget:set_markup(lain.util.markup(beautiful.fg_mem, "   " .. mem_now.used .. "M  "))
+        widget:set_markup(lain.util.markup(beautiful.fg_mem, "   " .. mem_now.used .. "M "))
     end
 }
 
@@ -87,7 +87,7 @@ local mymem = lain.widget.mem {
 local mycpu = lain.widget.cpu {
     timeout = 3,
     settings = function()
-        widget:set_markup(lain.util.markup(beautiful.fg_cpu, "   " .. cpu_now.usage .. "%  "))
+        widget:set_markup(lain.util.markup(beautiful.fg_cpu, "   " .. cpu_now.usage .. "% "))
     end
 }
 
@@ -95,7 +95,7 @@ local mycpu = lain.widget.cpu {
 local mytemp = lain.widget.temp {
     timeout = 15,
     settings = function()
-        widget:set_markup(lain.util.markup(beautiful.fg_temp, "  " .. coretemp_now .. "°C  "))
+        widget:set_markup(lain.util.markup(beautiful.fg_temp, "  " .. coretemp_now .. "°C "))
     end
 }
 
@@ -104,9 +104,9 @@ local mybattery = lain.widget.bat {
     notify = "off",
     timeout = 30,
     settings = function()
-        bat_level = "  " .. bat_now.perc .. "%   "
+        bat_level = "  " .. bat_now.perc .. "% "
         if bat_now.status == "Discharging" then
-            bat_level = "   " .. bat_now.perc .. "%   "
+            bat_level = "   " .. bat_now.perc .. "% "
         end
         widget:set_markup(lain.util.markup(beautiful.fg_bat, bat_level))
     end
@@ -117,9 +117,13 @@ mykeyboardlayout   = awful.widget.keyboardlayout()
 local keyboard_clr = wibox.widget.background()
 keyboard_clr:set_widget(mykeyboardlayout)
 keyboard_clr:set_fg(beautiful.fg_keyboard)
+local keyboard_icon = wibox.widget {
+    markup = "<span foreground='" .. beautiful.fg_keyboard .. "'>  </span>",
+    widget = wibox.widget.textbox
+}
 
 -- Clock widget
-mytextclock     = wibox.widget.textclock("  %H:%M:%S ", 1)
+mytextclock     = wibox.widget.textclock("  %H:%M:%S", 1)
 local clock_clr = wibox.widget.background()
 clock_clr:set_widget(mytextclock)
 clock_clr:set_fg(beautiful.fg_time)
@@ -237,14 +241,15 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            spacing = 14,
+            spacing = 20,
             volume,
             mymem,
             mycpu,
             mytemp,
             mybattery,
+            keyboard_icon,
+            wibox.container.margin (keyboard_clr, -20),
             clock_clr,
-            keyboard_clr,
             wibox.widget.systray()
         }
     }

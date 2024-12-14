@@ -221,9 +221,9 @@ fileviewer *.[1-8]
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ feh -d --zoom 100 %d --start-at %d/%c 2> /dev/null &
+        \ feh -Fd --zoom 100 %d --start-at %d/%c 2> /dev/null &
 filextype *.svg,*.svgz
-        \ feh -d --zoom 100 %d --start-at %d/%c 2> /dev/null &
+        \ feh -Fd --zoom 100 %d --start-at %d/%c 2> /dev/null &
         \ inkscape %f
 filextype *.cr2
         \ darktable %f
