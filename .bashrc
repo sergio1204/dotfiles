@@ -1,4 +1,4 @@
-alias memory='ps -eo cmd,rss,%cpu --sort=-rss | g'
+alias memory='ps -eo cmd,rss,%cpu --sort=-rss | grep'
 alias search='find * -type f | fzf -m'
 alias grep='grep --color=auto'
 alias logclear='truncate -s 0'

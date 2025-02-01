@@ -10,7 +10,7 @@ local theme                 = {}
 
 -- Font / Wall / Bar size
 theme.font                  = "CaskaydiaMono NF 11"
-theme.wallpaper             = "Pictures/kosmonavt.jpg"
+theme.wallpaper             = "Pictures/oz.png"
 theme.wibar_height          = dpi(28)
 
 -- Widget colors

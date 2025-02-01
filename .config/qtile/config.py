@@ -43,8 +43,12 @@ def switchtogroup(group, window):
     group.toscreen()
 
 # Terminal / FM / Editor / Modkey
-terminal      = "alacritty"
-file_manager  = "vifm"
+browser       = "chromium"
+browser2      = "firefox"
+terminal      = "kitty"
+terminal2     = "alacritty"
+file_manager  = "yazi"
+file_manager2 = "ranger"
 editor        = "vim"
 calendar      = "calcurse"
 mod           = "mod4"
@@ -133,13 +137,17 @@ keys = [
     # Terminal
     # --------
     Key([mod], "Return", lazy.spawn(terminal + " --class terminal ")),
+    Key([mod, "shift"], "Return", lazy.spawn(terminal2 + " --class terminal ")),
     Key([mod],"x", lazy.spawn(terminal + " --class files -e " + file_manager)),
+    Key([mod],"x", lazy.spawn(terminal2 + " --class files -e " + file_manager2)),
     Key([mod], "backslash", lazy.spawn(terminal + " --class editor -e " + editor)),
+    Key([mod, "shift"], "backslash", lazy.spawn(terminal2 + " --class editor -e " + editor)),
     Key([mod], "v", lazy.spawn(terminal + " --class calendar -e " + calendar)),
     # ---------
     # Apps keys
     # ---------
-    Key([mod], "c", lazy.spawn("vivaldi-stable")),
+    Key([mod], "c", lazy.spawn(browser + " --class='web' ")),
+    Key([mod, "shift"], "c", lazy.spawn(browser2 + " --class='web' ")),
     Key([mod], "d", lazy.spawn("audacious")),
     Key([mod, "shift"], "d", lazy.spawn("audacious --play-pause")),
     Key([mod], "XF86AudioRaiseVolume", lazy.spawn("audacious --fwd")),
@@ -153,7 +161,7 @@ keys = [
 # ------------------------------------------------
 
 groups = [
-    Group("1", Match(wm_class="Vivaldi-stable")),
+    Group("1", Match(wm_class="web")),
     Group("2", Match(wm_class="files")),
     Group("3", Match(wm_class="audacious")),
     Group("4", Match(wm_class="terminal")),

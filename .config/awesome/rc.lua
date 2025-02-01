@@ -49,8 +49,12 @@ local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.ge
 beautiful.init(theme_path)
 
 -- Terminal / FM / Editor / Modkey
-terminal      = "alacritty"
-file_manager  = "vifm"
+browser       = "chromium"
+browser2      = "firefox"
+terminal      = "kitty"
+terminal2     = "alacritty"
+file_manager  = "yazi"
+file_manager2 = "ranger"
 editor        = "vim"
 modkey        = "Mod4"
 
@@ -283,11 +287,15 @@ globalkeys = gears.table.join(
 
     -- Terminal / FM / Editor
     awful.key({ modkey            }, "Return",    function() awful.spawn(terminal .. " --class terminal ") end),
+    awful.key({ modkey, "Shift"   }, "Return",    function() awful.spawn(terminal2 .. " --class terminal ") end),
     awful.key({ modkey            }, "x",         function() awful.spawn(terminal .. " --class files -e " .. file_manager) end),
+    awful.key({ modkey, "Shift"   }, "x",         function() awful.spawn(terminal2 .. " --class files -e " .. file_manager2) end),
     awful.key({ modkey            }, "backslash", function() awful.spawn(terminal .. " --class editor -e " .. editor) end),
+    awful.key({ modkey, "Shift"   }, "backslash", function() awful.spawn(terminal2 .. " --class editor -e " .. editor) end),
 
     -- Apps keys
-    awful.key({ modkey            }, "c", function() awful.spawn("vivaldi-stable") end),
+    awful.key({ modkey            }, "c", function() awful.spawn(browser .. " --class='web' ") end),
+    awful.key({ modkey, "Shift"   }, "c", function() awful.spawn(browser2 .. " --class='web' ") end),
     awful.key({ modkey            }, "d", function() awful.spawn("audacious") end),
     awful.key({ modkey, "Shift"   }, "d", function() awful.spawn("audacious --play-pause") end),
     awful.key({ modkey            }, "XF86AudioRaiseVolume",function() awful.spawn("audacious --fwd") end),
@@ -451,14 +459,14 @@ awful.rules.rules = {
       },
       properties = { floating = true }},
 
-    { rule = { class = "Vivaldi-stable" }, properties = { tag = "1", switchtotag = true }},
-    { rule = { class = "files" },          properties = { tag = "2", switchtotag = true }},
-    { rule = { class = "Audacious" },      properties = { tag = "3", switchtotag = true }},
-    { rule = { class = "terminal" },       properties = { tag = "4", switchtotag = true }},
-    { rule = { class = "editor" },         properties = { tag = "5", switchtotag = true }},
-    { rule = { class = "mpv" },            properties = { tag = "6", switchtotag = true }},
-    { rule = { class = "Gimp-2.10" },      properties = { tag = "7", switchtotag = true }},
-    { rule = { class = "Steam" },          properties = { tag = "9", switchtotag = true }}
+    { rule = { class = "web" },       properties = { tag = "1", switchtotag = true }},
+    { rule = { class = "files" },     properties = { tag = "2", switchtotag = true }},
+    { rule = { class = "Audacious" }, properties = { tag = "3", switchtotag = true }},
+    { rule = { class = "terminal" },  properties = { tag = "4", switchtotag = true }},
+    { rule = { class = "editor" },    properties = { tag = "5", switchtotag = true }},
+    { rule = { class = "mpv" },       properties = { tag = "6", switchtotag = true }},
+    { rule = { class = "Gimp-2.10" }, properties = { tag = "7", switchtotag = true }},
+    { rule = { class = "Steam" },     properties = { tag = "9", switchtotag = true }}
 }
 
 -- --------------------------------------------------------------------------------------
