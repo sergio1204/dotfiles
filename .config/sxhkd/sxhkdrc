@@ -172,22 +172,22 @@ super + shift + z
 
 # terminal
 super + Return
-    kitty --class terminal
-
-super + shift + Return
     alacritty --class terminal
 
-super + x
-    kitty --class files -e yazi
+super + shift + Return
+    kitty --class terminal
 
-super + shift + x
+super + x
     alacritty --class files -e ranger
 
+super + shift + x
+    alacritty --class files -e vifm
+
 super + backslash
-    kitty --class editor -e vim
+    alacritty --class editor -e vim
 
 super + shift + backslash
-    alacritty --class editor -e vim
+    alacritty --class editor -e nvim
 
 super + v
     alacritty --class calendar -e calcurse

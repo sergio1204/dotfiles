@@ -45,11 +45,12 @@ def switchtogroup(group, window):
 # Terminal / FM / Editor / Modkey
 browser       = "chromium"
 browser2      = "firefox"
-terminal      = "kitty"
-terminal2     = "alacritty"
-file_manager  = "yazi"
-file_manager2 = "ranger"
+terminal      = "alacritty"
+terminal2     = "kitty"
+file_manager  = "ranger"
+file_manager2 = "vifm"
 editor        = "vim"
+editor2       = "nvim"
 calendar      = "calcurse"
 mod           = "mod4"
 
@@ -139,9 +140,9 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal + " --class terminal ")),
     Key([mod, "shift"], "Return", lazy.spawn(terminal2 + " --class terminal ")),
     Key([mod],"x", lazy.spawn(terminal + " --class files -e " + file_manager)),
-    Key([mod],"x", lazy.spawn(terminal2 + " --class files -e " + file_manager2)),
+    Key([mod, "shift"],"x", lazy.spawn(terminal + " --class files -e " + file_manager2)),
     Key([mod], "backslash", lazy.spawn(terminal + " --class editor -e " + editor)),
-    Key([mod, "shift"], "backslash", lazy.spawn(terminal2 + " --class editor -e " + editor)),
+    Key([mod, "shift"], "backslash", lazy.spawn(terminal + " --class editor -e " + editor2)),
     Key([mod], "v", lazy.spawn(terminal + " --class calendar -e " + calendar)),
     # ---------
     # Apps keys
@@ -223,7 +224,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper="Pictures/kosmonavt.jpg",
+        wallpaper="Pictures/oz.png",
         wallpaper_mode="fill",
         top=bar.Bar(
             [

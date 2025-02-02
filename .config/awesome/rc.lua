@@ -48,14 +48,15 @@ naughty.config.defaults.border_width = beautiful.notification_border_width
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
 beautiful.init(theme_path)
 
--- Terminal / FM / Editor / Modkey
+-- Browser / Terminal / FM / Editor / Modkey
 browser       = "chromium"
 browser2      = "firefox"
-terminal      = "kitty"
-terminal2     = "alacritty"
-file_manager  = "yazi"
-file_manager2 = "ranger"
+terminal      = "alacritty"
+terminal2     = "kitty"
+file_manager  = "ranger"
+file_manager2 = "vifm"
 editor        = "vim"
+editor2       = "nvim"
 modkey        = "Mod4"
 
 -- Layouts
@@ -289,9 +290,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey            }, "Return",    function() awful.spawn(terminal .. " --class terminal ") end),
     awful.key({ modkey, "Shift"   }, "Return",    function() awful.spawn(terminal2 .. " --class terminal ") end),
     awful.key({ modkey            }, "x",         function() awful.spawn(terminal .. " --class files -e " .. file_manager) end),
-    awful.key({ modkey, "Shift"   }, "x",         function() awful.spawn(terminal2 .. " --class files -e " .. file_manager2) end),
+    awful.key({ modkey, "Shift"   }, "x",         function() awful.spawn(terminal .. " --class files -e " .. file_manager2) end),
     awful.key({ modkey            }, "backslash", function() awful.spawn(terminal .. " --class editor -e " .. editor) end),
-    awful.key({ modkey, "Shift"   }, "backslash", function() awful.spawn(terminal2 .. " --class editor -e " .. editor) end),
+    awful.key({ modkey, "Shift"   }, "backslash", function() awful.spawn(terminal .. " --class editor -e " .. editor2) end),
 
     -- Apps keys
     awful.key({ modkey            }, "c", function() awful.spawn(browser .. " --class='web' ") end),
