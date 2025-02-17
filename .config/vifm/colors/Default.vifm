@@ -47,7 +47,7 @@
 highlight clear
 
 highlight Win        cterm=none ctermfg=250 ctermbg=default
-highlight Directory  cterm=bold ctermfg=004 ctermbg=default
+highlight Directory  cterm=bold ctermfg=012 ctermbg=default
 highlight Link       cterm=bold ctermfg=006 ctermbg=default
 highlight BrokenLink cterm=bold ctermfg=001 ctermbg=default
 highlight Socket     cterm=bold ctermfg=005 ctermbg=default

@@ -51,12 +51,16 @@ beautiful.init(theme_path)
 -- Browser / Terminal / FM / Editor / Modkey
 browser       = "chromium"
 browser2      = "firefox"
-terminal      = "alacritty"
-terminal2     = "kitty"
-file_manager  = "ranger"
-file_manager2 = "vifm"
+
+terminal      = "kitty"
+terminal2     = "alacritty"
+
+file_manager  = "vifm"
+file_manager2 = "yazi"
+
 editor        = "vim"
 editor2       = "nvim"
+
 modkey        = "Mod4"
 
 -- Layouts

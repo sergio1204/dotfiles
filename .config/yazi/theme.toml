@@ -200,16 +200,19 @@ icon_error = ""
 
 rules = [
 	# Images
-	{ mime = "image/*", fg = "yellow" },
+	{ name = "*{jpg,jpeg,png}", fg = "yellow" },
 
-	# Media
-	{ mime = "{audio,video}/*", fg = "magenta" },
+	# Music
+	{ name = "*{mp3,ac3,mka}", fg = "cyan" },
+
+	# Videos
+	{ name = "*{avi,mkv,mp4,mpg}", fg = "magenta" },
 
 	# Archives
-	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "red" },
+	{ name = "*{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "red" },
 
 	# Documents
-	{ mime = "application/{pdf,doc,rtf}", fg = "cyan" },
+	{ name = "*{pdf,doc,rtf}", fg = "cyan" },
 
 	# Empty files
 	# { mime = "inode/empty", fg = "red" },
@@ -434,6 +437,7 @@ exts = [
 	{ name = "asc", text = "󰦝", fg = "#576d7f" },
 	{ name = "ass", text = "󰨖", fg = "#ffb713" },
 	{ name = "astro", text = "", fg = "#e23f67" },
+	{ name = "avi", text = "", fg = "#fd971f" },
 	{ name = "awk", text = "", fg = "#4d5a5e" },
 	{ name = "azcli", text = "", fg = "#0078d4" },
 	{ name = "bak", text = "󰁯", fg = "#6d8086" },
@@ -605,8 +609,8 @@ exts = [
 	{ name = "ixx", text = "", fg = "#519aba" },
 	{ name = "java", text = "", fg = "#cc3e44" },
 	{ name = "jl", text = "", fg = "#a270ba" },
-	{ name = "jpeg", text = "", fg = "#a074c4" },
-	{ name = "jpg", text = "", fg = "#a074c4" },
+	{ name = "jpeg", text = "", fg = "yellow" },
+	{ name = "jpg", text = "", fg = "yellow" },
 	{ name = "js", text = "", fg = "#cbcb41" },
 	{ name = "json", text = "", fg = "#cbcb41" },
 	{ name = "json5", text = "", fg = "#cbcb41" },
@@ -699,7 +703,7 @@ exts = [
 	{ name = "pls", text = "󰲹", fg = "#ed95ae" },
 	{ name = "ply", text = "󰆧", fg = "#888888" },
 	{ name = "pm", text = "", fg = "#519aba" },
-	{ name = "png", text = "", fg = "#a074c4" },
+	{ name = "png", text = "", fg = "yellow" },
 	{ name = "po", text = "", fg = "#2596be" },
 	{ name = "pot", text = "", fg = "#2596be" },
 	{ name = "pp", text = "", fg = "#ffa61a" },

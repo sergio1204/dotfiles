@@ -119,6 +119,7 @@ mark D ~/Downloads
 mark m ~/Music
 mark p ~/Pictures
 mark v ~/Videos
+mark c ~/.config
 
 " ----------------------------------------------------------------------------------
 " -------------------------------  Commands  -------------------------------------
@@ -234,7 +235,9 @@ filextype .kra
 filextype .blend
         \ blender %f
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.svg
-        \ identify %c
+        \ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
+        \ %pc
+        \ kitten icat --clear --silent >/dev/tty </dev/tty %N
 
 " OpenRaster
 filextype *.ora
@@ -400,7 +403,7 @@ nnoremap R :invert o<cr>
 nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
-if $DISPLAY && executable('gvim')
+if $DISPLAY != '' && executable('gvim')
     " Open file in existing instance of gvim
     nnoremap o :!gvim --remote-tab-silent %f<cr>
     " Open file in new instance of gvim
@@ -416,7 +419,7 @@ if has('win')
     nnoremap yp :!echo %"d:gs!\!/! %i | clip<cr>
     " Yank path to current file to Windows clipboard with forward slashes
     nnoremap yf :!echo %"c:gs!\!/! %i | clip<cr>
-elseif $WAYLAND_DISPLAY
+elseif $WAYLAND_DISPLAY != ''
     if executable('wl-copy')
         " Yank current directory path into primary and selection clipboards
         nnoremap yd :!echo -n %d | wl-copy %i &&
@@ -425,7 +428,7 @@ elseif $WAYLAND_DISPLAY
         nnoremap yf :!echo -n %c:p | wl-copy %i &&
                     \ echo -n %c:p | wl-copy -p %i<cr>
     endif
-elseif $DISPLAY
+elseif $DISPLAY != ''
     if executable('xclip')
         " Yank current directory path into the clipboard
         nnoremap yd :!echo %d | xclip %i<cr>
@@ -452,7 +455,7 @@ nnoremap A cw
 " nnoremap A cW
 
 " Open console in current directory
-if $DISPLAY && executable('xterm')
+if $DISPLAY != '' && executable('xterm')
     nnoremap ,t :!xterm &<cr>
 elseif $TERMINAL
     nnoremap ,t :!$TERMINAL &<cr>
@@ -462,7 +465,7 @@ endif
 nnoremap ,c :write | edit $MYVIFMRC | restart full<cr>
 
 " Open gvim to edit vifmrc
-if $DISPLAY && executable('gvim')
+if $DISPLAY != '' && executable('gvim')
     nnoremap ,C :!gvim --remote-tab-silent $MYVIFMRC &<cr>
 endif
 

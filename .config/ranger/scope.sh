@@ -76,6 +76,7 @@ handle_extension() {
 
         ## BitTorrent
         torrent)
+            aria2c -S -- "${FILE_PATH}" && exit 5
             transmission-show -- "${FILE_PATH}" && exit 5
             exit 1;;
 
