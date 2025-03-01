@@ -58,8 +58,8 @@ terminal2     = "alacritty"
 file_manager  = "vifm"
 file_manager2 = "yazi"
 
-editor        = "vim"
-editor2       = "nvim"
+editor        = "nvim"
+editor2       = "vim"
 
 modkey        = "Mod4"
 

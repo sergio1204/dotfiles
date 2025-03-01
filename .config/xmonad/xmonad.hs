@@ -47,46 +47,50 @@ myConfig = def
 
 myAdditionalKeysP =
     -- Rofi / Dunst
-    [ ("M-z", spawn "rofi -show drun")
+    [ ("M-z",   spawn "rofi -show drun")
     , ("M-S-z", spawn "rofi -show run")
-    , ("M-u", spawn "dunstctl history-pop")
+    , ("M-u",   spawn "dunstctl history-pop")
     , ("M-S-u", spawn "dunstctl close-all")
 
     -- Apps
-    , ("M-c", spawn "vivaldi-stable")
-    , ("M-d", spawn "audacious")
+    , ("M-c",   spawn (myBrowser ++ " --class='web' "))
+    , ("M-S-c", spawn (myBrowser2 ++ " --class='web' "))
+    , ("M-d",   spawn "audacious")
     , ("M-S-d", spawn "audacious --play-pause")
-    , ("M-<XF86AudioRaiseVolume>", spawn "audacious --fwd")
-    , ("M-<XF86AudioLowerVolume>", spawn "audacious --rew")
-    , ("M-p", spawn "picom")
+    , ("M-p",   spawn "picom")
     , ("M-S-p", spawn "killall -q picom")
 
     -- Terminal
-    , ("M-<Return>", spawn (myTerminal ++ " --class terminal "))
-    , ("M-x", spawn (myTerminal ++ " --class files -e vifm "))
-    , ("M-\\", spawn (myTerminal ++ " --class editor -e vim "))
-    , ("M-v", spawn (myTerminal ++ " --class calendar -e calcurse "))
+    , ("M-<Return>",   spawn (myTerminal ++ " --class terminal "))
+    , ("M-S-<Return>", spawn (myTerminal2 ++ " --class terminal "))
+    , ("M-x",          spawn (myTerminal ++ " --class files -e " ++ myFile_manager))
+    , ("M-S-x",        spawn (myTerminal ++ " --class files -e " ++ myFile_manager2))
+    , ("M-\\",         spawn (myTerminal ++ " --class editor -e " ++ myEditor))
+    , ("M-S-\\",       spawn (myTerminal ++ " --class editor -e " ++ myEditor2))
+    , ("M-v",          spawn (myTerminal ++ " --class calendar -e calcurse "))
 
     -- Change layout / Unfloating / kill
-    , ("M-w", sendMessage $ JumpToLayout "\xf065")
+    , ("M-w",   sendMessage $ JumpToLayout "\xf065")
     , ("M-S-w", sendMessage FirstLayout)
-    , ("M-s", sendMessage $ JumpToLayout "\xf063")
+    , ("M-s",   sendMessage $ JumpToLayout "\xf063")
     , ("M-S-s", sendMessage FirstLayout)
-    , ("M-e", withFocused $ windows . W.sink)
-    , ("M-q", kill)
+    , ("M-e",   withFocused $ windows . W.sink)
+    , ("M-q",   kill)
 
     -- Lockscreen / Printscreen
-    , ("M-l", spawn "i3lock -i /home/sergey/Pictures/soty.png")
-    , ("<Print>", spawn "scrot -s")
+    , ("M-l",       spawn "i3lock -i /home/sergey/Pictures/soty.png")
+    , ("<Print>",   spawn "scrot -s")
     , ("S-<Print>", spawn "scrot -d 1")
 
     -- Volume control
-    , ("<XF86AudioRaiseVolume>", spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"))
-    , ("<XF86AudioLowerVolume>", spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"))
-    , ("<XF86AudioMute>", spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
+    , ("<XF86AudioRaiseVolume>",   spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"))
+    , ("<XF86AudioLowerVolume>",   spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"))
+    , ("<XF86AudioMute>",          spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
+    , ("M-<XF86AudioRaiseVolume>", spawn "audacious --fwd")
+    , ("M-<XF86AudioLowerVolume>", spawn "audacious --rew")
 
     -- Brightness control
-    , ("<XF86MonBrightnessUp>", spawn("brightnessctl s +10%"))
+    , ("<XF86MonBrightnessUp>",   spawn("brightnessctl s +10%"))
     , ("<XF86MonBrightnessDown>", spawn("brightnessctl s 10%-"))
 
     -- Recompile / Reboot / Poweroff / Quit
@@ -96,27 +100,27 @@ myAdditionalKeysP =
     , ("M-S-l", io exitSuccess)
 
     -- Resize window
-    , ("M-C-<Left>", sendMessage Shrink)
+    , ("M-C-<Left>",  sendMessage Shrink)
     , ("M-C-<Right>", sendMessage Expand)
-    , ("M-C-<Down>", sendMessage MirrorShrink)
-    , ("M-C-<Up>", sendMessage MirrorExpand)
+    , ("M-C-<Down>",  sendMessage MirrorShrink)
+    , ("M-C-<Up>",    sendMessage MirrorExpand)
 
     -- Swap window
-    , ("M-<Space>", windows W.swapMaster)
-    , ("M-g", windows W.swapDown)
-    , ("M-S-g", windows W.swapUp)
-    , ("M-S-<Left>", windows W.swapUp)
+    , ("M-<Space>",   windows W.swapMaster)
+    , ("M-g",         windows W.swapDown)
+    , ("M-S-g",       windows W.swapUp)
+    , ("M-S-<Left>",  windows W.swapUp)
     , ("M-S-<Right>", windows W.swapDown)
 
     -- Focus window
-    , ("M-a", windows W.focusDown)
-    , ("M-S-a", windows W.focusUp)
-    , ("M-<Left>", windows W.focusUp)
+    , ("M-a",       windows W.focusDown)
+    , ("M-S-a",     windows W.focusUp)
+    , ("M-<Left>",  windows W.focusUp)
     , ("M-<Right>", windows W.focusDown)
 
     -- Cycle WS
     , ("M-<Tab>", moveTo Next (Not emptyWS))
-    , ("M-`", moveTo Prev (Not emptyWS))
+    , ("M-`",     moveTo Prev (Not emptyWS))
     , ("M-<Esc>", toggleWS)
     ]
 
@@ -129,7 +133,28 @@ myModMask :: KeyMask
 myModMask = mod4Mask
 
 myTerminal :: String
-myTerminal = "alacritty"
+myTerminal = "kitty"
+
+myTerminal2 :: String
+myTerminal2 = "alacritty"
+
+myBrowser :: String
+myBrowser = "chromium"
+
+myBrowser2 :: String
+myBrowser2 = "firefox"
+
+myFile_manager :: String
+myFile_manager = "vifm"
+
+myFile_manager2 :: String
+myFile_manager2 = "yazi"
+
+myEditor :: String
+myEditor = "nvim"
+
+myEditor2 :: String
+myEditor2 = "vim"
 
 myBorderWidth :: Dimension
 myBorderWidth = 3
@@ -181,7 +206,7 @@ myXmobarPP = def
 
 myManageHook :: ManageHook
 myManageHook = composeAll
-    [ className =? "Vivaldi-stable"  --> viewShift "1"
+    [ className =? "web"             --> viewShift "1"
     , className =? "files"           --> viewShift "2"
     , className =? "Audacious"       --> viewShift "3"
     , className =? "terminal"        --> viewShift "4"
@@ -206,5 +231,5 @@ myStartupHook = do
     spawnOnce "xsetroot -cursor_name left_ptr"
     spawnOnce "picom -b"
     spawnOnce "xset b off"
-    spawnOnce "feh --bg-scale /home/sergey/Pictures/kosmonavt.jpg"
+    spawnOnce "feh --bg-scale /home/sergey/Pictures/oz.png"
 

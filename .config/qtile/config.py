@@ -45,12 +45,16 @@ def switchtogroup(group, window):
 # Terminal / FM / Editor / Modkey
 browser       = "chromium"
 browser2      = "firefox"
-terminal      = "alacritty"
-terminal2     = "kitty"
-file_manager  = "ranger"
-file_manager2 = "vifm"
-editor        = "vim"
-editor2       = "nvim"
+
+terminal      = "kitty"
+terminal2     = "alacritty"
+
+file_manager  = "vifm"
+file_manager2 = "yazi"
+
+editor        = "nvim"
+editor2       = "vim"
+
 calendar      = "calcurse"
 mod           = "mod4"
 
