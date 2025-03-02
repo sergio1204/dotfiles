@@ -143,11 +143,11 @@ keys = [
     # --------
     Key([mod], "Return", lazy.spawn(terminal + " --class terminal ")),
     Key([mod, "shift"], "Return", lazy.spawn(terminal2 + " --class terminal ")),
-    Key([mod],"x", lazy.spawn(terminal + " --class files -e " + file_manager)),
-    Key([mod, "shift"],"x", lazy.spawn(terminal + " --class files -e " + file_manager2)),
-    Key([mod], "backslash", lazy.spawn(terminal + " --class editor -e " + editor)),
-    Key([mod, "shift"], "backslash", lazy.spawn(terminal + " --class editor -e " + editor2)),
-    Key([mod], "v", lazy.spawn(terminal + " --class calendar -e " + calendar)),
+    Key([mod],"x", lazy.spawn(terminal + " --class files " + file_manager)),
+    Key([mod, "shift"],"x", lazy.spawn(terminal + " --class files " + file_manager2)),
+    Key([mod], "backslash", lazy.spawn(terminal + " --class editor " + editor)),
+    Key([mod, "shift"], "backslash", lazy.spawn(terminal + " --class editor " + editor2)),
+    Key([mod], "v", lazy.spawn(terminal + " --class calendar " + calendar)),
     # ---------
     # Apps keys
     # ---------

@@ -63,11 +63,11 @@ myAdditionalKeysP =
     -- Terminal
     , ("M-<Return>",   spawn (myTerminal ++ " --class terminal "))
     , ("M-S-<Return>", spawn (myTerminal2 ++ " --class terminal "))
-    , ("M-x",          spawn (myTerminal ++ " --class files -e " ++ myFile_manager))
-    , ("M-S-x",        spawn (myTerminal ++ " --class files -e " ++ myFile_manager2))
-    , ("M-\\",         spawn (myTerminal ++ " --class editor -e " ++ myEditor))
-    , ("M-S-\\",       spawn (myTerminal ++ " --class editor -e " ++ myEditor2))
-    , ("M-v",          spawn (myTerminal ++ " --class calendar -e calcurse "))
+    , ("M-x",          spawn (myTerminal ++ " --class files " ++ myFile_manager))
+    , ("M-S-x",        spawn (myTerminal ++ " --class files " ++ myFile_manager2))
+    , ("M-\\",         spawn (myTerminal ++ " --class editor " ++ myEditor))
+    , ("M-S-\\",       spawn (myTerminal ++ " --class editor " ++ myEditor2))
+    , ("M-v",          spawn (myTerminal ++ " --class calendar " ++ myCalendar))
 
     -- Change layout / Unfloating / kill
     , ("M-w",   sendMessage $ JumpToLayout "\xf065")
@@ -155,6 +155,9 @@ myEditor = "nvim"
 
 myEditor2 :: String
 myEditor2 = "vim"
+
+myCalendar :: String
+myCalendar = "calcurse"
 
 myBorderWidth :: Dimension
 myBorderWidth = 3

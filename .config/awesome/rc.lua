@@ -293,10 +293,10 @@ globalkeys = gears.table.join(
     -- Terminal / FM / Editor
     awful.key({ modkey            }, "Return",    function() awful.spawn(terminal .. " --class terminal ") end),
     awful.key({ modkey, "Shift"   }, "Return",    function() awful.spawn(terminal2 .. " --class terminal ") end),
-    awful.key({ modkey            }, "x",         function() awful.spawn(terminal .. " --class files -e " .. file_manager) end),
-    awful.key({ modkey, "Shift"   }, "x",         function() awful.spawn(terminal .. " --class files -e " .. file_manager2) end),
-    awful.key({ modkey            }, "backslash", function() awful.spawn(terminal .. " --class editor -e " .. editor) end),
-    awful.key({ modkey, "Shift"   }, "backslash", function() awful.spawn(terminal .. " --class editor -e " .. editor2) end),
+    awful.key({ modkey            }, "x",         function() awful.spawn(terminal .. " --class files " .. file_manager) end),
+    awful.key({ modkey, "Shift"   }, "x",         function() awful.spawn(terminal .. " --class files " .. file_manager2) end),
+    awful.key({ modkey            }, "backslash", function() awful.spawn(terminal .. " --class editor " .. editor) end),
+    awful.key({ modkey, "Shift"   }, "backslash", function() awful.spawn(terminal .. " --class editor " .. editor2) end),
 
     -- Apps keys
     awful.key({ modkey            }, "c", function() awful.spawn(browser .. " --class='web' ") end),
