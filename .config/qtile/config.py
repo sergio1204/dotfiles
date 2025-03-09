@@ -166,15 +166,15 @@ keys = [
 # ------------------------------------------------
 
 groups = [
-    Group("1", Match(wm_class="web")),
-    Group("2", Match(wm_class="files")),
-    Group("3", Match(wm_class="audacious")),
-    Group("4", Match(wm_class="terminal")),
-    Group("5", Match(wm_class="editor")),
-    Group("6", Match(wm_class="mpv")),
-    Group("7", Match(wm_class="gimp-2.10")),
+    Group("1", matches=[Match(wm_class="web")]),
+    Group("2", matches=[Match(wm_class="files")]),
+    Group("3", matches=[Match(wm_class="audacious")]),
+    Group("4", matches=[Match(wm_class="terminal")]),
+    Group("5", matches=[Match(wm_class="editor")]),
+    Group("6", matches=[Match(wm_class="mpv")]),
+    Group("7", matches=[Match(wm_class="gimp-2.10")]),
     Group("8"),
-    Group("9", Match(wm_class="Steam")),
+    Group("9", matches=[Match(wm_class="Steam")]),
 ]
 
 for i in groups:

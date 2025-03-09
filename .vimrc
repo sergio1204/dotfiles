@@ -11,6 +11,7 @@ filetype indent on
 " mouse and number
 set mouse=a
 set number
+set relativenumber
 
 " vim colorscheme
 colorscheme onedark
@@ -64,7 +65,7 @@ nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>= <Plug>AirlineSelectNextTab
 
 " nerdTree
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 nnoremap <leader>n :NERDTreeFocus<CR>

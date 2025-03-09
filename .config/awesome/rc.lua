@@ -49,19 +49,19 @@ local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.ge
 beautiful.init(theme_path)
 
 -- Browser / Terminal / FM / Editor / Modkey
-browser       = "chromium"
-browser2      = "firefox"
+local browser  = "chromium"
+local browser2 = "firefox"
 
-terminal      = "kitty"
-terminal2     = "alacritty"
+local terminal  = "kitty"
+local terminal2 = "alacritty"
 
-file_manager  = "vifm"
-file_manager2 = "yazi"
+local file_manager  = "vifm"
+local file_manager2 = "yazi"
 
-editor        = "nvim"
-editor2       = "vim"
+local editor  = "nvim"
+local editor2 = "vim"
 
-modkey        = "Mod4"
+local modkey = "Mod4"
 
 -- Layouts
 awful.layout.layouts = {
@@ -76,7 +76,7 @@ awful.layout.layouts = {
 -- Volume widget
 local volume = lain.widget.pulse {
     settings = function()
-        vol_level = "   " .. volume_now.left .. "% "
+        local vol_level = "   " .. volume_now.left .. "% "
         if volume_now.muted == "yes" then
             vol_level = "   " .. volume_now.left .. "% "
         end
@@ -113,7 +113,7 @@ local mybattery = lain.widget.bat {
     notify = "off",
     timeout = 30,
     settings = function()
-        bat_level = "  " .. bat_now.perc .. "% "
+        local bat_level = "  " .. bat_now.perc .. "% "
         if bat_now.status == "Discharging" then
             bat_level = "   " .. bat_now.perc .. "% "
         end
@@ -122,7 +122,7 @@ local mybattery = lain.widget.bat {
 }
 
 -- Keyboard widget
-mykeyboardlayout   = awful.widget.keyboardlayout()
+local mykeyboardlayout = awful.widget.keyboardlayout()
 local keyboard_clr = wibox.widget.background()
 keyboard_clr:set_widget(mykeyboardlayout)
 keyboard_clr:set_fg(beautiful.fg_keyboard)
@@ -132,7 +132,7 @@ local keyboard_icon = wibox.widget {
 }
 
 -- Clock widget
-mytextclock     = wibox.widget.textclock("  %H:%M:%S", 1)
+local mytextclock = wibox.widget.textclock("  %H:%M:%S", 1)
 local clock_clr = wibox.widget.background()
 clock_clr:set_widget(mytextclock)
 clock_clr:set_fg(beautiful.fg_time)
@@ -183,8 +183,8 @@ local taglist_buttons = gears.table.join(
                     end
                 end),
         -- Non-empty tag browsing
-        awful.button({ }, 4, function(t) lain.util.tag_view_nonempty( 1) end),
-        awful.button({ }, 5, function(t) lain.util.tag_view_nonempty(-1) end)
+        awful.button({ }, 4, function() lain.util.tag_view_nonempty( 1) end),
+        awful.button({ }, 5, function() lain.util.tag_view_nonempty(-1) end)
 )
 
 local tasklist_buttons = gears.table.join(
@@ -268,7 +268,7 @@ end)
 -- ----------------------------------  Key bindings  --------------------------------------------
 -- --------------------------------------------------------------------------------------------
 
-globalkeys = gears.table.join(
+local globalkeys = gears.table.join(
     -- Non-empty tag browsing
     awful.key({ modkey            }, "Tab",    function() lain.util.tag_view_nonempty( 1) end),
     awful.key({ modkey            }, "grave",  function() lain.util.tag_view_nonempty(-1) end),
@@ -348,7 +348,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "s", function() awful.layout.inc(-1) end)
 )
 
-clientkeys = gears.table.join(
+local clientkeys = gears.table.join(
     -- Floating / Fullscreen
     awful.key({ modkey            }, "e", awful.client.floating.toggle),
     awful.key({ modkey            }, "f", function(c) c.fullscreen = not c.fullscreen c:raise() end),
@@ -404,7 +404,7 @@ for i = 1, 9 do
     )
 end
 
-clientbuttons = gears.table.join(
+local clientbuttons = gears.table.join(
     awful.button({        }, 1, function(c)
                 c:emit_signal("request::activate", "mouse_click", { raise = true })
             end),
