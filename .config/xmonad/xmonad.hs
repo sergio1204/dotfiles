@@ -49,8 +49,8 @@ myAdditionalKeysP =
     -- Rofi / Dunst
     [ ("M-z",   spawn "rofi -show drun")
     , ("M-S-z", spawn "rofi -show run")
-    , ("M-u",   spawn "dunstctl history-pop")
-    , ("M-S-u", spawn "dunstctl close-all")
+    , ("M-i",   spawn "dunstctl history-pop")
+    , ("M-S-i", spawn "dunstctl close-all")
 
     -- Apps
     , ("M-c",   spawn (myBrowser ++ " --class='web' "))
@@ -59,6 +59,7 @@ myAdditionalKeysP =
     , ("M-S-d", spawn "audacious --play-pause")
     , ("M-p",   spawn "picom")
     , ("M-S-p", spawn "killall -q picom")
+    , ("M-u",   spawn "udiskie --tray")
 
     -- Terminal
     , ("M-<Return>",   spawn (myTerminal ++ " --class terminal "))
@@ -139,7 +140,7 @@ myTerminal2 :: String
 myTerminal2 = "alacritty"
 
 myBrowser :: String
-myBrowser = "chromium"
+myBrowser = "vivaldi-stable"
 
 myBrowser2 :: String
 myBrowser2 = "firefox"

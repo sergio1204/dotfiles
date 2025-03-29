@@ -134,8 +134,8 @@ keys = [
     # ------------
     # Dunst / Rofi
     # ------------
-    Key([mod], "u", lazy.spawn("dunstctl history-pop")),
-    Key([mod, "shift"], "u", lazy.spawn("dunstctl close-all")),
+    Key([mod], "i", lazy.spawn("dunstctl history-pop")),
+    Key([mod, "shift"], "i", lazy.spawn("dunstctl close-all")),
     Key([mod], "z", lazy.spawn("rofi -show drun")),
     Key([mod, "shift"], "z", lazy.spawn("rofi -show run")),
     # --------
@@ -159,6 +159,7 @@ keys = [
     Key([mod], "XF86AudioLowerVolume", lazy.spawn("audacious --rew")),
     Key([mod], "p", lazy.spawn("picom")),
     Key([mod, "shift"], "p", lazy.spawn("killall -q picom")),
+    Key([mod], "u", lazy.spawn("udiskie --tray")),
 ]
 
 # ----------------------------------------------------

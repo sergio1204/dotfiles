@@ -46,6 +46,9 @@ autocmd InsertLeave * set nocul
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
+" CMD enter command mode
+nnoremap ; :
+
 " airLine
 let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1

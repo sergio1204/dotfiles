@@ -375,6 +375,9 @@ fileviewer *.hs,xmobarrc                             highlight -O xterm256 -s ba
 " ---------------------  Sample keyboard mappings  -------------------------------
 " ------------------------------------------------------------------------------
 
+" CMD enter command modes
+nnoremap ; :
+
 " Turn pane into tree view
 nnoremap T :tree!<cr>
 
