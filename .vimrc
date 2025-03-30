@@ -49,6 +49,9 @@ let &t_EI = "\e[2 q"
 " CMD enter command mode
 nnoremap ; :
 
+" Setting leader key
+let mapleader=" "
+
 " airLine
 let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1
@@ -71,7 +74,7 @@ nmap <leader>= <Plug>AirlineSelectNextTab
 " autocmd VimEnter * NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
-nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <leader>e :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
