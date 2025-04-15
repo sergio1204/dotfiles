@@ -6,7 +6,6 @@ alias logclear='truncate -s 0'
 alias c='clear'
 alias h='history'
 alias :q='exit'
-alias q='exit'
 
 alias ls='ls -l --color=auto'
 alias mkdir='mkdir -pv'

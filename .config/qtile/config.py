@@ -43,7 +43,7 @@ def switchtogroup(group, window):
     group.toscreen()
 
 # Terminal / FM / Editor / Modkey
-browser       = "chromium"
+browser       = "vivaldi-stable"
 browser2      = "firefox"
 
 terminal      = "kitty"
@@ -221,7 +221,7 @@ layouts = [
 # -------------------------------------------
 
 widget_defaults=dict(
-    font="CaskaydiaMono NF",
+    font="BlexMono Nerd Font",
     fontsize=15,
     padding=1,
 )

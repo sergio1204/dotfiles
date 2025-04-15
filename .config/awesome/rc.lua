@@ -144,7 +144,7 @@ local mycal = lain.widget.cal({
   icons = "/",
   attach_to = { clock_clr },
   notification_preset = {
-    font = "CaskaydiaMono NF 11",
+    font = "BlexMono Nerd Font 11",
     fg = beautiful.fg_focus,
     bg = beautiful.bg_normal,
   },

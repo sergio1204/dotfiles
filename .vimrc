@@ -46,9 +46,6 @@ autocmd InsertLeave * set nocul
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
-" CMD enter command mode
-nnoremap ; :
-
 " Setting leader key
 let mapleader=" "
 
