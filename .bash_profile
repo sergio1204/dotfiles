@@ -3,7 +3,6 @@ export VISUAL=nvim
 export EDITOR=nvim
 export TERMINAL=kitty
 export LIBVA_DRIVER_NAME=i965
-export RANGER_LOAD_DEFAULT_RC=false
 
 if [ -f $HOME/.bashrc ]; then
     source $HOME/.bashrc
