@@ -1,26 +1,21 @@
---[[
-
-=====================================================================
-=====================================================================
-========                                    .-----.          ========
-========         .----------------------.   | === |          ========
-========         |.-""""""""""""""""""-.|   |-----|          ========
-========         ||                    ||   | === |          ========
-========         ||   KICKSTART.NVIM   ||   |-----|          ========
-========         ||                    ||   | === |          ========
-========         ||                    ||   |-----|          ========
-========         ||:Tutor              ||   |:::::|          ========
-========         |'-..................-'|   |____o|          ========
-========         `"")----------------(""`   ___________      ========
-========        /::::::::::|  |::::::::::\  \ no mouse \     ========
-========       /:::========|  |==hjkl==:::\  \ required \    ========
-========      '""""""""""""'  '""""""""""""'  '""""""""""'   ========
-========                                                     ========
-=====================================================================
-=====================================================================
-
-What is Kickstart?
- See https://github.com/nvim-lua/kickstart.nvim for more info --]]
+-- -------------------------------------------------------------------
+-- -------------------------------------------------------------------
+-- ------                                    .-----.          --------
+-- ------         .----------------------.   | === |          --------
+-- ------         |.-""""""""""""""""""-.|   |-----|          --------
+-- ------         ||                    ||   | === |          --------
+-- ------         ||       NEOVIM       ||   |-----|          --------
+-- ------         ||                    ||   | === |          --------
+-- ------         ||                    ||   |-----|          --------
+-- ------         ||:Tutor              ||   |:::::|          --------
+-- ------         |'-..................-'|   |____o|          --------
+-- ------         `"")----------------(""`   ___________      --------
+-- ------        /::::::::::|  |::::::::::\  \ no mouse \     --------
+-- ------       /:::========|  |==hjkl==:::\  \ required \    --------
+-- ------      '""""""""""""'  '""""""""""""'  '""""""""""'   --------
+-- ------                                                     --------
+-- -------------------------------------------------------------------
+-- -------------------------------------------------------------------
 
 -- Set <space> as the leader key
 --  See `:help mapleader`
@@ -153,12 +148,12 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Highlight when yanking (copying) text
 -- Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
+--  See `:help vim.hl.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })
 
@@ -449,7 +444,7 @@ require('lazy').setup({
       -- an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
       -- function will be executed to configure the current buffer
       vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
+        group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
           -- NOTE: Remember that Lua is a real programming language, and as such it is possible
           -- to define small helper and utility functions so you don't have to repeat yourself.
@@ -518,7 +513,7 @@ require('lazy').setup({
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
-            local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
+            local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
               buffer = event.buf,
               group = highlight_augroup,
@@ -532,10 +527,10 @@ require('lazy').setup({
             })
 
             vim.api.nvim_create_autocmd('LspDetach', {
-              group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+              group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),
               callback = function(event2)
                 vim.lsp.buf.clear_references()
-                vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+                vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event2.buf }
               end,
             })
           end
@@ -654,7 +649,7 @@ require('lazy').setup({
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
       require('mason-lspconfig').setup {
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+        ensure_installed = {},
         automatic_installation = false,
         handlers = {
           function(server_name)
@@ -769,7 +764,7 @@ require('lazy').setup({
         -- <c-k>: Toggle signature help
         --
         --  See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'default',
+        preset = 'enter',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         -- https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -826,13 +821,6 @@ require('lazy').setup({
       -- Load the colorscheme here.
       vim.cmd.colorscheme 'onedark'
     end,
-  },
-
-  { -- Highlight todo, notes, etc in comments
-    'folke/todo-comments.nvim',
-    event = 'VimEnter',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = { signs = false },
   },
 
   { -- Collection of various small independent plugins/modules
@@ -972,10 +960,23 @@ require('lazy').setup({
           indicator = {
             style = 'none',
           },
+          offsets = {
+            {
+              filetype = 'neo-tree',
+              text = 'Neo-tree',
+              highlight = 'Directory',
+              text_align = 'left',
+              separator = true,
+            },
+          },
         },
         highlights = {
           fill = {
             bg = '#23252e',
+          },
+          offset_separator = {
+            fg = '#31353f',
+            bg = 'none',
           },
         },
       }
