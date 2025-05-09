@@ -457,7 +457,7 @@ nnoremap A cw
 " Open console in current directory
 if $DISPLAY != '' && executable('xterm')
     nnoremap ,t :!xterm &<cr>
-elseif $TERMINAL
+elseif $TERMINAL != ''
     nnoremap ,t :!$TERMINAL &<cr>
 endif
 

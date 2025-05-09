@@ -125,7 +125,7 @@ local mybattery = lain.widget.bat({
 
 -- Keyboard widget
 local mykeyboardlayout = awful.widget.keyboardlayout()
-local keyboard_clr = wibox.widget.background()
+local keyboard_clr = wibox.container.background()
 keyboard_clr:set_widget(mykeyboardlayout)
 keyboard_clr:set_fg(beautiful.fg_keyboard)
 local keyboard_icon = wibox.widget({
@@ -135,7 +135,7 @@ local keyboard_icon = wibox.widget({
 
 -- Clock widget
 local mytextclock = wibox.widget.textclock("  %H:%M:%S", 1)
-local clock_clr = wibox.widget.background()
+local clock_clr = wibox.container.background()
 clock_clr:set_widget(mytextclock)
 clock_clr:set_fg(beautiful.fg_time)
 
@@ -435,10 +435,10 @@ local globalkeys = gears.table.join(
   awful.key({ modkey, "Shift" }, "r", awesome.restart),
   awful.key({ modkey, "Shift" }, "l", awesome.quit),
   awful.key({ modkey, "Shift" }, "k", function()
-    awful.spawn("systemctl reboot")
+    awful.spawn("loginctl reboot")
   end),
   awful.key({ modkey, "Shift" }, "m", function()
-    awful.spawn("systemctl poweroff")
+    awful.spawn("loginctl poweroff")
   end),
 
   -- Resize window

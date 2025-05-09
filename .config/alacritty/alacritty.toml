@@ -33,11 +33,11 @@ size = 11.0
 
 [font.bold]
 family = "BlexMono Nerd Font"
-style = "Bold"
+style = "SemiBold"
 
 [font.bold_italic]
 family = "BlexMono Nerd Font"
-style = "Bold Italic"
+style = "SemiBold Italic"
 
 [font.italic]
 family = "BlexMono Nerd Font"
