@@ -1,7 +1,7 @@
 export QT_QPA_PLATFORMTHEME=qt5ct
 export VISUAL=nvim
 export EDITOR=nvim
-export TERMINAL=kitty
+export TERMINAL=alacritty
 export LIBVA_DRIVER_NAME=i965
 
 if [ -f $HOME/.bashrc ]; then

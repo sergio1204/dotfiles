@@ -192,6 +192,7 @@ command! lsblk lsblk %m 2> /dev/null
 filextype *.pdf,*.djvu,*.ps,*.eps,*.ps.gz
         \ zathura %c %i
 fileviewer *.pdf
+        " pdftotext is a part poppler-utils
         \ pdftotext -nopgbrk %c -
 
 " Audio
@@ -235,9 +236,11 @@ filextype .kra
 filextype .blend
         \ blender %f
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.svg
-        \ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
-        \ %pc
-        \ kitten icat --clear --silent >/dev/tty </dev/tty %N
+          " identify is a part ImageMagick
+          \ identify %f
+          " \ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
+          " \ %pc
+          " \ kitten icat --clear --silent >/dev/tty </dev/tty %N
 
 " OpenRaster
 filextype *.ora
@@ -309,7 +312,7 @@ filetype *.tudu
         \ tudu -f %c
 
 " Disable preview
-fileviewer .*.parts,*.apk,*.djvu,*.ttf,*.kdbx
+fileviewer *.parts,*.part,*.apk,*.djvu,*.ttf,*.kdbx,*.iso,*.deb,*.rpm,*.exe
         \ echo No preview available. %i
 
 " ----------------------------------------------------------------------------------

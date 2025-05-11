@@ -54,8 +54,8 @@ beautiful.init(theme_path)
 local browser = "vivaldi-stable"
 local browser2 = "firefox"
 
-local terminal = "kitty"
-local terminal2 = "alacritty"
+local terminal = "alacritty"
+local terminal2 = "kitty"
 
 local file_manager = "vifm"
 local file_manager2 = "yazi"
@@ -351,16 +351,16 @@ local globalkeys = gears.table.join(
     awful.spawn(terminal2 .. " --class terminal ")
   end),
   awful.key({ modkey }, "x", function()
-    awful.spawn(terminal .. " --class files " .. file_manager)
+    awful.spawn(terminal .. " --class files -e " .. file_manager)
   end),
   awful.key({ modkey, "Shift" }, "x", function()
-    awful.spawn(terminal .. " --class files " .. file_manager2)
+    awful.spawn(terminal .. " --class files -e " .. file_manager2)
   end),
   awful.key({ modkey }, "backslash", function()
-    awful.spawn(terminal .. " --class editor " .. editor)
+    awful.spawn(terminal .. " --class editor -e " .. editor)
   end),
   awful.key({ modkey, "Shift" }, "backslash", function()
-    awful.spawn(terminal .. " --class editor " .. editor2)
+    awful.spawn(terminal .. " --class editor -e " .. editor2)
   end),
 
   -- Apps keys

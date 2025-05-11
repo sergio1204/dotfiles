@@ -12,10 +12,10 @@ super + shift + {l,r}
 
 # reboot/poweroff
 super + shift + k
-    systemctl reboot
+    loginctl reboot
 
 super + shift + m
-    systemctl poweroff
+    loginctl poweroff
 
 # close and kill
 super + {_,shift + }q
@@ -178,23 +178,23 @@ super + shift + Return
     kitty --class terminal
 
 super + x
-    alacritty --class files -e ranger
-
-super + shift + x
     alacritty --class files -e vifm
 
+super + shift + x
+    alacritty --class files -e yazi
+
 super + backslash
-    alacritty --class editor -e vim
+    alacritty --class editor -e nvim
 
 super + shift + backslash
-    alacritty --class editor -e nvim
+    alacritty --class editor -e vim
 
 super + v
     alacritty --class calendar -e calcurse
 
 # apps hotkeys
 super + c
-    chromium --class='web'
+    vivaldi-stable --class='web'
 
 super + shift + c
     firefox --class='web'

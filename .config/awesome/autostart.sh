@@ -9,3 +9,4 @@ run() {
 
 run picom -b
 run xset b off
+run setxkbmap -layout us,ru -option grp:alt_shift_toggle
