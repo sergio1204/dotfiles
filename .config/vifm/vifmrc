@@ -223,10 +223,10 @@ fileviewer *.[1-8]
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ feh -Fd --zoom 100 %d --start-at %d/%c 2> /dev/null &
+        \ feh --draw-filename --scale-down --image-bg "#282c34" --start-at %d/%c 2> /dev/null &
 filextype *.svg,*.svgz
-        \ feh -Fd --zoom 100 %d --start-at %d/%c 2> /dev/null &
-        \ inkscape %f
+        \ feh --draw-filename --scale-down --image-bg "#282c34" --start-at %d/%c 2> /dev/null &
+        " \ inkscape %f
 filextype *.cr2
         \ darktable %f
 filextype *.xcf

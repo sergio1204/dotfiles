@@ -48,7 +48,7 @@ play = [
   { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 feh = [
-  { run = 'feh -Fd --zoom 100 --start-at "$@"', orphan = true, desc = "open image" },
+  { run = 'feh --draw-filename --scale-down --image-bg "#282c34" --start-at "$@"', orphan = true, desc = "open image" },
 ]
 
 [open]

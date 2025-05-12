@@ -43,20 +43,20 @@ def switchtogroup(group, window):
     group.toscreen()
 
 # Terminal / FM / Editor / Modkey
-browser       = "vivaldi-stable"
-browser2      = "firefox"
+browser  = "vivaldi-stable"
+browser2 = "firefox"
 
-terminal     = "alacritty"
-terminal2      = "kitty"
+terminal  = "alacritty"
+terminal2 = "kitty"
 
 file_manager  = "vifm"
 file_manager2 = "yazi"
 
-editor        = "nvim"
-editor2       = "vim"
+editor  = "nvim"
+editor2 = "vim"
 
-calendar      = "calcurse"
-mod           = "mod4"
+calendar = "calcurse"
+mod      = "mod4"
 
 # -------------------------------------------------
 # -------------------  Keys  --------------------
