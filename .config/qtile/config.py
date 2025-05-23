@@ -128,8 +128,8 @@ keys = [
     # --------------------------
     # Reboot / Poweroff / Logout
     # --------------------------
-    Key([mod, "shift"], "k", lazy.spawn("systemctl reboot")),
-    Key([mod, "shift"], "m", lazy.spawn("systemctl poweroff")),
+    Key([mod, "shift"], "k", lazy.spawn("loginctl reboot")),
+    Key([mod, "shift"], "m", lazy.spawn("loginctl poweroff")),
     Key([mod, "shift"], "l", lazy.shutdown(), desc="logout Qtile"),
     # ------------
     # Dunst / Rofi
@@ -256,7 +256,9 @@ screens = [
                 ),
                 widget.Volume(
                     foreground="#CDDC45",
-                    fmt="  {}",
+                    unmute_format="  {volume}%",
+                    mute_foreground="#ff3e72",
+                    mute_format="  {volume}%",
                     step=5,
                     padding=20,
                 ),

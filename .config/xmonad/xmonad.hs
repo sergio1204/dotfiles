@@ -64,11 +64,11 @@ myAdditionalKeysP =
     -- Terminal
     , ("M-<Return>",   spawn (myTerminal ++ " --class terminal "))
     , ("M-S-<Return>", spawn (myTerminal2 ++ " --class terminal "))
-    , ("M-x",          spawn (myTerminal ++ " --class files " ++ myFile_manager))
-    , ("M-S-x",        spawn (myTerminal ++ " --class files " ++ myFile_manager2))
-    , ("M-\\",         spawn (myTerminal ++ " --class editor " ++ myEditor))
-    , ("M-S-\\",       spawn (myTerminal ++ " --class editor " ++ myEditor2))
-    , ("M-v",          spawn (myTerminal ++ " --class calendar " ++ myCalendar))
+    , ("M-x",          spawn (myTerminal ++ " --class files -e " ++ myFile_manager))
+    , ("M-S-x",        spawn (myTerminal ++ " --class files -e " ++ myFile_manager2))
+    , ("M-\\",         spawn (myTerminal ++ " --class editor -e " ++ myEditor))
+    , ("M-S-\\",       spawn (myTerminal ++ " --class editor -e " ++ myEditor2))
+    , ("M-v",          spawn (myTerminal ++ " --class calendar -e " ++ myCalendar))
 
     -- Change layout / Unfloating / kill
     , ("M-w",   sendMessage $ JumpToLayout "\xf065")
@@ -96,8 +96,8 @@ myAdditionalKeysP =
 
     -- Recompile / Reboot / Poweroff / Quit
     , ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
-    , ("M-S-k", spawn "systemctl reboot")
-    , ("M-S-m", spawn "systemctl poweroff")
+    , ("M-S-k", spawn "loginctl reboot")
+    , ("M-S-m", spawn "loginctl poweroff")
     , ("M-S-l", io exitSuccess)
 
     -- Resize window
@@ -134,10 +134,10 @@ myModMask :: KeyMask
 myModMask = mod4Mask
 
 myTerminal :: String
-myTerminal = "kitty"
+myTerminal = "alacritty"
 
 myTerminal2 :: String
-myTerminal2 = "alacritty"
+myTerminal2 = "kitty"
 
 myBrowser :: String
 myBrowser = "vivaldi-stable"
@@ -185,8 +185,8 @@ myLayout = tall ||| wide ||| mono
 
 myXmobarPP :: PP
 myXmobarPP = def
-    { ppSep           = magenta "  "
-    , ppLayout        = magenta . wrap "" ""
+    { ppSep           = magenta " "
+    , ppLayout        = magenta . wrap " " " "
     , ppTitleSanitize = xmobarStrip
     , ppCurrent       = blue . wrap "" "" . xmobarBorder "Bottom" "#AAC9F1" 3
     , ppHidden        = orange . wrap "" ""
@@ -236,4 +236,4 @@ myStartupHook = do
     spawnOnce "picom -b"
     spawnOnce "xset b off"
     spawnOnce "feh --bg-scale /home/sergey/Pictures/oz.png"
-
+    spawnOnce "setxkbmap -layout us,ru -option grp:alt_shift_toggle"

@@ -13,8 +13,5 @@ fi
 # start WM
 #exec bspwm
 #exec qtile start
-exec awesome
-#exec xmonad
-
-#exec /home/sergey/.local/bin/qtile start
-#exec /home/sergey/.local/bin/xmonad
+#exec awesome
+exec dbus-launch xmonad
