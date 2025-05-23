@@ -12,10 +12,10 @@ super + shift + {l,r}
 
 # reboot/poweroff
 super + shift + k
-    loginctl reboot
+    systemctl reboot
 
 super + shift + m
-    loginctl poweroff
+    systemctl poweroff
 
 # close and kill
 super + {_,shift + }q

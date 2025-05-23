@@ -14,4 +14,4 @@ fi
 #exec bspwm
 #exec qtile start
 #exec awesome
-exec dbus-launch xmonad
+exec xmonad

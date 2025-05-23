@@ -435,10 +435,10 @@ local globalkeys = gears.table.join(
   awful.key({ modkey, "Shift" }, "r", awesome.restart),
   awful.key({ modkey, "Shift" }, "l", awesome.quit),
   awful.key({ modkey, "Shift" }, "k", function()
-    awful.spawn("loginctl reboot")
+    awful.spawn("systemctl reboot")
   end),
   awful.key({ modkey, "Shift" }, "m", function()
-    awful.spawn("loginctl poweroff")
+    awful.spawn("systemctl poweroff")
   end),
 
   -- Resize window

@@ -96,8 +96,8 @@ myAdditionalKeysP =
 
     -- Recompile / Reboot / Poweroff / Quit
     , ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
-    , ("M-S-k", spawn "loginctl reboot")
-    , ("M-S-m", spawn "loginctl poweroff")
+    , ("M-S-k", spawn "systemctl reboot")
+    , ("M-S-m", spawn "systemctl poweroff")
     , ("M-S-l", io exitSuccess)
 
     -- Resize window
