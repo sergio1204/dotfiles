@@ -124,6 +124,10 @@ myAdditionalKeysP =
     , ("M-`",     moveTo Prev (Not emptyWS))
     , ("M-<Esc>", toggleWS)
     ]
+    ++
+    [ ("M-S-" ++ k, windows $ W.greedyView w . W.shift w)
+    | (w, k) <- zip myWorkspaces $ map show [1..9]
+    ]
 
 myRemoveKeysP =
     [ ("M-S-q")

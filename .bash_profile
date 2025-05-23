@@ -3,7 +3,7 @@ export VISUAL=nvim
 export EDITOR=nvim
 export TERMINAL=alacritty
 export LIBVA_DRIVER_NAME=i965
-export PATH=$PATH:~/.cabal/bin
+export PATH="$HOME/.cabal/bin:$PATH"
 
 if [ -f $HOME/.bashrc ]; then
     source $HOME/.bashrc
