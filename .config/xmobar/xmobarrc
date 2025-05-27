@@ -1,8 +1,8 @@
-Config { font = "xft:BlexMono Nerd Font-11"
+Config { font = "BlexMono Nerd Font 11"
        , additionalFonts = []
        , overrideRedirect = True
-       , textOffset = -1
-       , iconOffset = -1
+       -- , textOffset = -1
+       -- , iconOffset = -1
        , bgColor  = "#23252e"
        , fgColor  = "#f8f8f2"
        , position = TopSize L 100 28
