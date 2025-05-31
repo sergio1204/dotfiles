@@ -55,7 +55,7 @@ local browser = "vivaldi-stable"
 local browser2 = "firefox"
 
 local terminal = "alacritty"
-local terminal2 = "kitty"
+local terminal2 = "xterm"
 
 local file_manager = "vifm"
 local file_manager2 = "yazi"
@@ -348,7 +348,7 @@ local globalkeys = gears.table.join(
     awful.spawn(terminal .. " --class terminal ")
   end),
   awful.key({ modkey, "Shift" }, "Return", function()
-    awful.spawn(terminal2 .. " --class terminal ")
+    awful.spawn(terminal2 .. " -class terminal ")
   end),
   awful.key({ modkey }, "x", function()
     awful.spawn(terminal .. " --class files -e " .. file_manager)
@@ -435,10 +435,10 @@ local globalkeys = gears.table.join(
   awful.key({ modkey, "Shift" }, "r", awesome.restart),
   awful.key({ modkey, "Shift" }, "l", awesome.quit),
   awful.key({ modkey, "Shift" }, "k", function()
-    awful.spawn("systemctl reboot")
+    awful.spawn("loginctl reboot")
   end),
   awful.key({ modkey, "Shift" }, "m", function()
-    awful.spawn("systemctl poweroff")
+    awful.spawn("loginctl poweroff")
   end),
 
   -- Resize window
@@ -606,7 +606,7 @@ awful.rules.rules = {
   { rule = { class = "web" }, properties = { tag = "1", switchtotag = true } },
   { rule = { class = "files" }, properties = { tag = "2", switchtotag = true } },
   { rule = { class = "Audacious" }, properties = { tag = "3", switchtotag = true } },
-  { rule = { class = "terminal" }, properties = { tag = "4", switchtotag = true } },
+  { rule = { class = "terminal" }, properties = { tag = "4", switchtotag = true, size_hints_honor = false } },
   { rule = { class = "editor" }, properties = { tag = "5", switchtotag = true } },
   { rule = { class = "mpv" }, properties = { tag = "6", switchtotag = true } },
   { rule = { class = "Gimp-3.0" }, properties = { tag = "7", switchtotag = true } },

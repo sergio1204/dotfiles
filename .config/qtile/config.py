@@ -47,7 +47,7 @@ browser  = "vivaldi-stable"
 browser2 = "firefox"
 
 terminal  = "alacritty"
-terminal2 = "kitty"
+terminal2 = "xterm"
 
 file_manager  = "vifm"
 file_manager2 = "yazi"
@@ -128,8 +128,8 @@ keys = [
     # --------------------------
     # Reboot / Poweroff / Logout
     # --------------------------
-    Key([mod, "shift"], "k", lazy.spawn("systemctl reboot")),
-    Key([mod, "shift"], "m", lazy.spawn("systemctl poweroff")),
+    Key([mod, "shift"], "k", lazy.spawn("loginctl reboot")),
+    Key([mod, "shift"], "m", lazy.spawn("loginctl poweroff")),
     Key([mod, "shift"], "l", lazy.shutdown(), desc="logout Qtile"),
     # ------------
     # Dunst / Rofi
@@ -142,7 +142,7 @@ keys = [
     # Terminal
     # --------
     Key([mod], "Return", lazy.spawn(terminal + " --class terminal ")),
-    Key([mod, "shift"], "Return", lazy.spawn(terminal2 + " --class terminal ")),
+    Key([mod, "shift"], "Return", lazy.spawn(terminal2 + " -class terminal ")),
     Key([mod],"x", lazy.spawn(terminal + " --class files -e " + file_manager)),
     Key([mod, "shift"],"x", lazy.spawn(terminal + " --class files -e " + file_manager2)),
     Key([mod], "backslash", lazy.spawn(terminal + " --class editor -e " + editor)),

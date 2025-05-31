@@ -13,5 +13,5 @@ fi
 # start WM
 #exec bspwm
 #exec qtile start
-#exec awesome
-exec xmonad
+exec awesome
+#exec xmonad

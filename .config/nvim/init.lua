@@ -987,11 +987,6 @@ require('lazy').setup {
       }
     end,
   },
-  {
-    'mrcjkb/haskell-tools.nvim',
-    version = '^5', -- Recommended
-    lazy = false, -- This plugin is already lazy
-  },
 
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!

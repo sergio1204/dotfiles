@@ -18,17 +18,17 @@ Xcursor.size:  32
 ! ------------------------------------------
 ! XTerm  ---------------------------------
 ! --------------------------------------
-XTerm*termName:           xterm-256color
-XTerm*faceName:           BlexMono Nerd Font
-XTerm*faceSize:           11
-XTerm*forceBoxChars:      true
-XTerm*borderWidth:        0
-XTerm*scrollBar:          false
-XTerm*alternateScroll:    true
-XTerm*fastScroll:         true
-XTerm*selectToClipboard:  true
-XTerm*eightBitInput:      false
-XTerm*VT100.Translations: #override \
+*termName:           xterm-256color
+*faceName:           BlexMono Nerd Font
+*faceSize:           11
+*forceBoxChars:      true
+*borderWidth:        0
+*scrollBar:          false
+*alternateScroll:    true
+*fastScroll:         true
+*selectToClipboard:  true
+*eightBitInput:      false
+*VT100.Translations: #override \
                           Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
                           Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 
@@ -40,20 +40,20 @@ XTerm*VT100.Translations: #override \
 *cursorColor: #FA71B1
 *color0:      #23252e
 *color8:      #AFD4E0
-*color1:      #EB2A2A
-*color9:      #FF4767
-*color2:      #329632
-*color10:     #5AC95A
+*color1:      #ed374b
+*color9:      #ff4d6c
+*color2:      #2ce06c
+*color10:     #5af492
 *color3:      #FF7F00
 *color11:     #F660CE
-*color4:      #4949FA
-*color12:     #8B8BFF
-*color5:      #863E86
-*color13:     #B960B9
-*color6:      #00B0C2
+*color4:      #546ef5
+*color12:     #8294f5
+*color5:      #9058f9
+*color13:     #b683e9
+*color6:      #2bd9eb
 *color14:     #5DE1EE
-*color7:      #69C46B
-*color15:     #E5E5E5
+*color7:      #9bf784
+*color15:     #c5bcec
 
 ! -------------------------------------------
 ! XCalc  ----------------------------------
