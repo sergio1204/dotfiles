@@ -1,8 +1,8 @@
 Config { font = "BlexMono Nerd Font 11"
        , additionalFonts = []
        , overrideRedirect = True
-       -- , textOffset = -1
-       -- , iconOffset = -1
+       , textOffset = 0
+       , iconOffset = 0
        , bgColor  = "#23252e"
        , fgColor  = "#f8f8f2"
        , position = TopSize L 100 28
