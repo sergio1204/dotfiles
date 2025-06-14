@@ -113,6 +113,7 @@ colorscheme Default
 " :mark mark /full/directory/path [filename]
 
 mark r /
+mark s /run/media/sergey
 mark h ~/
 mark d ~/Documents
 mark D ~/Downloads
@@ -223,9 +224,9 @@ fileviewer *.[1-8]
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ feh --draw-filename --scale-down --image-bg "#282c34" --start-at %d/%c 2> /dev/null &
+        \ feh -Fd --image-bg "#282c34" --start-at %d/%c 2> /dev/null &
 filextype *.svg,*.svgz
-        \ feh --draw-filename --scale-down --image-bg "#282c34" --start-at %d/%c 2> /dev/null &
+        \ feh -Fd --image-bg "#282c34" --start-at %d/%c 2> /dev/null &
         " \ inkscape %f
 filextype *.cr2
         \ darktable %f
@@ -236,11 +237,11 @@ filextype .kra
 filextype .blend
         \ blender %f
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.svg
-          " identify is a part ImageMagick
-          \ identify %f
-          " \ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
-          " \ %pc
-          " \ kitten icat --clear --silent >/dev/tty </dev/tty %N
+        " identify is a part ImageMagick
+        " \ identify %f
+        \ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
+        \ %pc
+        \ kitten icat --clear --silent >/dev/tty </dev/tty %N
 
 " OpenRaster
 filextype *.ora

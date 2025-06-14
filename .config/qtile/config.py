@@ -43,20 +43,20 @@ def switchtogroup(group, window):
     group.toscreen()
 
 # Terminal / FM / Editor / Modkey
-browser  = "vivaldi-stable"
+browser = "vivaldi-stable"
 browser2 = "firefox"
 
-terminal  = "alacritty"
-terminal2 = "xterm"
+terminal = "kitty"
+terminal2 = "alacritty"
 
-file_manager  = "vifm"
+file_manager = "vifm"
 file_manager2 = "yazi"
 
-editor  = "nvim"
+editor = "nvim"
 editor2 = "vim"
 
 calendar = "calcurse"
-mod      = "mod4"
+mod = "mod4"
 
 # -------------------------------------------------
 # -------------------  Keys  --------------------
@@ -142,12 +142,12 @@ keys = [
     # Terminal
     # --------
     Key([mod], "Return", lazy.spawn(terminal + " --class terminal ")),
-    Key([mod, "shift"], "Return", lazy.spawn(terminal2 + " -class terminal ")),
-    Key([mod],"x", lazy.spawn(terminal + " --class files -e " + file_manager)),
-    Key([mod, "shift"],"x", lazy.spawn(terminal + " --class files -e " + file_manager2)),
-    Key([mod], "backslash", lazy.spawn(terminal + " --class editor -e " + editor)),
-    Key([mod, "shift"], "backslash", lazy.spawn(terminal + " --class editor -e " + editor2)),
-    Key([mod], "v", lazy.spawn(terminal + " --class calendar -e " + calendar)),
+    Key([mod, "shift"], "Return", lazy.spawn(terminal2 + " --class terminal ")),
+    Key([mod],"x", lazy.spawn(terminal + " --class files " + file_manager)),
+    Key([mod, "shift"],"x", lazy.spawn(terminal + " --class files " + file_manager2)),
+    Key([mod], "backslash", lazy.spawn(terminal + " --class editor " + editor)),
+    Key([mod, "shift"], "backslash", lazy.spawn(terminal + " --class editor " + editor2)),
+    Key([mod], "v", lazy.spawn(terminal + " --class calendar " + calendar)),
     # ---------
     # Apps keys
     # ---------

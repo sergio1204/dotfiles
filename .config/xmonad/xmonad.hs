@@ -8,6 +8,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
+import XMonad.Layout.Magnifier (MagnifyMsg (Toggle))
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed
 import XMonad.Layout.ResizableTile
@@ -61,18 +62,19 @@ myAdditionalKeysP =
   , -- Terminal
     ("M-<Return>", spawn (myTerminal ++ " --class terminal "))
   , ("M-S-<Return>", spawn (myTerminal2 ++ " --class terminal "))
-  , ("M-x", spawn (myTerminal ++ " --class files -e " ++ myFileManager))
-  , ("M-S-x", spawn (myTerminal ++ " --class files -e " ++ myFileManager2))
-  , ("M-\\", spawn (myTerminal ++ " --class editor -e " ++ myEditor))
-  , ("M-S-\\", spawn (myTerminal ++ " --class editor -e " ++ myEditor2))
-  , ("M-v", spawn (myTerminal ++ " --class calendar -e " ++ myCalendar))
-  , -- Change layout / Unfloating / kill
+  , ("M-x", spawn (myTerminal ++ " --class files " ++ myFileManager))
+  , ("M-S-x", spawn (myTerminal ++ " --class files " ++ myFileManager2))
+  , ("M-\\", spawn (myTerminal ++ " --class editor " ++ myEditor))
+  , ("M-S-\\", spawn (myTerminal ++ " --class editor " ++ myEditor2))
+  , ("M-v", spawn (myTerminal ++ " --class calendar " ++ myCalendar))
+  , -- Change layout / Unfloating / kill / fullScreen
     ("M-w", sendMessage $ JumpToLayout "\xf065")
   , ("M-S-w", sendMessage FirstLayout)
   , ("M-s", sendMessage $ JumpToLayout "\xf063")
   , ("M-S-s", sendMessage FirstLayout)
   , ("M-e", withFocused $ windows . W.sink)
   , ("M-q", kill)
+  , ("M-f", sendMessage ToggleStruts)
   , -- Lockscreen / Printscreen
     ("M-l", spawn "i3lock -i /home/sergey/Pictures/soty.png")
   , ("<Print>", spawn "scrot -s")
@@ -125,10 +127,10 @@ myModMask :: KeyMask
 myModMask = mod4Mask
 
 myTerminal :: String
-myTerminal = "alacritty"
+myTerminal = "kitty"
 
 myTerminal2 :: String
-myTerminal2 = "kitty"
+myTerminal2 = "alacritty"
 
 myBrowser :: String
 myBrowser = "vivaldi-stable"
@@ -163,12 +165,11 @@ myNormalBorderColor = "#23252e"
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = map show [1 .. 9 :: Int]
 
-myLayout = tall ||| wide ||| mono
+myLayout = smartBorders (tall ||| wide ||| mono)
  where
   tall =
     renamed [Replace "\xf061"] $
-      smartBorders $
-        ResizableTall 1 (10 / 100) 0.4 []
+      ResizableTall 1 (10 / 100) 0.4 []
   wide =
     renamed [Replace "\xf063"] $
       Mirror $
@@ -218,6 +219,7 @@ myManageHook =
     , className =? "Steam" --> doFloat
     , className =? "XCalc" --> doFloat
     , className =? "calendar" --> doFloat
+    , className =? "feh" --> doFloat
     ]
  where
   viewShift = doF . liftM2 (.) W.greedyView W.shift
