@@ -1,21 +1,3 @@
-[submodule ".vim/pack/*/start/Colorizer"]
-	path = .vim/pack/*/start/Colorizer
-	url = https://github.com/chrisbra/Colorizer.git
-[submodule ".vim/pack/*/start/nerdtree"]
-	path = .vim/pack/*/start/nerdtree
-	url = https://github.com/preservim/nerdtree.git
-[submodule ".vim/pack/*/start/onedark.vim"]
-	path = .vim/pack/*/start/onedark.vim
-	url = https://github.com/joshdick/onedark.vim.git
-[submodule ".vim/pack/*/start/vim-airline"]
-	path = .vim/pack/*/start/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
-[submodule ".vim/pack/*/start/vim-airline-themes"]
-	path = .vim/pack/*/start/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git
 [submodule ".config/awesome/lain"]
 	path = .config/awesome/lain
 	url = https://github.com/lcpz/lain.git
-[submodule ".vim/pack/*/start/vim-devicons"]
-	path = .vim/pack/*/start/vim-devicons
-	url = https://github.com/ryanoasis/vim-devicons.git
