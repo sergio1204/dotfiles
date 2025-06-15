@@ -53,7 +53,7 @@ file_manager = "vifm"
 file_manager2 = "yazi"
 
 editor = "nvim"
-editor2 = "vim"
+editor2 = "helix"
 
 calendar = "calcurse"
 mod = "mod4"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-xrdb -merge $HOME/.Xresources
+xrdb -merge "$HOME/.Xresources"
 
 # start some programs
 if [ -d /etc/X11/xinit/xinitrc.d ]; then

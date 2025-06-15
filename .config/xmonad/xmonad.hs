@@ -26,96 +26,96 @@ main =
     . ewmh
     . withEasySB (statusBarProp myXmobar (clickablePP myXmobarPP)) defToggleStrutsKey
     $ myConfig
- where
-  myXmobar = "xmobar $HOME/.config/xmobar/xmobar.hs"
+  where
+    myXmobar = "xmobar $HOME/.config/xmobar/xmobar.hs"
 
 myConfig =
   def
-    { modMask = myModMask
-    , terminal = myTerminal
-    , layoutHook = myLayout
-    , workspaces = myWorkspaces
-    , manageHook = myManageHook
-    , startupHook = myStartupHook
-    , handleEventHook = handleEventHook def <> Hacks.trayerPaddingXmobarEventHook
-    , borderWidth = myBorderWidth
-    , focusedBorderColor = myFocusedBorderColor
-    , normalBorderColor = myNormalBorderColor
+    { modMask = myModMask,
+      terminal = myTerminal,
+      layoutHook = myLayout,
+      workspaces = myWorkspaces,
+      manageHook = myManageHook,
+      startupHook = myStartupHook,
+      handleEventHook = handleEventHook def <> Hacks.trayerPaddingXmobarEventHook,
+      borderWidth = myBorderWidth,
+      focusedBorderColor = myFocusedBorderColor,
+      normalBorderColor = myNormalBorderColor
     }
     `additionalKeysP` myAdditionalKeysP
     `removeKeysP` myRemoveKeysP
 
 myAdditionalKeysP =
   -- Rofi / Dunst
-  [ ("M-z", spawn "rofi -show drun")
-  , ("M-S-z", spawn "rofi -show run")
-  , ("M-i", spawn "dunstctl history-pop")
-  , ("M-S-i", spawn "dunstctl close-all")
-  , -- Apps
-    ("M-c", spawn (myBrowser ++ " --class='web' "))
-  , ("M-S-c", spawn (myBrowser2 ++ " --class='web' "))
-  , ("M-d", spawn "audacious")
-  , ("M-S-d", spawn "audacious --play-pause")
-  , ("M-p", spawn "picom")
-  , ("M-S-p", spawn "killall -q picom")
-  , ("M-u", spawn "udiskie --tray")
-  , -- Terminal
-    ("M-<Return>", spawn (myTerminal ++ " --class terminal "))
-  , ("M-S-<Return>", spawn (myTerminal2 ++ " --class terminal "))
-  , ("M-x", spawn (myTerminal ++ " --class files " ++ myFileManager))
-  , ("M-S-x", spawn (myTerminal ++ " --class files " ++ myFileManager2))
-  , ("M-\\", spawn (myTerminal ++ " --class editor " ++ myEditor))
-  , ("M-S-\\", spawn (myTerminal ++ " --class editor " ++ myEditor2))
-  , ("M-v", spawn (myTerminal ++ " --class calendar " ++ myCalendar))
-  , -- Change layout / Unfloating / kill / fullScreen
-    ("M-w", sendMessage $ JumpToLayout "\xf065")
-  , ("M-S-w", sendMessage FirstLayout)
-  , ("M-s", sendMessage $ JumpToLayout "\xf063")
-  , ("M-S-s", sendMessage FirstLayout)
-  , ("M-e", withFocused $ windows . W.sink)
-  , ("M-q", kill)
-  , ("M-f", sendMessage ToggleStruts)
-  , -- Lockscreen / Printscreen
-    ("M-l", spawn "i3lock -i /home/sergey/Pictures/soty.png")
-  , ("<Print>", spawn "scrot -s")
-  , ("S-<Print>", spawn "scrot -d 1")
-  , -- Volume control
-    ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-  , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-  , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-  , ("M-<XF86AudioRaiseVolume>", spawn "audacious --fwd")
-  , ("M-<XF86AudioLowerVolume>", spawn "audacious --rew")
-  , -- Brightness control
-    ("<XF86MonBrightnessUp>", spawn "brightnessctl s +10%")
-  , ("<XF86MonBrightnessDown>", spawn "brightnessctl s 10%-")
-  , -- Recompile / Reboot / Poweroff / Quit
-    ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
-  , ("M-S-k", spawn "systemctl reboot")
-  , ("M-S-m", spawn "systemctl poweroff")
-  , ("M-S-l", io exitSuccess)
-  , -- Resize window
-    ("M-C-<Left>", sendMessage Shrink)
-  , ("M-C-<Right>", sendMessage Expand)
-  , ("M-C-<Down>", sendMessage MirrorShrink)
-  , ("M-C-<Up>", sendMessage MirrorExpand)
-  , -- Swap window
-    ("M-<Space>", windows W.swapMaster)
-  , ("M-g", windows W.swapDown)
-  , ("M-S-g", windows W.swapUp)
-  , ("M-S-<Left>", windows W.swapUp)
-  , ("M-S-<Right>", windows W.swapDown)
-  , -- Focus window
-    ("M-a", windows W.focusDown)
-  , ("M-S-a", windows W.focusUp)
-  , ("M-<Left>", windows W.focusUp)
-  , ("M-<Right>", windows W.focusDown)
-  , -- Cycle WS
-    ("M-<Tab>", moveTo Next (Not emptyWS))
-  , ("M-`", moveTo Prev (Not emptyWS))
-  , ("M-<Esc>", toggleWS)
+  [ ("M-z", spawn "rofi -show drun"),
+    ("M-S-z", spawn "rofi -show run"),
+    ("M-i", spawn "dunstctl history-pop"),
+    ("M-S-i", spawn "dunstctl close-all"),
+    -- Apps
+    ("M-c", spawn (myBrowser ++ " --class='web' ")),
+    ("M-S-c", spawn (myBrowser2 ++ " --class='web' ")),
+    ("M-d", spawn "audacious"),
+    ("M-S-d", spawn "audacious --play-pause"),
+    ("M-p", spawn "picom"),
+    ("M-S-p", spawn "killall -q picom"),
+    ("M-u", spawn "udiskie --tray"),
+    -- Terminal
+    ("M-<Return>", spawn (myTerminal ++ " --class terminal ")),
+    ("M-S-<Return>", spawn (myTerminal2 ++ " --class terminal ")),
+    ("M-x", spawn (myTerminal ++ " --class files " ++ myFileManager)),
+    ("M-S-x", spawn (myTerminal ++ " --class files " ++ myFileManager2)),
+    ("M-\\", spawn (myTerminal ++ " --class editor " ++ myEditor)),
+    ("M-S-\\", spawn (myTerminal ++ " --class editor " ++ myEditor2)),
+    ("M-v", spawn (myTerminal ++ " --class calendar " ++ myCalendar)),
+    -- Change layout / Unfloating / kill / fullScreen
+    ("M-w", sendMessage $ JumpToLayout "\xf065"),
+    ("M-S-w", sendMessage FirstLayout),
+    ("M-s", sendMessage $ JumpToLayout "\xf063"),
+    ("M-S-s", sendMessage FirstLayout),
+    ("M-e", withFocused $ windows . W.sink),
+    ("M-q", kill),
+    ("M-f", sendMessage ToggleStruts),
+    -- Lockscreen / Printscreen
+    ("M-l", spawn "i3lock -i /home/sergey/Pictures/soty.png"),
+    ("<Print>", spawn "scrot -s"),
+    ("S-<Print>", spawn "scrot -d 1"),
+    -- Volume control
+    ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"),
+    ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"),
+    ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+    ("M-<XF86AudioRaiseVolume>", spawn "audacious --fwd"),
+    ("M-<XF86AudioLowerVolume>", spawn "audacious --rew"),
+    -- Brightness control
+    ("<XF86MonBrightnessUp>", spawn "brightnessctl s +10%"),
+    ("<XF86MonBrightnessDown>", spawn "brightnessctl s 10%-"),
+    -- Recompile / Reboot / Poweroff / Quit
+    ("M-S-r", spawn "xmonad --recompile && xmonad --restart"),
+    ("M-S-k", spawn "systemctl reboot"),
+    ("M-S-m", spawn "systemctl poweroff"),
+    ("M-S-l", io exitSuccess),
+    -- Resize window
+    ("M-C-<Left>", sendMessage Shrink),
+    ("M-C-<Right>", sendMessage Expand),
+    ("M-C-<Down>", sendMessage MirrorShrink),
+    ("M-C-<Up>", sendMessage MirrorExpand),
+    -- Swap window
+    ("M-<Space>", windows W.swapMaster),
+    ("M-g", windows W.swapDown),
+    ("M-S-g", windows W.swapUp),
+    ("M-S-<Left>", windows W.swapUp),
+    ("M-S-<Right>", windows W.swapDown),
+    -- Focus window
+    ("M-a", windows W.focusDown),
+    ("M-S-a", windows W.focusUp),
+    ("M-<Left>", windows W.focusUp),
+    ("M-<Right>", windows W.focusDown),
+    -- Cycle WS
+    ("M-<Tab>", moveTo Next (Not emptyWS)),
+    ("M-`", moveTo Prev (Not emptyWS)),
+    ("M-<Esc>", toggleWS)
   ]
     ++ [ ("M-S-" ++ k, windows $ W.greedyView w . W.shift w)
-       | (w, k) <- zip myWorkspaces $ map show [1 .. 9]
+         | (w, k) <- zip myWorkspaces $ map show [1 .. 9]
        ]
 
 myRemoveKeysP =
@@ -148,7 +148,7 @@ myEditor :: String
 myEditor = "nvim"
 
 myEditor2 :: String
-myEditor2 = "vim"
+myEditor2 = "helix"
 
 myCalendar :: String
 myCalendar = "calcurse"
@@ -166,63 +166,63 @@ myWorkspaces :: [WorkspaceId]
 myWorkspaces = map show [1 .. 9 :: Int]
 
 myLayout = smartBorders (tall ||| wide ||| mono)
- where
-  tall =
-    renamed [Replace "\xf061"] $
-      ResizableTall 1 (10 / 100) 0.4 []
-  wide =
-    renamed [Replace "\xf063"] $
-      Mirror $
-        Tall 1 (3 / 100) (1 / 2)
-  mono =
-    renamed [Replace "\xf065"] Full
+  where
+    tall =
+      renamed [Replace "\xf061"] $
+        ResizableTall 1 (10 / 100) 0.4 []
+    wide =
+      renamed [Replace "\xf063"] $
+        Mirror $
+          Tall 1 (3 / 100) (1 / 2)
+    mono =
+      renamed [Replace "\xf065"] Full
 
 myXmobarPP :: PP
 myXmobarPP =
   def
-    { ppSep = magenta " "
-    , ppLayout = magenta . wrap " " " "
-    , ppTitleSanitize = xmobarStrip
-    , ppCurrent = blue . wrap "" "" . xmobarBorder "Bottom" "#AAC9F1" 3
-    , ppHidden = orange . wrap "" ""
-    , ppUrgent = red . wrap (orange "!") (orange "!")
-    , ppOrder = \[ws, l, _, wins] -> [ws, l, wins]
-    , ppExtras = [logTitles formatFocused formatUnfocused]
+    { ppSep = magenta " ",
+      ppLayout = magenta . wrap " " " ",
+      ppTitleSanitize = xmobarStrip,
+      ppCurrent = blue . wrap "" "" . xmobarBorder "Bottom" "#AAC9F1" 3,
+      ppHidden = orange . wrap "" "",
+      ppUrgent = red . wrap (orange "!") (orange "!"),
+      ppOrder = \[ws, l, _, wins] -> [ws, l, wins],
+      ppExtras = [logTitles formatFocused formatUnfocused]
     }
- where
-  formatFocused = wrap (blue "") (blue "") . blue . ppWindow
-  formatUnfocused = wrap (orange "") (orange "") . orange . ppWindow
+  where
+    formatFocused = wrap (blue "") (blue "") . blue . ppWindow
+    formatUnfocused = wrap (orange "") (orange "") . orange . ppWindow
 
-  -- Windows title length.
-  ppWindow :: String -> String
-  ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 100
+    -- Windows title length.
+    ppWindow :: String -> String
+    ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 100
 
-  magenta, blue, orange, red :: String -> String
-  magenta = xmobarColor "#ff79c6" ""
-  blue = xmobarColor "#AAC9F1" ""
-  orange = xmobarColor "#eab268" ""
-  red = xmobarColor "#ff5555" ""
+    magenta, blue, orange, red :: String -> String
+    magenta = xmobarColor "#ff79c6" ""
+    blue = xmobarColor "#AAC9F1" ""
+    orange = xmobarColor "#eab268" ""
+    red = xmobarColor "#ff5555" ""
 
 myManageHook :: ManageHook
 myManageHook =
   composeAll
-    [ className =? "web" --> viewShift "1"
-    , className =? "files" --> viewShift "2"
-    , className =? "Audacious" --> viewShift "3"
-    , className =? "terminal" --> viewShift "4"
-    , className =? "editor" --> viewShift "5"
-    , className =? "mpv" --> viewShift "6"
-    , className =? "gimp-2.10" --> viewShift "7"
-    , className =? "Steam" --> viewShift "9"
-    , -- Floating
-      className =? "Blueman-manager" --> doFloat
-    , className =? "Steam" --> doFloat
-    , className =? "XCalc" --> doFloat
-    , className =? "calendar" --> doFloat
-    , className =? "feh" --> doFloat
+    [ className =? "web" --> viewShift "1",
+      className =? "files" --> viewShift "2",
+      className =? "Audacious" --> viewShift "3",
+      className =? "terminal" --> viewShift "4",
+      className =? "editor" --> viewShift "5",
+      className =? "mpv" --> viewShift "6",
+      className =? "gimp-2.10" --> viewShift "7",
+      className =? "Steam" --> viewShift "9",
+      -- Floating
+      className =? "Blueman-manager" --> doFloat,
+      className =? "Steam" --> doFloat,
+      className =? "XCalc" --> doFloat,
+      className =? "calendar" --> doFloat,
+      className =? "feh" --> doFloat
     ]
- where
-  viewShift = doF . liftM2 (.) W.greedyView W.shift
+  where
+    viewShift = doF . liftM2 (.) W.greedyView W.shift
 
 myStartupHook :: X ()
 myStartupHook = do

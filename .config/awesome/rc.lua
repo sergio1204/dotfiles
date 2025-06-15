@@ -61,7 +61,7 @@ local file_manager = "vifm"
 local file_manager2 = "yazi"
 
 local editor = "nvim"
-local editor2 = "vim"
+local editor2 = "helix"
 
 local modkey = "Mod4"
 
