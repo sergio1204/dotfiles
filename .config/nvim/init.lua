@@ -62,7 +62,7 @@ vim.opt.softtabstop = 2
 vim.opt.breakindent = true
 
 -- Save undo history
-vim.opt.undofile = true
+vim.opt.undofile = false
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
@@ -268,6 +268,7 @@ require('lazy').setup {
       spec = {
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
+        { '<leader>l', group = '[L]ang' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
     },
@@ -334,6 +335,15 @@ require('lazy').setup {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
+        defaults = {
+          layout_strategy = 'horizontal',
+          layout_config = {
+            horizontal = {
+              prompt_position = 'top',
+            },
+          },
+          sorting_strategy = 'ascending',
+        },
         pickers = {
           find_files = {
             hidden = true,
@@ -354,14 +364,14 @@ require('lazy').setup {
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+      vim.keymap.set('n', '<leader>d', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+      vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = '[S]earch existing [B]uffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -680,7 +690,7 @@ require('lazy').setup {
     cmd = { 'ConformInfo' },
     keys = {
       {
-        '<leader>f',
+        '<leader>lf',
         function()
           require('conform').format { async = true, lsp_format = 'fallback' }
         end,
@@ -959,38 +969,38 @@ require('lazy').setup {
     end,
   },
 
-  { -- A snazzy bufferline for Neovim
-    'akinsho/bufferline.nvim',
-    version = '*',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require('bufferline').setup {
-        options = {
-          indicator = {
-            style = 'none',
-          },
-          offsets = {
-            {
-              filetype = 'neo-tree',
-              text = 'Neo-tree',
-              highlight = 'Directory',
-              text_align = 'left',
-              separator = true,
-            },
-          },
-        },
-        highlights = {
-          fill = {
-            bg = '#23252e',
-          },
-          offset_separator = {
-            fg = '#31353f',
-            bg = 'none',
-          },
-        },
-      }
-    end,
-  },
+  -- { -- A snazzy bufferline for Neovim
+  --   'akinsho/bufferline.nvim',
+  --   version = '*',
+  --   dependencies = { 'nvim-tree/nvim-web-devicons' },
+  --   config = function()
+  --     require('bufferline').setup {
+  --       options = {
+  --         indicator = {
+  --           style = 'none',
+  --         },
+  --         offsets = {
+  --           {
+  --             filetype = 'neo-tree',
+  --             text = 'Neo-tree',
+  --             highlight = 'Directory',
+  --             text_align = 'left',
+  --             separator = true,
+  --           },
+  --         },
+  --       },
+  --       highlights = {
+  --         fill = {
+  --           bg = '#23252e',
+  --         },
+  --         offset_separator = {
+  --           fg = '#31353f',
+  --           bg = 'none',
+  --         },
+  --       },
+  --     }
+  --   end,
+  -- },
 
   {
     'mrcjkb/haskell-tools.nvim',

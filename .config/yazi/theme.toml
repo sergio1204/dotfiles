@@ -10,7 +10,7 @@
 # : Flavor {{{
 
 [flavor]
-dark  = ""
+dark = ""
 light = ""
 
 # : }}}
@@ -21,32 +21,32 @@ light = ""
 cwd = { fg = "cyan" }
 
 # Hovered
-hovered         = { reversed = true }
+hovered = { reversed = true }
 preview_hovered = { underline = true }
 
 # Find
-find_keyword  = { fg = "yellow", bold = true, italic = true, underline = true }
+find_keyword = { fg = "yellow", bold = true, italic = true, underline = true }
 find_position = { fg = "magenta", bg = "reset", bold = true, italic = true }
 
 # Marker
-marker_copied   = { fg = "lightgreen",  bg = "lightgreen" }
-marker_cut      = { fg = "lightred",    bg = "lightred" }
-marker_marked   = { fg = "lightcyan",   bg = "lightcyan" }
+marker_copied = { fg = "lightgreen", bg = "lightgreen" }
+marker_cut = { fg = "lightred", bg = "lightred" }
+marker_marked = { fg = "lightcyan", bg = "lightcyan" }
 marker_selected = { fg = "lightyellow", bg = "lightyellow" }
 
 # Tab
-tab_active   = { reversed = true }
+tab_active = { reversed = true }
 tab_inactive = {}
-tab_width    = 1
+tab_width = 1
 
 # Count
-count_copied   = { fg = "white", bg = "green" }
-count_cut      = { fg = "white", bg = "red" }
+count_copied = { fg = "white", bg = "green" }
+count_cut = { fg = "white", bg = "red" }
 count_selected = { fg = "white", bg = "yellow" }
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "black" }
+border_style = { fg = "black" }
 
 # Highlighting
 syntect_theme = ""
@@ -59,15 +59,15 @@ syntect_theme = ""
 [mode]
 
 normal_main = { bg = "blue", bold = true }
-normal_alt  = { fg = "blue", bg = "gray" }
+normal_alt = { fg = "blue", bg = "gray" }
 
 # Select mode
 select_main = { bg = "red", bold = true }
-select_alt  = { fg = "red", bg = "gray" }
+select_alt = { fg = "red", bg = "gray" }
 
 # Unset mode
 unset_main = { bg = "red", bold = true }
-unset_alt  = { fg = "red", bg = "gray" }
+unset_alt = { fg = "red", bg = "gray" }
 
 # : }}}
 
@@ -75,20 +75,20 @@ unset_alt  = { fg = "red", bg = "gray" }
 # : Status bar {{{
 
 [status]
-separator_open  = ""
+separator_open = ""
 separator_close = ""
 
 # Progress
-progress_label  = { bold = true }
+progress_label = { bold = true }
 progress_normal = { fg = "blue", bg = "black" }
-progress_error  = { fg = "red", bg = "black" }
+progress_error = { fg = "red", bg = "black" }
 
 # Permissions
-perm_sep   = { fg = "darkgray" }
-perm_type  = { fg = "green" }
-perm_read  = { fg = "yellow" }
+perm_sep = { fg = "darkgray" }
+perm_type = { fg = "green" }
+perm_read = { fg = "yellow" }
 perm_write = { fg = "red" }
-perm_exec  = { fg = "cyan" }
+perm_exec = { fg = "cyan" }
 
 # : }}}
 
@@ -96,8 +96,8 @@ perm_exec  = { fg = "cyan" }
 # : Pick {{{
 
 [pick]
-border   = { fg = "blue" }
-active   = { fg = "magenta", bold = true }
+border = { fg = "blue" }
+active = { fg = "magenta", bold = true }
 inactive = {}
 
 # : }}}
@@ -106,9 +106,9 @@ inactive = {}
 # : Input {{{
 
 [input]
-border   = { fg = "blue" }
-title    = {}
-value    = {}
+border = { fg = "blue" }
+title = {}
+value = {}
 selected = { reversed = true }
 
 # : }}}
@@ -117,13 +117,13 @@ selected = { reversed = true }
 # : Confirm {{{
 
 [confirm]
-border     = { fg = "blue" }
-title      = { fg = "blue" }
-content    = {}
-list       = {}
-btn_yes    = { reversed = true }
-btn_no     = {}
-btn_labels = [ "  [Y]es  ", "  (N)o  " ]
+border = { fg = "blue" }
+title = { fg = "blue" }
+content = {}
+list = {}
+btn_yes = { reversed = true }
+btn_no = {}
+btn_labels = ["  [Y]es  ", "  (N)o  "]
 
 # : }}}
 
@@ -131,13 +131,13 @@ btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 # : Completion {{{
 
 [completion]
-border   = { fg = "blue" }
-active   = { reversed = true }
+border = { fg = "blue" }
+active = { reversed = true }
 inactive = {}
 
 # Icons
-icon_file    = ""
-icon_folder  = ""
+icon_file = ""
+icon_folder = ""
 icon_command = ""
 
 # : }}}
@@ -146,8 +146,8 @@ icon_command = ""
 # : Tasks {{{
 
 [tasks]
-border  = { fg = "blue" }
-title   = {}
+border = { fg = "blue" }
+title = {}
 hovered = { fg = "magenta", underline = true }
 
 # : }}}
@@ -156,12 +156,12 @@ hovered = { fg = "magenta", underline = true }
 # : Which {{{
 
 [which]
-cols            = 3
-mask            = { bg = "black" }
-cand            = { fg = "lightcyan" }
-rest            = { fg = "darkgray" }
-desc            = { fg = "lightmagenta" }
-separator       = "  "
+cols = 3
+mask = { bg = "black" }
+cand = { fg = "lightcyan" }
+rest = { fg = "darkgray" }
+desc = { fg = "lightmagenta" }
+separator = "  "
 separator_style = { fg = "darkgray" }
 
 # : }}}
@@ -170,11 +170,11 @@ separator_style = { fg = "darkgray" }
 # : Help {{{
 
 [help]
-on      = { fg = "cyan" }
-run     = { fg = "magenta" }
-desc    = {}
+on = { fg = "cyan" }
+run = { fg = "magenta" }
+desc = {}
 hovered = { reversed = true, bold = true }
-footer  = { fg = "black", bg = "white" }
+footer = { fg = "black", bg = "white" }
 
 # : }}}
 
@@ -182,13 +182,13 @@ footer  = { fg = "black", bg = "white" }
 # : Notify {{{
 
 [notify]
-title_info  = { fg = "green" }
-title_warn  = { fg = "yellow" }
+title_info = { fg = "green" }
+title_warn = { fg = "yellow" }
 title_error = { fg = "red" }
 
 # Icons
-icon_info  = ""
-icon_warn  = ""
+icon_info = ""
+icon_warn = ""
 icon_error = ""
 
 # : }}}
@@ -219,7 +219,7 @@ rules = [
 
   # Special files
   { name = "*", is = "orphan", bg = "red" },
-  { name = "*", is = "exec"  , fg = "green" },
+  { name = "*", is = "exec", fg = "green" },
 
   # Dummy files
   { name = "*", is = "dummy", bg = "red" },
@@ -227,7 +227,7 @@ rules = [
 
   # Fallback
   # { name = "*", fg = "white" },
-  { name = "*/", fg = "lightblue", bold = true }
+  { name = "*/", fg = "lightblue", bold = true },
 ]
 
 # : }}}
@@ -237,7 +237,7 @@ rules = [
 
 [icon]
 globs = []
-dirs  = [
+dirs = [
   { name = ".config", text = "" },
   { name = ".git", text = "" },
   { name = ".github", text = "" },

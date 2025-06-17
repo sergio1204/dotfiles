@@ -33,14 +33,17 @@ from libqtile.lazy import lazy
 import os
 import subprocess
 
+
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh')
+    home = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.run([home])
+
 
 @hook.subscribe.group_window_add
 def switchtogroup(group, window):
     group.toscreen()
+
 
 # Terminal / FM / Editor / Modkey
 browser = "vivaldi-stable"
@@ -52,8 +55,8 @@ terminal2 = "alacritty"
 file_manager = "vifm"
 file_manager2 = "yazi"
 
-editor = "nvim"
-editor2 = "helix"
+editor = "helix"
+editor2 = "nvim"
 
 calendar = "calcurse"
 mod = "mod4"
@@ -111,9 +114,21 @@ keys = [
     # --------------
     # Volume control
     # --------------
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
-    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
+    Key(
+        [],
+        "XF86AudioRaiseVolume",
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"),
+    ),
+    Key(
+        [],
+        "XF86AudioLowerVolume",
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"),
+    ),
+    Key(
+        [],
+        "XF86AudioMute",
+        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+    ),
     # ------------------
     # Brightness control
     # ------------------
@@ -143,10 +158,18 @@ keys = [
     # --------
     Key([mod], "Return", lazy.spawn(terminal + " --class terminal ")),
     Key([mod, "shift"], "Return", lazy.spawn(terminal2 + " --class terminal ")),
-    Key([mod],"x", lazy.spawn(terminal + " --class files " + file_manager)),
-    Key([mod, "shift"],"x", lazy.spawn(terminal + " --class files " + file_manager2)),
+    Key([mod], "x", lazy.spawn(terminal + " --class files " + file_manager)),
+    Key(
+        [mod, "shift"],
+        "x",
+        lazy.spawn(terminal + " --class files " + file_manager2),
+    ),
     Key([mod], "backslash", lazy.spawn(terminal + " --class editor " + editor)),
-    Key([mod, "shift"], "backslash", lazy.spawn(terminal + " --class editor " + editor2)),
+    Key(
+        [mod, "shift"],
+        "backslash",
+        lazy.spawn(terminal + " --class editor " + editor2),
+    ),
     Key([mod], "v", lazy.spawn(terminal + " --class calendar " + calendar)),
     # ---------
     # Apps keys
@@ -179,15 +202,24 @@ groups = [
 ]
 
 for i in groups:
-    keys.extend([
-        Key([mod], i.name, lazy.group[i.name].toscreen(toggle=True),
-            desc="Switch to group {}".format(i.name),
-        ),
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name),
-        ),
-    ]
-)
+    keys.extend(
+        [
+            Key(
+                [mod],
+                i.name,
+                lazy.group[i.name].toscreen(toggle=True),
+                desc="Switch to group {}".format(i.name),
+            ),
+            Key(
+                [mod, "shift"],
+                i.name,
+                lazy.window.togroup(i.name, switch_group=True),
+                desc="Switch to & move focused window to group {}".format(
+                    i.name
+                ),
+            ),
+        ]
+    )
 
 # ----------------------------------------------------
 # -----------------  Layouts  ----------------------
@@ -220,7 +252,7 @@ layouts = [
 # ---------------  Widgets  -------------------
 # -------------------------------------------
 
-widget_defaults=dict(
+widget_defaults = dict(
     font="BlexMono Nerd Font",
     fontsize=15,
     padding=1,
@@ -299,11 +331,10 @@ screens = [
                 widget.KeyboardKbdd(
                     foreground="#F57CB8",
                     fmt="  {}",
-                    configured_keyboards=['us', 'ru'],
+                    configured_keyboards=["us", "ru"],
                     padding=18,
                 ),
-                widget.Systray(
-                ),
+                widget.Systray(),
             ],
             28,
             background="#23252e",
@@ -316,13 +347,22 @@ screens = [
 # -------------------------------------------------------------
 
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
+    Drag(
+        [mod],
+        "Button1",
+        lazy.window.set_position_floating(),
         start=lazy.window.get_position(),
     ),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
+    Drag(
+        [mod],
+        "Button3",
+        lazy.window.set_size_floating(),
         start=lazy.window.get_size(),
     ),
-    Click([mod], "Button2", lazy.window.bring_to_front(),
+    Click(
+        [mod],
+        "Button2",
+        lazy.window.bring_to_front(),
     ),
 ]
 

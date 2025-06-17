@@ -145,10 +145,10 @@ myFileManager2 :: String
 myFileManager2 = "yazi"
 
 myEditor :: String
-myEditor = "nvim"
+myEditor = "helix"
 
 myEditor2 :: String
-myEditor2 = "helix"
+myEditor2 = "nvim"
 
 myCalendar :: String
 myCalendar = "calcurse"

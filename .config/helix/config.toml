@@ -11,3 +11,10 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[keys.normal]
+C-z = 'no_op'
+C-r = 'redo'
+
+[keys.select]
+C-z = 'no_op'

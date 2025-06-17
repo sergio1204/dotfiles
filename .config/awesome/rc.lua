@@ -60,8 +60,8 @@ local terminal2 = "alacritty"
 local file_manager = "vifm"
 local file_manager2 = "yazi"
 
-local editor = "nvim"
-local editor2 = "helix"
+local editor = "helix"
+local editor2 = "nvim"
 
 local modkey = "Mod4"
 
@@ -296,7 +296,7 @@ end)
 
 local globalkeys = gears.table.join(
 
-	-- Non-empty tag browsing
+-- Non-empty tag browsing
 	awful.key({ modkey }, "Tab", function()
 		lain.util.tag_view_nonempty(1)
 	end),
@@ -460,7 +460,7 @@ local globalkeys = gears.table.join(
 
 local clientkeys = gears.table.join(
 
-	-- Floating / Fullscreen
+-- Floating / Fullscreen
 	awful.key({ modkey }, "e", awful.client.floating.toggle),
 	awful.key({ modkey }, "f", function(c)
 		c.fullscreen = not c.fullscreen
@@ -597,20 +597,20 @@ awful.rules.rules = {
 			role = {
 				"AlarmWindow", -- Thunderbird's calendar.
 				"ConfigManager", -- Thunderbird's about:config.
-				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
+				"pop-up",    -- e.g. Google Chrome's (detached) Developer Tools.
 			},
 		},
 		properties = { floating = true },
 	},
 
-	{ rule = { class = "web" }, properties = { tag = "1", switchtotag = true } },
-	{ rule = { class = "files" }, properties = { tag = "2", switchtotag = true } },
+	{ rule = { class = "web" },       properties = { tag = "1", switchtotag = true } },
+	{ rule = { class = "files" },     properties = { tag = "2", switchtotag = true } },
 	{ rule = { class = "Audacious" }, properties = { tag = "3", switchtotag = true } },
-	{ rule = { class = "terminal" }, properties = { tag = "4", switchtotag = true, size_hints_honor = false } },
-	{ rule = { class = "editor" }, properties = { tag = "5", switchtotag = true } },
-	{ rule = { class = "mpv" }, properties = { tag = "6", switchtotag = true } },
-	{ rule = { class = "Gimp-3.0" }, properties = { tag = "7", switchtotag = true } },
-	{ rule = { class = "Steam" }, properties = { tag = "9", switchtotag = true } },
+	{ rule = { class = "terminal" },  properties = { tag = "4", switchtotag = true, size_hints_honor = false } },
+	{ rule = { class = "editor" },    properties = { tag = "5", switchtotag = true } },
+	{ rule = { class = "mpv" },       properties = { tag = "6", switchtotag = true } },
+	{ rule = { class = "Gimp-3.0" },  properties = { tag = "7", switchtotag = true } },
+	{ rule = { class = "Steam" },     properties = { tag = "9", switchtotag = true } },
 }
 
 -- --------------------------------------------------------------------------------------

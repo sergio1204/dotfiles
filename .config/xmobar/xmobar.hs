@@ -3,7 +3,7 @@ import Xmobar
 config :: Config
 config =
   defaultConfig
-    { font = "BlexMono Nerd Font 12",
+    { font = "BlexMono Nerd Font 11",
       additionalFonts = [],
       overrideRedirect = True,
       textOffset = 0,
