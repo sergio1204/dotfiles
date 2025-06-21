@@ -1,14 +1,14 @@
 export QT_QPA_PLATFORMTHEME=qt5ct
-export VISUAL=nvim
-export EDITOR=nvim
+export VISUAL=hx
+export EDITOR=hx
 export TERMINAL=alacritty
 export LIBVA_DRIVER_NAME=i965
 
-if [ -f $HOME/.bashrc ]; then
-    source $HOME/.bashrc
+if [[ -f $HOME/.bashrc ]]; then
+	source "$HOME"/.bashrc
 fi
 
 # if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
-    exec startx >& ~/.xsession-errors
+if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
+	exec startx >&~/.xsession-errors
 fi

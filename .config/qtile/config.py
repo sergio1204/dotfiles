@@ -54,8 +54,8 @@ terminal2 = "kitty"
 file_manager = "vifm"
 file_manager2 = "yazi"
 
-editor = "nvim"
-editor2 = "hx"
+editor = "hx"
+editor2 = "nvim"
 
 calendar = "calcurse"
 mod = "mod4"

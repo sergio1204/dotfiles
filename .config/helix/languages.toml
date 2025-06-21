@@ -74,4 +74,11 @@ python.analysis.reportOptionalMemberAccess = false
 
 [[language]]
 name = "lua"
+formatter = { command = "stylua", args = ["-"] }
+auto-format = true
+
+
+[[language]]
+name = "bash"
+formatter = { command = "shfmt" }
 auto-format = true

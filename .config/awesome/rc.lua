@@ -60,8 +60,8 @@ local terminal2 = "kitty"
 local file_manager = "vifm"
 local file_manager2 = "yazi"
 
-local editor = "nvim"
-local editor2 = "hx"
+local editor = "hx"
+local editor2 = "nvim"
 
 local modkey = "Mod4"
 
