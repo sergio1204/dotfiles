@@ -24,14 +24,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from typing import List  # noqa: F401
-
-from libqtile import bar, layout, widget, hook
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
-from libqtile.lazy import lazy
-
 import os
 import subprocess
+from typing import List  # noqa: F401
+
+from libqtile import bar, hook, layout, widget
+from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.lazy import lazy
 
 
 @hook.subscribe.startup_once
@@ -49,14 +48,14 @@ def switchtogroup(group, window):
 browser = "vivaldi-stable"
 browser2 = "firefox"
 
-terminal = "kitty"
-terminal2 = "alacritty"
+terminal = "alacritty"
+terminal2 = "kitty"
 
 file_manager = "vifm"
 file_manager2 = "yazi"
 
-editor = "helix"
-editor2 = "nvim"
+editor = "nvim"
+editor2 = "hx"
 
 calendar = "calcurse"
 mod = "mod4"
@@ -143,8 +142,8 @@ keys = [
     # --------------------------
     # Reboot / Poweroff / Logout
     # --------------------------
-    Key([mod, "shift"], "k", lazy.spawn("systemctl reboot")),
-    Key([mod, "shift"], "m", lazy.spawn("systemctl poweroff")),
+    Key([mod, "shift"], "k", lazy.spawn("loginctl reboot")),
+    Key([mod, "shift"], "m", lazy.spawn("loginctl poweroff")),
     Key([mod, "shift"], "l", lazy.shutdown(), desc="logout Qtile"),
     # ------------
     # Dunst / Rofi
@@ -158,19 +157,19 @@ keys = [
     # --------
     Key([mod], "Return", lazy.spawn(terminal + " --class terminal ")),
     Key([mod, "shift"], "Return", lazy.spawn(terminal2 + " --class terminal ")),
-    Key([mod], "x", lazy.spawn(terminal + " --class files " + file_manager)),
+    Key([mod], "x", lazy.spawn(terminal + " --class files -e " + file_manager)),
     Key(
         [mod, "shift"],
         "x",
-        lazy.spawn(terminal + " --class files " + file_manager2),
+        lazy.spawn(terminal + " --class files -e " + file_manager2),
     ),
-    Key([mod], "backslash", lazy.spawn(terminal + " --class editor " + editor)),
+    Key([mod], "backslash", lazy.spawn(terminal + " --class editor -e " + editor)),
     Key(
         [mod, "shift"],
         "backslash",
-        lazy.spawn(terminal + " --class editor " + editor2),
+        lazy.spawn(terminal + " --class editor -e " + editor2),
     ),
-    Key([mod], "v", lazy.spawn(terminal + " --class calendar " + calendar)),
+    Key([mod], "v", lazy.spawn(terminal + " --class calendar -e " + calendar)),
     # ---------
     # Apps keys
     # ---------
@@ -214,9 +213,7 @@ for i in groups:
                 [mod, "shift"],
                 i.name,
                 lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(
-                    i.name
-                ),
+                desc="Switch to & move focused window to group {}".format(i.name),
             ),
         ]
     )

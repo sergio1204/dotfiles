@@ -113,7 +113,7 @@ colorscheme Default
 " :mark mark /full/directory/path [filename]
 
 mark r /
-mark s /run/media/sergey
+mark M /run/media
 mark h ~/
 mark d ~/Documents
 mark D ~/Downloads
@@ -238,10 +238,10 @@ filextype .blend
         \ blender %f
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.svg
         " identify is a part ImageMagick
-        " \ identify %f
-        \ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
-        \ %pc
-        \ kitten icat --clear --silent >/dev/tty </dev/tty %N
+        \ identify %f
+        "  \ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
+        "  \ %pc
+        "  \ kitten icat --clear --silent >/dev/tty </dev/tty %N
 
 " OpenRaster
 filextype *.ora

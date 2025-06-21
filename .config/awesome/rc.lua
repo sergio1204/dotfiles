@@ -1,4 +1,4 @@
--- If LuaRocks is installed, make sure that packages installed through it are
+--If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
@@ -54,14 +54,14 @@ beautiful.init(theme_path)
 local browser = "vivaldi-stable"
 local browser2 = "firefox"
 
-local terminal = "kitty"
-local terminal2 = "alacritty"
+local terminal = "alacritty"
+local terminal2 = "kitty"
 
 local file_manager = "vifm"
 local file_manager2 = "yazi"
 
-local editor = "helix"
-local editor2 = "nvim"
+local editor = "nvim"
+local editor2 = "hx"
 
 local modkey = "Mod4"
 
@@ -296,7 +296,7 @@ end)
 
 local globalkeys = gears.table.join(
 
--- Non-empty tag browsing
+	-- Non-empty tag browsing
 	awful.key({ modkey }, "Tab", function()
 		lain.util.tag_view_nonempty(1)
 	end),
@@ -351,16 +351,16 @@ local globalkeys = gears.table.join(
 		awful.spawn(terminal2 .. " --class terminal ")
 	end),
 	awful.key({ modkey }, "x", function()
-		awful.spawn(terminal .. " --class files " .. file_manager)
+		awful.spawn(terminal .. " --class files -e " .. file_manager)
 	end),
 	awful.key({ modkey, "Shift" }, "x", function()
-		awful.spawn(terminal .. " --class files " .. file_manager2)
+		awful.spawn(terminal .. " --class files -e " .. file_manager2)
 	end),
 	awful.key({ modkey }, "backslash", function()
-		awful.spawn(terminal .. " --class editor " .. editor)
+		awful.spawn(terminal .. " --class editor -e " .. editor)
 	end),
 	awful.key({ modkey, "Shift" }, "backslash", function()
-		awful.spawn(terminal .. " --class editor " .. editor2)
+		awful.spawn(terminal .. " --class editor -e " .. editor2)
 	end),
 
 	-- Apps keys
@@ -435,10 +435,10 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "r", awesome.restart),
 	awful.key({ modkey, "Shift" }, "l", awesome.quit),
 	awful.key({ modkey, "Shift" }, "k", function()
-		awful.spawn("systemctl reboot")
+		awful.spawn("loginctl reboot")
 	end),
 	awful.key({ modkey, "Shift" }, "m", function()
-		awful.spawn("systemctl poweroff")
+		awful.spawn("loginctl poweroff")
 	end),
 
 	-- Resize window
@@ -460,7 +460,7 @@ local globalkeys = gears.table.join(
 
 local clientkeys = gears.table.join(
 
--- Floating / Fullscreen
+	-- Floating / Fullscreen
 	awful.key({ modkey }, "e", awful.client.floating.toggle),
 	awful.key({ modkey }, "f", function(c)
 		c.fullscreen = not c.fullscreen
@@ -597,20 +597,20 @@ awful.rules.rules = {
 			role = {
 				"AlarmWindow", -- Thunderbird's calendar.
 				"ConfigManager", -- Thunderbird's about:config.
-				"pop-up",    -- e.g. Google Chrome's (detached) Developer Tools.
+				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
 			},
 		},
 		properties = { floating = true },
 	},
 
-	{ rule = { class = "web" },       properties = { tag = "1", switchtotag = true } },
-	{ rule = { class = "files" },     properties = { tag = "2", switchtotag = true } },
+	{ rule = { class = "web" }, properties = { tag = "1", switchtotag = true } },
+	{ rule = { class = "files" }, properties = { tag = "2", switchtotag = true } },
 	{ rule = { class = "Audacious" }, properties = { tag = "3", switchtotag = true } },
-	{ rule = { class = "terminal" },  properties = { tag = "4", switchtotag = true, size_hints_honor = false } },
-	{ rule = { class = "editor" },    properties = { tag = "5", switchtotag = true } },
-	{ rule = { class = "mpv" },       properties = { tag = "6", switchtotag = true } },
-	{ rule = { class = "Gimp-3.0" },  properties = { tag = "7", switchtotag = true } },
-	{ rule = { class = "Steam" },     properties = { tag = "9", switchtotag = true } },
+	{ rule = { class = "terminal" }, properties = { tag = "4", switchtotag = true, size_hints_honor = false } },
+	{ rule = { class = "editor" }, properties = { tag = "5", switchtotag = true } },
+	{ rule = { class = "mpv" }, properties = { tag = "6", switchtotag = true } },
+	{ rule = { class = "Gimp-3.0" }, properties = { tag = "7", switchtotag = true } },
+	{ rule = { class = "Steam" }, properties = { tag = "9", switchtotag = true } },
 }
 
 -- --------------------------------------------------------------------------------------
@@ -661,4 +661,3 @@ end)
 
 -- Autostart
 awful.spawn.with_shell("$HOME/.config/awesome/autostart.sh")
--- }}}

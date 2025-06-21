@@ -220,7 +220,8 @@ require('lazy').setup {
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  { -- Useful plugin to show you pending keybinds.
+  -- Useful plugin to show you pending keybinds.
+  {
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -281,12 +282,15 @@ require('lazy').setup {
   --
   -- Use the `dependencies` key to specify the dependencies of a particular plugin
 
-  { -- Fuzzy Finder (files, lsp, etc)
+  -- Fuzzy Finder (files, lsp, etc)
+  {
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      { -- If encountering errors, see telescope-fzf-native README for installation instructions
+
+      -- If encountering errors, see telescope-fzf-native README for installation instructions
+      {
         'nvim-telescope/telescope-fzf-native.nvim',
 
         -- `build` is used to run some command when the plugin is installed/updated.
@@ -398,9 +402,10 @@ require('lazy').setup {
     end,
   },
 
-  { -- LSP Plugins
-    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-    -- used for completion, annotations and signatures of Neovim apis
+  -- LSP Plugins
+  -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+  -- used for completion, annotations and signatures of Neovim apis
+  {
     'folke/lazydev.nvim',
     ft = 'lua',
     opts = {
@@ -411,7 +416,8 @@ require('lazy').setup {
     },
   },
 
-  { -- Main LSP Configuration
+  -- Main LSP Configuration
+  {
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
@@ -684,7 +690,8 @@ require('lazy').setup {
     end,
   },
 
-  { -- Lightweight yet powerful formatter plugin
+  -- Lightweight yet powerful formatter plugin
+  {
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
@@ -709,15 +716,15 @@ require('lazy').setup {
           return nil
         else
           return {
-            timeout_ms = 500,
+            timeout_ms = 5000,
             lsp_format = 'fallback',
           }
         end
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
+        toml = { 'taplo' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -725,7 +732,8 @@ require('lazy').setup {
     },
   },
 
-  { -- Autocompletion
+  -- Autocompletion
+  {
     'saghen/blink.cmp',
     event = 'VimEnter',
     version = '1.*',
@@ -824,11 +832,12 @@ require('lazy').setup {
     },
   },
 
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+  -- You can easily change to a different colorscheme.
+  -- Change the name of the colorscheme plugin below, and then
+  -- change the command in the config to whatever the name of that colorscheme is.
+  --
+  -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+  {
     'navarasu/onedark.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
@@ -842,7 +851,8 @@ require('lazy').setup {
     end,
   },
 
-  { -- Collection of various small independent plugins/modules
+  -- Collection of various small independent plugins/modules
+  {
     'echasnovski/mini.nvim',
     config = function()
       -- Better Around/Inside textobjects
@@ -880,7 +890,8 @@ require('lazy').setup {
     end,
   },
 
-  { -- Highlight, edit, and navigate code
+  -- Highlight, edit, and navigate code
+  {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
@@ -918,20 +929,23 @@ require('lazy').setup {
     --  - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 
-  { -- Add indentation guides even on blank lines
+  -- Add indentation guides even on blank lines
+  {
     'lukas-reineke/indent-blankline.nvim',
     --  See `:help ibl`
     main = 'ibl',
     opts = {},
   },
 
-  { -- Autopairs
+  -- Autopairs
+  {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     opts = {},
   },
 
-  { -- Neo-tree is a Neovim plugin to browse the file system
+  -- Neo-tree is a Neovim plugin to browse the file system
+  {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
     dependencies = {
@@ -961,7 +975,8 @@ require('lazy').setup {
     },
   },
 
-  { -- A blazing fast and easy to configure neovim statusline plugin
+  -- A blazing fast and easy to configure neovim statusline plugin
+  {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
@@ -969,49 +984,12 @@ require('lazy').setup {
     end,
   },
 
-  -- { -- A snazzy bufferline for Neovim
-  --   'akinsho/bufferline.nvim',
-  --   version = '*',
-  --   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  --   config = function()
-  --     require('bufferline').setup {
-  --       options = {
-  --         indicator = {
-  --           style = 'none',
-  --         },
-  --         offsets = {
-  --           {
-  --             filetype = 'neo-tree',
-  --             text = 'Neo-tree',
-  --             highlight = 'Directory',
-  --             text_align = 'left',
-  --             separator = true,
-  --           },
-  --         },
-  --       },
-  --       highlights = {
-  --         fill = {
-  --           bg = '#23252e',
-  --         },
-  --         offset_separator = {
-  --           fg = '#31353f',
-  --           bg = 'none',
-  --         },
-  --       },
-  --     }
-  --   end,
-  -- },
-
+  -- Supercharge your Haskell experience in neovim
   {
     'mrcjkb/haskell-tools.nvim',
     version = '^5', -- Recommended
     lazy = false, -- This plugin is already lazy
   },
-
-  -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
-  -- Or use telescope!
-  -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
-  -- you can continue same window with `<space>sr` which resumes last telescope search
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`

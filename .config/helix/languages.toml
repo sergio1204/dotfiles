@@ -3,6 +3,9 @@ name = "toml"
 formatter = { command = "taplo", args = ["fmt", "-"] }
 auto-format = true
 
+[language-server.taplo]
+config = {}
+
 
 [[language]]
 name = "python"
@@ -44,7 +47,7 @@ indent = { tab-width = 4, unit = "    " }
 auto-format = true
 formatter = { command = "bash", args = [
   "-c",
-  "ruff format --line-length 80 -q . && black --line-length 80 -q -",
+  "ruff format --line-length 120 -q . && black --line-length 120 -q -",
 ] }
 
 [language-server.pyright]
@@ -68,3 +71,7 @@ python.analysis.typeCheckingMode = "off"
 python.analysis.autoImoprtCompletion = true
 python.analysis.reportOptionalSubscript = false
 python.analysis.reportOptionalMemberAccess = false
+
+[[language]]
+name = "lua"
+auto-format = true
