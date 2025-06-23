@@ -195,7 +195,7 @@ groups = [
     Group("4", matches=[Match(wm_class="terminal")]),
     Group("5", matches=[Match(wm_class="editor")]),
     Group("6", matches=[Match(wm_class="mpv")]),
-    Group("7", matches=[Match(wm_class="gimp-2.10")]),
+    Group("7", matches=[Match(wm_class="gimp")]),
     Group("8"),
     Group("9", matches=[Match(wm_class="Steam")]),
 ]

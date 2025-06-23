@@ -12,10 +12,10 @@ import XMonad.Layout.Magnifier (MagnifyMsg (Toggle))
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed
 import XMonad.Layout.ResizableTile
-import XMonad.StackSet qualified as W
+import qualified XMonad.StackSet as W
 import XMonad.Util.ClickableWorkspaces
 import XMonad.Util.EZConfig
-import XMonad.Util.Hacks qualified as Hacks
+import qualified XMonad.Util.Hacks as Hacks
 import XMonad.Util.Loggers
 import XMonad.Util.SpawnOnce (spawnOnce)
 
@@ -27,7 +27,7 @@ main =
     . withEasySB (statusBarProp myXmobar (clickablePP myXmobarPP)) defToggleStrutsKey
     $ myConfig
   where
-    myXmobar = "xmobar $HOME/.config/xmobar/xmobar.hs"
+    myXmobar = "xmobar $HOME/.config/xmobar/xmobarrc"
 
 myConfig =
   def
@@ -62,11 +62,11 @@ myAdditionalKeysP =
     -- Terminal
     ("M-<Return>", spawn (myTerminal ++ " --class terminal ")),
     ("M-S-<Return>", spawn (myTerminal2 ++ " --class terminal ")),
-    ("M-x", spawn (myTerminal ++ " --class files " ++ myFileManager)),
-    ("M-S-x", spawn (myTerminal ++ " --class files " ++ myFileManager2)),
-    ("M-\\", spawn (myTerminal ++ " --class editor " ++ myEditor)),
-    ("M-S-\\", spawn (myTerminal ++ " --class editor " ++ myEditor2)),
-    ("M-v", spawn (myTerminal ++ " --class calendar " ++ myCalendar)),
+    ("M-x", spawn (myTerminal ++ " --class files -e " ++ myFileManager)),
+    ("M-S-x", spawn (myTerminal ++ " --class files -e " ++ myFileManager2)),
+    ("M-\\", spawn (myTerminal ++ " --class editor -e " ++ myEditor)),
+    ("M-S-\\", spawn (myTerminal ++ " --class editor -e " ++ myEditor2)),
+    ("M-v", spawn (myTerminal ++ " --class calendar -e " ++ myCalendar)),
     -- Change layout / Unfloating / kill / fullScreen
     ("M-w", sendMessage $ JumpToLayout "\xf065"),
     ("M-S-w", sendMessage FirstLayout),
@@ -90,8 +90,8 @@ myAdditionalKeysP =
     ("<XF86MonBrightnessDown>", spawn "brightnessctl s 10%-"),
     -- Recompile / Reboot / Poweroff / Quit
     ("M-S-r", spawn "xmonad --recompile && xmonad --restart"),
-    ("M-S-k", spawn "systemctl reboot"),
-    ("M-S-m", spawn "systemctl poweroff"),
+    ("M-S-k", spawn "loginctl reboot"),
+    ("M-S-m", spawn "loginctl poweroff"),
     ("M-S-l", io exitSuccess),
     -- Resize window
     ("M-C-<Left>", sendMessage Shrink),
@@ -127,10 +127,10 @@ myModMask :: KeyMask
 myModMask = mod4Mask
 
 myTerminal :: String
-myTerminal = "kitty"
+myTerminal = "alacritty"
 
 myTerminal2 :: String
-myTerminal2 = "alacritty"
+myTerminal2 = "kitty"
 
 myBrowser :: String
 myBrowser = "vivaldi-stable"
@@ -145,10 +145,10 @@ myFileManager2 :: String
 myFileManager2 = "yazi"
 
 myEditor :: String
-myEditor = "nvim"
+myEditor = "hx"
 
 myEditor2 :: String
-myEditor2 = "helix"
+myEditor2 = "nvim"
 
 myCalendar :: String
 myCalendar = "calcurse"
@@ -212,7 +212,7 @@ myManageHook =
       className =? "terminal" --> viewShift "4",
       className =? "editor" --> viewShift "5",
       className =? "mpv" --> viewShift "6",
-      className =? "gimp-2.10" --> viewShift "7",
+      className =? "Gimp" --> viewShift "7",
       className =? "Steam" --> viewShift "9",
       -- Floating
       className =? "Blueman-manager" --> doFloat,

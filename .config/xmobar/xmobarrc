@@ -1,4 +1,4 @@
-Config { font = "BlexMono Nerd Font 11"
+Config { font = "BlexMono Nerd Font 12"
        , additionalFonts = []
        , overrideRedirect = True
        , textOffset = 0
