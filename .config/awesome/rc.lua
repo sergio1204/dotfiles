@@ -60,8 +60,8 @@ local terminal2 = "kitty"
 local file_manager = "vifm"
 local file_manager2 = "yazi"
 
-local editor = "hx"
-local editor2 = "nvim"
+local editor = "nvim"
+local editor2 = "helix"
 
 local modkey = "Mod4"
 
@@ -435,10 +435,10 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "r", awesome.restart),
 	awful.key({ modkey, "Shift" }, "l", awesome.quit),
 	awful.key({ modkey, "Shift" }, "k", function()
-		awful.spawn("loginctl reboot")
+		awful.spawn("systemctl reboot")
 	end),
 	awful.key({ modkey, "Shift" }, "m", function()
-		awful.spawn("loginctl poweroff")
+		awful.spawn("systemctl poweroff")
 	end),
 
 	-- Resize window

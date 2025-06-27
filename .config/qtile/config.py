@@ -1,4 +1,4 @@
-# Copyright (c) 2010 Aldo Cortesi
+#  lopyright (c) 2010 Aldo Cortesi
 # Copyright (c) 2010, 2014 dequis
 # Copyright (c) 2012 Randall Ma
 # Copyright (c) 2012-2014 Tycho Andersen
@@ -54,8 +54,8 @@ terminal2 = "kitty"
 file_manager = "vifm"
 file_manager2 = "yazi"
 
-editor = "hx"
-editor2 = "nvim"
+editor = "nvim"
+editor2 = "helix"
 
 calendar = "calcurse"
 mod = "mod4"
@@ -142,8 +142,8 @@ keys = [
     # --------------------------
     # Reboot / Poweroff / Logout
     # --------------------------
-    Key([mod, "shift"], "k", lazy.spawn("loginctl reboot")),
-    Key([mod, "shift"], "m", lazy.spawn("loginctl poweroff")),
+    Key([mod, "shift"], "k", lazy.spawn("systemctl reboot")),
+    Key([mod, "shift"], "m", lazy.spawn("systemctl poweroff")),
     Key([mod, "shift"], "l", lazy.shutdown(), desc="logout Qtile"),
     # ------------
     # Dunst / Rofi
@@ -258,7 +258,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper="Pictures/oz.png",
+        wallpaper="Pictures/wallpaper.jpg",
         wallpaper_mode="fill",
         top=bar.Bar(
             [

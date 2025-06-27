@@ -1,4 +1,5 @@
 import Control.Monad (liftM2)
+import Data.Conduit.Process (system)
 import System.Exit
 import XMonad
 import XMonad.Actions.CycleWS
@@ -12,10 +13,10 @@ import XMonad.Layout.Magnifier (MagnifyMsg (Toggle))
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed
 import XMonad.Layout.ResizableTile
-import qualified XMonad.StackSet as W
+import XMonad.StackSet qualified as W
 import XMonad.Util.ClickableWorkspaces
 import XMonad.Util.EZConfig
-import qualified XMonad.Util.Hacks as Hacks
+import XMonad.Util.Hacks qualified as Hacks
 import XMonad.Util.Loggers
 import XMonad.Util.SpawnOnce (spawnOnce)
 
@@ -90,8 +91,8 @@ myAdditionalKeysP =
     ("<XF86MonBrightnessDown>", spawn "brightnessctl s 10%-"),
     -- Recompile / Reboot / Poweroff / Quit
     ("M-S-r", spawn "xmonad --recompile && xmonad --restart"),
-    ("M-S-k", spawn "loginctl reboot"),
-    ("M-S-m", spawn "loginctl poweroff"),
+    ("M-S-k", spawn "systemctl reboot"),
+    ("M-S-m", spawn "systemctl poweroff"),
     ("M-S-l", io exitSuccess),
     -- Resize window
     ("M-C-<Left>", sendMessage Shrink),
@@ -139,16 +140,16 @@ myBrowser2 :: String
 myBrowser2 = "firefox"
 
 myFileManager :: String
-myFileManager = "vifm"
+myFileManager = "yazi"
 
 myFileManager2 :: String
-myFileManager2 = "yazi"
+myFileManager2 = "vifm"
 
 myEditor :: String
-myEditor = "hx"
+myEditor = "nvim"
 
 myEditor2 :: String
-myEditor2 = "nvim"
+myEditor2 = "helix"
 
 myCalendar :: String
 myCalendar = "calcurse"
@@ -234,5 +235,5 @@ myStartupHook = do
   spawnOnce "xsetroot -cursor_name left_ptr"
   spawnOnce "picom -b"
   spawnOnce "xset b off"
-  spawnOnce "feh --bg-scale /home/sergey/Pictures/oz.png"
+  spawnOnce "feh --bg-scale /home/sergey/Pictures/wallpaper.jpg"
   spawnOnce "setxkbmap -layout us,ru -option grp:alt_shift_toggle"

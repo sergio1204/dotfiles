@@ -1,9 +1,8 @@
 export QT_QPA_PLATFORMTHEME=qt5ct
-export VISUAL=hx
-export EDITOR=hx
+export VISUAL=nvim
+export EDITOR=nvim
 export TERMINAL=alacritty
 export LIBVA_DRIVER_NAME=i965
-export PATH="$HOME/.local/bin:$PATH"
 
 if [ -f "$HOME"/.bashrc ]; then
 	source "$HOME"/.bashrc
