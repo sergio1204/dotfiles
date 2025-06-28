@@ -146,10 +146,10 @@ myFileManager2 :: String
 myFileManager2 = "vifm"
 
 myEditor :: String
-myEditor = "nvim"
+myEditor = "helix"
 
 myEditor2 :: String
-myEditor2 = "helix"
+myEditor2 = "nvim"
 
 myCalendar :: String
 myCalendar = "calcurse"
@@ -196,7 +196,7 @@ myXmobarPP =
 
     -- Windows title length.
     ppWindow :: String -> String
-    ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 100
+    ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 50
 
     magenta, blue, orange, red :: String -> String
     magenta = xmobarColor "#ff79c6" ""

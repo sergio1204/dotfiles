@@ -3,6 +3,8 @@ theme = "onedark"
 [editor]
 line-number = "relative"
 mouse = false
+bufferline = "multiple"
+color-modes = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -11,6 +13,28 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[editor.statusline]
+left = [
+  "mode",
+  "spinner",
+  "file-name",
+  "file-modification-indicator",
+  "read-only-indicator",
+]
+# center = ["file-name"]
+right = [
+  "diagnostics",
+  "selections",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 [keys.normal]
 C-z = 'no_op'

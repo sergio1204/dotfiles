@@ -986,6 +986,40 @@ require('lazy').setup {
     end,
   },
 
+  -- A snazzy bufferline for NeovimAdd commentMore actions
+  {
+    'akinsho/bufferline.nvim',
+    version = '*',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('bufferline').setup {
+        options = {
+          indicator = {
+            style = 'none',
+          },
+          offsets = {
+            {
+              filetype = 'neo-tree',
+              text = 'Neo-tree',
+              highlight = 'Directory',
+              text_align = 'left',
+              separator = true,
+            },
+          },
+        },
+        highlights = {
+          fill = {
+            bg = '#23252e',
+          },
+          offset_separator = {
+            fg = '#31353f',
+            bg = 'none',
+          },
+        },
+      }
+    end,
+  },
+
   -- Supercharge your Haskell experience in neovim
   {
     'mrcjkb/haskell-tools.nvim',
