@@ -5,17 +5,11 @@
 # for dark and light modes under `[flavor]`, and do so in those flavors instead.
 "$schema" = "https://yazi-rs.github.io/schemas/theme.json"
 
-# vim:fileencoding=utf-8:foldmethod=marker
-
-# : Flavor {{{
 
 [flavor]
 dark = ""
 light = ""
 
-# : }}}
-
-# : Manager {{{
 
 [mgr]
 cwd = { fg = "cyan" }
@@ -34,11 +28,6 @@ marker_cut = { fg = "lightred", bg = "lightred" }
 marker_marked = { fg = "lightcyan", bg = "lightcyan" }
 marker_selected = { fg = "lightyellow", bg = "lightyellow" }
 
-# Tab
-tab_active = { reversed = true }
-tab_inactive = {}
-tab_width = 1
-
 # Count
 count_copied = { fg = "white", bg = "green" }
 count_cut = { fg = "white", bg = "red" }
@@ -51,13 +40,14 @@ border_style = { fg = "black" }
 # Highlighting
 syntect_theme = ""
 
-# : }}}
 
+[tabs]
+tab_active = { reversed = true }
+tab_inactive = {}
+tab_width = 1
 
-# : Mode {{{
 
 [mode]
-
 normal_main = { bg = "blue", bold = true }
 normal_alt = { fg = "blue", bg = "gray" }
 
@@ -69,14 +59,10 @@ select_alt = { fg = "red", bg = "gray" }
 unset_main = { bg = "red", bold = true }
 unset_alt = { fg = "red", bg = "gray" }
 
-# : }}}
-
-
-# : Status bar {{{
 
 [status]
-separator_open = ""
-separator_close = ""
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
 # Progress
 progress_label = { bold = true }
@@ -90,20 +76,12 @@ perm_read = { fg = "yellow" }
 perm_write = { fg = "red" }
 perm_exec = { fg = "cyan" }
 
-# : }}}
-
-
-# : Pick {{{
 
 [pick]
 border = { fg = "blue" }
 active = { fg = "magenta", bold = true }
 inactive = {}
 
-# : }}}
-
-
-# : Input {{{
 
 [input]
 border = { fg = "blue" }
@@ -111,10 +89,6 @@ title = {}
 value = {}
 selected = { reversed = true }
 
-# : }}}
-
-
-# : Confirm {{{
 
 [confirm]
 border = { fg = "blue" }
@@ -125,35 +99,21 @@ btn_yes = { reversed = true }
 btn_no = {}
 btn_labels = ["  [Y]es  ", "  (N)o  "]
 
-# : }}}
 
-
-# : Completion {{{
-
-[completion]
+[cmp]
 border = { fg = "blue" }
 active = { reversed = true }
 inactive = {}
-
-# Icons
 icon_file = ""
 icon_folder = ""
 icon_command = ""
 
-# : }}}
-
-
-# : Tasks {{{
 
 [tasks]
 border = { fg = "blue" }
 title = {}
 hovered = { fg = "magenta", underline = true }
 
-# : }}}
-
-
-# : Which {{{
 
 [which]
 cols = 3
@@ -164,10 +124,6 @@ desc = { fg = "lightmagenta" }
 separator = "  "
 separator_style = { fg = "darkgray" }
 
-# : }}}
-
-
-# : Help {{{
 
 [help]
 on = { fg = "cyan" }
@@ -176,10 +132,6 @@ desc = {}
 hovered = { reversed = true, bold = true }
 footer = { fg = "black", bg = "white" }
 
-# : }}}
-
-
-# : Notify {{{
 
 [notify]
 title_info = { fg = "green" }
@@ -191,13 +143,8 @@ icon_info = ""
 icon_warn = ""
 icon_error = ""
 
-# : }}}
-
-
-# : File-specific styles {{{
 
 [filetype]
-
 rules = [
   # Images
   { name = "*.{jpg,jpeg,png}", fg = "yellow" },
@@ -230,10 +177,6 @@ rules = [
   { name = "*/", fg = "lightblue", bold = true },
 ]
 
-# : }}}
-
-
-# : Icons {{{
 
 [icon]
 globs = []
@@ -917,5 +860,3 @@ conds = [
   { if = "exec", text = "" },
   { if = "!dir", text = "" },
 ]
-
-# : }}}

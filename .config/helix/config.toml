@@ -39,6 +39,7 @@ mode.select = "SELECT"
 [keys.normal]
 C-z = 'no_op'
 C-r = 'redo'
+A-c = 'copy_selection_on_prev_line'
 
 [keys.select]
 C-z = 'no_op'

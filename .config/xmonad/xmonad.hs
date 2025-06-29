@@ -28,7 +28,7 @@ main =
     . withEasySB (statusBarProp myXmobar (clickablePP myXmobarPP)) defToggleStrutsKey
     $ myConfig
   where
-    myXmobar = "xmobar $HOME/.config/xmobar/xmobarrc"
+    myXmobar = "xmobar $HOME/.config/xmobar/xmobar.hs"
 
 myConfig =
   def
