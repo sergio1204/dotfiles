@@ -400,6 +400,7 @@ exts = [
   { name = "asm", text = "", fg = "#0091bd" },
   { name = "ass", text = "󰨖", fg = "#ffb713" },
   { name = "astro", text = "", fg = "#e23f67" },
+  { name = "avi", text = "", fg = "#fd971f" },
   { name = "avif", text = "", fg = "#a074c4" },
   { name = "awk", text = "", fg = "#4d5a5e" },
   { name = "azcli", text = "", fg = "#0078d4" },

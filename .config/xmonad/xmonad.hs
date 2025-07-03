@@ -2,6 +2,7 @@ import Control.Monad (liftM2)
 import Data.Conduit.Process (system)
 import System.Exit
 import XMonad
+import XMonad.Actions.CopyWindow
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
@@ -25,10 +26,10 @@ main =
   xmonad
     . ewmhFullscreen
     . ewmh
-    . withEasySB (statusBarProp myXmobar (clickablePP myXmobarPP)) defToggleStrutsKey
+    . withEasySB (statusBarProp myXmobar (clickablePP =<< copiesPP (xmobarColor "red" "" . xmobarBorder "Bottom" "red" 3 . wrap "" "") myXmobarPP)) defToggleStrutsKey
     $ myConfig
   where
-    myXmobar = "xmobar $HOME/.config/xmobar/xmobar.hs"
+    myXmobar = "xmobar $HOME/.config/xmobar/xmobarrc"
 
 myConfig =
   def
@@ -44,7 +45,6 @@ myConfig =
       normalBorderColor = myNormalBorderColor
     }
     `additionalKeysP` myAdditionalKeysP
-    `removeKeysP` myRemoveKeysP
 
 myAdditionalKeysP =
   -- Rofi / Dunst
@@ -68,13 +68,12 @@ myAdditionalKeysP =
     ("M-\\", spawn (myTerminal ++ " --class editor -e " ++ myEditor)),
     ("M-S-\\", spawn (myTerminal ++ " --class editor -e " ++ myEditor2)),
     ("M-v", spawn (myTerminal ++ " --class calendar -e " ++ myCalendar)),
-    -- Change layout / Unfloating / kill / fullScreen
+    -- Change layout / Unfloating / Hide bar behind window
     ("M-w", sendMessage $ JumpToLayout "\xf065"),
     ("M-S-w", sendMessage FirstLayout),
     ("M-s", sendMessage $ JumpToLayout "\xf063"),
     ("M-S-s", sendMessage FirstLayout),
     ("M-e", withFocused $ windows . W.sink),
-    ("M-q", kill),
     ("M-f", sendMessage ToggleStruts),
     -- Lockscreen / Printscreen
     ("M-l", spawn "i3lock -i /home/sergey/Pictures/soty.png"),
@@ -99,12 +98,14 @@ myAdditionalKeysP =
     ("M-C-<Right>", sendMessage Expand),
     ("M-C-<Down>", sendMessage MirrorShrink),
     ("M-C-<Up>", sendMessage MirrorExpand),
-    -- Swap window
+    -- Swap window / Kill window
     ("M-<Space>", windows W.swapMaster),
     ("M-g", windows W.swapDown),
     ("M-S-g", windows W.swapUp),
     ("M-S-<Left>", windows W.swapUp),
     ("M-S-<Right>", windows W.swapDown),
+    ("M-q", kill1),
+    ("M-S-q", kill),
     -- Focus window
     ("M-a", windows W.focusDown),
     ("M-S-a", windows W.focusUp),
@@ -115,14 +116,14 @@ myAdditionalKeysP =
     ("M-`", moveTo Prev (Not emptyWS)),
     ("M-<Esc>", toggleWS)
   ]
+    -- Move window to WS and go to
     ++ [ ("M-S-" ++ k, windows $ W.greedyView w . W.shift w)
          | (w, k) <- zip myWorkspaces $ map show [1 .. 9]
        ]
-
-myRemoveKeysP =
-  [ "M-S-q"
-  -- , "M-S-c"
-  ]
+    -- Copy window to WS and go to
+    ++ [ ("M-C-" ++ show i, windows $ W.greedyView ws . copy ws)
+         | (i, ws) <- zip [1 .. 9] myWorkspaces
+       ]
 
 myModMask :: KeyMask
 myModMask = mod4Mask
