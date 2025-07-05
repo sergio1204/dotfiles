@@ -26,7 +26,7 @@ main =
   xmonad
     . ewmhFullscreen
     . ewmh
-    . withEasySB (statusBarProp myXmobar (clickablePP =<< copiesPP (xmobarColor "red" "" . xmobarBorder "Bottom" "red" 3 . wrap "" "") myXmobarPP)) defToggleStrutsKey
+    . withEasySB (statusBarProp myXmobar (clickablePP =<< copiesPP (xmobarColor "#AAC9F1" "") myXmobarPP)) defToggleStrutsKey
     $ myConfig
   where
     myXmobar = "xmobar $HOME/.config/xmobar/xmobarrc"

@@ -5,6 +5,7 @@ line-number = "relative"
 mouse = true
 bufferline = "multiple"
 color-modes = true
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -35,6 +36,9 @@ separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
+
+# [editor.inline-diagnostics]
+# cursor-line = "warning"
 
 [keys.normal]
 C-z = 'no_op'
