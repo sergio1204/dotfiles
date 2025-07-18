@@ -38,7 +38,7 @@ border_symbol = "│"
 border_style = { fg = "black" }
 
 # Highlighting
-syntect_theme = ""
+syntect_theme = "~/Downloads/Oceanic - Eighties.tmTheme"
 
 
 [tabs]

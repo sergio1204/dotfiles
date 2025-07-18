@@ -60,7 +60,7 @@ local terminal2 = "kitty"
 local file_manager = "yazi"
 local file_manager2 = "vifm"
 
-local editor = "helix"
+local editor = "hx"
 local editor2 = "nvim"
 
 local modkey = "Mod4"
@@ -435,10 +435,10 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "r", awesome.restart),
 	awful.key({ modkey, "Shift" }, "l", awesome.quit),
 	awful.key({ modkey, "Shift" }, "k", function()
-		awful.spawn("systemctl reboot")
+		awful.spawn("loginctl reboot")
 	end),
 	awful.key({ modkey, "Shift" }, "m", function()
-		awful.spawn("systemctl poweroff")
+		awful.spawn("loginctl poweroff")
 	end),
 
 	-- Resize window
@@ -609,7 +609,7 @@ awful.rules.rules = {
 	{ rule = { class = "terminal" }, properties = { tag = "4", switchtotag = true, size_hints_honor = false } },
 	{ rule = { class = "editor" }, properties = { tag = "5", switchtotag = true } },
 	{ rule = { class = "mpv" }, properties = { tag = "6", switchtotag = true } },
-	{ rule = { class = "Gimp-3.0" }, properties = { tag = "7", switchtotag = true } },
+	{ rule = { class = "Gimp" }, properties = { tag = "7", switchtotag = true } },
 	{ rule = { class = "Steam" }, properties = { tag = "9", switchtotag = true } },
 }
 

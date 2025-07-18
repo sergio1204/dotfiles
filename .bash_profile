@@ -1,6 +1,6 @@
 export QT_QPA_PLATFORMTHEME=qt5ct
-export VISUAL=helix
-export EDITOR=helix
+export VISUAL=hx
+export EDITOR=hx
 export TERMINAL=alacritty
 export LIBVA_DRIVER_NAME=i965
 export PATH="$HOME/.cargo/bin:$PATH"
