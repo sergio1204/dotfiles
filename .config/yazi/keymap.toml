@@ -277,6 +277,7 @@ keymap = [
 
 
 [[mgr.prepend_keymap]]
+# instalation: ya pkg add yazi-rs/plugins:smart-enter
 on = "<Enter>"
 run = "plugin --sync smart-enter"
 desc = "Open files or enter directories all in one key. Install: ya pack -a yazi-rs/plugins:smart-enter"
