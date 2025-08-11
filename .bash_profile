@@ -3,7 +3,6 @@ export VISUAL=hx
 export EDITOR=hx
 export TERMINAL=alacritty
 export LIBVA_DRIVER_NAME=i965
-export PATH="$HOME/.cargo/bin:$PATH"
 
 if [ -f "$HOME"/.bashrc ]; then
   source "$HOME"/.bashrc

@@ -51,8 +51,8 @@ browser2 = "firefox"
 terminal = "alacritty"
 terminal2 = "kitty"
 
-file_manager = "yazi"
-file_manager2 = "vifm"
+file_manager = "vifm"
+file_manager2 = "yazi"
 
 editor = "hx"
 editor2 = "nvim"
