@@ -141,10 +141,10 @@ myBrowser2 :: String
 myBrowser2 = "firefox"
 
 myFileManager :: String
-myFileManager = "yazi"
+myFileManager = "vifm"
 
 myFileManager2 :: String
-myFileManager2 = "vifm"
+myFileManager2 = "yazi"
 
 myEditor :: String
 myEditor = "helix"

@@ -54,7 +54,7 @@ terminal2 = "kitty"
 file_manager = "vifm"
 file_manager2 = "yazi"
 
-editor = "hx"
+editor = "helix"
 editor2 = "nvim"
 
 calendar = "calcurse"
@@ -142,8 +142,8 @@ keys = [
     # --------------------------
     # Reboot / Poweroff / Logout
     # --------------------------
-    Key([mod, "shift"], "k", lazy.spawn("loginctl reboot")),
-    Key([mod, "shift"], "m", lazy.spawn("loginctl poweroff")),
+    Key([mod, "shift"], "k", lazy.spawn("systemctl reboot")),
+    Key([mod, "shift"], "m", lazy.spawn("systemctl poweroff")),
     Key([mod, "shift"], "l", lazy.shutdown(), desc="logout Qtile"),
     # ------------
     # Dunst / Rofi
