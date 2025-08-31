@@ -140,10 +140,11 @@ keys = [
     Key([], "Print", lazy.spawn("scrot -s")),
     Key(["shift"], "Print", lazy.spawn("scrot -d 1")),
     # --------------------------
-    # Reboot / Poweroff / Logout
+    # Reboot / Poweroff / Suspend / Logout
     # --------------------------
     Key([mod, "shift"], "k", lazy.spawn("systemctl reboot")),
     Key([mod, "shift"], "m", lazy.spawn("systemctl poweroff")),
+    Key([mod, "shift"], "j", lazy.spawn("systemctl suspend")),
     Key([mod, "shift"], "l", lazy.shutdown(), desc="logout Qtile"),
     # ------------
     # Dunst / Rofi

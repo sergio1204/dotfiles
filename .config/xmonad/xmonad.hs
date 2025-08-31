@@ -88,10 +88,11 @@ myAdditionalKeysP =
     -- Brightness control
     ("<XF86MonBrightnessUp>", spawn "brightnessctl s +10%"),
     ("<XF86MonBrightnessDown>", spawn "brightnessctl s 10%-"),
-    -- Recompile / Reboot / Poweroff / Quit
+    -- Recompile / Reboot / Poweroff / Suspend / Quit
     ("M-S-r", spawn "xmonad --recompile && xmonad --restart"),
     ("M-S-k", spawn "systemctl reboot"),
     ("M-S-m", spawn "systemctl poweroff"),
+    ("M-S-j", spawn "systemctl suspend"),
     ("M-S-l", io exitSuccess),
     -- Resize window
     ("M-C-<Left>", sendMessage Shrink),
@@ -238,3 +239,4 @@ myStartupHook = do
   spawnOnce "xset b off"
   spawnOnce "feh --bg-scale /home/sergey/Pictures/wallpaper.jpg"
   spawnOnce "setxkbmap -layout us,ru -option grp:alt_shift_toggle"
+  spawnOnce "xrandr --output eDP-1 --off"

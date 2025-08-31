@@ -329,7 +329,7 @@ local globalkeys = gears.table.join(
 		awful.spawn("rofi -show run")
 	end),
 
-	-- Swap windows
+	-- Swap windows / Move tray to focused screen
 	awful.key({ modkey }, "g", function()
 		awful.client.swap.byidx(1)
 	end),
@@ -341,6 +341,10 @@ local globalkeys = gears.table.join(
 	end),
 	awful.key({ modkey, "Shift" }, "Left", function()
 		awful.client.swap.byidx(-1)
+	end),
+	awful.key({ modkey }, "t", function()
+		local traywidget = wibox.widget.systray()
+		traywidget:set_screen(awful.screen.focused())
 	end),
 
 	-- Terminal / FM / Editor
@@ -431,7 +435,7 @@ local globalkeys = gears.table.join(
 		awful.spawn("scrot -d 1")
 	end),
 
-	-- Reload / Quit / Reboot / Poweroff
+	-- Reload / Quit / Reboot / Poweroff / Suspend
 	awful.key({ modkey, "Shift" }, "r", awesome.restart),
 	awful.key({ modkey, "Shift" }, "l", awesome.quit),
 	awful.key({ modkey, "Shift" }, "k", function()
@@ -439,6 +443,9 @@ local globalkeys = gears.table.join(
 	end),
 	awful.key({ modkey, "Shift" }, "m", function()
 		awful.spawn("systemctl poweroff")
+	end),
+	awful.key({ modkey, "Shift" }, "j", function()
+		awful.spawn("systemctl suspend")
 	end),
 
 	-- Resize window
