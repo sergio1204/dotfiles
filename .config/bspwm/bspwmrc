@@ -37,5 +37,4 @@ xsetroot -cursor_name left_ptr &
 feh --bg-scale /home/sergey/Pictures/wallpaper.jpg &
 picom -b &
 xset b off &
-setxkbmap -layout us,ru -option grp:alt_shift_toggle &
 "$HOME"/.config/polybar/bspwm.sh

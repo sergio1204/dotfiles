@@ -52,17 +52,16 @@ beautiful.init(theme_path)
 
 -- Browser / Terminal / FM / Editor / Modkey
 local browser = "vivaldi-stable"
-local browser2 = "firefox"
-
 local terminal = "alacritty"
-local terminal2 = "kitty"
-
 local file_manager = "vifm"
+local editor = "nvim"
+
+local browser2 = "firefox"
+local terminal2 = "kitty"
 local file_manager2 = "yazi"
+local editor2 = "helix"
 
-local editor = "helix"
-local editor2 = "nvim"
-
+local calendar = "calcurse"
 local modkey = "Mod4"
 
 -- Layouts
@@ -366,7 +365,9 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "backslash", function()
 		awful.spawn(terminal .. " --class editor -e " .. editor2)
 	end),
-
+	awful.key({ modkey }, "v", function()
+		awful.spawn(terminal .. " --class calendar -e " .. calendar)
+	end),
 	-- Apps keys
 	awful.key({ modkey }, "c", function()
 		awful.spawn(browser .. " --class='web' ")
@@ -394,12 +395,6 @@ local globalkeys = gears.table.join(
 	end),
 	awful.key({ modkey }, "u", function()
 		awful.spawn("udiskie --tray")
-	end),
-	awful.key({ modkey }, "v", function()
-		mycal.show(0)
-	end),
-	awful.key({ modkey, "Shift" }, "v", function()
-		mycal.hide()
 	end),
 
 	-- Volume control
@@ -594,6 +589,7 @@ awful.rules.rules = {
 				"Blueman-manager",
 				"Steam",
 				"XCalc",
+				"calendar",
 			},
 
 			-- Note that the name property shown in xprop might be set slightly after creation of the client

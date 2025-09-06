@@ -126,35 +126,35 @@ myAdditionalKeysP =
          | (i, ws) <- zip [1 .. 9] myWorkspaces
        ]
 
-myModMask :: KeyMask
-myModMask = mod4Mask
+myBrowser :: String
+myBrowser = "vivaldi-stable"
 
 myTerminal :: String
 myTerminal = "alacritty"
 
-myTerminal2 :: String
-myTerminal2 = "kitty"
+myFileManager :: String
+myFileManager = "vifm"
 
-myBrowser :: String
-myBrowser = "vivaldi-stable"
+myEditor :: String
+myEditor = "nvim"
 
 myBrowser2 :: String
 myBrowser2 = "firefox"
 
-myFileManager :: String
-myFileManager = "vifm"
+myTerminal2 :: String
+myTerminal2 = "kitty"
 
 myFileManager2 :: String
 myFileManager2 = "yazi"
 
-myEditor :: String
-myEditor = "helix"
-
 myEditor2 :: String
-myEditor2 = "nvim"
+myEditor2 = "helix"
 
 myCalendar :: String
 myCalendar = "calcurse"
+
+myModMask :: KeyMask
+myModMask = mod4Mask
 
 myBorderWidth :: Dimension
 myBorderWidth = 3
@@ -238,5 +238,4 @@ myStartupHook = do
   spawnOnce "picom -b"
   spawnOnce "xset b off"
   spawnOnce "feh --bg-scale /home/sergey/Pictures/wallpaper.jpg"
-  spawnOnce "setxkbmap -layout us,ru -option grp:alt_shift_toggle"
   spawnOnce "xrandr --output eDP-1 --off"

@@ -1,6 +1,6 @@
 export QT_QPA_PLATFORMTHEME=qt5ct
-export VISUAL=helix
-export EDITOR=helix
+export VISUAL=nvim
+export EDITOR=nvim
 export TERMINAL=alacritty
 export LIBVA_DRIVER_NAME=i965
 
