@@ -76,7 +76,7 @@ myAdditionalKeysP =
     ("M-e", withFocused $ windows . W.sink),
     ("M-f", sendMessage ToggleStruts),
     -- Lockscreen / Printscreen
-    ("M-l", spawn "i3lock -i /home/sergey/Pictures/soty.png"),
+    ("M-l", spawn "i3lock -k -i /home/sergey/Pictures/soty.png"),
     ("<Print>", spawn "scrot -s"),
     ("S-<Print>", spawn "scrot -d 1"),
     -- Volume control
@@ -136,7 +136,7 @@ myFileManager :: String
 myFileManager = "vifm"
 
 myEditor :: String
-myEditor = "nvim"
+myEditor = "helix"
 
 myBrowser2 :: String
 myBrowser2 = "firefox"
@@ -148,7 +148,7 @@ myFileManager2 :: String
 myFileManager2 = "yazi"
 
 myEditor2 :: String
-myEditor2 = "helix"
+myEditor2 = "nvim"
 
 myCalendar :: String
 myCalendar = "calcurse"
@@ -238,4 +238,4 @@ myStartupHook = do
   spawnOnce "picom -b"
   spawnOnce "xset b off"
   spawnOnce "feh --bg-scale /home/sergey/Pictures/wallpaper.jpg"
-  spawnOnce "xrandr --output eDP-1 --off"
+  spawnOnce "$HOME/.screenlayout/xmonad.sh"

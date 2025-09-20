@@ -8,3 +8,4 @@ run() {
 
 run picom -b
 run xset b off
+run "$HOME"/.screenlayout/awesome.sh

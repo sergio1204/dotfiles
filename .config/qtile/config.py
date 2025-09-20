@@ -48,12 +48,12 @@ def switchtogroup(group, window):
 browser = "vivaldi-stable"
 terminal = "alacritty"
 file_manager = "vifm"
-editor = "nvim"
+editor = "helix"
 
 browser2 = "firefox"
 terminal2 = "kitty"
 file_manager2 = "yazi"
-editor2 = "helix"
+editor2 = "nvim"
 
 calendar = "calcurse"
 mod = "mod4"
@@ -134,7 +134,7 @@ keys = [
     # ------------------------
     # Lockscreen / Printscreen
     # ------------------------
-    Key([mod], "l", lazy.spawn("i3lock -i /home/sergey/Pictures/soty.png")),
+    Key([mod], "l", lazy.spawn("i3lock -k -i /home/sergey/Pictures/soty.png")),
     Key([], "Print", lazy.spawn("scrot -s")),
     Key(["shift"], "Print", lazy.spawn("scrot -d 1")),
     # --------------------------

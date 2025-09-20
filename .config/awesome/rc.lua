@@ -54,12 +54,12 @@ beautiful.init(theme_path)
 local browser = "vivaldi-stable"
 local terminal = "alacritty"
 local file_manager = "vifm"
-local editor = "nvim"
+local editor = "helix"
 
 local browser2 = "firefox"
 local terminal2 = "kitty"
 local file_manager2 = "yazi"
-local editor2 = "helix"
+local editor2 = "nvim"
 
 local calendar = "calcurse"
 local modkey = "Mod4"
@@ -421,7 +421,7 @@ local globalkeys = gears.table.join(
 
 	-- Lockscreen / Printscreen
 	awful.key({ modkey }, "l", function()
-		awful.spawn("i3lock -i /home/sergey/Pictures/soty.png")
+		awful.spawn("i3lock -k -t -i /home/sergey/Pictures/soty.png")
 	end),
 	awful.key({}, "Print", function()
 		awful.spawn("scrot -s")

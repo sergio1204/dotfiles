@@ -3,3 +3,4 @@
 kbdd &
 picom -b &
 xset b off &
+"$HOME"/.screenlayout/qtile.sh
