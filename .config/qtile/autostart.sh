@@ -3,4 +3,4 @@
 kbdd &
 picom -b &
 xset b off &
-"$HOME"/.screenlayout/qtile.sh
+"$HOME"/.screenlayout/one_monitor.sh &

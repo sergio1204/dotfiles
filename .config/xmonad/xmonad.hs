@@ -238,4 +238,4 @@ myStartupHook = do
   spawnOnce "picom -b"
   spawnOnce "xset b off"
   spawnOnce "feh --bg-scale /home/sergey/Pictures/wallpaper.jpg"
-  spawnOnce "$HOME/.screenlayout/xmonad.sh"
+  spawnOnce "$HOME/.screenlayout/one_monitor.sh"

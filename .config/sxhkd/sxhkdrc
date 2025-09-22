@@ -143,10 +143,10 @@ super + l
     i3lock -i /home/sergey/Pictures/soty.png
 
 # dunst
-super + u
+super + i
     dunstctl history-pop
 
-super + shift + u
+super + shift + i
     dunstctl close-all
 
 # brightness
@@ -184,10 +184,10 @@ super + shift + x
     alacritty --class files -e yazi
 
 super + backslash
-    alacritty --class editor -e nvim
+    alacritty --class editor -e helix
 
 super + shift + backslash
-    alacritty --class editor -e vim
+    alacritty --class editor -e nvim
 
 super + v
     alacritty --class calendar -e calcurse
@@ -216,3 +216,6 @@ super + p
 
 super + shift + p
     killall -q picom
+
+super + u
+    udiskie --tray
