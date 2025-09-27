@@ -1,7 +1,7 @@
 export QT_QPA_PLATFORMTHEME=qt5ct
 export VISUAL=helix
 export EDITOR=helix
-export TERMINAL=alacritty
+export TERMINAL=kitty
 export LIBVA_DRIVER_NAME=i965
 
 if [ -f "$HOME"/.bashrc ]; then

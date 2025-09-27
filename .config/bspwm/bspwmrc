@@ -25,7 +25,8 @@ bspc rule -a Audacious desktop='^3' follow=on
 bspc rule -a terminal desktop='^4' follow=on
 bspc rule -a editor desktop='^5' follow=on
 bspc rule -a mpv desktop='^6' follow=on
-bspc rule -a Gimp-2.10 desktop='^7' follow=on
+bspc rule -a Gimp desktop='^7' follow=on
+bspc rule -a Telegram desktop='^8' follow=on
 bspc rule -a Steam desktop='^9' follow=on
 
 bspc rule -a Blueman-manager state=floating

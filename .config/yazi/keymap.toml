@@ -226,7 +226,7 @@ keymap = [
   { on = [
     "g",
     "d",
-  ], run = "cd ~/Documents", desc = "Goto ~/Downloads" },
+  ], run = "cd ~/Documents", desc = "Goto ~/Documents" },
   { on = [
     "g",
     "D",
@@ -234,15 +234,19 @@ keymap = [
   { on = [
     "g",
     "m",
-  ], run = "cd ~/Music", desc = "Goto ~/Downloads" },
+  ], run = "cd ~/Music", desc = "Goto ~/Music" },
   { on = [
     "g",
     "p",
-  ], run = "cd ~/Pictures", desc = "Goto ~/Downloads" },
+  ], run = "cd ~/Pictures", desc = "Goto ~/Pictures" },
   { on = [
     "g",
     "v",
-  ], run = "cd ~/Videos", desc = "Goto ~/Downloads" },
+  ], run = "cd ~/Videos", desc = "Goto ~/Videos" },
+  { on = [
+    "g",
+    "M",
+  ], run = "cd /run/media", desc = "Goto /run/media" },
   { on = [
     "g",
     "<Space>",

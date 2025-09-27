@@ -44,15 +44,15 @@ def switchtogroup(group, window):
     group.toscreen()
 
 
-# Terminal / FM / Editor / Modkey
+# Terminal / Browser / FM / Editor / Modkey
+terminal = "kitty"
+
 browser = "vivaldi-stable"
-terminal = "alacritty"
-file_manager = "vifm"
+file_manager = "yazi"
 editor = "helix"
 
 browser2 = "firefox"
-terminal2 = "kitty"
-file_manager2 = "yazi"
+file_manager2 = "vifm"
 editor2 = "nvim"
 
 calendar = "calcurse"
@@ -152,23 +152,22 @@ keys = [
     Key([mod], "z", lazy.spawn("rofi -show drun")),
     Key([mod, "shift"], "z", lazy.spawn("rofi -show run")),
     # --------
-    # Terminal
+    # Terminal / FM / Editor / Calendar
     # --------
     Key([mod], "Return", lazy.spawn(terminal + " --class terminal ")),
-    Key([mod, "shift"], "Return", lazy.spawn(terminal2 + " --class terminal ")),
-    Key([mod], "x", lazy.spawn(terminal + " --class files -e " + file_manager)),
+    Key([mod], "x", lazy.spawn(terminal + " --class files " + file_manager)),
+    Key([mod], "backslash", lazy.spawn(terminal + " --class editor " + editor)),
     Key(
         [mod, "shift"],
         "x",
-        lazy.spawn(terminal + " --class files -e " + file_manager2),
+        lazy.spawn(terminal + " --class files " + file_manager2),
     ),
-    Key([mod], "backslash", lazy.spawn(terminal + " --class editor -e " + editor)),
     Key(
         [mod, "shift"],
         "backslash",
-        lazy.spawn(terminal + " --class editor -e " + editor2),
+        lazy.spawn(terminal + " --class editor " + editor2),
     ),
-    Key([mod], "v", lazy.spawn(terminal + " --class calendar -e " + calendar)),
+    Key([mod], "v", lazy.spawn(terminal + " --class calendar " + calendar)),
     # ---------
     # Apps keys
     # ---------
@@ -195,7 +194,7 @@ groups = [
     Group("5", matches=[Match(wm_class="editor")]),
     Group("6", matches=[Match(wm_class="mpv")]),
     Group("7", matches=[Match(wm_class="gimp")]),
-    Group("8"),
+    Group("8", matches=[Match(wm_class="Telegram")]),
     Group("9", matches=[Match(wm_class="Steam")]),
 ]
 

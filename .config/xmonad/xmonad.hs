@@ -60,14 +60,13 @@ myAdditionalKeysP =
     ("M-p", spawn "picom"),
     ("M-S-p", spawn "killall -q picom"),
     ("M-u", spawn "udiskie --tray"),
-    -- Terminal
+    -- Terminal / FM / Editor / Calendar
     ("M-<Return>", spawn (myTerminal ++ " --class terminal ")),
-    ("M-S-<Return>", spawn (myTerminal2 ++ " --class terminal ")),
-    ("M-x", spawn (myTerminal ++ " --class files -e " ++ myFileManager)),
-    ("M-S-x", spawn (myTerminal ++ " --class files -e " ++ myFileManager2)),
-    ("M-\\", spawn (myTerminal ++ " --class editor -e " ++ myEditor)),
-    ("M-S-\\", spawn (myTerminal ++ " --class editor -e " ++ myEditor2)),
-    ("M-v", spawn (myTerminal ++ " --class calendar -e " ++ myCalendar)),
+    ("M-x", spawn (myTerminal ++ " --class files " ++ myFileManager)),
+    ("M-\\", spawn (myTerminal ++ " --class editor " ++ myEditor)),
+    ("M-S-x", spawn (myTerminal ++ " --class files " ++ myFileManager2)),
+    ("M-S-\\", spawn (myTerminal ++ " --class editor " ++ myEditor2)),
+    ("M-v", spawn (myTerminal ++ " --class calendar " ++ myCalendar)),
     -- Change layout / Unfloating / Hide bar behind window
     ("M-w", sendMessage $ JumpToLayout "\xf065"),
     ("M-S-w", sendMessage FirstLayout),
@@ -126,14 +125,14 @@ myAdditionalKeysP =
          | (i, ws) <- zip [1 .. 9] myWorkspaces
        ]
 
+myTerminal :: String
+myTerminal = "kitty"
+
 myBrowser :: String
 myBrowser = "vivaldi-stable"
 
-myTerminal :: String
-myTerminal = "alacritty"
-
 myFileManager :: String
-myFileManager = "vifm"
+myFileManager = "yazi"
 
 myEditor :: String
 myEditor = "helix"
@@ -141,11 +140,8 @@ myEditor = "helix"
 myBrowser2 :: String
 myBrowser2 = "firefox"
 
-myTerminal2 :: String
-myTerminal2 = "kitty"
-
 myFileManager2 :: String
-myFileManager2 = "yazi"
+myFileManager2 = "vifm"
 
 myEditor2 :: String
 myEditor2 = "nvim"
@@ -216,6 +212,7 @@ myManageHook =
       className =? "editor" --> viewShift "5",
       className =? "mpv" --> viewShift "6",
       className =? "Gimp" --> viewShift "7",
+      className =? "Telegram" --> viewShift "8",
       className =? "Steam" --> viewShift "9",
       -- Floating
       className =? "Blueman-manager" --> doFloat,

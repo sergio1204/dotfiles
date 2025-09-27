@@ -50,15 +50,15 @@ naughty.config.defaults.border_width = beautiful.notification_border_width
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
 beautiful.init(theme_path)
 
--- Browser / Terminal / FM / Editor / Modkey
+-- Terminal / Browser / FM / Editor / Modkey
+local terminal = "kitty"
+
 local browser = "vivaldi-stable"
-local terminal = "alacritty"
-local file_manager = "vifm"
+local file_manager = "yazi"
 local editor = "helix"
 
 local browser2 = "firefox"
-local terminal2 = "kitty"
-local file_manager2 = "yazi"
+local file_manager2 = "vifm"
 local editor2 = "nvim"
 
 local calendar = "calcurse"
@@ -346,27 +346,24 @@ local globalkeys = gears.table.join(
 		traywidget:set_screen(awful.screen.focused())
 	end),
 
-	-- Terminal / FM / Editor
+	-- Terminal / FM / Editor / Calendar
 	awful.key({ modkey }, "Return", function()
 		awful.spawn(terminal .. " --class terminal ")
 	end),
-	awful.key({ modkey, "Shift" }, "Return", function()
-		awful.spawn(terminal2 .. " --class terminal ")
-	end),
 	awful.key({ modkey }, "x", function()
-		awful.spawn(terminal .. " --class files -e " .. file_manager)
-	end),
-	awful.key({ modkey, "Shift" }, "x", function()
-		awful.spawn(terminal .. " --class files -e " .. file_manager2)
+		awful.spawn(terminal .. " --class files " .. file_manager)
 	end),
 	awful.key({ modkey }, "backslash", function()
-		awful.spawn(terminal .. " --class editor -e " .. editor)
+		awful.spawn(terminal .. " --class editor " .. editor)
+	end),
+	awful.key({ modkey, "Shift" }, "x", function()
+		awful.spawn(terminal .. " --class files " .. file_manager2)
 	end),
 	awful.key({ modkey, "Shift" }, "backslash", function()
-		awful.spawn(terminal .. " --class editor -e " .. editor2)
+		awful.spawn(terminal .. " --class editor " .. editor2)
 	end),
 	awful.key({ modkey }, "v", function()
-		awful.spawn(terminal .. " --class calendar -e " .. calendar)
+		awful.spawn(terminal .. " --class calendar " .. calendar)
 	end),
 	-- Apps keys
 	awful.key({ modkey }, "c", function()
@@ -613,6 +610,7 @@ awful.rules.rules = {
 	{ rule = { class = "editor" }, properties = { tag = "5", switchtotag = true } },
 	{ rule = { class = "mpv" }, properties = { tag = "6", switchtotag = true } },
 	{ rule = { class = "Gimp" }, properties = { tag = "7", switchtotag = true } },
+	{ rule = { class = "Telegram" }, properties = { tag = "8", switchtotag = true } },
 	{ rule = { class = "Steam" }, properties = { tag = "9", switchtotag = true } },
 }
 

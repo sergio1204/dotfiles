@@ -170,27 +170,24 @@ super + z
 super + shift + z
     rofi -show run
 
-# terminal
+# terminal / FM / editor / calendar
 super + Return
-    alacritty --class terminal
-
-super + shift + Return
     kitty --class terminal
 
 super + x
-    alacritty --class files -e vifm
-
-super + shift + x
-    alacritty --class files -e yazi
+    kitty --class files yazi
 
 super + backslash
-    alacritty --class editor -e helix
+    kitty --class editor helix
+
+super + shift + x
+    kitty --class files vifm
 
 super + shift + backslash
-    alacritty --class editor -e nvim
+    kitty --class editor nvim
 
 super + v
-    alacritty --class calendar -e calcurse
+    kitty --class calendar calcurse
 
 # apps hotkeys
 super + c
