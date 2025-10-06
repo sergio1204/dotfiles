@@ -44,78 +44,76 @@ myConfig =
       focusedBorderColor = myFocusedBorderColor,
       normalBorderColor = myNormalBorderColor
     }
-    `additionalKeysP` myAdditionalKeysP
-
-myAdditionalKeysP =
-  -- Rofi / Dunst
-  [ ("M-z", spawn "rofi -show drun"),
-    ("M-S-z", spawn "rofi -show run"),
-    ("M-i", spawn "dunstctl history-pop"),
-    ("M-S-i", spawn "dunstctl close-all"),
-    -- Apps
-    ("M-c", spawn (myBrowser ++ " --class='web' ")),
-    ("M-S-c", spawn (myBrowser2 ++ " --class='web' ")),
-    ("M-d", spawn "audacious"),
-    ("M-S-d", spawn "audacious --play-pause"),
-    ("M-p", spawn "picom"),
-    ("M-S-p", spawn "killall -q picom"),
-    ("M-u", spawn "udiskie --tray"),
-    -- Terminal / FM / Editor / Calendar
-    ("M-<Return>", spawn (myTerminal ++ " --class terminal ")),
-    ("M-x", spawn (myTerminal ++ " --class files " ++ myFileManager)),
-    ("M-\\", spawn (myTerminal ++ " --class editor " ++ myEditor)),
-    ("M-S-x", spawn (myTerminal ++ " --class files " ++ myFileManager2)),
-    ("M-S-\\", spawn (myTerminal ++ " --class editor " ++ myEditor2)),
-    ("M-v", spawn (myTerminal ++ " --class calendar " ++ myCalendar)),
-    -- Change layout / Unfloating / Hide bar behind window
-    ("M-w", sendMessage $ JumpToLayout "\xf065"),
-    ("M-S-w", sendMessage FirstLayout),
-    ("M-s", sendMessage $ JumpToLayout "\xf063"),
-    ("M-S-s", sendMessage FirstLayout),
-    ("M-e", withFocused $ windows . W.sink),
-    ("M-f", sendMessage ToggleStruts),
-    -- Lockscreen / Printscreen
-    ("M-l", spawn "i3lock -k -i /home/sergey/Pictures/soty.png"),
-    ("<Print>", spawn "scrot -s"),
-    ("S-<Print>", spawn "scrot -d 1"),
-    -- Volume control
-    ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"),
-    ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"),
-    ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
-    ("M-<XF86AudioRaiseVolume>", spawn "audacious --fwd"),
-    ("M-<XF86AudioLowerVolume>", spawn "audacious --rew"),
-    -- Brightness control
-    ("<XF86MonBrightnessUp>", spawn "brightnessctl s +10%"),
-    ("<XF86MonBrightnessDown>", spawn "brightnessctl s 10%-"),
-    -- Recompile / Reboot / Poweroff / Suspend / Quit
-    ("M-S-r", spawn "xmonad --recompile && xmonad --restart"),
-    ("M-S-k", spawn "systemctl reboot"),
-    ("M-S-m", spawn "systemctl poweroff"),
-    ("M-S-j", spawn "systemctl suspend"),
-    ("M-S-l", io exitSuccess),
-    -- Resize window
-    ("M-C-<Left>", sendMessage Shrink),
-    ("M-C-<Right>", sendMessage Expand),
-    ("M-C-<Down>", sendMessage MirrorShrink),
-    ("M-C-<Up>", sendMessage MirrorExpand),
-    -- Swap window / Kill window
-    ("M-<Space>", windows W.swapMaster),
-    ("M-g", windows W.swapDown),
-    ("M-S-g", windows W.swapUp),
-    ("M-S-<Left>", windows W.swapUp),
-    ("M-S-<Right>", windows W.swapDown),
-    ("M-q", kill1),
-    ("M-S-q", kill),
-    -- Focus window
-    ("M-a", windows W.focusDown),
-    ("M-S-a", windows W.focusUp),
-    ("M-<Left>", windows W.focusUp),
-    ("M-<Right>", windows W.focusDown),
-    -- Cycle WS
-    ("M-<Tab>", moveTo Next (Not emptyWS)),
-    ("M-`", moveTo Prev (Not emptyWS)),
-    ("M-<Esc>", toggleWS)
-  ]
+    `additionalKeysP`
+    -- Rofi / Dunst
+    [ ("M-z", spawn "rofi -show drun"),
+      ("M-S-z", spawn "rofi -show run"),
+      ("M-i", spawn "dunstctl history-pop"),
+      ("M-S-i", spawn "dunstctl close-all"),
+      -- Apps
+      ("M-c", spawn (myBrowser ++ " --class='web' ")),
+      ("M-S-c", spawn (myBrowser2 ++ " --class='web' ")),
+      ("M-d", spawn "audacious"),
+      ("M-S-d", spawn "audacious --play-pause"),
+      ("M-p", spawn "picom"),
+      ("M-S-p", spawn "killall -q picom"),
+      ("M-u", spawn "udiskie --tray"),
+      -- Terminal / FM / Editor / Calendar
+      ("M-<Return>", spawn (myTerminal ++ " --class terminal ")),
+      ("M-x", spawn (myTerminal ++ " --class files " ++ myFileManager)),
+      ("M-\\", spawn (myTerminal ++ " --class editor " ++ myEditor)),
+      ("M-S-x", spawn (myTerminal ++ " --class files " ++ myFileManager2)),
+      ("M-S-\\", spawn (myTerminal ++ " --class editor " ++ myEditor2)),
+      ("M-v", spawn (myTerminal ++ " --class calendar " ++ myCalendar)),
+      -- Change layout / Unfloating / Hide bar behind window
+      ("M-w", sendMessage $ JumpToLayout "\xf065"),
+      ("M-S-w", sendMessage FirstLayout),
+      ("M-s", sendMessage $ JumpToLayout "\xf063"),
+      ("M-S-s", sendMessage FirstLayout),
+      ("M-e", withFocused $ windows . W.sink),
+      ("M-f", sendMessage ToggleStruts),
+      -- Lockscreen / Printscreen
+      ("M-l", spawn "i3lock -k -i /home/sergey/Pictures/soty.png"),
+      ("<Print>", spawn "scrot -s"),
+      ("S-<Print>", spawn "scrot -d 1"),
+      -- Volume control
+      ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"),
+      ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"),
+      ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+      ("M-<XF86AudioRaiseVolume>", spawn "audacious --fwd"),
+      ("M-<XF86AudioLowerVolume>", spawn "audacious --rew"),
+      -- Brightness control
+      ("<XF86MonBrightnessUp>", spawn "brightnessctl s +10%"),
+      ("<XF86MonBrightnessDown>", spawn "brightnessctl s 10%-"),
+      -- Recompile / Reboot / Poweroff / Suspend / Quit
+      ("M-S-r", spawn "xmonad --recompile && xmonad --restart"),
+      ("M-S-k", spawn "systemctl reboot"),
+      ("M-S-m", spawn "systemctl poweroff"),
+      ("M-S-j", spawn "systemctl suspend"),
+      ("M-S-l", io exitSuccess),
+      -- Resize window
+      ("M-C-<Left>", sendMessage Shrink),
+      ("M-C-<Right>", sendMessage Expand),
+      ("M-C-<Down>", sendMessage MirrorShrink),
+      ("M-C-<Up>", sendMessage MirrorExpand),
+      -- Swap window / Kill window
+      ("M-<Space>", windows W.swapMaster),
+      ("M-g", windows W.swapDown),
+      ("M-S-g", windows W.swapUp),
+      ("M-S-<Left>", windows W.swapUp),
+      ("M-S-<Right>", windows W.swapDown),
+      ("M-q", kill1),
+      ("M-S-q", kill),
+      -- Focus window
+      ("M-a", windows W.focusDown),
+      ("M-S-a", windows W.focusUp),
+      ("M-<Left>", windows W.focusUp),
+      ("M-<Right>", windows W.focusDown),
+      -- Cycle WS
+      ("M-<Tab>", moveTo Next (Not emptyWS)),
+      ("M-`", moveTo Prev (Not emptyWS)),
+      ("M-<Esc>", toggleWS)
+    ]
     -- Move window to WS and go to
     ++ [ ("M-S-" ++ k, windows $ W.greedyView w . W.shift w)
          | (w, k) <- zip myWorkspaces $ map show [1 .. 9]

@@ -470,6 +470,11 @@ local clientkeys = gears.table.join(
 	awful.key({ modkey }, "q", function(c)
 		c:kill()
 	end),
+	awful.key({ modkey, "Shift" }, "q", function(c)
+		if c.pid then
+			awful.spawn("kill -9 " .. c.pid)
+		end
+	end),
 	awful.key({ modkey }, "space", function(c)
 		c:swap(awful.client.getmaster())
 	end),
@@ -529,6 +534,7 @@ for i = 1, 9 do
 				local tag = client.focus.screen.tags[i]
 				if tag then
 					client.focus:toggle_tag(tag)
+					tag:view_only()
 				end
 			end
 		end)
