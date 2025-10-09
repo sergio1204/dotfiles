@@ -177,22 +177,36 @@ myLayout = smartBorders (tall ||| wide ||| mono)
 myXmobarPP :: PP
 myXmobarPP =
   def
-    { ppSep = magenta " ",
-      ppLayout = magenta . wrap " " " ",
+    { ppCurrent =
+        blue
+          . wrap "" ""
+          . xmobarBorder "Bottom" "#AAC9F1" 3
+          . xmobarAction "xdotool key Super+Tab" "4"
+          . xmobarAction "xdotool key Super+grave" "5",
+      ppHidden =
+        orange
+          . wrap "" ""
+          . xmobarAction "xdotool key Super+Tab" "4"
+          . xmobarAction "xdotool key Super+grave" "5",
+      ppLayout =
+        magenta
+          . wrap " " " "
+          . xmobarAction "xdotool key Super+s" "3"
+          . xmobarAction "xdotool key Super+Shift+s" "1"
+          . xmobarAction "xdotool key Super+w" "2",
+      ppSep = magenta " ",
       ppTitleSanitize = xmobarStrip,
-      ppCurrent = blue . wrap "" "" . xmobarBorder "Bottom" "#AAC9F1" 3,
-      ppHidden = orange . wrap "" "",
       ppUrgent = red . wrap (orange "!") (orange "!"),
       ppOrder = \[ws, l, _, wins] -> [ws, l, wins],
       ppExtras = [logTitles formatFocused formatUnfocused]
     }
   where
-    formatFocused = wrap (blue "") (blue "") . blue . ppWindow
-    formatUnfocused = wrap (orange "") (orange "") . orange . ppWindow
+    formatFocused = wrap (blue "") (blue "") . blue . xmobarAction "xdotool key Super+q" "2" . ppWindow
+    formatUnfocused = wrap (orange "") (orange "") . orange . xmobarAction "xdotool key Super+q" "2" . ppWindow
 
     -- Windows title length.
     ppWindow :: String -> String
-    ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 50
+    ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 40
 
     magenta, blue, orange, red :: String -> String
     magenta = xmobarColor "#ff79c6" ""
@@ -210,7 +224,7 @@ myManageHook =
       className =? "editor" --> viewShift "5",
       className =? "mpv" --> viewShift "6",
       className =? "Gimp" --> viewShift "7",
-      className =? "Telegram" --> viewShift "8",
+      className =? "TelegramDesktop" --> viewShift "8",
       className =? "Steam" --> viewShift "9",
       -- Floating
       className =? "Blueman-manager" --> doFloat,
