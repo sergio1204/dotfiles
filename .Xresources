@@ -1,0 +1,66 @@
+! ----------------------
+! Xft  ---------------
+! ------------------
+Xft.dpi:       96
+Xft.autohint:  false
+Xft.antialias: true
+Xft.hinting:   true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba:      none
+
+! ------------------------
+! Cursor-theme  --------
+! --------------------
+Xcursor.theme: Adwaita
+Xcursor.size:  32
+
+! ------------------------------------------
+! XTerm  ---------------------------------
+! --------------------------------------
+*termName:           xterm-256color
+*faceName:           BlexMono Nerd Font
+*faceSize:           11
+*forceBoxChars:      true
+*borderWidth:        0
+*scrollBar:          false
+*alternateScroll:    true
+*fastScroll:         true
+*selectToClipboard:  true
+*eightBitInput:      false
+*VT100.Translations: #override \
+                          Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+                          Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
+
+! -----------------------
+! Colors  -------------
+! -------------------
+*background:  #282c34
+*foreground:  #E5E5E5
+*cursorColor: #FA71B1
+*color0:      #23252e
+*color8:      #AFD4E0
+*color1:      #ed374b
+*color9:      #ff4d6c
+*color2:      #2ce06c
+*color10:     #5af492
+*color3:      #FF7F00
+*color11:     #F660CE
+*color4:      #546ef5
+*color12:     #8294f5
+*color5:      #9058f9
+*color13:     #b683e9
+*color6:      #2bd9eb
+*color14:     #5DE1EE
+*color7:      #9bf784
+*color15:     #c5bcec
+
+! -------------------------------------------
+! XCalc  ----------------------------------
+! ---------------------------------------
+XCalc*ti.background:              #23252e
+XCalc*ti.bevel.background:        #23252e
+XCalc*ti.bevel.screen*background: #23252e
+XCalc*ti.bevel.screen*foreground: #E5E5E5
+XCalc*ti.Command.background:      #23252e
+XCalc*ti.Command.foreground:      #E5E5E5

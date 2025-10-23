@@ -1,0 +1,15 @@
+configuration {
+    modi:                "window,run,drun";
+    font:                "BlexMono Nerd Font 11";
+    show-icons:          true;
+    icon-theme:          "Papirus-Dark";
+    sidebar-mode:        true;
+    display-window:      "  Win";
+    display-run:         "  Run   ";
+    display-drun:        " Apps";
+    drun-display-format: "{icon} {name}";
+    location:            1;
+    yoffset:             28;
+    xoffset:             0;
+}
+@theme "dark-theme"

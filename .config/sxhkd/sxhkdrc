@@ -1,0 +1,218 @@
+# ----------------------------
+# ----  bspwm hotkeys  -----
+# ------------------------
+
+# sxhkd reload
+super + ctrl + r
+    pkill -USR1 -x sxhkd
+
+# logout/restart bspwm
+super + shift + {l,r}
+    bspc {quit,wm -r}
+
+# reboot/poweroff
+super + shift + k
+    systemctl reboot
+
+super + shift + m
+    systemctl poweroff
+
+# close and kill
+super + {_,shift + }q
+    bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + w
+    bspc desktop -l next
+
+# send the newest marked node to the newest preselected node
+super + y
+    bspc node newest.marked.local -n newest.!automatic.local
+
+# --------------------------------
+# ------  state / flags  -------
+# ----------------------------
+
+# set the window state
+super + {t,shift + t,e,f}
+    bspc node -t {tiled,pseudo_tiled,\~floating,\~fullscreen}
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+    bspc node -g {marked,locked,sticky,private}
+
+# toggle between horizontal and vertical split
+super + {_,shift +}s
+    bspc node @parent -R {90,-90}
+
+# ------------------------------------
+# -------  focus / swap  -----------
+# --------------------------------
+
+# swap the current node
+super + g
+    bspc node -s next.local.window
+
+super + shift + g
+    bspc node -s prev.local.window
+
+# circulate the windows of the tree rooted at the selected node
+super + {comma,period}
+    bspc node '@/' -C {backward,forward}
+
+# focus the node in the given direction
+super + {_,shift + }{Left,Down,Up,Right}
+    bspc node -{f,s} {west,south,north,east}
+
+# focus the next/previous window in the current desktop
+super + {_,shift + }a
+    bspc node -f {next,prev}.local.!hidden.window
+
+# focus the next/previous desktop in the current monitor
+super + {grave,Tab}
+    bspc desktop -f {prev,next}.occupied
+
+# focus the last desktop
+super + Escape
+    bspc desktop -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+    bspc wm -h off; \
+    bspc node {older,newer} -f; \
+    bspc wm -h on
+
+# focus/send to the given desktop
+super + {1-9,0}
+    bspc desktop -f '^{1-9,10}'
+
+super + shift + {1-9,0}
+    bspc node -d '^{1-9,10}' --follow
+
+# -------------------------------
+# -------  preselect  ---------
+# ---------------------------
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+    bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+    bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+# ------------------------------------------
+# ----------  move / resize  -------------
+# --------------------------------------
+
+# expand / contract a window
+super + ctrl + {Left,Down,Up,Right}
+    bspc node -z {left -200 0 || bspc node -z right -200 0,\
+                  bottom 0 200 || bspc node -z top 0 200,\
+                  top 0 -200 || bspc node -z bottom 0 -200,\
+                  right 200 0 || bspc node -z left 200 0}
+
+# move a floating window
+super + alt + {Left,Down,Up,Right}
+    bspc node -v {-100 0,0 100,0 -100,100 0}
+
+# -----------------------------------------
+# ------  independent hotkeys  ----------
+# -------------------------------------
+
+# volume control
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# lockscreen
+super + l
+    i3lock -i /home/sergey/Pictures/soty.png
+
+# dunst
+super + i
+    dunstctl history-pop
+
+super + shift + i
+    dunstctl close-all
+
+# brightness
+XF86MonBrightnessUp
+    brightnessctl s +10%
+
+XF86MonBrightnessDown
+    brightnessctl s 10%-
+
+# printscreen
+Print
+    scrot -s
+
+shift + Print
+    scrot -d 1
+
+# rofi
+super + z
+    rofi -show drun
+
+super + shift + z
+    rofi -show run
+
+# terminal / FM / editor / calendar
+super + Return
+    kitty --class terminal
+
+super + x
+    kitty --class files yazi
+
+super + backslash
+    kitty --class editor helix
+
+super + shift + x
+    kitty --class files vifm
+
+super + shift + backslash
+    kitty --class editor nvim
+
+super + v
+    kitty --class calendar calcurse
+
+# apps hotkeys
+super + c
+    vivaldi-stable --class='web'
+
+super + shift + c
+    firefox --class='web'
+
+super + d
+    audacious
+
+super + shift + d
+    audacious --play-pause
+
+super + XF86AudioRaiseVolume
+    audacious --fwd
+
+super + XF86AudioLowerVolume
+    audacious --rew
+
+super + p
+    picom &
+
+super + shift + p
+    killall -q picom
+
+super + u
+    udiskie --tray

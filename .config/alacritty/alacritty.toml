@@ -1,0 +1,48 @@
+[font.normal]
+family = "BlexMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "BlexMono Nerd Font"
+style = "SemiBold"
+
+[font.italic]
+family = "BlexMono Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "BlexMono Nerd Font"
+style = "SemiBold Italic"
+
+[font]
+size = 11.0
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.cursor]
+cursor = "#2f8bd0"
+
+[colors.primary]
+background = "#282c34"
+foreground = "#E5E5E5"
+
+[colors.normal]
+black = "#23252e"
+red = "#ed374b"
+green = "#2ce06c"
+yellow = "#FF7F00"
+blue = "#546ef5"
+magenta = "#9058f9"
+cyan = "#2bd9eb"
+white = "#9bf784"
+
+[colors.bright]
+black = "#9bc0f8"
+red = "#ff4d6c"
+green = "#5af492"
+yellow = "#f866ad"
+blue = "#8294f5"
+magenta = "#b683e9"
+cyan = "#5DE1EE"
+white = "#c5bcec"

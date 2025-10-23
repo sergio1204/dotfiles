@@ -1,0 +1,52 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+mouse = true
+bufferline = "multiple"
+color-modes = true
+true-color = true
+continue-comments = false
+# end-of-line-diagnostics = "hint"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = [
+  "mode",
+  "spinner",
+  "diagnostics",
+  "file-name",
+  "file-modification-indicator",
+  "read-only-indicator",
+]
+# center = ["file-name"]
+right = [
+  "file-type",
+  "spacer",
+  "position-percentage",
+  "spacer",
+  "position",
+  "file-encoding",
+]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
+[keys.normal]
+C-z = 'no_op'
+C-r = 'redo'
+A-c = 'copy_selection_on_prev_line'
+
+[keys.select]
+C-z = 'no_op'
