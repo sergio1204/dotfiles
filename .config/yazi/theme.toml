@@ -42,9 +42,10 @@ syntect_theme = "~/Downloads/Oceanic - Eighties.tmTheme"
 
 
 [tabs]
-tab_active = { reversed = true }
-tab_inactive = {}
-tab_width = 1
+# active = { bg = "blue" }
+# inactive = { bg = "yellow", fg = "blue" }
+# sep_inner = { open = "", close = "" }
+# sep_outer = { open = "", close = "" }
 
 
 [mode]

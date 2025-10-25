@@ -269,6 +269,9 @@ screens = [
                     hide_unused="True",
                     invert_mouse_wheel="True",
                     this_current_screen_border="#AAC9F1",
+                    mouse_callbacks={
+                        "Button3": lazy.spawn("rofi -show drun"),
+                    },
                     borderwidth=3,
                     margin=5,
                 ),
@@ -278,6 +281,9 @@ screens = [
                 ),
                 widget.WindowName(
                     foreground="#AAC9F1",
+                    mouse_callbacks={
+                        "Button2": lazy.window.kill(),
+                    },
                     max_chars=100,
                     padding=10,
                 ),
@@ -286,6 +292,9 @@ screens = [
                     unmute_format="  {volume}%",
                     mute_foreground="#ff3e72",
                     mute_format="  {volume}%",
+                    mouse_callbacks={
+                        "Button3": lazy.spawn("pavucontrol"),
+                    },
                     step=5,
                     padding=20,
                 ),
@@ -321,6 +330,12 @@ screens = [
                 widget.Clock(
                     foreground="#f0b574",
                     format="  %H:%M:%S",
+                    mouse_callbacks={
+                        "Button1": lazy.spawn(
+                            terminal + " --class calendar " + calendar
+                        ),
+                        "Button3": lazy.spawn("killall -q calcurse"),
+                    },
                     padding=18,
                 ),
                 widget.KeyboardKbdd(
@@ -378,7 +393,7 @@ floating_layout = layout.Floating(
         Match(wm_class="Blueman-manager"),
         Match(wm_class="Steam"),
         Match(wm_class="xcalc"),
-        Match(wm_class="calendar"),
+        # Match(wm_class="calendar"),
     ],
     border_focus="#ac4142",
     border_width=2,

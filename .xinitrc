@@ -14,5 +14,5 @@ setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:caps && xmodmap ~/.Xmodm
 
 # start WM
 # exec bspwm
-# exec qtile start
-exec awesome
+exec qtile start
+# exec awesome

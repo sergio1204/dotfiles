@@ -40,8 +40,8 @@ mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
 
-[editor.inline-diagnostics]
-cursor-line = "warning"
+# [editor.inline-diagnostics]
+# cursor-line = "warning"
 
 [keys.normal]
 C-z = 'no_op'

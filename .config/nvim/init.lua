@@ -1019,14 +1019,4 @@ require('lazy').setup {
       }
     end,
   },
-
-  -- Supercharge your Haskell experience in neovim
-  {
-    'mrcjkb/haskell-tools.nvim',
-    version = '^5', -- Recommended
-    lazy = false, -- This plugin is already lazy
-  },
 }
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
