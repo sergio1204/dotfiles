@@ -55,11 +55,11 @@ local terminal = "kitty"
 
 local browser = "vivaldi-stable"
 local file_manager = "yazi"
-local editor = "helix"
+local editor = "nvim"
 
 local browser2 = "firefox"
 local file_manager2 = "vifm"
-local editor2 = "nvim"
+local editor2 = "helix"
 
 local calendar = "calcurse"
 local modkey = "Mod4"

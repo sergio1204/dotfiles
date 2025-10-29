@@ -178,13 +178,13 @@ super + x
     kitty --class files yazi
 
 super + backslash
-    kitty --class editor helix
+    kitty --class editor nvim
 
 super + shift + x
     kitty --class files vifm
 
 super + shift + backslash
-    kitty --class editor nvim
+    kitty --class editor helix
 
 super + v
     kitty --class calendar calcurse

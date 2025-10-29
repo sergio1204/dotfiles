@@ -49,11 +49,11 @@ terminal = "kitty"
 
 browser = "vivaldi-stable"
 file_manager = "yazi"
-editor = "helix"
+editor = "nvim"
 
 browser2 = "firefox"
 file_manager2 = "vifm"
-editor2 = "nvim"
+editor2 = "helix"
 
 calendar = "calcurse"
 mod = "mod4"
@@ -269,9 +269,7 @@ screens = [
                     hide_unused="True",
                     invert_mouse_wheel="True",
                     this_current_screen_border="#AAC9F1",
-                    mouse_callbacks={
-                        "Button3": lazy.spawn("rofi -show drun"),
-                    },
+                    mouse_callbacks={"Button3": lazy.spawn("rofi -show drun")},
                     borderwidth=3,
                     margin=5,
                 ),
@@ -281,9 +279,7 @@ screens = [
                 ),
                 widget.WindowName(
                     foreground="#AAC9F1",
-                    mouse_callbacks={
-                        "Button2": lazy.window.kill(),
-                    },
+                    mouse_callbacks={"Button2": lazy.window.kill()},
                     max_chars=100,
                     padding=10,
                 ),
@@ -292,9 +288,7 @@ screens = [
                     unmute_format="  {volume}%",
                     mute_foreground="#ff3e72",
                     mute_format="  {volume}%",
-                    mouse_callbacks={
-                        "Button3": lazy.spawn("pavucontrol"),
-                    },
+                    mouse_callbacks={"Button3": lazy.spawn("pavucontrol")},
                     step=5,
                     padding=20,
                 ),
