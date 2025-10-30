@@ -51,7 +51,7 @@ local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.ge
 beautiful.init(theme_path)
 
 -- Terminal / Browser / FM / Editor / Modkey
-local terminal = "kitty"
+local terminal = "alacritty"
 
 local browser = "vivaldi-stable"
 local file_manager = "yazi"
@@ -59,7 +59,7 @@ local editor = "nvim"
 
 local browser2 = "firefox"
 local file_manager2 = "vifm"
-local editor2 = "helix"
+local editor2 = "code-oss"
 
 local calendar = "calcurse"
 local modkey = "Mod4"
@@ -354,19 +354,19 @@ local globalkeys = gears.table.join(
 		awful.spawn(terminal .. " --class terminal ")
 	end),
 	awful.key({ modkey }, "x", function()
-		awful.spawn(terminal .. " --class files " .. file_manager)
+		awful.spawn(terminal .. " --class files -e " .. file_manager)
 	end),
 	awful.key({ modkey }, "backslash", function()
-		awful.spawn(terminal .. " --class editor " .. editor)
+		awful.spawn(terminal .. " --class editor -e " .. editor)
 	end),
 	awful.key({ modkey, "Shift" }, "x", function()
-		awful.spawn(terminal .. " --class files " .. file_manager2)
+		awful.spawn(terminal .. " --class files -e " .. file_manager2)
 	end),
 	awful.key({ modkey, "Shift" }, "backslash", function()
-		awful.spawn(terminal .. " --class editor " .. editor2)
+		awful.spawn(editor2)
 	end),
 	awful.key({ modkey }, "v", function()
-		awful.spawn(terminal .. " --class calendar " .. calendar)
+		awful.spawn(terminal .. " --class calendar -e " .. calendar)
 	end),
 	-- Apps keys
 	awful.key({ modkey }, "c", function()
@@ -617,6 +617,7 @@ awful.rules.rules = {
 	{ rule = { class = "Audacious" }, properties = { tag = "3", switchtotag = true } },
 	{ rule = { class = "terminal" }, properties = { tag = "4", switchtotag = true, size_hints_honor = false } },
 	{ rule = { class = "editor" }, properties = { tag = "5", switchtotag = true } },
+	{ rule = { class = "code-oss" }, properties = { tag = "5", switchtotag = true } },
 	{ rule = { class = "mpv" }, properties = { tag = "6", switchtotag = true } },
 	{ rule = { class = "Gimp" }, properties = { tag = "7", switchtotag = true } },
 	{ rule = { class = "Telegram" }, properties = { tag = "8", switchtotag = true } },

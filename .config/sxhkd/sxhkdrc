@@ -172,22 +172,22 @@ super + shift + z
 
 # terminal / FM / editor / calendar
 super + Return
-    kitty --class terminal
+    alacritty --class terminal
 
 super + x
-    kitty --class files yazi
+    alacritty --class files -e yazi
 
 super + backslash
-    kitty --class editor nvim
+    alacritty --class editor -e nvim
 
 super + shift + x
-    kitty --class files vifm
+    alacritty --class files -e vifm
 
 super + shift + backslash
-    kitty --class editor helix
+    code-oss
 
 super + v
-    kitty --class calendar calcurse
+    kitty --class calendar -e calcurse
 
 # apps hotkeys
 super + c

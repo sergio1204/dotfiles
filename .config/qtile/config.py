@@ -45,7 +45,7 @@ def switchtogroup(group, window):
 
 
 # Terminal / Browser / FM / Editor / Modkey
-terminal = "kitty"
+terminal = "alacritty"
 
 browser = "vivaldi-stable"
 file_manager = "yazi"
@@ -53,7 +53,7 @@ editor = "nvim"
 
 browser2 = "firefox"
 file_manager2 = "vifm"
-editor2 = "helix"
+editor2 = "code-oss"
 
 calendar = "calcurse"
 mod = "mod4"
@@ -155,19 +155,19 @@ keys = [
     # Terminal / FM / Editor / Calendar
     # --------
     Key([mod], "Return", lazy.spawn(terminal + " --class terminal ")),
-    Key([mod], "x", lazy.spawn(terminal + " --class files " + file_manager)),
-    Key([mod], "backslash", lazy.spawn(terminal + " --class editor " + editor)),
+    Key([mod], "x", lazy.spawn(terminal + " --class files -e " + file_manager)),
+    Key([mod], "backslash", lazy.spawn(terminal + " --class editor -e " + editor)),
     Key(
         [mod, "shift"],
         "x",
-        lazy.spawn(terminal + " --class files " + file_manager2),
+        lazy.spawn(terminal + " --class files -e " + file_manager2),
     ),
     Key(
         [mod, "shift"],
         "backslash",
-        lazy.spawn(terminal + " --class editor " + editor2),
+        lazy.spawn(editor2),
     ),
-    Key([mod], "v", lazy.spawn(terminal + " --class calendar " + calendar)),
+    Key([mod], "v", lazy.spawn(terminal + " --class calendar -e " + calendar)),
     # ---------
     # Apps keys
     # ---------
@@ -191,7 +191,7 @@ groups = [
     Group("2", matches=[Match(wm_class="files")]),
     Group("3", matches=[Match(wm_class="audacious")]),
     Group("4", matches=[Match(wm_class="terminal")]),
-    Group("5", matches=[Match(wm_class="editor")]),
+    Group("5", matches=[Match(wm_class="editor"), Match(wm_class="code-oss")]),
     Group("6", matches=[Match(wm_class="mpv")]),
     Group("7", matches=[Match(wm_class="gimp")]),
     Group("8", matches=[Match(wm_class="Telegram")]),
