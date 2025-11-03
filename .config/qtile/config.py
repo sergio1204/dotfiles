@@ -168,6 +168,7 @@ keys = [
         lazy.spawn(editor2),
     ),
     Key([mod], "v", lazy.spawn(terminal + " --class calendar -e " + calendar)),
+    Key([mod, "shift"], "v", lazy.spawn(" killall -q " + calendar)),
     # ---------
     # Apps keys
     # ---------
@@ -326,7 +327,7 @@ screens = [
                     format="  %H:%M:%S",
                     mouse_callbacks={
                         "Button1": lazy.spawn(
-                            terminal + " --class calendar " + calendar
+                            terminal + " --class calendar -e " + calendar
                         ),
                         "Button3": lazy.spawn("killall -q calcurse"),
                     },

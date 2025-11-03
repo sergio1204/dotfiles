@@ -67,8 +67,8 @@ sep_right = { open = "", close = "" }
 
 # Progress
 progress_label = { bold = true }
-progress_normal = { fg = "blue", bg = "black" }
-progress_error = { fg = "red", bg = "black" }
+progress_normal = { fg = "blue" }
+progress_error = { fg = "red" }
 
 # Permissions
 perm_sep = { fg = "darkgray" }

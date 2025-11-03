@@ -368,6 +368,9 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey }, "v", function()
 		awful.spawn(terminal .. " --class calendar -e " .. calendar)
 	end),
+	awful.key({ modkey, "Shift" }, "v", function()
+		awful.spawn(" killall -q " .. calendar)
+	end),
 	-- Apps keys
 	awful.key({ modkey }, "c", function()
 		awful.spawn(browser .. " --class='web' ")
@@ -595,7 +598,7 @@ awful.rules.rules = {
 				"Blueman-manager",
 				"Steam",
 				"XCalc",
-				"calendar",
+				-- "calendar",
 			},
 
 			-- Note that the name property shown in xprop might be set slightly after creation of the client
