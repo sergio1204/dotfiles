@@ -1,0 +1,6 @@
+keycode 121 = F1
+keycode 122 = F2
+keycode 123 = F3
+keycode  67 = XF86AudioMute
+keycode  68 = XF86AudioLowerVolume
+keycode  69 = XF86AudioRaiseVolume
