@@ -1,0 +1,213 @@
+# i3 config file (v4)
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+# ------------------------------------
+# Term / Web / FM / Editor / Modkey /
+# ----------------------------------
+set $term alacritty
+
+set $web vivaldi-stable
+set $files yazi
+set $editor nvim
+
+set $web2 firefox
+set $files2 vifm
+set $editor2 code-oss
+
+set $cal calcurse
+set $mod Mod4
+
+# Font for window titles
+font pango:BlexMono Nerd Font 10
+
+# ---------------
+# Change focus /
+# -------------
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+a focus next
+bindsym $mod+Shift+a focus prev
+bindsym $mod+space focus mode_toggle
+
+# focus the parent / child  container
+# bindsym $mod+a focus parent
+# bindsym $mod+d focus child
+
+# Focus on window activation
+# no_focus [all]
+focus_on_window_activation none
+
+# ----------------------
+# Move focused window /
+# --------------------
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
+tiling_drag modifier titlebar
+
+# ----------------
+# Resize window /
+# --------------
+bindsym $mod+Ctrl+Left resize shrink width 20 px or 10 ppt
+bindsym $mod+Ctrl+Down resize grow height 20 px or 10 ppt
+bindsym $mod+Ctrl+Up resize shrink height 20 px or 10 ppt
+bindsym $mod+Ctrl+Right resize grow width 20 px or 10 ppt
+
+# ------------------------
+# Horizontal / Vertical /
+# ----------------------
+bindsym $mod+h split h
+bindsym $mod+b split v
+
+# ----------------------------------
+# Stacked / Tabbed / Toggle split /
+# ---------------------------------
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+s layout toggle split
+
+# ------------------------
+# Floating / Fullscreen /
+# ----------------------
+bindsym $mod+e floating toggle
+bindsym $mod+f fullscreen toggle
+
+# -------------
+# Workspaces /
+# -----------
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Attach apps to workspace
+for_window [class="web"] move to workspace 1; workspace 1
+for_window [class="files"] move to workspace 2; workspace 2
+for_window [class="Audacious"] move to workspace 3; workspace 3
+for_window [class="term"] move to workspace 4; workspace 4
+for_window [class="editor"] move to workspace 5; workspace 5
+for_window [class="code-oss"] move to workspace 5; workspace 5
+for_window [class="mpv"] move to workspace 6; workspace 6
+for_window [class="gimp"] move to workspace 7; workspace 7
+for_window [class="Telegram"] move to workspace 8; workspace 8
+for_window [class="Steam"] move to workspace 9; workspace 9
+
+# Floating window
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Steam"] floating enable
+for_window [class="xcalc"] floating enable
+
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+Tab workspace next
+bindsym $mod+grave workspace prev
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move to workspace 1; workspace 1
+bindsym $mod+Shift+2 move to workspace 2; workspace 2
+bindsym $mod+Shift+3 move to workspace 3; workspace 3
+bindsym $mod+Shift+4 move to workspace 4; workspace 4
+bindsym $mod+Shift+5 move to workspace 5; workspace 5
+bindsym $mod+Shift+6 move to workspace 6; workspace 6
+bindsym $mod+Shift+7 move to workspace 7; workspace 7
+bindsym $mod+Shift+8 move to workspace 8; workspace 8
+bindsym $mod+Shift+9 move to workspace 9; workspace 9
+bindsym $mod+Shift+0 move to workspace 10; workspace 10
+
+# ---------------------------------------------
+# Reload config / Restart i3wm / Kill window /
+# -------------------------------------------
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+Ctrl+r restart
+bindsym $mod+q kill
+
+# ---------------------------------------
+# Reboot / Poweroff / Suspend / Logout /
+# -------------------------------------
+bindsym $mod+Shift+k exec --no-startup-id systemctl reboot
+bindsym $mod+Shift+m exec --no-startup-id systemctl poweroff
+bindsym $mod+Shift+j exec --no-startup-id systemctl suspend
+bindsym $mod+Shift+l exec --no-startup-id i3-msg exit
+
+# ---------------------------
+# Lockscreen / Printscreen /
+# -------------------------
+bindsym $mod+l exec --no-startup-id i3lock -k -i /home/sergey/Pictures/soty.png
+bindsym Print exec --no-startup-id scrot -s
+bindsym Shift+Print exec --no-startup-id scrot -d 1
+
+# -----------------
+# Volume control /
+# ---------------
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# ---------------------
+# Brightness control /
+# -------------------
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%-
+
+# ------------------------------------
+# Term / FM / Editor / Calendar /
+# ----------------------------------
+bindsym $mod+Return exec --no-startup-id $term --class term
+bindsym $mod+x exec --no-startup-id $term --class files -e $files
+bindsym $mod+bar exec --no-startup-id $term --class editor -e $editor
+bindsym $mod+Shift+x exec --no-startup-id $term --class files -e $files2
+bindsym $mod+Shift+bar exec --no-startup-id $editor2
+bindsym $mod+v exec --no-startup-id $term --class cal -e $cal
+bindsym $mod+Shift+v exec --no-startup-id killall -q $cal
+
+# ---------------
+# Rofi / Dunst /
+# -------------
+bindsym $mod+z exec --no-startup-id rofi -show drun
+bindsym $mod+Shift+z exec --no-startup-id rofi -show run
+bindsym $mod+i exec --no-startup-id dunstctl history-pop
+bindsym $mod+Shift+i exec --no-startup-id dunstctl close-all
+
+# ------------
+# Apps keys /
+# ----------
+bindsym $mod+c exec --no-startup-id $web --class=web
+bindsym $mod+Shift+c exec --no-startup-id $web2 --class=web
+bindsym $mod+d exec --no-startup-id audacious
+bindsym $mod+Shift+d exec --no-startup-id audacious --play-pause
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id audacious --fwd
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id audacious --rew
+bindsym $mod+p exec --no-startup-id picom
+bindsym $mod+Shift+p exec --no-startup-id killall -q picom
+bindsym $mod+u exec --no-startup-id udiskie --tray
+
+# ------------
+# Autostart /
+# ----------
+exec --no-startup-id feh --bg-scale /home/sergey/Pictures/wallpaper.jpg
+exec --no-startup-id picom -b
+exec --no-startup-id xset b off
+exec --no-startup-id ~/.screenlayout/one_monitor.sh
+exec_always --no-startup-id ~/.config/polybar/i3wm.sh
