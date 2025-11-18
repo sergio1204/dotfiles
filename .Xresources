@@ -1,13 +1,13 @@
 ! ----------------------
 ! Xft  ---------------
 ! ------------------
-Xft.dpi:       96
-Xft.autohint:  false
-Xft.antialias: true
-Xft.hinting:   true
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
-Xft.rgba:      none
+! Xft.dpi:       96
+! Xft.autohint:  false
+! Xft.antialias: true
+! Xft.hinting:   true
+! Xft.hintstyle: hintslight
+! Xft.lcdfilter: lcddefault
+! Xft.rgba:      none
 
 ! ------------------------
 ! Cursor-theme  --------

@@ -50,18 +50,18 @@ naughty.config.defaults.border_width = beautiful.notification_border_width
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
 beautiful.init(theme_path)
 
--- Terminal / Browser / FM / Editor / Modkey
-local terminal = "alacritty"
+-- Term / Web / FM / Editor / Modkey
+local term = "alacritty"
 
-local browser = "vivaldi-stable"
-local file_manager = "yazi"
+local web = "vivaldi-stable"
+local files = "yazi"
 local editor = "nvim"
 
-local browser2 = "firefox"
-local file_manager2 = "vifm"
+local web2 = "firefox"
+local files2 = "vifm"
 local editor2 = "code-oss"
 
-local calendar = "calcurse"
+local cal = "calcurse"
 local modkey = "Mod4"
 
 -- Layouts
@@ -351,32 +351,32 @@ local globalkeys = gears.table.join(
 
 	-- Terminal / FM / Editor / Calendar
 	awful.key({ modkey }, "Return", function()
-		awful.spawn(terminal .. " --class terminal ")
+		awful.spawn(term .. " --class term ")
 	end),
 	awful.key({ modkey }, "x", function()
-		awful.spawn(terminal .. " --class files -e " .. file_manager)
+		awful.spawn(term .. " --class files -e " .. files)
 	end),
 	awful.key({ modkey }, "backslash", function()
-		awful.spawn(terminal .. " --class editor -e " .. editor)
+		awful.spawn(term .. " --class editor -e " .. editor)
 	end),
 	awful.key({ modkey, "Shift" }, "x", function()
-		awful.spawn(terminal .. " --class files -e " .. file_manager2)
+		awful.spawn(term .. " --class files -e " .. files2)
 	end),
 	awful.key({ modkey, "Shift" }, "backslash", function()
 		awful.spawn(editor2)
 	end),
 	awful.key({ modkey }, "v", function()
-		awful.spawn(terminal .. " --class calendar -e " .. calendar)
+		awful.spawn(term .. " --class cal -e " .. cal)
 	end),
 	awful.key({ modkey, "Shift" }, "v", function()
-		awful.spawn(" killall -q " .. calendar)
+		awful.spawn(" killall -q " .. cal)
 	end),
 	-- Apps keys
 	awful.key({ modkey }, "c", function()
-		awful.spawn(browser .. " --class='web' ")
+		awful.spawn(web .. " --class='web' ")
 	end),
 	awful.key({ modkey, "Shift" }, "c", function()
-		awful.spawn(browser2 .. " --class='web' ")
+		awful.spawn(web2 .. " --class='web' ")
 	end),
 	awful.key({ modkey }, "d", function()
 		awful.spawn("audacious")
@@ -598,7 +598,7 @@ awful.rules.rules = {
 				"Blueman-manager",
 				"Steam",
 				"XCalc",
-				-- "calendar",
+				-- "cal",
 			},
 
 			-- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -618,7 +618,7 @@ awful.rules.rules = {
 	{ rule = { class = "web" }, properties = { tag = "1", switchtotag = true } },
 	{ rule = { class = "files" }, properties = { tag = "2", switchtotag = true } },
 	{ rule = { class = "Audacious" }, properties = { tag = "3", switchtotag = true } },
-	{ rule = { class = "terminal" }, properties = { tag = "4", switchtotag = true, size_hints_honor = false } },
+	{ rule = { class = "term" }, properties = { tag = "4", switchtotag = true, size_hints_honor = false } },
 	{ rule = { class = "editor" }, properties = { tag = "5", switchtotag = true } },
 	{ rule = { class = "code-oss" }, properties = { tag = "5", switchtotag = true } },
 	{ rule = { class = "mpv" }, properties = { tag = "6", switchtotag = true } },

@@ -44,18 +44,18 @@ def switchtogroup(group, window):
     group.toscreen()
 
 
-# Terminal / Browser / FM / Editor / Modkey
-terminal = "alacritty"
+# Term / Web / FM / Editor / Modkey
+term = "alacritty"
 
-browser = "vivaldi-stable"
-file_manager = "yazi"
+web = "vivaldi-stable"
+files = "yazi"
 editor = "nvim"
 
-browser2 = "firefox"
-file_manager2 = "vifm"
+web2 = "firefox"
+files2 = "vifm"
 editor2 = "code-oss"
 
-calendar = "calcurse"
+cal = "calcurse"
 mod = "mod4"
 
 # -------------------------------------------------
@@ -137,9 +137,9 @@ keys = [
     Key([mod], "l", lazy.spawn("i3lock -k -i /home/sergey/Pictures/soty.png")),
     Key([], "Print", lazy.spawn("scrot -s")),
     Key(["shift"], "Print", lazy.spawn("scrot -d 1")),
-    # --------------------------
+    # ------------------------------------
     # Reboot / Poweroff / Suspend / Logout
-    # --------------------------
+    # ------------------------------------
     Key([mod, "shift"], "k", lazy.spawn("systemctl reboot")),
     Key([mod, "shift"], "m", lazy.spawn("systemctl poweroff")),
     Key([mod, "shift"], "j", lazy.spawn("systemctl suspend")),
@@ -151,29 +151,29 @@ keys = [
     Key([mod, "shift"], "i", lazy.spawn("dunstctl close-all")),
     Key([mod], "z", lazy.spawn("rofi -show drun")),
     Key([mod, "shift"], "z", lazy.spawn("rofi -show run")),
-    # --------
+    # ---------------------------------
     # Terminal / FM / Editor / Calendar
-    # --------
-    Key([mod], "Return", lazy.spawn(terminal + " --class terminal ")),
-    Key([mod], "x", lazy.spawn(terminal + " --class files -e " + file_manager)),
-    Key([mod], "backslash", lazy.spawn(terminal + " --class editor -e " + editor)),
+    # ---------------------------------
+    Key([mod], "Return", lazy.spawn(term + " --class term ")),
+    Key([mod], "x", lazy.spawn(term + " --class files -e " + files)),
+    Key([mod], "backslash", lazy.spawn(term + " --class editor -e " + editor)),
     Key(
         [mod, "shift"],
         "x",
-        lazy.spawn(terminal + " --class files -e " + file_manager2),
+        lazy.spawn(term + " --class files -e " + files2),
     ),
     Key(
         [mod, "shift"],
         "backslash",
         lazy.spawn(editor2),
     ),
-    Key([mod], "v", lazy.spawn(terminal + " --class calendar -e " + calendar)),
-    Key([mod, "shift"], "v", lazy.spawn(" killall -q " + calendar)),
+    Key([mod], "v", lazy.spawn(term + " --class cal -e " + cal)),
+    Key([mod, "shift"], "v", lazy.spawn(" killall -q " + cal)),
     # ---------
     # Apps keys
     # ---------
-    Key([mod], "c", lazy.spawn(browser + " --class='web' ")),
-    Key([mod, "shift"], "c", lazy.spawn(browser2 + " --class='web' ")),
+    Key([mod], "c", lazy.spawn(web + " --class='web' ")),
+    Key([mod, "shift"], "c", lazy.spawn(web2 + " --class='web' ")),
     Key([mod], "d", lazy.spawn("audacious")),
     Key([mod, "shift"], "d", lazy.spawn("audacious --play-pause")),
     Key([mod], "XF86AudioRaiseVolume", lazy.spawn("audacious --fwd")),
@@ -191,7 +191,7 @@ groups = [
     Group("1", matches=[Match(wm_class="web")]),
     Group("2", matches=[Match(wm_class="files")]),
     Group("3", matches=[Match(wm_class="audacious")]),
-    Group("4", matches=[Match(wm_class="terminal")]),
+    Group("4", matches=[Match(wm_class="term")]),
     Group("5", matches=[Match(wm_class="editor"), Match(wm_class="code-oss")]),
     Group("6", matches=[Match(wm_class="mpv")]),
     Group("7", matches=[Match(wm_class="gimp")]),
@@ -326,9 +326,7 @@ screens = [
                     foreground="#f0b574",
                     format="  %H:%M:%S",
                     mouse_callbacks={
-                        "Button1": lazy.spawn(
-                            terminal + " --class calendar -e " + calendar
-                        ),
+                        "Button1": lazy.spawn(term + " --class calendar -e " + cal),
                         "Button3": lazy.spawn("killall -q calcurse"),
                     },
                     padding=18,
