@@ -18,8 +18,22 @@ set $editor2 code-oss
 set $cal calcurse
 set $mod Mod4
 
-# Font for window titles
+# ------------------
+# Fonts / Borders /
+# ----------------
 font pango:BlexMono Nerd Font 10
+
+hide_edge_borders smart
+default_border pixel 2
+
+# class                 border   backgr.  text     indicator child_border
+client.focused          #4B7093  #4B7093  #ffffff  #d87c1e   #4B7093
+client.focused_inactive #333333  #5f676a  #ffffff  #484e50   #5f676a
+client.unfocused        #23252e  #23252e  #888888  #292d2e   #23252e
+client.urgent           #2f343a  #900000  #ffffff  #900000   #900000
+client.placeholder      #000000  #0c0c0c  #ffffff  #000000   #0c0c0c
+
+client.background       #ffffff
 
 # ---------------
 # Change focus /
@@ -171,9 +185,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%-
 
-# ------------------------------------
+# --------------------------------
 # Term / FM / Editor / Calendar /
-# ----------------------------------
+# ------------------------------
 bindsym $mod+Return exec --no-startup-id $term --class term
 bindsym $mod+x exec --no-startup-id $term --class files -e $files
 bindsym $mod+bar exec --no-startup-id $term --class editor -e $editor

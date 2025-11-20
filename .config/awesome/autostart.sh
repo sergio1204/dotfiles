@@ -8,4 +8,4 @@ run() {
 
 run picom -b
 run xset b off
-run "$HOME"/.screenlayout/two_monitor.sh
+run "$HOME"/.screenlayout/one_monitor.sh

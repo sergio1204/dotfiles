@@ -323,14 +323,6 @@ local globalkeys = gears.table.join(
 		awful.client.focus.byidx(-1)
 	end),
 
-	-- Rofi
-	awful.key({ modkey }, "z", function()
-		awful.spawn("rofi -show drun")
-	end),
-	awful.key({ modkey, "Shift" }, "z", function()
-		awful.spawn("rofi -show run")
-	end),
-
 	-- Swap windows / Move tray to focused screen
 	awful.key({ modkey }, "g", function()
 		awful.client.swap.byidx(1)
@@ -349,55 +341,63 @@ local globalkeys = gears.table.join(
 		traywidget:set_screen(awful.screen.focused())
 	end),
 
+	-- Rofi
+	awful.key({ modkey }, "z", function()
+		awful.spawn("rofi -show drun", false)
+	end),
+	awful.key({ modkey, "Shift" }, "z", function()
+		awful.spawn("rofi -show run", false)
+	end),
+
 	-- Terminal / FM / Editor / Calendar
 	awful.key({ modkey }, "Return", function()
-		awful.spawn(term .. " --class term ")
+		awful.spawn(term .. " --class term ", false)
 	end),
 	awful.key({ modkey }, "x", function()
-		awful.spawn(term .. " --class files -e " .. files)
+		awful.spawn(term .. " --class files -e " .. files, false)
 	end),
 	awful.key({ modkey }, "backslash", function()
-		awful.spawn(term .. " --class editor -e " .. editor)
+		awful.spawn(term .. " --class editor -e " .. editor, false)
 	end),
 	awful.key({ modkey, "Shift" }, "x", function()
-		awful.spawn(term .. " --class files -e " .. files2)
+		awful.spawn(term .. " --class files -e " .. files2, false)
 	end),
 	awful.key({ modkey, "Shift" }, "backslash", function()
-		awful.spawn(editor2)
+		awful.spawn(editor2, false)
 	end),
 	awful.key({ modkey }, "v", function()
-		awful.spawn(term .. " --class cal -e " .. cal)
+		awful.spawn(term .. " --class cal -e " .. cal, false)
 	end),
 	awful.key({ modkey, "Shift" }, "v", function()
-		awful.spawn(" killall -q " .. cal)
+		awful.spawn(" killall -q " .. cal, false)
 	end),
 	-- Apps keys
 	awful.key({ modkey }, "c", function()
-		awful.spawn(web .. " --class='web' ")
+		awful.spawn(web .. " --class='web' ", false)
 	end),
 	awful.key({ modkey, "Shift" }, "c", function()
-		awful.spawn(web2 .. " --class='web' ")
+		awful.spawn(web2 .. " --class='web' ", false)
 	end),
 	awful.key({ modkey }, "d", function()
-		awful.spawn("audacious")
+		awful.spawn("audacious", false)
 	end),
 	awful.key({ modkey, "Shift" }, "d", function()
-		awful.spawn("audacious --play-pause")
+		awful.spawn("audacious --play-pause", false)
 	end),
 	awful.key({ modkey }, "XF86AudioRaiseVolume", function()
-		awful.spawn("audacious --fwd")
+		awful.spawn("audacious --fwd", false)
 	end),
 	awful.key({ modkey }, "XF86AudioLowerVolume", function()
-		awful.spawn("audacious --rew")
+		awful.spawn("audacious --rew", false)
 	end),
 	awful.key({ modkey }, "p", function()
-		awful.spawn("picom")
+		awful.spawn("picom", false)
 	end),
 	awful.key({ modkey, "Shift" }, "p", function()
-		awful.spawn("killall -q picom")
+		awful.spawn("killall -q picom", false)
 	end),
 	awful.key({ modkey }, "u", function()
-		awful.spawn("udiskie --tray")
+		awful.spawn("udiskie --tray", false)
 	end),
 
 	-- Volume control
@@ -416,21 +416,21 @@ local globalkeys = gears.table.join(
 
 	-- Brightness control
 	awful.key({}, "XF86MonBrightnessUp", function()
-		awful.spawn("brightnessctl s +10%")
+		awful.spawn("brightnessctl s +10%", false)
 	end),
 	awful.key({}, "XF86MonBrightnessDown", function()
-		awful.spawn("brightnessctl s 10%-")
+		awful.spawn("brightnessctl s 10%-", false)
 	end),
 
 	-- Lockscreen / Printscreen
 	awful.key({ modkey }, "l", function()
-		awful.spawn("i3lock -k -t -i /home/sergey/Pictures/soty.png")
+		awful.spawn("i3lock -k -t -i /home/sergey/Pictures/soty.png", false)
 	end),
 	awful.key({}, "Print", function()
-		awful.spawn("scrot -s")
+		awful.spawn("scrot -s", false)
 	end),
 	awful.key({ "Shift" }, "Print", function()
-		awful.spawn("scrot -d 1")
+		awful.spawn("scrot -d 1", false)
 	end),
 
 	-- Reload / Quit / Reboot / Poweroff / Suspend
