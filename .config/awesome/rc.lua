@@ -198,6 +198,9 @@ local taglist_buttons = gears.table.join(
 )
 
 local tasklist_buttons = gears.table.join(
+	awful.button({}, 2, function(c)
+		c:kill()
+	end),
 	awful.button({}, 3, function()
 		awful.menu.client_list({ theme = { width = 250 } })
 	end),
@@ -371,6 +374,7 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "v", function()
 		awful.spawn(" killall -q " .. cal, false)
 	end),
+
 	-- Apps keys
 	awful.key({ modkey }, "c", function()
 		awful.spawn(web .. " --class='web' ", false)

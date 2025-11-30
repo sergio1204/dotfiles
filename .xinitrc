@@ -15,5 +15,5 @@ setxkbmap -layout us,ru -option grp:alt_shift_toggle && xmodmap ~/.Xmodmap
 # start WM
 # exec i3
 # exec bspwm
-# exec qtile start
-exec awesome
+exec qtile start
+# exec awesome
