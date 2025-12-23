@@ -1,0 +1,39 @@
+[[language]]
+name = "toml"
+auto-format = true
+
+[language-server.taplo]
+config = {}
+
+
+[[language]]
+name = "lua"
+auto-format = true
+formatter = { command = "stylua", args = ["-"] }
+
+
+[[language]]
+name = "python"
+auto-format = true
+language-servers = ["pyright", "ruff"]
+
+
+[[language]]
+name = "bash"
+auto-format = true
+formatter = { command = "shfmt", args = ["-i", "2", "-ci", "-bn"] }
+
+
+[[language]]
+name = "vim"
+scope = "source.vim"
+injection-regex = "vim"
+comment-token = '"'
+indent = { tab-width = 4, unit = "\t" }
+file-types = [
+  "vim",
+  { glob = ".vimrc" },
+  { glob = "vifmrc" },
+  { glob = ".nvimrc" },
+  { glob = ".exrc" },
+]

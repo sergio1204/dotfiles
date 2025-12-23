@@ -1,0 +1,13 @@
+.cache
+.config/Code - OSS
+.config/audacious
+.config/deluge
+.config/vivaldi
+.local
+.npm
+.icons
+.themes
+.vscode-oss
+Music
+Videos
+Pictures

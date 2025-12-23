@@ -1,0 +1,57 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+mouse = true
+color-modes = true
+bufferline = "multiple"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = [
+  "mode",
+  "spinner",
+  "spacer",
+  "file-name",
+  "diagnostics",
+  "file-modification-indicator",
+  "read-only-indicator",
+]
+center = []
+right = [
+  "file-type",
+  "spacer",
+  "position-percentage",
+  "spacer",
+  "position",
+  "spacer",
+  "file-encoding",
+]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+diagnostics = ["warning", "error"]
+
+
+[keys.normal]
+C-r = "redo"
+S-c = "copy_selection_on_prev_line"
+A-c = "copy_selection_on_next_line"
+
+"\\" = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+  ':set mouse false',
+  ':set mouse true',
+]

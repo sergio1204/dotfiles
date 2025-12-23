@@ -55,11 +55,11 @@ local term = "alacritty"
 
 local web = "vivaldi-stable"
 local files = "yazi"
-local editor = "nvim"
+local editor = "helix"
 
 local web2 = "firefox"
 local files2 = "vifm"
-local editor2 = "code-oss"
+local editor2 = "nvim"
 
 local cal = "calcurse"
 local modkey = "Mod4"
@@ -366,7 +366,7 @@ local globalkeys = gears.table.join(
 		awful.spawn(term .. " --class files -e " .. files2, false)
 	end),
 	awful.key({ modkey, "Shift" }, "backslash", function()
-		awful.spawn(editor2, false)
+		awful.spawn(term .. " --class editor -e " .. editor2, false)
 	end),
 	awful.key({ modkey }, "v", function()
 		awful.spawn(term .. " --class cal -e " .. cal, false)
