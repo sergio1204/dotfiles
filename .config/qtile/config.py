@@ -53,7 +53,7 @@ editor = "nvim"
 
 web2 = "firefox"
 files2 = "vifm"
-editor2 = "code-oss"
+editor2 = "helix"
 
 cal = "calcurse"
 mod = "mod4"
@@ -121,11 +121,7 @@ keys = [
         "XF86AudioLowerVolume",
         lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"),
     ),
-    Key(
-        [],
-        "XF86AudioMute",
-        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
-    ),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
     # ------------------
     # Brightness control
     # ------------------
@@ -157,15 +153,9 @@ keys = [
     Key([mod], "Return", lazy.spawn(term + " --class term ")),
     Key([mod], "x", lazy.spawn(term + " --class files -e " + files)),
     Key([mod], "backslash", lazy.spawn(term + " --class editor -e " + editor)),
+    Key([mod, "shift"], "x", lazy.spawn(term + " --class files -e " + files2)),
     Key(
-        [mod, "shift"],
-        "x",
-        lazy.spawn(term + " --class files -e " + files2),
-    ),
-    Key(
-        [mod, "shift"],
-        "backslash",
-        lazy.spawn(editor2),
+        [mod, "shift"], "backslash", lazy.spawn(term + " --class editor -e " + editor2)
     ),
     Key([mod], "v", lazy.spawn(term + " --class cal -e " + cal)),
     Key([mod, "shift"], "v", lazy.spawn(" killall -q " + cal)),

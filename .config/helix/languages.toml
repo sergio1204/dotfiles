@@ -22,6 +22,7 @@ language-servers = ["pyright", "ruff"]
 name = "bash"
 auto-format = true
 formatter = { command = "shfmt", args = ["-i", "2", "-ci", "-bn"] }
+file-types = []
 
 
 [[language]]

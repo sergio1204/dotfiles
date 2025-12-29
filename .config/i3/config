@@ -13,7 +13,7 @@ set $editor nvim
 
 set $web2 firefox
 set $files2 vifm
-set $editor2 code-oss
+set $editor2 helix
 
 set $cal calcurse
 set $mod Mod4
@@ -154,7 +154,7 @@ bindsym $mod+Shift+0 move to workspace 10; workspace 10
 # Reload config / Restart i3wm / Kill window /
 # -------------------------------------------
 bindsym $mod+Shift+r reload
-bindsym $mod+Shift+Ctrl+r restart
+bindsym $mod+Ctrl+r restart
 bindsym $mod+q kill
 
 # ---------------------------------------
@@ -192,7 +192,7 @@ bindsym $mod+Return exec --no-startup-id $term --class term
 bindsym $mod+x exec --no-startup-id $term --class files -e $files
 bindsym $mod+bar exec --no-startup-id $term --class editor -e $editor
 bindsym $mod+Shift+x exec --no-startup-id $term --class files -e $files2
-bindsym $mod+Shift+bar exec --no-startup-id $editor2
+bindsym $mod+Shift+bar exec --no-startup-id $term --class editor -e $editor2
 bindsym $mod+v exec --no-startup-id $term --class cal -e $cal
 bindsym $mod+Shift+v exec --no-startup-id killall -q $cal
 

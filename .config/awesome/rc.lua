@@ -55,11 +55,11 @@ local term = "alacritty"
 
 local web = "vivaldi-stable"
 local files = "yazi"
-local editor = "helix"
+local editor = "nvim"
 
 local web2 = "firefox"
 local files2 = "vifm"
-local editor2 = "nvim"
+local editor2 = "helix"
 
 local cal = "calcurse"
 local modkey = "Mod4"

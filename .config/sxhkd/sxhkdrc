@@ -184,10 +184,10 @@ super + shift + x
     alacritty --class files -e vifm
 
 super + shift + backslash
-    code-oss
+    alacritty --class editor -e helix
 
 super + v
-    kitty --class calendar -e calcurse
+    alacritty --class calendar -e calcurse
 
 # apps hotkeys
 super + c
