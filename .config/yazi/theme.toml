@@ -5,22 +5,36 @@
 # for dark and light modes under `[flavor]`, and do so in those flavors instead.
 "$schema" = "https://yazi-rs.github.io/schemas/theme.json"
 
+# vim:fileencoding=utf-8:foldmethod=marker
+
+# : Flavor {{{
 
 [flavor]
 dark = ""
 light = ""
 
+# : }}}
+
+
+# : App {{{
+
+[app]
+overall = {}
+
+# : }}}
+
+
+# : Manager {{{
 
 [mgr]
 cwd = { fg = "cyan" }
 
-# Hovered
-hovered = { reversed = true }
-preview_hovered = { underline = true }
-
 # Find
 find_keyword = { fg = "yellow", bold = true, italic = true, underline = true }
 find_position = { fg = "magenta", bg = "reset", bold = true, italic = true }
+
+# Symlink
+symlink_target = { italic = true }
 
 # Marker
 marker_copied = { fg = "lightgreen", bg = "lightgreen" }
@@ -40,13 +54,23 @@ border_style = { fg = "black" }
 # Highlighting
 syntect_theme = "~/Downloads/Oceanic - Eighties.tmTheme"
 
+# : }}}
+
+
+# : Tabs {{{
 
 [tabs]
-# active = { bg = "blue" }
-# inactive = { bg = "yellow", fg = "blue" }
-# sep_inner = { open = "", close = "" }
-# sep_outer = { open = "", close = "" }
+active = { bg = "blue", bold = true }
+inactive = { fg = "blue", bg = "gray" }
 
+# Separator
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+# : }}}
+
+
+# : Mode {{{
 
 [mode]
 normal_main = { bg = "blue", bold = true }
@@ -60,15 +84,26 @@ select_alt = { fg = "red", bg = "gray" }
 unset_main = { bg = "red", bold = true }
 unset_alt = { fg = "red", bg = "gray" }
 
+# : }}}
+
+
+# : Indicator of hovered file {{{
+
+[indicator]
+parent = { reversed = true }
+current = { reversed = true }
+preview = { underline = true }
+padding = { open = "", close = "" }
+
+# : }}}
+
+
+# : Status bar {{{
 
 [status]
+overall = {}
 sep_left = { open = "", close = "" }
 sep_right = { open = "", close = "" }
-
-# Progress
-progress_label = { bold = true }
-progress_normal = { fg = "blue" }
-progress_error = { fg = "red" }
 
 # Permissions
 perm_sep = { fg = "darkgray" }
@@ -77,44 +112,15 @@ perm_read = { fg = "yellow" }
 perm_write = { fg = "red" }
 perm_exec = { fg = "cyan" }
 
+# Progress
+progress_label = { bold = true }
+progress_normal = { fg = "lightblue", bg = "black" }
+progress_error = { fg = "yellow", bg = "red" }
 
-[pick]
-border = { fg = "blue" }
-active = { fg = "magenta", bold = true }
-inactive = {}
-
-
-[input]
-border = { fg = "blue" }
-title = {}
-value = {}
-selected = { reversed = true }
+# : }}}
 
 
-[confirm]
-border = { fg = "blue" }
-title = { fg = "blue" }
-content = {}
-list = {}
-btn_yes = { reversed = true }
-btn_no = {}
-btn_labels = ["  [Y]es  ", "  (N)o  "]
-
-
-[cmp]
-border = { fg = "blue" }
-active = { reversed = true }
-inactive = {}
-icon_file = ""
-icon_folder = ""
-icon_command = ""
-
-
-[tasks]
-border = { fg = "blue" }
-title = {}
-hovered = { fg = "magenta", underline = true }
-
+# : Which {{{
 
 [which]
 cols = 3
@@ -125,14 +131,37 @@ desc = { fg = "lightmagenta" }
 separator = "  "
 separator_style = { fg = "darkgray" }
 
+# : }}}
 
-[help]
-on = { fg = "cyan" }
-run = { fg = "magenta" }
-desc = {}
-hovered = { reversed = true, bold = true }
-footer = { fg = "black", bg = "white" }
 
+# : Confirmation {{{
+
+[confirm]
+border = { fg = "blue" }
+title = { fg = "blue" }
+body = {}
+list = {}
+btn_yes = { reversed = true }
+btn_no = {}
+btn_labels = ["  [Y]es  ", "  (N)o  "]
+
+# : }}}
+
+
+# : Spotter {{{
+
+[spot]
+border = { fg = "blue" }
+title = { fg = "blue" }
+
+# Table
+tbl_col = { fg = "blue" }
+tbl_cell = { fg = "yellow", reversed = true }
+
+# : }}}
+
+
+# : Notification {{{
 
 [notify]
 title_info = { fg = "green" }
@@ -144,40 +173,97 @@ icon_info = ""
 icon_warn = ""
 icon_error = ""
 
+# : }}}
+
+
+# : Picker {{{
+
+[pick]
+border = { fg = "blue" }
+active = { fg = "magenta", bold = true }
+inactive = {}
+
+# : }}}
+
+
+# : Input {{{
+
+[input]
+border = { fg = "blue" }
+title = {}
+value = {}
+selected = { reversed = true }
+
+# : }}}
+
+
+# : Completion {{{
+
+[cmp]
+border = { fg = "blue" }
+active = { reversed = true }
+inactive = {}
+
+# Icons
+icon_file = ""
+icon_folder = ""
+icon_command = ""
+
+# : }}}
+
+
+# : Task manager {{{
+
+[tasks]
+border = { fg = "blue" }
+title = {}
+hovered = { fg = "magenta", bold = true }
+
+# : }}}
+
+
+# : Help menu {{{
+
+[help]
+on = { fg = "cyan" }
+run = { fg = "magenta" }
+desc = {}
+hovered = { reversed = true, bold = true }
+footer = { fg = "black", bg = "white" }
+
+# : }}}
+
+
+# : File-specific styles {{{
 
 [filetype]
 rules = [
-  # Images
-  { name = "*.{jpg,jpeg,png}", fg = "yellow" },
-
+  # Image
+  { url = "*.{jpg,jpeg,png}", fg = "yellow" },
   # Music
-  { name = "*.{mp3,ac3,mka}", fg = "cyan" },
-
+  { url = "*.{mp3,ac3,mka,m4a}", fg = "cyan" },
   # Videos
-  { name = "*.{avi,mkv,mp4,mpg}", fg = "magenta" },
-
-  # Archives
-  { name = "*.{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "red" },
-
-  # Documents
-  # { name = "*{pdf,doc,rtf}", fg = "cyan" },
-
-  # Empty files
-  # { mime = "inode/empty", fg = "red" },
-
-  # Special files
-  { name = "*", is = "orphan", bg = "red" },
-  { name = "*", is = "exec", fg = "green" },
-
-  # Dummy files
-  { name = "*", is = "dummy", bg = "red" },
-  { name = "*/", is = "dummy", bg = "red" },
-
+  { url = "*.{avi,mkv,mp4,mpg}", fg = "magenta" },
+  # Archive
+  { url = "*.{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "red" },
+  # Document
+  { mime = "application/{pdf,doc,rtf}", fg = "cyan" },
+  # Virtual file system
+  { mime = "vfs/{absent,stale}", fg = "gray" },
+  # Special file
+  { url = "*", is = "orphan", bg = "red" },
+  { url = "*", is = "exec", fg = "green" },
+  # Dummy file
+  { url = "*", is = "dummy", bg = "red" },
+  { url = "*/", is = "dummy", bg = "red" },
   # Fallback
-  # { name = "*", fg = "white" },
-  { name = "*/", fg = "lightblue", bold = true },
+  { url = "*/", fg = "lightblue" },
 ]
 
+# : }}}
+
+
+# : Icons {{{
 
 [icon]
 globs = []
@@ -259,6 +345,7 @@ files = [
   { name = "build", text = "", fg = "#89e051" },
   { name = "build.gradle", text = "", fg = "#005f87" },
   { name = "build.zig.zon", text = "", fg = "#f69a1b" },
+  { name = "bun.lock", text = "", fg = "#eadcd1" },
   { name = "bun.lockb", text = "", fg = "#eadcd1" },
   { name = "cantorrc", text = "", fg = "#1c99f3" },
   { name = "checkhealth", text = "󰓙", fg = "#75b4fb" },
@@ -291,9 +378,9 @@ files = [
   { name = "FreeCAD.conf", text = "", fg = "#cb333b" },
   { name = "Gemfile", text = "", fg = "#701516" },
   { name = "gnumakefile", text = "", fg = "#6d8086" },
-  { name = "go.mod", text = "", fg = "#519aba" },
-  { name = "go.sum", text = "", fg = "#519aba" },
-  { name = "go.work", text = "", fg = "#519aba" },
+  { name = "go.mod", text = "", fg = "#00add8" },
+  { name = "go.sum", text = "", fg = "#00add8" },
+  { name = "go.work", text = "", fg = "#00add8" },
   { name = "gradle-wrapper.properties", text = "", fg = "#005f87" },
   { name = "gradle.properties", text = "", fg = "#005f87" },
   { name = "gradlew", text = "", fg = "#005f87" },
@@ -309,6 +396,7 @@ files = [
   { name = "gulpfile.ts", text = "", fg = "#cc3e44" },
   { name = "hypridle.conf", text = "", fg = "#00aaae" },
   { name = "hyprland.conf", text = "", fg = "#00aaae" },
+  { name = "hyprlandd.conf", text = "", fg = "#00aaae" },
   { name = "hyprlock.conf", text = "", fg = "#00aaae" },
   { name = "hyprpaper.conf", text = "", fg = "#00aaae" },
   { name = "i18n.config.js", text = "󰗊", fg = "#7986cb" },
@@ -374,6 +462,8 @@ files = [
   { name = "webpack", text = "󰜫", fg = "#519aba" },
   { name = "weston.ini", text = "", fg = "#ffbb01" },
   { name = "workspace", text = "", fg = "#89e051" },
+  { name = "wrangler.jsonc", text = "", fg = "#f48120" },
+  { name = "wrangler.toml", text = "", fg = "#f48120" },
   { name = "xmobarrc", text = "", fg = "#fd4d5d" },
   { name = "xmobarrc.hs", text = "", fg = "#fd4d5d" },
   { name = "xmonad.hs", text = "", fg = "#fd4d5d" },
@@ -386,8 +476,9 @@ exts = [
   { name = "7z", text = "", fg = "#eca517" },
   { name = "a", text = "", fg = "#dcddd6" },
   { name = "aac", text = "", fg = "#00afff" },
-  { name = "adb", text = "", fg = "#22ffff" },
-  { name = "ads", text = "", fg = "#ffffff" },
+  { name = "ada", text = "", fg = "#599eff" },
+  { name = "adb", text = "", fg = "#599eff" },
+  { name = "ads", text = "", fg = "#a074c4" },
   { name = "ai", text = "", fg = "#cbcb41" },
   { name = "aif", text = "", fg = "#00afff" },
   { name = "aiff", text = "", fg = "#00afff" },
@@ -401,7 +492,6 @@ exts = [
   { name = "asm", text = "", fg = "#0091bd" },
   { name = "ass", text = "󰨖", fg = "#ffb713" },
   { name = "astro", text = "", fg = "#e23f67" },
-  { name = "avi", text = "", fg = "#fd971f" },
   { name = "avif", text = "", fg = "#a074c4" },
   { name = "awk", text = "", fg = "#4d5a5e" },
   { name = "azcli", text = "", fg = "#0078d4" },
@@ -455,7 +545,7 @@ exts = [
   { name = "cshtml", text = "󱦗", fg = "#512bd4" },
   { name = "cson", text = "", fg = "#cbcb41" },
   { name = "csproj", text = "󰪮", fg = "#512bd4" },
-  { name = "css", text = "", fg = "#42a5f5" },
+  { name = "css", text = "", fg = "#663399" },
   { name = "csv", text = "", fg = "#89e051" },
   { name = "cts", text = "", fg = "#519aba" },
   { name = "cu", text = "", fg = "#89e051" },
@@ -473,6 +563,7 @@ exts = [
   { name = "dll", text = "", fg = "#4d2c0b" },
   { name = "doc", text = "󰈬", fg = "#185abd" },
   { name = "Dockerfile", text = "󰡨", fg = "#458ee6" },
+  { name = "dockerignore", text = "󰡨", fg = "#458ee6" },
   { name = "docx", text = "󰈬", fg = "#185abd" },
   { name = "dot", text = "󱁉", fg = "#30638e" },
   { name = "download", text = "", fg = "#44cda8" },
@@ -514,6 +605,7 @@ exts = [
   { name = "fctb", text = "", fg = "#cb333b" },
   { name = "fctl", text = "", fg = "#cb333b" },
   { name = "fdmdownload", text = "", fg = "#44cda8" },
+  { name = "feature", text = "", fg = "#00a818" },
   { name = "fish", text = "", fg = "#4d5a5e" },
   { name = "flac", text = "", fg = "#0075aa" },
   { name = "flc", text = "", fg = "#ececec" },
@@ -535,9 +627,9 @@ exts = [
   { name = "glb", text = "", fg = "#ffb13b" },
   { name = "gleam", text = "", fg = "#ffaff3" },
   { name = "gnumakefile", text = "", fg = "#6d8086" },
-  { name = "go", text = "", fg = "#519aba" },
+  { name = "go", text = "", fg = "#00add8" },
   { name = "godot", text = "", fg = "#6d8086" },
-  { name = "gpr", text = "", fg = "#ff33ff" },
+  { name = "gpr", text = "", fg = "#6d8086" },
   { name = "gql", text = "", fg = "#e535ab" },
   { name = "gradle", text = "", fg = "#005f87" },
   { name = "graphql", text = "", fg = "#e535ab" },
@@ -764,6 +856,13 @@ exts = [
   { name = "ste", text = "󰻫", fg = "#839463" },
   { name = "step", text = "󰻫", fg = "#839463" },
   { name = "stl", text = "󰆧", fg = "#888888" },
+  { name = "stories.js", text = "", fg = "#ff4785" },
+  { name = "stories.jsx", text = "", fg = "#ff4785" },
+  { name = "stories.mjs", text = "", fg = "#ff4785" },
+  { name = "stories.svelte", text = "", fg = "#ff4785" },
+  { name = "stories.ts", text = "", fg = "#ff4785" },
+  { name = "stories.tsx", text = "", fg = "#ff4785" },
+  { name = "stories.vue", text = "", fg = "#ff4785" },
   { name = "stp", text = "󰻫", fg = "#839463" },
   { name = "strings", text = "", fg = "#2596be" },
   { name = "styl", text = "", fg = "#8dc149" },
@@ -773,6 +872,7 @@ exts = [
   { name = "sv", text = "󰍛", fg = "#019833" },
   { name = "svelte", text = "", fg = "#ff3e00" },
   { name = "svg", text = "󰜡", fg = "#ffb13b" },
+  { name = "svgz", text = "󰜡", fg = "#ffb13b" },
   { name = "svh", text = "󰍛", fg = "#019833" },
   { name = "swift", text = "", fg = "#e37933" },
   { name = "t", text = "", fg = "#519aba" },
@@ -788,6 +888,7 @@ exts = [
   { name = "tf", text = "", fg = "#5f43e9" },
   { name = "tfvars", text = "", fg = "#5f43e9" },
   { name = "tgz", text = "", fg = "#eca517" },
+  { name = "tmpl", text = "", fg = "#dbbd30" },
   { name = "tmux", text = "", fg = "#14ba19" },
   { name = "toml", text = "", fg = "#9c4221" },
   { name = "torrent", text = "", fg = "#44cda8" },
@@ -862,3 +963,5 @@ conds = [
   { if = "exec", text = "" },
   { if = "!dir", text = "" },
 ]
+
+# : }}}
