@@ -181,7 +181,9 @@ local taglist_buttons = gears.table.join(
 			client.focus:move_to_tag(t)
 		end
 	end),
-	awful.button({}, 3, awful.tag.viewtoggle),
+	awful.button({}, 3, function()
+		awful.spawn("rofi -show drun", false)
+	end),
 	awful.button({ modkey }, 3, function(t)
 		if client.focus then
 			client.focus:toggle_tag(t)

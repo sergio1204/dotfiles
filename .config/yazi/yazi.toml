@@ -52,6 +52,7 @@ feh = [
   { run = 'feh -Fd --image-bg "#282c34" --start-at "$@"', orphan = true, desc = "open image" },
 ]
 zathura = [{ run = 'zathura "$@"', orphan = true }]
+wine = [{ run = 'wine "$@"', orphan = true }]
 
 
 [open]
@@ -70,6 +71,11 @@ rules = [
   # Documents
   { url = "*.{pdf,djvu}", use = [
     "zathura",
+    "reveral",
+  ] },
+  # Wine
+  { url = "*.exe", use = [
+    "wine",
     "reveral",
   ] },
   # Image
