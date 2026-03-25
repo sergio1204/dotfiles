@@ -312,6 +312,10 @@ fileviewer *.json,*.jsonc
 filetype *.tudu
         \ tudu -f %c
 
+" Wine
+filetype *.exe
+        \ wine %c &
+
 " Disable preview
 fileviewer .*.parts,*.part,*.apk,*.djvu,*.ttf,*.kdbx,*.iso,*.deb,*.rpm,*.exe
         \ echo No preview available. %i

@@ -32,7 +32,6 @@ client.focused_inactive #333333  #5f676a  #ffffff  #484e50   #5f676a
 client.unfocused        #23252e  #23252e  #888888  #292d2e   #23252e
 client.urgent           #2f343a  #900000  #ffffff  #900000   #900000
 client.placeholder      #000000  #0c0c0c  #ffffff  #000000   #0c0c0c
-
 client.background       #ffffff
 
 # ---------------
@@ -51,8 +50,8 @@ bindsym $mod+space focus mode_toggle
 # bindsym $mod+d focus child
 
 # Focus on window activation
-# no_focus [all]
-focus_on_window_activation none
+no_focus [all]
+focus_on_window_activation smart
 
 # ----------------------
 # Move focused window /
@@ -137,6 +136,8 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 bindsym $mod+Tab workspace next
 bindsym $mod+grave workspace prev
+bindsym $mod+Escape workspace back_and_forth
+# workspace_auto_back_and_forth yes
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move to workspace 1; workspace 1

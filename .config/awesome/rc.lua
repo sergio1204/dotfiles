@@ -54,11 +54,11 @@ beautiful.init(theme_path)
 local term = "alacritty"
 
 local web = "vivaldi-stable"
-local files = "yazi"
+local files = "vifm"
 local editor = "nvim"
 
 local web2 = "firefox"
-local files2 = "vifm"
+local files2 = "yazi"
 local editor2 = "helix"
 
 local cal = "calcurse"
