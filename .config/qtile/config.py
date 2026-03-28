@@ -48,11 +48,11 @@ def switchtogroup(group, window):
 term = "alacritty"
 
 web = "vivaldi-stable"
-files = "yazi"
+files = "vifmrun"
 editor = "nvim"
 
 web2 = "firefox"
-files2 = "vifm"
+files2 = "yazi"
 editor2 = "helix"
 
 cal = "calcurse"

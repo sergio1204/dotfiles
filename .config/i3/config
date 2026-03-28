@@ -8,11 +8,11 @@
 set $term alacritty
 
 set $web vivaldi-stable
-set $files yazi
+set $files vifmrun
 set $editor nvim
 
 set $web2 firefox
-set $files2 vifm
+set $files2 yazi
 set $editor2 helix
 
 set $cal calcurse

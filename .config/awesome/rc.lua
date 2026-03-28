@@ -54,7 +54,7 @@ beautiful.init(theme_path)
 local term = "alacritty"
 
 local web = "vivaldi-stable"
-local files = "vifm"
+local files = "vifmrun"
 local editor = "nvim"
 
 local web2 = "firefox"
@@ -207,10 +207,12 @@ local tasklist_buttons = gears.table.join(
 		awful.menu.client_list({ theme = { width = 250 } })
 	end),
 	awful.button({}, 4, function()
-		awful.client.focus.byidx(1)
+		-- awful.client.focus.byidx(1)
+		lain.util.tag_view_nonempty(1)
 	end),
 	awful.button({}, 5, function()
-		awful.client.focus.byidx(-1)
+		-- awful.client.focus.byidx(-1)
+		lain.util.tag_view_nonempty(-1)
 	end)
 )
 

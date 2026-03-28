@@ -175,19 +175,22 @@ super + Return
     alacritty --class terminal
 
 super + x
-    alacritty --class files -e yazi
+    alacritty --class files -e vifmrun
 
 super + backslash
     alacritty --class editor -e nvim
 
 super + shift + x
-    alacritty --class files -e vifm
+    alacritty --class files -e yazi
 
 super + shift + backslash
     alacritty --class editor -e helix
 
 super + v
     alacritty --class calendar -e calcurse
+
+super + shift + v
+    killall -q calcurse
 
 # apps hotkeys
 super + c
