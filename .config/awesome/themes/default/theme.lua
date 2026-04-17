@@ -37,7 +37,7 @@ theme.fg_occupied = "#eab268"
 -- Gaps / Borders
 theme.useless_gap = dpi(0)
 theme.border_width = dpi(2)
-theme.master_width_factor = 0.4
+theme.master_width_factor = 0.5
 theme.border_normal = theme.bg_normal
 theme.border_focus = theme.bg_focus
 theme.border_marked = "#d87c1e"
@@ -60,8 +60,8 @@ theme.tasklist_fg_focus = theme.fg_focus
 theme.tasklist_fg_normal = theme.fg_focus
 
 -- Layout
-theme.layout_tilebottom = ".config/awesome/themes/default/icons/tilebot.png"
-theme.layout_tile = ".config/awesome/themes/default/icons/tile.png"
+theme.layout_tiletop = ".config/awesome/themes/default/icons/tilebot.png"
+theme.layout_tileleft = ".config/awesome/themes/default/icons/tile.png"
 
 -- Menubar
 theme.menu_fg_focus = theme.fg_urgent

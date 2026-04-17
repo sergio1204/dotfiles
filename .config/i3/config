@@ -116,12 +116,12 @@ for_window [class="code-oss"] move to workspace 5; workspace 5
 for_window [class="mpv"] move to workspace 6; workspace 6
 for_window [class="gimp"] move to workspace 7; workspace 7
 for_window [class="Telegram"] move to workspace 8; workspace 8
-for_window [class="Steam"] move to workspace 9; workspace 9
+for_window [class="cypcut.exe"] move to workspace 9; workspace 9
 
 # Floating window
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Steam"] floating enable
-for_window [class="xcalc"] floating enable
+for_window [class="XCalc"] floating enable
 
 # Switch to workspace
 bindsym $mod+1 workspace 1

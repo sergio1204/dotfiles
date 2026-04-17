@@ -10,12 +10,15 @@ super + ctrl + r
 super + shift + {l,r}
     bspc {quit,wm -r}
 
-# reboot/poweroff
+# reboot / poweroff / suspend
 super + shift + k
     systemctl reboot
 
 super + shift + m
     systemctl poweroff
+
+super + shift + j
+    systemctl suspend
 
 # close and kill
 super + {_,shift + }q

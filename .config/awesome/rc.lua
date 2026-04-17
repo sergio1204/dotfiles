@@ -66,8 +66,8 @@ local modkey = "Mod4"
 
 -- Layouts
 awful.layout.layouts = {
-	awful.layout.suit.tile,
-	awful.layout.suit.tile.bottom,
+	awful.layout.suit.tile.left,
+	awful.layout.suit.tile.top,
 }
 
 -- ---------------------------------------------------------------------------------
@@ -632,7 +632,7 @@ awful.rules.rules = {
 	{ rule = { class = "mpv" }, properties = { tag = "6", switchtotag = true } },
 	{ rule = { class = "Gimp" }, properties = { tag = "7", switchtotag = true } },
 	{ rule = { class = "Telegram" }, properties = { tag = "8", switchtotag = true } },
-	{ rule = { class = "Steam" }, properties = { tag = "9", switchtotag = true } },
+	{ rule = { class = "cypcut.exe" }, properties = { tag = "9", switchtotag = true } },
 }
 
 -- --------------------------------------------------------------------------------------
