@@ -60,8 +60,8 @@ theme.tasklist_fg_focus = theme.fg_focus
 theme.tasklist_fg_normal = theme.fg_focus
 
 -- Layout
-theme.layout_tiletop = ".config/awesome/themes/default/icons/tilebot.png"
-theme.layout_tileleft = ".config/awesome/themes/default/icons/tile.png"
+theme.layout_tilebottom = ".config/awesome/themes/default/icons/tilebot.png"
+theme.layout_tile = ".config/awesome/themes/default/icons/tile.png"
 
 -- Menubar
 theme.menu_fg_focus = theme.fg_urgent

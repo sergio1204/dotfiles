@@ -220,7 +220,7 @@ layouts = [
         change_ratio=0.1,
         max_ratio=0.9,
         min_ratio=0.1,
-        ratio=0.4,
+        ratio=0.5,
         new_client_position="top",
         single_border_width=False,
     ),

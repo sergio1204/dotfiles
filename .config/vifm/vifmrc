@@ -298,6 +298,8 @@ fileviewer *.rar
         \ unrar v %c
 
 " Tar
+filetype *.tar.xz
+        \ tar -xf %c
 fileviewer *.tgz,*.tar.gz
         \ tar -tzf %c
 fileviewer *.tar.bz2,*.tbz2
