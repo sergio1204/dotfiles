@@ -1,7 +1,7 @@
 #!/bin/bash
 
 alias memory='ps -eo cmd,rss,%cpu --sort=-rss | grep'
-alias search='find * -type f | fzf -m'
+alias search="fzf --preview 'bat --color=always {}'"
 alias grep='grep --color=auto'
 alias logclear='truncate -s 0'
 alias cat='bat'

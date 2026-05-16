@@ -15,7 +15,6 @@ show_hidden = true
 show_symlink = true
 scrolloff = 5
 mouse_events = ["click", "scroll", "drag"]
-# title_format = "Yazi: {cwd}"
 
 
 [preview]
@@ -32,28 +31,15 @@ ueberzug_offset = [0, 0, 0, 0]
 
 
 [opener]
-edit = [
-  { run = "${EDITOR:-vi} %s", desc = "$EDITOR", for = "unix", block = true },
-]
-play = [
-  { run = "xdg-open %s1", desc = "Play", for = "linux" },
-  { run = "mediainfo %s1; echo 'Press enter to exit'; read _", block = true, desc = "Show media info", for = "unix" },
-]
-open = [{ run = "xdg-open %s1", desc = "Open", for = "linux" }]
-reveal = [
-  { run = "xdg-open %d1", desc = "Reveal", for = "linux" },
-  { run = "clear; exiftool %s1; echo 'Press enter to exit'; read _", desc = "Show EXIF", for = "unix", block = true },
-]
-extract = [{ run = "ya pub extract --list %s", desc = "Extract here" }]
-download = [
-  { run = "ya emit download --open %S", desc = "Download and open" },
-  { run = "ya emit download %S", desc = "Download" },
-]
-feh = [
-  { run = 'feh -Fd --image-bg "#282c34" --start-at "$@"', orphan = true, desc = "open image" },
-]
-zathura = [{ run = 'zathura "$@"', orphan = true }]
-wine = [{ run = 'wine "$@"', orphan = true }]
+edit = [{ run = "$EDITOR %s", block = true }]
+open = [{ run = "xdg-open %s1", }]
+reveal = [{ run = "xdg-open %d1", }]
+extract = [{ run = "ya pub extract --list %s", }]
+download = [{ run = "ya emit download %S", }]
+feh = [{ run = "feh -Fd --image-bg '#282c34' --start-at %s", orphan = true }]
+zathura = [{ run = "zathura %s", orphan = true }]
+wine = [{ run = "wine %s", orphan = true }]
+mpv = [{ run = "mpv %s", orphan = true }]
 
 
 [open]
@@ -86,7 +72,7 @@ rules = [
   ] },
   # Media
   { mime = "{audio,video}/*", use = [
-    "play",
+    "mpv",
     "reveal",
   ] },
   # Archive
