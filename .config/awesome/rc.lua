@@ -54,12 +54,12 @@ beautiful.init(theme_path)
 local term = "alacritty"
 
 local web = "vivaldi-stable"
-local files = "vifmrun"
-local editor = "nvim"
+local files = "yazi"
+local editor = "helix"
 
 local web2 = "firefox"
-local files2 = "yazi"
-local editor2 = "helix"
+local files2 = "vifmrun"
+local editor2 = "nvim"
 
 local cal = "calcurse"
 local modkey = "Mod4"

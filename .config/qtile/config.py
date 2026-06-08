@@ -48,12 +48,12 @@ def switchtogroup(group, window):
 term = "alacritty"
 
 web = "vivaldi-stable"
-files = "vifmrun"
-editor = "nvim"
+files = "yazi"
+editor = "helix"
 
 web2 = "firefox"
-files2 = "yazi"
-editor2 = "helix"
+files2 = "vifmrun"
+editor2 = "nvim"
 
 cal = "calcurse"
 mod = "mod4"
@@ -270,7 +270,11 @@ screens = [
                 ),
                 widget.WindowName(
                     foreground="#AAC9F1",
-                    mouse_callbacks={"Button2": lazy.window.kill()},
+                    mouse_callbacks={
+                        "Button2": lazy.window.kill(),
+                        "Button4": lazy.screen.next_group(skip_empty=True),
+                        "Button5": lazy.screen.prev_group(skip_empty=True),
+                    },
                     max_chars=100,
                     padding=10,
                 ),
