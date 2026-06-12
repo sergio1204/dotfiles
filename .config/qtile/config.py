@@ -48,12 +48,12 @@ def switchtogroup(group, window):
 term = "alacritty"
 
 web = "vivaldi-stable"
-files = "yazi"
-editor = "helix"
+files = "vifmrun"
+editor = "nvim"
 
 web2 = "firefox"
-files2 = "vifmrun"
-editor2 = "nvim"
+files2 = "yazi"
+editor2 = "helix"
 
 cal = "calcurse"
 mod = "mod4"
@@ -321,7 +321,7 @@ screens = [
                     format="  %H:%M:%S",
                     mouse_callbacks={
                         "Button1": lazy.spawn(term + " --class calendar -e " + cal),
-                        "Button3": lazy.spawn("killall -q calcurse"),
+                        "Button2": lazy.spawn("killall -q calcurse"),
                     },
                     padding=18,
                 ),

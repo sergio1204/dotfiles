@@ -59,8 +59,8 @@ syntect_theme = "~/Downloads/Oceanic - Eighties.tmTheme"
 # : Tabs {{{
 
 [tabs]
-active = { bg = "blue", bold = true }
-inactive = { fg = "blue", bg = "gray" }
+active = { fg = "black", bg = "yellow" }
+inactive = { bg = "blue", bold = true }
 
 # Separator
 sep_inner = { open = "", close = "" }
