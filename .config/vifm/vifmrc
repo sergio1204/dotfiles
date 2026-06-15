@@ -1,3 +1,5 @@
+" vim: set ft=vim:
+
 " --------------------------------------------------------------------------------
 " -------------------------  Main settings  ------------------------------------
 " ----------------------------------------------------------------------------
@@ -460,7 +462,7 @@ endif
 " Mappings for faster renaming
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
-nnoremap A cw
+nnoremap r cw
 
 " As above, but without the file extension
 " nnoremap I cW<c-a>

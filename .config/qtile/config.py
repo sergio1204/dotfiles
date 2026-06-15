@@ -239,7 +239,7 @@ layouts = [
 # -------------------------------------------
 
 widget_defaults = dict(
-    font="BlexMono Nerd Font",
+    font="BlexMono Nerd Font Propo",
     fontsize=15,
     padding=1,
 )
@@ -280,28 +280,28 @@ screens = [
                 ),
                 widget.Volume(
                     foreground="#CDDC45",
-                    unmute_format="  {volume}%",
+                    unmute_format=" {volume}%",
                     mute_foreground="#ff3e72",
-                    mute_format="  {volume}%",
+                    mute_format=" {volume}%",
                     mouse_callbacks={"Button3": lazy.spawn("pavucontrol")},
                     step=5,
                     padding=20,
                 ),
                 widget.Memory(
                     foreground="#E183E1",
-                    format=" {MemUsed: .0f}{mm}",
+                    format="{MemUsed: .0f}{mm}",
                     update_interval=3,
                     padding=18,
                 ),
                 widget.CPU(
                     foreground="#6CD7DC",
-                    format="  {load_percent}%",
+                    format=" {load_percent}%",
                     update_interval=3,
                     padding=18,
                 ),
                 widget.ThermalZone(
                     fgcolor_normal="#F86D85",
-                    format=" {temp}°C",
+                    format="󰏈 {temp}°C",
                     high=80,
                     update_interval=15,
                     padding=18,
@@ -310,7 +310,7 @@ screens = [
                     foreground="#88EE9A",
                     full_char=" ",
                     charge_char=" ",
-                    discharge_char="  ",
+                    discharge_char=" ",
                     format="{char}{percent:2.0%}",
                     show_short_text=None,
                     update_interval=30,
@@ -318,7 +318,7 @@ screens = [
                 ),
                 widget.Clock(
                     foreground="#f0b574",
-                    format="  %H:%M:%S",
+                    format=" %H:%M:%S",
                     mouse_callbacks={
                         "Button1": lazy.spawn(term + " --class calendar -e " + cal),
                         "Button2": lazy.spawn("killall -q calcurse"),

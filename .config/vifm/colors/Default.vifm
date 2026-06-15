@@ -68,4 +68,4 @@ highlight JobLine    cterm=bold ctermfg=025 ctermbg=008
 highlight {*.jpg,*.jpeg,*.png}      cterm=none ctermfg=208 ctermbg=default
 highlight {*.iso,*.tar.xz,*.zip}    cterm=none ctermfg=009 ctermbg=default
 highlight {*.avi,*.mkv,*.mp4,*.mpg} cterm=none ctermfg=140 ctermbg=default
-highlight {*.mp3,*.ac3,*.mka}       cterm=none ctermfg=069 ctermbg=default
+highlight {*.mp3,*.ac3,*.mka,*.m4a} cterm=none ctermfg=069 ctermbg=default

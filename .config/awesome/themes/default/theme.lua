@@ -7,7 +7,7 @@ local dpi = xresources.apply_dpi
 local theme = {}
 
 -- Font / Wall / Bar size
-theme.font = "BlexMono Nerd Font 11"
+theme.font = "BlexMono Nerd Font Propo 11"
 theme.wallpaper = "Pictures/wallpaper.jpg"
 theme.wibar_height = dpi(28)
 
