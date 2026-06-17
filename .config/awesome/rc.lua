@@ -79,7 +79,7 @@ local volume = lain.widget.pulse({
 	settings = function()
 		local vol_level = "  " .. volume_now.left .. "% "
 		if volume_now.muted == "yes" then
-			vol_level = "  " .. volume_now.left .. "% "
+			vol_level = "<span foreground='" .. beautiful.fg_mute .. "'>  " .. volume_now.left .. "% </span>"
 		end
 		widget:set_markup(lain.util.markup(beautiful.fg_vol, vol_level))
 	end,

@@ -13,6 +13,7 @@ theme.wibar_height = dpi(28)
 
 -- Widget colors
 theme.fg_vol = "#CDDC45"
+theme.fg_mute = "#ff3e72"
 theme.fg_mem = "#E183E1"
 theme.fg_cpu = "#6CD7DC"
 theme.fg_temp = "#F86D85"
