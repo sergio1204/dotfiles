@@ -133,11 +133,14 @@ do
     severity_sort = true,
     float = { border = 'rounded', source = 'if_many' },
     underline = { severity = { min = vim.diagnostic.severity.WARN } },
-
-    -- Can switch between these as you prefer
-    virtual_text = true, -- Text shows up at the end of the line
-    virtual_lines = false, -- Text shows up underneath the line, with virtual lines
-
+    signs = vim.g.have_nerd_font and {
+      text = {
+        [vim.diagnostic.severity.ERROR] = '󰅚 ',
+        [vim.diagnostic.severity.WARN] = '󰀪 ',
+        [vim.diagnostic.severity.INFO] = '󰋽 ',
+        [vim.diagnostic.severity.HINT] = '󰌶 ',
+      },
+    },
     -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
     jump = {
       on_jump = function(_, bufnr)
@@ -287,21 +290,6 @@ do
   -- vim.pack.add { gh 'NMAC427/guess-indent.nvim' }
   -- require('guess-indent').setup {}
 
-  -- Here is a more advanced configuration example that passes options to `gitsigns.nvim`
-  --
-  -- See `:help gitsigns` to understand what each configuration key does.
-  -- Adds git related signs to the gutter, as well as utilities for managing changes
-  -- vim.pack.add { gh 'lewis6991/gitsigns.nvim' }
-  -- require('gitsigns').setup {
-  --   signs = {
-  --     add = { text = '+' }, ---@diagnostic disable-line: missing-fields
-  --     change = { text = '~' }, ---@diagnostic disable-line: missing-fields
-  --     delete = { text = '_' }, ---@diagnostic disable-line: missing-fields
-  --     topdelete = { text = '‾' }, ---@diagnostic disable-line: missing-fields
-  --     changedelete = { text = '~' }, ---@diagnostic disable-line: missing-fields
-  --   },
-  -- }
-
   -- Useful plugin to show you pending keybinds.
   vim.pack.add { gh 'folke/which-key.nvim' }
   require('which-key').setup {
@@ -318,11 +306,6 @@ do
   }
 
   -- [[ Colorscheme ]]
-  -- You can easily change to a different colorscheme.
-  -- Change the name of the colorscheme plugin below, and then
-  -- change the command under that to load whatever the name of that colorscheme is.
-  --
-  -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
   vim.pack.add { gh 'navarasu/onedark.nvim' }
   require('onedark').setup {
     style = 'dark',
@@ -955,9 +938,14 @@ end
 -- Neo-tree is a Neovim plugin to browse the file system
 do
   vim.pack.add {
-    { src = gh 'nvim-neo-tree/neo-tree.nvim', version = vim.version.range '*' },
+    {
+      src = gh 'nvim-neo-tree/neo-tree.nvim',
+      version = vim.version.range '3',
+    },
+    -- dependencies
     gh 'nvim-lua/plenary.nvim',
     gh 'MunifTanjim/nui.nvim',
+    gh 'nvim-tree/nvim-web-devicons',
   }
   vim.keymap.set('n', '\\', '<Cmd>Neotree reveal<CR>', { desc = 'NeoTree reveal', silent = true })
   require('neo-tree').setup {
