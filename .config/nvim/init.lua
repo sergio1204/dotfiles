@@ -141,6 +141,14 @@ do
         [vim.diagnostic.severity.HINT] = '󰌶 ',
       },
     },
+
+    -- Can switch between these as you prefer
+    virtual_text = {
+      prefix = '●', -- Customize the inline text marker
+      spacing = 2,
+    },
+    virtual_lines = false, -- Text shows up underneath the line, with virtual lines
+
     -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
     jump = {
       on_jump = function(_, bufnr)
