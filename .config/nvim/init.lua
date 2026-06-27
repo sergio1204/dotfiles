@@ -678,9 +678,10 @@ do
           },
           diagnostics = {
             -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-            -- disable = {
-            --   'missing-fields',
-            -- },
+            disable = {
+              -- 'missing-fields',
+              'lowercase-global',
+            },
 
             -- Get the language server to recognize the globals
             globals = {

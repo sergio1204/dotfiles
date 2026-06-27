@@ -11,6 +11,10 @@ name = "lua"
 auto-format = true
 formatter = { command = "stylua", args = ["-"] }
 
+[language-server.lua-language-server.config]
+Lua.diagnostics.globals = ["vim", "awesome", "client", "root", "screen"]
+Lua.diagnostics.disable = ["lowercase-global"]
+
 
 [[language]]
 name = "python"
