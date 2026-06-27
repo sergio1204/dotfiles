@@ -57,11 +57,11 @@ do
   vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
   -- Indenting
-  vim.opt.smartindent = true
-  vim.opt.expandtab = true
-  vim.opt.shiftwidth = 2
-  vim.opt.tabstop = 2
-  vim.opt.softtabstop = 2
+  vim.o.smartindent = true
+  vim.o.expandtab = true
+  vim.o.shiftwidth = 2
+  vim.o.tabstop = 2
+  vim.o.softtabstop = 2
 
   -- Enable break indent
   vim.o.breakindent = true
@@ -112,7 +112,7 @@ do
   vim.o.confirm = true
 
   -- Enable termguicolors
-  vim.opt.termguicolors = true
+  vim.o.termguicolors = true
 end
 
 -- -------------------------
@@ -695,6 +695,8 @@ do
           workspace = {
             checkThirdParty = false,
             library = { vim.env.VIMRUNTIME },
+            -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+            -- library = vim.api.nvim_get_runtime_file("", true)
           },
         })
       end,
