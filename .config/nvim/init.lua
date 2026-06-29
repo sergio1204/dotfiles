@@ -71,7 +71,7 @@ do
 
   -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
   vim.o.ignorecase = true
-  vim.o.smartcase = true
+  vim.o.smartcase = false
 
   -- Keep signcolumn on by default
   vim.o.signcolumn = 'yes'
@@ -506,8 +506,9 @@ do
   vim.keymap.set('n', '<leader>/', function()
     -- You can pass additional configuration to Telescope to change the theme, layout, etc.
     builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+      fuzzy = false,
       winblend = 10,
-      previewer = false,
+      previewer = true,
     })
   end, { desc = '[/] Fuzzily search in current buffer' })
 
